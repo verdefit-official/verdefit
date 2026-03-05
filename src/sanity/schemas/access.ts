@@ -60,13 +60,6 @@ export const accessSchema = defineType({
       type: "string",
       description: "例: 現金 / クレジットカード / 電子マネー",
     }),
-    defineField({
-      name: "mapEmbedUrl",
-      title: "Googleマップ 埋め込みURL（任意）",
-      type: "url",
-      description:
-        "Google マップで「共有」→「地図を埋め込む」から取得したURLを貼り付け。空欄の場合は住所から自動生成。",
-    }),
   ],
   preview: {
     prepare: () => ({ title: "店舗情報" }),

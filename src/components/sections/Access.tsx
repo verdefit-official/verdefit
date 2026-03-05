@@ -13,7 +13,6 @@ type AccessData = {
   closedDaysNote?: string | null;
   parking?: string | null;
   payment?: string | null;
-  mapEmbedUrl?: string | null;
 };
 
 export default function Access({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: AccessData | null; sectionBg?: string }) {

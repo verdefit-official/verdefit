@@ -185,7 +185,6 @@ export default async function SeitaiPage() {
     closedDaysNote?: string;
     parking?: string;
     payment?: string;
-    mapEmbedUrl?: string;
   };
 
   const [

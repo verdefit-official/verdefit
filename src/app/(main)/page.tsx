@@ -127,7 +127,6 @@ type AccessSanity = {
   closedDaysNote?: string;
   parking?: string;
   payment?: string;
-  mapEmbedUrl?: string;
 };
 
 type CTASanity = {
