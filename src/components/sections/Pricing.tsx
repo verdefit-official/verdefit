@@ -225,13 +225,10 @@ export default function Pricing({ data, sectionBg = "bg-white" }: { data?: Prici
             <p className="mt-6 text-center text-xs text-gray-500">{pricingNote}</p>
 
             <div className="mt-6 text-center">
-              <a
-                href="/chiropractic#pricing"
-                className="inline-flex items-center gap-1.5 rounded-md bg-green-700 px-7 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-              >
+              <span className="inline-flex items-center gap-1.5 rounded-md border-2 border-gray-300 px-7 py-2.5 text-sm font-semibold text-gray-400 cursor-default">
                 料金詳細はこちら
                 <span aria-hidden="true">→</span>
-              </a>
+              </span>
             </div>
           </div>
         </FadeIn>
