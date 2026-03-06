@@ -17,7 +17,7 @@ export default function ChiropracticHero({ data, phone }: { data?: ChiropracticH
     data?.description ??
     "延べ5,000人以上を治療してきた国家資格者が横手市であなたの痛みを根本から整えます。";
   const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/chiropractic-hero.png";
-  const imageAlt = data?.imageAlt ?? "整体施術のシーン";
+  const imageAlt = data?.imageAlt ?? "痛みから解放されリビングで笑顔でストレッチする女性";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "お電話でのご相談";
 
