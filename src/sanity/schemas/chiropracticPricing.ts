@@ -34,9 +34,21 @@ export const chiropracticPricingSchema = defineType({
     }),
 
     // オプション
-    defineField({ name: "optionLabel", title: "オプション ラベル", type: "string", description: "例: オプション" }),
-    defineField({ name: "optionName", title: "オプション 名称", type: "string", description: "例: 骨盤矯正" }),
-    defineField({ name: "optionPrice", title: "オプション 料金", type: "string", description: "例: ¥1,500" }),
+    defineField({
+      name: "options",
+      title: "オプション",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "name", title: "名称", type: "string", description: "例: 骨盤矯正" }),
+            defineField({ name: "price", title: "料金", type: "string", description: "例: ¥1,500" }),
+          ],
+          preview: { select: { title: "name" } },
+        },
+      ],
+    }),
 
     // 回数券
     defineField({ name: "couponSectionTitle", title: "回数券 セクションタイトル", type: "string", description: "例: 回数券" }),

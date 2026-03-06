@@ -15,6 +15,12 @@ type CouponItem = {
   validity?: string | null;
 };
 
+type OptionItem = {
+  _key?: string;
+  name?: string | null;
+  price?: string | null;
+};
+
 type ChiropracticPricingData = {
   sectionTitle?: string | null;
   sectionDescription?: string | null;
@@ -23,12 +29,14 @@ type ChiropracticPricingData = {
   trialPrice?: string | null;
   trialDetails?: string | null;
   courses?: CourseItem[] | null;
-  optionLabel?: string | null;
-  optionName?: string | null;
-  optionPrice?: string | null;
+  options?: OptionItem[] | null;
   couponSectionTitle?: string | null;
   coupons?: CouponItem[] | null;
 };
+
+const defaultOptions: OptionItem[] = [
+  { _key: "o1", name: "骨盤矯正", price: "¥1,500" },
+];
 
 const defaultCourses: CourseItem[] = [
   { _key: "c1", name: "30分整体", price: "¥4,400", description: "整体 / 30分コース" },
@@ -57,9 +65,7 @@ export default function ChiropracticPricing({
   const trialPrice = data?.trialPrice ?? "¥5,500";
   const trialDetails = data?.trialDetails ?? "カウンセリング30分+整体30分/60分";
   const courses = data?.courses && data.courses.length > 0 ? data.courses : defaultCourses;
-  const optionLabel = data?.optionLabel ?? "オプション";
-  const optionName = data?.optionName ?? "骨盤矯正";
-  const optionPrice = data?.optionPrice ?? "¥1,500";
+  const options = data?.options && data.options.length > 0 ? data.options : defaultOptions;
   const couponSectionTitle = data?.couponSectionTitle ?? "回数券";
   const coupons = data?.coupons && data.coupons.length > 0 ? data.coupons : defaultCoupons;
 
@@ -113,11 +119,18 @@ export default function ChiropracticPricing({
 
         {/* オプションカード */}
         <FadeIn delay={120}>
-          <div className="mx-auto mb-12 max-w-xs rounded-xl bg-white px-6 py-6 text-center shadow-sm">
-            <p className="text-xs text-gray-400">{optionLabel}</p>
-            <p className="mt-1 text-base font-bold text-[#1f2937]">{optionName}</p>
-            <p className="mt-3 font-serif text-4xl font-bold text-green-700">{optionPrice}</p>
-            <p className="mt-1 text-[11px] text-gray-400">（税込）</p>
+          <div className="mb-12 flex flex-wrap justify-center gap-4">
+            {options.map((option, i) => (
+              <div
+                key={option._key ?? i}
+                className="w-full max-w-xs rounded-xl bg-white px-6 py-6 text-center shadow-sm"
+              >
+                <p className="text-xs text-gray-400">オプション</p>
+                <p className="mt-1 text-base font-bold text-[#1f2937]">{option.name}</p>
+                <p className="mt-3 font-serif text-4xl font-bold text-green-700">{option.price}</p>
+                <p className="mt-1 text-[11px] text-gray-400">（税込）</p>
+              </div>
+            ))}
           </div>
         </FadeIn>
 

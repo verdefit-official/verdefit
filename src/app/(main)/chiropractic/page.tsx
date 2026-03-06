@@ -143,6 +143,7 @@ export default async function SeitaiPage() {
   };
 
   type CourseItem = { _key: string; name?: string; price?: string; description?: string };
+  type OptionItem = { _key: string; name?: string; price?: string };
   type CouponItem = { _key: string; name?: string; price?: string; unit?: string; validity?: string };
   type PricingData = {
     sectionTitle?: string;
@@ -152,9 +153,7 @@ export default async function SeitaiPage() {
     trialPrice?: string;
     trialDetails?: string;
     courses?: CourseItem[];
-    optionLabel?: string;
-    optionName?: string;
-    optionPrice?: string;
+    options?: OptionItem[];
     couponSectionTitle?: string;
     coupons?: CouponItem[];
   };

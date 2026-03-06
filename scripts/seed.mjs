@@ -611,9 +611,9 @@ const documents = [
       { _key: "c2", name: "60分整体", price: "¥8,800", description: "整体 / 60分コース" },
       { _key: "c3", name: "90分整体", price: "¥13,200", description: "整体 / 120分コース" },
     ],
-    optionLabel: "オプション",
-    optionName: "骨盤矯正",
-    optionPrice: "¥1,500",
+    options: [
+      { _key: "o1", name: "骨盤矯正", price: "¥1,500" },
+    ],
     couponSectionTitle: "回数券",
     coupons: [
       { _key: "k1", name: "60分整体×4回", price: "¥34,000", unit: "税込", validity: "有効期限2か月" },
