@@ -7,6 +7,7 @@ import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 
 type SiteSettingsSanity = {
+  bookingUrl?: string;
   instagramUrl?: string;
   lineUrl?: string;
   footerDescription?: string;
@@ -94,22 +95,19 @@ export default async function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, access, cta] = await Promise.all([
+  const [settings, access] = await Promise.all([
     safeFetch<SiteSettingsSanity>(
-      `*[_type == "siteSettings"][0]{ instagramUrl, lineUrl, footerDescription, copyrightYear, logo{ asset{ _ref, _type } }, favicon{ asset{ _ref, _type } } }`
+      `*[_type == "siteSettings"][0]{ bookingUrl, instagramUrl, lineUrl, footerDescription, copyrightYear, logo{ asset{ _ref, _type } }, favicon{ asset{ _ref, _type } } }`
     ),
     safeFetch<AccessPartialSanity>(
       `*[_type == "access"][0]{ phone, postalCode, address, hours, lastEntry, closedDays }`
-    ),
-    safeFetch<{ primaryButtonHref?: string }>(
-      `*[_type == "cta"][0]{ primaryButtonHref }`
     ),
   ]);
 
   const phone = access?.phone ?? undefined;
   const instagramUrl = settings?.instagramUrl ?? undefined;
   const lineUrl = settings?.lineUrl ?? undefined;
-  const bookingUrl = cta?.primaryButtonHref ?? undefined;
+  const bookingUrl = settings?.bookingUrl ?? undefined;
   const footerDescription = settings?.footerDescription ?? undefined;
   const copyrightYear = settings?.copyrightYear ?? undefined;
   const logoUrl = settings?.logo ? urlForImage(settings.logo) : undefined;
