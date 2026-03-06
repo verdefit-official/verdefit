@@ -39,7 +39,7 @@ export default function ChiropracticHero({ data, phone }: { data?: ChiropracticH
             </FadeIn>
 
             <FadeIn delay={300}>
-              <p className="mb-5 text-[15px] leading-8 text-[#374151] whitespace-pre-line">
+              <p className="mb-5 text-[17px] font-semibold leading-8 text-[#374151] whitespace-pre-line md:text-[19px]">
                 {description}
               </p>
             </FadeIn>
