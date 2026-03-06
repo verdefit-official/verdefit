@@ -605,36 +605,22 @@ const documents = [
     trialBadge: "初回限定",
     trialTitle: "初回カウンセリング整体",
     trialPrice: "¥5,500",
-    trialDetails: "カウンセリング30分 + 整体30分",
-    trialDuration: "（税込）",
-    trialBenefits: [
-      "丁寧なカウンセリングで、あなたの悩みをヒアリング",
-      "身体の状態を詳しくチェック・原因を特定",
-      "あなたに最適な施術プランをご提案",
+    trialDetails: "カウンセリング30分+整体30分/60分",
+    courses: [
+      { _key: "c1", name: "30分整体", price: "¥4,400", description: "整体 / 30分コース" },
+      { _key: "c2", name: "60分整体", price: "¥8,800", description: "整体 / 60分コース" },
+      { _key: "c3", name: "90分整体", price: "¥13,200", description: "整体 / 120分コース" },
     ],
-    pricingColumns: [
-      {
-        _key: "single",
-        title: "単発コース",
-        items: [
-          { _key: "s1", label: "30分整体", price: "¥4,400" },
-          { _key: "s2", label: "60分整体", price: "¥8,800" },
-          { _key: "s3", label: "90分整体", price: "¥13,200" },
-          { _key: "s4", label: "オプション 骨盤矯正", price: "+¥1,500" },
-        ],
-      },
-      {
-        _key: "package",
-        title: "回数券コース",
-        items: [
-          { _key: "p1", label: "60分×4回（有効期限2か月）", price: "¥34,000" },
-          { _key: "p2", label: "60分×8回（有効期限4か月）", price: "¥61,600" },
-          { _key: "p3", label: "60分×12回（有効期限6か月）", price: "¥84,000" },
-          { _key: "p4", label: "90分×12回（有効期限6か月）", price: "¥126,000" },
-        ],
-      },
+    optionLabel: "オプション",
+    optionName: "骨盤矯正",
+    optionPrice: "¥1,500",
+    couponSectionTitle: "回数券",
+    coupons: [
+      { _key: "k1", name: "60分整体×4回", price: "¥34,000", unit: "税込", validity: "有効期限2か月" },
+      { _key: "k2", name: "60分整体×8回", price: "¥61,600", unit: "税込 / 月", validity: "有効期限4か月" },
+      { _key: "k3", name: "60分整体×12回", price: "¥84,000", unit: "税込", validity: "有効期限6か月" },
+      { _key: "k4", name: "90分整体×12回", price: "¥126,000", unit: "税込 / 月", validity: "有効期限6か月" },
     ],
-    pricingNote: "※すべて税込価格です。",
   },
 
   // ── 整体ページ よくある質問 ────────────────────────────────────
