@@ -1,7 +1,6 @@
 type FooterProps = {
   phone?: string;
   instagramUrl?: string;
-  facebookUrl?: string;
   lineUrl?: string;
   footerDescription?: string;
   copyrightYear?: string;
@@ -33,14 +32,6 @@ function InstagramIcon() {
   );
 }
 
-function FacebookIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  );
-}
-
 function ChatIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
@@ -60,7 +51,6 @@ function PhoneIcon() {
 export default function Footer({
   phone,
   instagramUrl,
-  facebookUrl,
   lineUrl,
   footerDescription,
   copyrightYear,
@@ -142,13 +132,6 @@ export default function Footer({
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-50 text-green-600 transition-colors hover:bg-green-100"
               >
                 <InstagramIcon />
-              </a>
-              <a
-                href={facebookUrl ?? "#"}
-                aria-label="Facebook"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-50 text-green-600 transition-colors hover:bg-green-100"
-              >
-                <FacebookIcon />
               </a>
               <a
                 href={lineUrl ?? "#"}

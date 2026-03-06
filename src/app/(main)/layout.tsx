@@ -8,7 +8,6 @@ import { urlForImage } from "@/sanity/image";
 
 type SiteSettingsSanity = {
   instagramUrl?: string;
-  facebookUrl?: string;
   lineUrl?: string;
   footerDescription?: string;
   copyrightYear?: string;
@@ -95,19 +94,22 @@ export default async function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, access] = await Promise.all([
+  const [settings, access, cta] = await Promise.all([
     safeFetch<SiteSettingsSanity>(
-      `*[_type == "siteSettings"][0]{ instagramUrl, facebookUrl, lineUrl, footerDescription, copyrightYear, logo{ asset{ _ref, _type } }, favicon{ asset{ _ref, _type } } }`
+      `*[_type == "siteSettings"][0]{ instagramUrl, lineUrl, footerDescription, copyrightYear, logo{ asset{ _ref, _type } }, favicon{ asset{ _ref, _type } } }`
     ),
     safeFetch<AccessPartialSanity>(
       `*[_type == "access"][0]{ phone, postalCode, address, hours, lastEntry, closedDays }`
+    ),
+    safeFetch<{ primaryButtonHref?: string }>(
+      `*[_type == "cta"][0]{ primaryButtonHref }`
     ),
   ]);
 
   const phone = access?.phone ?? undefined;
   const instagramUrl = settings?.instagramUrl ?? undefined;
-  const facebookUrl = settings?.facebookUrl ?? undefined;
   const lineUrl = settings?.lineUrl ?? undefined;
+  const bookingUrl = cta?.primaryButtonHref ?? undefined;
   const footerDescription = settings?.footerDescription ?? undefined;
   const copyrightYear = settings?.copyrightYear ?? undefined;
   const logoUrl = settings?.logo ? urlForImage(settings.logo) : undefined;
@@ -119,7 +121,6 @@ export default async function MainLayout({
       <Footer
         phone={phone}
         instagramUrl={instagramUrl}
-        facebookUrl={facebookUrl}
         lineUrl={lineUrl}
         footerDescription={footerDescription}
         copyrightYear={copyrightYear}
@@ -130,7 +131,7 @@ export default async function MainLayout({
         lastEntry={access?.lastEntry}
         closedDays={access?.closedDays}
       />
-      <FloatingButtons phone={phone} />
+      <FloatingButtons phone={phone} bookingUrl={bookingUrl} />
     </MenuProvider>
   );
 }

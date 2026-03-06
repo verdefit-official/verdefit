@@ -4,9 +4,10 @@ import { useMenu } from "@/components/MenuProvider";
 
 type FloatingButtonsProps = {
   phone?: string;
+  bookingUrl?: string;
 };
 
-export default function FloatingButtons({ phone }: FloatingButtonsProps) {
+export default function FloatingButtons({ phone, bookingUrl }: FloatingButtonsProps) {
   const telHref = phone ? `tel:${phone.replace(/-/g, "")}` : "#";
   const { isMenuOpen } = useMenu();
 
@@ -41,7 +42,7 @@ export default function FloatingButtons({ phone }: FloatingButtonsProps) {
 
       {/* 予約ボタン（緑サークル） */}
       <a
-        href="#cta"
+        href={bookingUrl ?? "#cta"}
         aria-label="体験予約をする"
         className="fixed bottom-6 right-4 z-50 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-green-700 shadow-[0_4px_20px_rgba(45,122,62,0.45)] ring-4 ring-white transition-opacity hover:opacity-90 sm:bottom-8 sm:right-6 sm:h-28 sm:w-28"
       >

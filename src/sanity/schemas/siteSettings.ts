@@ -14,7 +14,6 @@ export const siteSettingsSchema = defineType({
       validation: (Rule) => Rule.uri({ allowRelative: true }),
     }),
     defineField({ name: "instagramUrl", title: "Instagram URL", type: "url" }),
-    defineField({ name: "facebookUrl", title: "Facebook URL", type: "url" }),
     defineField({ name: "lineUrl", title: "LINE URL", type: "url" }),
     defineField({
       name: "footerDescription",
