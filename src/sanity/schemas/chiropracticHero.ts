@@ -15,12 +15,14 @@ export const chiropracticHeroSchema = defineType({
       name: "heading",
       title: "メイン見出し",
       type: "string",
+      description: "例: 将来の身体に不安を感じている方へ",
     }),
     defineField({
       name: "description",
       title: "説明文",
       type: "text",
       rows: 5,
+      description: "例: 延べ5,000人以上を治療してきた国家資格者が横手市であなたの痛みを根本から整えます。",
     }),
     defineField({
       name: "image",
