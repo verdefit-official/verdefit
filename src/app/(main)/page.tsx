@@ -245,7 +245,7 @@ export default async function Home() {
       <Reasons data={reasonsData} />
       <Testimonials data={testimonialsData} />
       <Profile data={profileData} />
-      <Pricing data={pricingData} />
+      <Pricing data={pricingData} bookingUrl={siteSettingsData?.bookingUrl} />
       <FAQ data={faqData} />
       <Access data={accessData} />
       <CTA data={ctaData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />

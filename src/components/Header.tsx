@@ -14,9 +14,10 @@ const navLinks = [
 type HeaderProps = {
   phone?: string;
   logoUrl?: string;
+  bookingUrl?: string;
 };
 
-export default function Header({ phone, logoUrl }: HeaderProps) {
+export default function Header({ phone, logoUrl, bookingUrl }: HeaderProps) {
   const { isMenuOpen: isOpen, setIsMenuOpen: setIsOpen } = useMenu();
   const telHref = phone ? `tel:${phone.replace(/-/g, "")}` : "#";
 
@@ -67,7 +68,7 @@ export default function Header({ phone, logoUrl }: HeaderProps) {
               電話
             </a>
             <a
-              href="#cta"
+              href={bookingUrl ?? "#cta"}
               className="inline-flex items-center justify-center rounded-md bg-green-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-800"
             >
               予約はこちら
@@ -130,7 +131,7 @@ export default function Header({ phone, logoUrl }: HeaderProps) {
               電話
             </a>
             <a
-              href="#cta"
+              href={bookingUrl ?? "#cta"}
               className="rounded-md bg-green-700 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-green-800"
               onClick={() => setIsOpen(false)}
             >

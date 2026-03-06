@@ -70,7 +70,7 @@ const defaultPricingColumns: PricingColumn[] = [
   },
 ];
 
-export default function Pricing({ data, sectionBg = "bg-white" }: { data?: PricingData | null; sectionBg?: string }) {
+export default function Pricing({ data, sectionBg = "bg-white", bookingUrl }: { data?: PricingData | null; sectionBg?: string; bookingUrl?: string }) {
   const sectionTitle = data?.sectionTitle ?? "料金案内";
   const sectionDescription =
     data?.sectionDescription ?? "明瞭な料金体系で、安心してご利用いただけます";
@@ -170,7 +170,7 @@ export default function Pricing({ data, sectionBg = "bg-white" }: { data?: Prici
               <p className="mt-1 text-sm text-gray-500">{trialDuration}</p>
 
               <a
-                href="#cta"
+                href={bookingUrl ?? "#cta"}
                 className="mt-6 inline-flex h-11 items-center justify-center rounded-md bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800 md:h-12"
               >
                 予約はこちら

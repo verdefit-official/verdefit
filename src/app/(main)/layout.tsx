@@ -114,7 +114,7 @@ export default async function MainLayout({
 
   return (
     <MenuProvider>
-      <Header phone={phone} logoUrl={logoUrl} />
+      <Header phone={phone} logoUrl={logoUrl} bookingUrl={bookingUrl} />
       <main>{children}</main>
       <Footer
         phone={phone}
