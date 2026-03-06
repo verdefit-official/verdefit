@@ -7,7 +7,7 @@ import Concerns from "@/components/sections/Concerns";
 import SeitaiSymptoms from "@/components/sections/SeitaiSymptoms";
 import Reasons from "@/components/sections/Reasons";
 import Profile from "@/components/sections/Profile";
-import Pricing from "@/components/sections/Pricing";
+import ChiropracticPricing from "@/components/sections/ChiropracticPricing";
 import FAQ from "@/components/sections/FAQ";
 import Access from "@/components/sections/Access";
 import CTA from "@/components/sections/CTA";
@@ -142,8 +142,8 @@ export default async function SeitaiPage() {
     credentials?: string[];
   };
 
-  type PricingItem = { _key: string; label?: string; price?: string };
-  type PricingColumn = { _key: string; title?: string; items?: PricingItem[] };
+  type CourseItem = { _key: string; name?: string; price?: string; description?: string };
+  type CouponItem = { _key: string; name?: string; price?: string; unit?: string; validity?: string };
   type PricingData = {
     sectionTitle?: string;
     sectionDescription?: string;
@@ -151,10 +151,12 @@ export default async function SeitaiPage() {
     trialTitle?: string;
     trialPrice?: string;
     trialDetails?: string;
-    trialDuration?: string;
-    trialBenefits?: string[];
-    pricingColumns?: PricingColumn[];
-    pricingNote?: string;
+    courses?: CourseItem[];
+    optionLabel?: string;
+    optionName?: string;
+    optionPrice?: string;
+    couponSectionTitle?: string;
+    coupons?: CouponItem[];
   };
 
   type FAQItem = { _key: string; question?: string; answer?: string };
@@ -272,7 +274,7 @@ export default async function SeitaiPage() {
       <RootCause data={disordersRaw} />
       <Reasons data={reasonsData} sectionBg="bg-[#e8f3ec]" />
       <Profile data={profileData} sectionBg="bg-white" />
-      <Pricing data={pricingData} sectionBg="bg-[#e8f3ec]" />
+      <ChiropracticPricing data={pricingData} sectionBg="bg-[#e8f3ec]" />
       <FAQ data={faqData} sectionBg="bg-[#e8f3ec]" />
       <Access data={accessData} sectionBg="bg-white" />
       <CTA data={ctaData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />
