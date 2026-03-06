@@ -17,12 +17,6 @@ export const chiropracticHeroSchema = defineType({
       type: "string",
     }),
     defineField({
-      name: "subheadingLocation",
-      title: "地名テキスト",
-      type: "string",
-      description: "例: 横手市【整体・根本改善】",
-    }),
-    defineField({
       name: "description",
       title: "説明文",
       type: "text",

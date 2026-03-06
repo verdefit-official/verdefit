@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
-import Hero from "@/components/sections/Hero";
+import ChiropracticHero from "@/components/sections/ChiropracticHero";
 import Concerns from "@/components/sections/Concerns";
 import SeitaiSymptoms from "@/components/sections/SeitaiSymptoms";
 import Reasons from "@/components/sections/Reasons";
@@ -91,7 +91,6 @@ export default async function SeitaiPage() {
   type HeroRaw = {
     badge?: string;
     heading?: string;
-    subheadingLocation?: string;
     description?: string;
     image?: SanityImageRef;
     imageAlt?: string;
@@ -261,7 +260,7 @@ export default async function SeitaiPage() {
 
   return (
     <>
-      <Hero data={heroData} phone={phone} />
+      <ChiropracticHero data={heroData} phone={phone} />
       <Concerns
         data={concernsData}
         showRootCause={false}
