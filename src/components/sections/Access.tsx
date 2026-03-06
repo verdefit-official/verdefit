@@ -30,9 +30,7 @@ export default function Access({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: Ac
   const closedDaysNote = data?.closedDaysNote ?? "※SNS等で事前にお知らせ";
   const parking = data?.parking ?? "専用駐車場あり（無料）";
   const payment = data?.payment ?? "現金 / クレジットカード / 電子マネー";
-  const mapEmbedUrl =
-    data?.mapEmbedUrl ??
-    `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=ja`;
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed&hl=ja`;
 
   return (
     <section id="access" className={`${sectionBg} py-20 md:py-24`}>
