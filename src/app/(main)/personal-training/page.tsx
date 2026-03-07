@@ -7,6 +7,7 @@ import PersonalComparison from "@/components/sections/PersonalComparison";
 import PersonalBeforeAfter from "@/components/sections/PersonalBeforeAfter";
 import PersonalTrainer from "@/components/sections/PersonalTrainer";
 import PersonalPricing from "@/components/sections/PersonalPricing";
+import PersonalCancelPolicy from "@/components/sections/PersonalCancelPolicy";
 import PersonalFlow from "@/components/sections/PersonalFlow";
 import PersonalFAQ from "@/components/sections/PersonalFAQ";
 import CTA from "@/components/sections/CTA";
@@ -70,6 +71,7 @@ export default async function PersonalTrainingPage() {
       <PersonalBeforeAfter />
       <PersonalTrainer />
       <PersonalPricing />
+      <PersonalCancelPolicy />
       <PersonalFlow />
       <PersonalFAQ />
       <CTA data={ctaData} phone={phone} bookingUrl={bookingUrl} />
