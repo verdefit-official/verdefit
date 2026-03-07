@@ -65,6 +65,17 @@ node scripts/seed.mjs
 | 整体ページ > 料金案内 | 初回カウンセリング整体・料金表 |
 | 整体ページ > よくある質問 | Q&A（追加・削除自由） |
 | 整体ページ > CTA | 最終CTAセクション |
+| パーソナルトレーニングページ > SEO設定 | ページタイトル・メタディスクリプション・OGP |
+| パーソナルトレーニングページ > ヒーロー | メインビジュアル・見出し・ボタン |
+| パーソナルトレーニングページ > ダイエットが続かない理由 | 理由5項目・アイコン画像 |
+| パーソナルトレーニングページ > 3つの強み | 強み3件 |
+| パーソナルトレーニングページ > 比較表 | VERDE FIT vs 一般ジム |
+| パーソナルトレーニングページ > before/after | カード3件・画像 |
+| パーソナルトレーニングページ > トレーナー紹介 | プロフィール・資格・想い・写真 |
+| パーソナルトレーニングページ > 料金プラン | プラン一覧・キャンセルポリシー |
+| パーソナルトレーニングページ > 体験の流れ | ステップ4件 |
+| パーソナルトレーニングページ > よくある質問 | Q&A（追加・削除自由） |
+| パーソナルトレーニングページ > CTA | 最終CTAセクション |
 
 ## プロジェクト構成
 
@@ -74,7 +85,9 @@ src/
 │   ├── (main)/              # サイト本体（Header / Footer あり）
 │   │   ├── layout.tsx       # SEO メタデータ取得
 │   │   ├── page.tsx         # トップページ
-│   │   └── chiropractic/    # 整体ページ（/chiropractic）
+│   │   ├── chiropractic/    # 整体ページ（/chiropractic）
+│   │   │   └── page.tsx
+│   │   └── personal-training/ # パーソナルトレーニングページ（/personal-training）
 │   │       └── page.tsx
 │   ├── studio/              # Sanity Studio（/studio）
 │   └── layout.tsx           # ルートレイアウト（フォント・globals.css）
@@ -114,11 +127,26 @@ src/
 |---|---|
 | Hero | 整体専用ビジュアル + CTA |
 | Concerns | お悩みリスト形式 |
-| SeitaiSymptoms | 放置すると起こりやすい不調の例（6項目） |
-| RootCause | なぜ痛みが繰り返すのか |
+| Disorders | 放置すると起こりやすい不調の例（6項目）・根本原因 |
 | Reasons | 選ばれる3つの理由 |
 | Profile | 代表プロフィール |
 | Pricing | 料金案内 |
+| FAQ | よくあるご質問 |
+| Access | 店舗情報・アクセス |
+| CTA | 最終CTA |
+
+### パーソナルトレーニングページ（/personal-training）
+
+| セクション | 内容 |
+|---|---|
+| Hero | パーソナル専用ビジュアル + CTA |
+| Concerns | ダイエットが続かない5つの理由 |
+| Reasons | 3つの強み |
+| Comparison | VERDE FIT vs 一般ジム 比較表 |
+| BeforeAfter | before/after カード3件 |
+| Trainer | トレーナー紹介・資格・想い |
+| Pricing | 料金プラン + キャンセルポリシー |
+| Flow | 体験トレーニングの流れ（4ステップ） |
 | FAQ | よくあるご質問 |
 | Access | 店舗情報・アクセス |
 | CTA | 最終CTA |
