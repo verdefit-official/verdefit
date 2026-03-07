@@ -29,7 +29,7 @@ const steps = [
 
 export default function PersonalFlow() {
   return (
-    <section className="bg-[#e8f3ec] py-20 md:py-24">
+    <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-16 text-center">
@@ -43,25 +43,40 @@ export default function PersonalFlow() {
         </FadeIn>
 
         <FadeIn delay={80}>
-          <div className="flex flex-col items-start gap-10 sm:flex-row sm:items-start sm:gap-0">
+          {/* デスクトップ：横並び */}
+          <div className="hidden sm:flex items-start">
             {steps.map((step, i) => (
-              <div key={step.key} className="flex flex-1 items-start sm:flex-col">
-                {/* ステップ本体 */}
-                <div className="flex flex-col items-center text-center flex-1">
+              <>
+                {/* ステップ */}
+                <div key={step.key} className="flex flex-1 flex-col items-center text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-600 md:h-20 md:w-20">
                     <span className="font-serif text-xl font-bold text-white md:text-2xl">{step.number}</span>
                   </div>
                   <h3 className="mt-4 font-serif text-lg font-bold text-[#1f2937] md:text-xl">{step.title}</h3>
-                  <p className="mt-2 whitespace-pre-line text-center text-sm leading-7 text-gray-500">
-                    {step.description}
-                  </p>
+                  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-gray-500">{step.description}</p>
                 </div>
 
-                {/* 矢印 */}
+                {/* 矢印（最後のステップ以外） */}
                 {i < steps.length - 1 && (
-                  <div className="hidden sm:flex items-center justify-center px-2 pt-6 md:pt-8">
+                  <div className="flex h-16 w-8 shrink-0 items-center justify-center md:h-20">
                     <span className="text-xl text-green-400">→</span>
                   </div>
+                )}
+              </>
+            ))}
+          </div>
+
+          {/* モバイル：縦並び */}
+          <div className="flex flex-col gap-8 sm:hidden">
+            {steps.map((step, i) => (
+              <div key={step.key} className="flex flex-col items-center text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-600">
+                  <span className="font-serif text-xl font-bold text-white">{step.number}</span>
+                </div>
+                <h3 className="mt-4 font-serif text-lg font-bold text-[#1f2937]">{step.title}</h3>
+                <p className="mt-2 whitespace-pre-line text-sm leading-7 text-gray-500">{step.description}</p>
+                {i < steps.length - 1 && (
+                  <span className="mt-6 text-xl text-green-400">↓</span>
                 )}
               </div>
             ))}
