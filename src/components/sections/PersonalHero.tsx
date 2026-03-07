@@ -20,13 +20,13 @@ export default function PersonalHero({
 
             <FadeIn delay={150}>
               <h1 className="mb-3 font-serif text-3xl font-bold leading-[1.35] text-[#1f2937] sm:text-4xl lg:text-[42px]">
-                横手市で一生、リバウンドしない体づくりを始めませんか？
+                横手市で一生、リバウンドしない身体づくりを始めませんか？
               </h1>
             </FadeIn>
 
             <FadeIn delay={300}>
               <p className="mb-8 max-w-xl text-[15px] leading-8 text-[#374151] whitespace-pre-line">
-                {"ダイエットをしても結果が出ない、変化が続かない方への贈り物。\nあなたの悩みに寄り添い、一生リバウンドしない体と習慣をVERDE FITが一緒につくります。"}
+                {"一時的に痩せるダイエットからの卒業。\n一生モノの身体と習慣を身につけることができる。\n\n横手市で理想の身体が手に入るパーソナルジム、VERDE FIT。\n完全個別指導とプロの食事サポートであなたのなりたい姿を現実にします。\nリバウンドしない、一生使える知識と習慣を身につけましょう。"}
               </p>
             </FadeIn>
 
