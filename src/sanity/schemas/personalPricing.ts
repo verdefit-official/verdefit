@@ -33,6 +33,23 @@ export const personalPricingSchema = defineType({
       ],
     }),
     defineField({ name: "note", title: "注意書き", type: "string", description: "例: ※分割払いも承ります。詳しくはお問い合わせください。" }),
+    defineField({ name: "cancelPolicyIntro", title: "キャンセルポリシー 前書き", type: "text", rows: 3 }),
+    defineField({
+      name: "cancelPolicySections",
+      title: "キャンセルポリシー セクション",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "title", title: "タイトル", type: "string" }),
+            defineField({ name: "content", title: "内容", type: "text", rows: 5 }),
+          ],
+          preview: { select: { title: "title" } },
+        },
+      ],
+    }),
+    defineField({ name: "cancelPolicyClosing", title: "キャンセルポリシー 締めの言葉", type: "string" }),
   ],
   preview: { prepare: () => ({ title: "料金プラン" }) },
 });

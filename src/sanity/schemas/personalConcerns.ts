@@ -6,6 +6,7 @@ export const personalConcernsSchema = defineType({
   type: "document",
   fields: [
     defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: ダイエットをしても続かない、効果が出ない本当の理由" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string" }),
     defineField({
       name: "items",
       title: "項目一覧",

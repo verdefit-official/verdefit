@@ -8,7 +8,6 @@ import PersonalComparison from "@/components/sections/PersonalComparison";
 import PersonalBeforeAfter from "@/components/sections/PersonalBeforeAfter";
 import PersonalTrainer from "@/components/sections/PersonalTrainer";
 import PersonalPricing from "@/components/sections/PersonalPricing";
-import PersonalCancelPolicy from "@/components/sections/PersonalCancelPolicy";
 import PersonalFlow from "@/components/sections/PersonalFlow";
 import PersonalFAQ from "@/components/sections/PersonalFAQ";
 import CTA from "@/components/sections/CTA";
@@ -99,10 +98,7 @@ type TrainerRaw = {
 };
 
 type PlanItemRaw = { _key: string; name?: string; foodLabel?: string; foodGreen?: boolean; price?: string; details?: string[]; popular?: boolean };
-type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string };
-
-type PolicySectionRaw = { _key: string; title?: string; content?: string };
-type CancelPolicyRaw = { sectionTitle?: string; intro?: string; sections?: PolicySectionRaw[]; closing?: string };
+type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string; cancelPolicyIntro?: string; cancelPolicySections?: { _key: string; title?: string; content?: string }[]; cancelPolicyClosing?: string };
 
 type FlowStepRaw = { _key: string; number?: string; title?: string; description?: string };
 type FlowRaw = { sectionTitle?: string; sectionDescription?: string; steps?: FlowStepRaw[] };
@@ -129,7 +125,6 @@ export default async function PersonalTrainingPage() {
     beforeAfterRaw,
     trainerRaw,
     pricingRaw,
-    cancelPolicyRaw,
     flowRaw,
     faqRaw,
     ctaRaw,
@@ -143,7 +138,6 @@ export default async function PersonalTrainingPage() {
     safeFetch<BeforeAfterRaw>(`*[_type == "personalBeforeAfter"][0]{ ..., cards[]{ ..., image{ asset{ _ref, _type } } } }`),
     safeFetch<TrainerRaw>(`*[_type == "personalTrainer"][0]{ ..., image{ asset{ _ref, _type } } }`),
     safeFetch<PricingRaw>(`*[_type == "personalPricing"][0]`),
-    safeFetch<CancelPolicyRaw>(`*[_type == "personalCancelPolicy"][0]`),
     safeFetch<FlowRaw>(`*[_type == "personalFlow"][0]`),
     safeFetch<FAQRaw>(`*[_type == "personalFaq"][0]`),
     safeFetch<CTARaw>(`*[_type == "personalCta"][0]`),
@@ -193,7 +187,6 @@ export default async function PersonalTrainingPage() {
       <PersonalBeforeAfter data={beforeAfterData} />
       <PersonalTrainer data={trainerData} />
       <PersonalPricing data={pricingRaw} />
-      <PersonalCancelPolicy data={cancelPolicyRaw} />
       <PersonalFlow data={flowRaw} />
       <PersonalFAQ data={faqRaw} />
       <CTA

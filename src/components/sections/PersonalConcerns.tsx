@@ -8,6 +8,7 @@ type ConcernItem = {
 
 type PersonalConcernsData = {
   sectionTitle?: string | null;
+  sectionDescription?: string | null;
   items?: ConcernItem[] | null;
 };
 
@@ -51,6 +52,7 @@ const defaultConcerns = [
 
 export default function PersonalConcerns({ data }: { data?: PersonalConcernsData | null }) {
   const sectionTitle = data?.sectionTitle ?? "ダイエットをしても続かない、効果が出ない本当の理由";
+  const sectionDescription = data?.sectionDescription ?? "頑張っているのに変わらない…その原因を正しく知ることが、本当の変化への第一歩です";
   const items =
     data?.items && data.items.length > 0
       ? data.items.map((item, i) => ({
@@ -69,6 +71,9 @@ export default function PersonalConcerns({ data }: { data?: PersonalConcernsData
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               {sectionTitle}
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
+              {sectionDescription}
+            </p>
           </div>
         </FadeIn>
 
