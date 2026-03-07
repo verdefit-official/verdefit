@@ -19,6 +19,18 @@ import { chiropracticProfileSchema } from "./chiropracticProfile";
 import { chiropracticPricingSchema } from "./chiropracticPricing";
 import { chiropracticFaqSchema } from "./chiropracticFaq";
 import { chiropracticCtaSchema } from "./chiropracticCta";
+import { personalSeoSchema } from "./personalSeo";
+import { personalHeroSchema } from "./personalHero";
+import { personalConcernsSchema } from "./personalConcerns";
+import { personalReasonsSchema } from "./personalReasons";
+import { personalComparisonSchema } from "./personalComparison";
+import { personalBeforeAfterSchema } from "./personalBeforeAfter";
+import { personalTrainerSchema } from "./personalTrainer";
+import { personalPricingSchema } from "./personalPricing";
+import { personalCancelPolicySchema } from "./personalCancelPolicy";
+import { personalFlowSchema } from "./personalFlow";
+import { personalFaqSchema } from "./personalFaq";
+import { personalCtaSchema } from "./personalCta";
 
 export const schemaTypes = [
   siteSettingsSchema,
@@ -42,4 +54,16 @@ export const schemaTypes = [
   chiropracticPricingSchema,
   chiropracticFaqSchema,
   chiropracticCtaSchema,
+  personalSeoSchema,
+  personalHeroSchema,
+  personalConcernsSchema,
+  personalReasonsSchema,
+  personalComparisonSchema,
+  personalBeforeAfterSchema,
+  personalTrainerSchema,
+  personalPricingSchema,
+  personalCancelPolicySchema,
+  personalFlowSchema,
+  personalFaqSchema,
+  personalCtaSchema,
 ];

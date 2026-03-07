@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import PersonalHero from "@/components/sections/PersonalHero";
 import PersonalConcerns from "@/components/sections/PersonalConcerns";
 import PersonalReasons from "@/components/sections/PersonalReasons";
@@ -13,50 +14,171 @@ import PersonalFAQ from "@/components/sections/PersonalFAQ";
 import CTA from "@/components/sections/CTA";
 import Access from "@/components/sections/Access";
 
-export const metadata: Metadata = {
-  title: "パーソナルトレーニング｜VERDE FIT",
-  description:
-    "横手市で一生リバウンドしない体づくりを。NSCA認定トレーナーによる完全個別指導・食事サポート・習慣化メソッドで理想の体へ導きます。",
-  keywords: ["横手市", "パーソナルトレーニング", "ダイエット", "ボディメイク", "VERDE FIT"],
-  openGraph: {
-    title: "パーソナルトレーニング｜VERDE FIT",
-    description:
-      "完全個別指導・食事サポート・習慣化メソッドで、一生リバウンドしない体づくりをサポートします。",
-    locale: "ja_JP",
-    type: "website",
-  },
+// ─── Types ───────────────────────────────────────────────────────────────────
+
+type SanityImageRef = { asset: { _ref: string; _type: string }; hotspot?: unknown };
+
+function imgUrl(ref: SanityImageRef | undefined): string | undefined {
+  if (!ref?.asset?._ref) return undefined;
+  try {
+    return urlForImage(ref);
+  } catch {
+    return undefined;
+  }
+}
+
+// ─── generateMetadata ─────────────────────────────────────────────────────────
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await safeFetch<{
+    pageTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+    ogTitle?: string;
+    ogDescription?: string;
+  }>(`*[_type == "personalSeo"][0]`);
+
+  const title = seo?.pageTitle ?? "パーソナルトレーニング｜VERDE FIT";
+  const description =
+    seo?.metaDescription ??
+    "横手市で一生リバウンドしない体づくりを。NSCA認定トレーナーによる完全個別指導・食事サポート・習慣化メソッドで理想の体へ導きます。";
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords ?? ["横手市", "パーソナルトレーニング", "ダイエット", "ボディメイク", "VERDE FIT"],
+    openGraph: {
+      title: seo?.ogTitle ?? title,
+      description: seo?.ogDescription ?? description,
+      locale: "ja_JP",
+      type: "website",
+    },
+  };
+}
+
+// ─── Raw Sanity Types ─────────────────────────────────────────────────────────
+
+type HeroRaw = {
+  heading?: string;
+  subheading?: string;
+  description?: string;
+  image?: SanityImageRef;
+  imageAlt?: string;
+  primaryButtonText?: string;
+  secondaryButtonText?: string;
 };
 
-type AccessData = {
+type ConcernItemRaw = { _key: string; title?: string; description?: string; icon?: SanityImageRef };
+type ConcernsRaw = { sectionTitle?: string; items?: ConcernItemRaw[] };
+
+type ReasonsRaw = {
   sectionTitle?: string;
   sectionDescription?: string;
-  storeName?: string;
-  postalCode?: string;
-  address?: string;
-  phone?: string;
-  hours?: string;
-  lastEntry?: string;
-  closedDays?: string;
-  closedDaysNote?: string;
-  parking?: string;
-  payment?: string;
+  reasons?: { _key: string; title?: string; description?: string }[];
 };
 
-const ctaData = {
-  heading: "いつか変わりたいを今日から始めませんか？",
-  description:
-    "ダイエットや身体づくりは、正しい方法と環境があれば必ず変わります。\n一人で悩まずまずは、お気軽にご相談ください。\nあなたの目標やライフスタイルに合わせて、無理なく続けられる方法をご提案します。\n理想の身体と健康的な習慣を一緒に手に入れましょう。",
-  primaryButtonText: "予約はこちら",
-  secondaryButtonText: "LINEで相談する",
+type ComparisonRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  rows?: { _key: string; label?: string; verdeValue?: string; otherValue?: string }[];
 };
+
+type BACardRaw = { _key: string; label?: string; result?: string; text?: string; image?: SanityImageRef };
+type BeforeAfterRaw = { sectionTitle?: string; sectionDescription?: string; cards?: BACardRaw[] };
+
+type TrainerRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  role?: string;
+  name?: string;
+  image?: SanityImageRef;
+  beliefText?: string;
+  quote?: string;
+  closingText?: string;
+  credentials?: string[];
+};
+
+type PlanItemRaw = { _key: string; name?: string; foodLabel?: string; foodGreen?: boolean; price?: string; details?: string[]; popular?: boolean };
+type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string };
+
+type PolicySectionRaw = { _key: string; title?: string; content?: string };
+type CancelPolicyRaw = { sectionTitle?: string; intro?: string; sections?: PolicySectionRaw[]; closing?: string };
+
+type FlowStepRaw = { _key: string; number?: string; title?: string; description?: string };
+type FlowRaw = { sectionTitle?: string; sectionDescription?: string; steps?: FlowStepRaw[] };
+
+type FAQItemRaw = { _key: string; question?: string; answer?: string };
+type FAQRaw = { sectionTitle?: string; sectionDescription?: string; items?: FAQItemRaw[] };
+
+type CTARaw = { heading?: string; subheading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string };
+
+type AccessRaw = {
+  sectionTitle?: string; sectionDescription?: string; storeName?: string; postalCode?: string;
+  address?: string; phone?: string; hours?: string; lastEntry?: string;
+  closedDays?: string; closedDaysNote?: string; parking?: string; payment?: string;
+};
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function PersonalTrainingPage() {
-  const [siteSettingsData, accessData] = await Promise.all([
-    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
-    ),
-    safeFetch<AccessData>(`*[_type == "access"][0]`),
+  const [
+    heroRaw,
+    concernsRaw,
+    reasonsRaw,
+    comparisonRaw,
+    beforeAfterRaw,
+    trainerRaw,
+    pricingRaw,
+    cancelPolicyRaw,
+    flowRaw,
+    faqRaw,
+    ctaRaw,
+    accessData,
+    siteSettingsData,
+  ] = await Promise.all([
+    safeFetch<HeroRaw>(`*[_type == "personalHero"][0]{ ..., image{ asset{ _ref, _type } } }`),
+    safeFetch<ConcernsRaw>(`*[_type == "personalConcerns"][0]{ ..., items[]{ ..., icon{ asset{ _ref, _type } } } }`),
+    safeFetch<ReasonsRaw>(`*[_type == "personalReasons"][0]`),
+    safeFetch<ComparisonRaw>(`*[_type == "personalComparison"][0]`),
+    safeFetch<BeforeAfterRaw>(`*[_type == "personalBeforeAfter"][0]{ ..., cards[]{ ..., image{ asset{ _ref, _type } } } }`),
+    safeFetch<TrainerRaw>(`*[_type == "personalTrainer"][0]{ ..., image{ asset{ _ref, _type } } }`),
+    safeFetch<PricingRaw>(`*[_type == "personalPricing"][0]`),
+    safeFetch<CancelPolicyRaw>(`*[_type == "personalCancelPolicy"][0]`),
+    safeFetch<FlowRaw>(`*[_type == "personalFlow"][0]`),
+    safeFetch<FAQRaw>(`*[_type == "personalFaq"][0]`),
+    safeFetch<CTARaw>(`*[_type == "personalCta"][0]`),
+    safeFetch<AccessRaw>(`*[_type == "access"][0]`),
+    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(`*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`),
   ]);
+
+  // Transform image refs → URLs
+  const heroData = heroRaw
+    ? { ...heroRaw, imageUrl: imgUrl(heroRaw.image) }
+    : null;
+
+  const concernsData = concernsRaw
+    ? {
+        ...concernsRaw,
+        items: concernsRaw.items?.map((item) => ({
+          ...item,
+          iconUrl: imgUrl(item.icon),
+        })),
+      }
+    : null;
+
+  const beforeAfterData = beforeAfterRaw
+    ? {
+        ...beforeAfterRaw,
+        cards: beforeAfterRaw.cards?.map((card) => ({
+          ...card,
+          imageUrl: imgUrl(card.image),
+        })),
+      }
+    : null;
+
+  const trainerData = trainerRaw
+    ? { ...trainerRaw, imageUrl: imgUrl(trainerRaw.image) }
+    : null;
 
   const bookingUrl = siteSettingsData?.bookingUrl ?? undefined;
   const lineUrl = siteSettingsData?.lineUrl ?? undefined;
@@ -64,17 +186,23 @@ export default async function PersonalTrainingPage() {
 
   return (
     <>
-      <PersonalHero bookingUrl={bookingUrl} lineUrl={lineUrl} />
-      <PersonalConcerns />
-      <PersonalReasons />
-      <PersonalComparison />
-      <PersonalBeforeAfter />
-      <PersonalTrainer />
-      <PersonalPricing />
-      <PersonalCancelPolicy />
-      <PersonalFlow />
-      <PersonalFAQ />
-      <CTA data={ctaData} phone={phone} bookingUrl={bookingUrl} lineUrl={lineUrl} subheading="無料カウンセリング実施中" />
+      <PersonalHero data={heroData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <PersonalConcerns data={concernsData} />
+      <PersonalReasons data={reasonsRaw} />
+      <PersonalComparison data={comparisonRaw} />
+      <PersonalBeforeAfter data={beforeAfterData} />
+      <PersonalTrainer data={trainerData} />
+      <PersonalPricing data={pricingRaw} />
+      <PersonalCancelPolicy data={cancelPolicyRaw} />
+      <PersonalFlow data={flowRaw} />
+      <PersonalFAQ data={faqRaw} />
+      <CTA
+        data={ctaRaw}
+        phone={phone}
+        bookingUrl={bookingUrl}
+        lineUrl={lineUrl}
+        subheading={ctaRaw?.subheading ?? "無料カウンセリング実施中"}
+      />
       <Access data={accessData} sectionBg="bg-white" />
     </>
   );

@@ -1,0 +1,28 @@
+import { defineType, defineField } from "sanity";
+
+export const personalReasonsSchema = defineType({
+  name: "personalReasons",
+  title: "選ばれる理由",
+  type: "document",
+  fields: [
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: だからVERDE FITは結果が違う" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 一人では変われなかったあなたへ。本気を形にする3つの支え" }),
+    defineField({
+      name: "reasons",
+      title: "理由一覧",
+      type: "array",
+      validation: (Rule) => Rule.max(3),
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "title", title: "タイトル", type: "string", description: "例: 完全個別指導" }),
+            defineField({ name: "description", title: "説明文", type: "text", rows: 5 }),
+          ],
+          preview: { select: { title: "title" } },
+        },
+      ],
+    }),
+  ],
+  preview: { prepare: () => ({ title: "選ばれる理由" }) },
+});

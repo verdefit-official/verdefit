@@ -1,43 +1,47 @@
 import FadeIn from "@/components/FadeIn";
 
-const steps = [
-  {
-    key: "contact",
-    number: "01",
-    title: "問い合わせ",
-    description: "LINE・電話・WEBから\nお気軽にご連絡",
-  },
-  {
-    key: "counseling",
-    number: "02",
-    title: "カウンセリング",
-    description: "お悩み・目標を\n丁寧にヒアリング",
-  },
-  {
-    key: "trial",
-    number: "03",
-    title: "体験",
-    description: "実際のトレーニングを\n体験していただきます",
-  },
-  {
-    key: "join",
-    number: "04",
-    title: "入会",
-    description: "ご納得いただけたら\n本格スタート",
-  },
+type FlowStep = {
+  number?: string | null;
+  title?: string | null;
+  description?: string | null;
+};
+
+type PersonalFlowData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  steps?: FlowStep[] | null;
+};
+
+const defaultSteps = [
+  { key: "contact", number: "01", title: "問い合わせ", description: "LINE・電話・WEBから\nお気軽にご連絡" },
+  { key: "counseling", number: "02", title: "カウンセリング", description: "お悩み・目標を\n丁寧にヒアリング" },
+  { key: "trial", number: "03", title: "体験", description: "実際のトレーニングを\n体験していただきます" },
+  { key: "join", number: "04", title: "入会", description: "ご納得いただけたら\n本格スタート" },
 ];
 
-export default function PersonalFlow() {
+export default function PersonalFlow({ data }: { data?: PersonalFlowData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "体験トレーニングの流れ";
+  const sectionDescription = data?.sectionDescription ?? "お問い合わせから体験、スタートまでの流れをご紹介します";
+  const steps =
+    data?.steps && data.steps.length > 0
+      ? data.steps.map((s, i) => ({
+          key: defaultSteps[i]?.key ?? String(i),
+          number: s.number ?? defaultSteps[i]?.number ?? String(i + 1).padStart(2, "0"),
+          title: s.title ?? "",
+          description: s.description ?? "",
+        }))
+      : defaultSteps;
+
   return (
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-16 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              体験トレーニングの流れ
+              {sectionTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
-              お問い合わせから体験、スタートまでの流れをご紹介します
+              {sectionDescription}
             </p>
           </div>
         </FadeIn>
