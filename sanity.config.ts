@@ -37,7 +37,7 @@ const personalSections = [
   { name: "personalComparison", title: "比較表" },
   { name: "personalBeforeAfter", title: "before/after" },
   { name: "personalTrainer", title: "トレーナー紹介" },
-  { name: "personalPricing", title: "料金プラン・キャンセルポリシー" },
+  { name: "personalPricing", title: "料金プラン" },
   { name: "personalFlow", title: "体験の流れ" },
   { name: "personalFaq", title: "よくある質問" },
   { name: "personalCta", title: "CTA" },
