@@ -29,6 +29,21 @@ const chiropracticSections = [
   { name: "chiropracticCta", title: "CTA" },
 ];
 
+const personalSections = [
+  { name: "personalSeo", title: "SEO設定" },
+  { name: "personalHero", title: "ヒーロー" },
+  { name: "personalConcerns", title: "ダイエットが続かない理由" },
+  { name: "personalReasons", title: "選ばれる理由" },
+  { name: "personalComparison", title: "比較表" },
+  { name: "personalBeforeAfter", title: "before/after" },
+  { name: "personalTrainer", title: "トレーナー紹介" },
+  { name: "personalPricing", title: "料金プラン" },
+  { name: "personalCancelPolicy", title: "キャンセルポリシー" },
+  { name: "personalFlow", title: "体験の流れ" },
+  { name: "personalFaq", title: "よくある質問" },
+  { name: "personalCta", title: "CTA" },
+];
+
 function singleton(S: StructureBuilder, name: string, title: string) {
   return S.listItem()
     .title(title)
@@ -76,6 +91,19 @@ export default defineConfig({
                   .title("整体ページ")
                   .items(
                     chiropracticSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    )
+                  )
+              ),
+            S.listItem()
+              .title("パーソナルトレーニングページ")
+              .id("personal")
+              .child(
+                S.list()
+                  .id("personal-list")
+                  .title("パーソナルトレーニングページ")
+                  .items(
+                    personalSections.map(({ name, title }) =>
                       singleton(S, name, title)
                     )
                   )
