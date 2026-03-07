@@ -15,6 +15,7 @@ export const chiropracticProfileSchema = defineType({
       type: "image",
       options: { hotspot: true },
     }),
+    defineField({ name: "imageAlt", title: "写真の代替テキスト", type: "string", description: "例: 代表の吉田宗太郎" }),
     defineField({
       name: "beliefDescription",
       title: "想いの説明",

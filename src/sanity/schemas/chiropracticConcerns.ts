@@ -25,6 +25,12 @@ export const chiropracticConcernsSchema = defineType({
       description: "リスト左側に表示する画像",
     }),
     defineField({
+      name: "listImageAlt",
+      title: "サイドイメージの代替テキスト",
+      type: "string",
+      description: "例: 腰に手を当てて悩む男性",
+    }),
+    defineField({
       name: "concernList",
       title: "お悩み一覧",
       type: "array",

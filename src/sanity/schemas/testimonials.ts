@@ -50,6 +50,12 @@ export const testimonialsSchema = defineType({
               type: "image",
               options: { hotspot: true },
             }),
+            defineField({
+              name: "imageAlt",
+              title: "画像の代替テキスト",
+              type: "string",
+              description: "例: 30代女性のお客様",
+            }),
           ],
           preview: {
             select: { title: "goal", subtitle: "demographics" },

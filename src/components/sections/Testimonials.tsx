@@ -6,6 +6,7 @@ type VoiceItem = {
   demographics?: string | null;
   result?: string | null;
   imageUrl?: string | null;
+  imageAlt?: string | null;
 };
 
 type TestimonialsData = {
@@ -99,7 +100,7 @@ export default function Testimonials({ data }: { data?: TestimonialsData | null 
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={v.imageUrl ?? "/testimonial-01.png"}
-                      alt={v.demographics ?? "お客様"}
+                      alt={v.imageAlt ?? v.demographics ?? "お客様"}
                       className="h-full w-full object-cover object-top"
                     />
                   </div>

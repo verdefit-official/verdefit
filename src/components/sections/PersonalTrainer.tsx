@@ -6,6 +6,7 @@ type PersonalTrainerData = {
   role?: string | null;
   name?: string | null;
   imageUrl?: string | null;
+  imageAlt?: string | null;
   beliefText?: string | null;
   quote?: string | null;
   closingText?: string | null;
@@ -35,6 +36,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
   const role = data?.role ?? "代表トレーナー";
   const name = data?.name ?? "吉田　宗太郎";
   const imageUrl = data?.imageUrl ?? "/profile.png";
+  const imageAlt = data?.imageAlt ?? name;
   const beliefText = data?.beliefText ?? "私自身、過去最高体重95kgから65kgまでのダイエットに成功した経験があります。その過程で学んだのは、「正しい知識」と「継続できる環境」がいかに大切かということ。自己流では限界があり、プロのサポートがあってこそ、本当のダイエット成功があります。";
   const quote = data?.quote ?? "私が生まれ育った横手市で、同じように身体の悩みを抱える方々の力になりたい。その想いから、VERDE FITを立ち上げました。";
   const closingText = data?.closingText ?? "ダイエットは我慢や苦痛ではありません。正しい方法を知り、習慣を変えることで、誰でも理想の身体を手に入れることができます。横手市で本気で痩せたいと思っているあなた、一緒に頑張りましょう。";
@@ -60,7 +62,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
             <div className="overflow-hidden aspect-[4/5] w-full rounded-xl bg-[#e8f3ec]">
               <img
                 src={imageUrl}
-                alt={name}
+                alt={imageAlt}
                 className="h-full w-full object-cover object-top"
               />
             </div>

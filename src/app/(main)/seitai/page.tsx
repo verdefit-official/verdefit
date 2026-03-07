@@ -103,6 +103,7 @@ export default async function SeitaiPage() {
     sectionTitle?: string;
     sectionDescription?: string;
     listImage?: SanityImageRef;
+    listImageAlt?: string;
     concernList?: ConcernItem[];
   };
 
@@ -135,6 +136,7 @@ export default async function SeitaiPage() {
     role?: string;
     name?: string;
     image?: SanityImageRef;
+    imageAlt?: string;
     beliefDescription?: string;
     highlight?: string;
     closingText?: string;
@@ -230,6 +232,7 @@ export default async function SeitaiPage() {
     ? {
         ...concernsRaw,
         listImageUrl: imgUrl(concernsRaw.listImage) ?? "/chiropractic-concerns.png",
+        listImageAlt: concernsRaw.listImageAlt,
       }
     : null;
 
@@ -268,6 +271,7 @@ export default async function SeitaiPage() {
         sectionBg="bg-white"
         variant="list"
         listImageUrl={concernsData?.listImageUrl ?? "/chiropractic-concerns.png"}
+        listImageAlt={concernsData?.listImageAlt}
       />
       <SeitaiSymptoms data={disordersData} />
       <RootCause data={disordersRaw} />

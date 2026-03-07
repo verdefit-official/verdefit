@@ -68,6 +68,7 @@ type VoiceItem = {
   demographics?: string;
   result?: string;
   imageUrl?: string;
+  imageAlt?: string;
 };
 type TestimonialsSanity = {
   sectionTitle?: string;
@@ -81,6 +82,7 @@ type ProfileSanity = {
   role?: string;
   name?: string;
   imageUrl?: string;
+  imageAlt?: string;
   beliefTitle?: string;
   beliefDescription?: string;
   highlight?: string;

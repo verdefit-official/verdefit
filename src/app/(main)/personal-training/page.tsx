@@ -82,7 +82,7 @@ type ComparisonRaw = {
   rows?: { _key: string; label?: string; verdeValue?: string; otherValue?: string }[];
 };
 
-type BACardRaw = { _key: string; label?: string; result?: string; text?: string; image?: SanityImageRef };
+type BACardRaw = { _key: string; label?: string; result?: string; text?: string; image?: SanityImageRef; imageAlt?: string };
 type BeforeAfterRaw = { sectionTitle?: string; sectionDescription?: string; cards?: BACardRaw[] };
 
 type TrainerRaw = {
@@ -91,6 +91,7 @@ type TrainerRaw = {
   role?: string;
   name?: string;
   image?: SanityImageRef;
+  imageAlt?: string;
   beliefText?: string;
   quote?: string;
   closingText?: string;
@@ -166,12 +167,13 @@ export default async function PersonalTrainingPage() {
         cards: beforeAfterRaw.cards?.map((card) => ({
           ...card,
           imageUrl: imgUrl(card.image),
+          imageAlt: card.imageAlt,
         })),
       }
     : null;
 
   const trainerData = trainerRaw
-    ? { ...trainerRaw, imageUrl: imgUrl(trainerRaw.image) }
+    ? { ...trainerRaw, imageUrl: imgUrl(trainerRaw.image), imageAlt: trainerRaw.imageAlt }
     : null;
 
   const bookingUrl = siteSettingsData?.bookingUrl ?? undefined;

@@ -31,6 +31,12 @@ export const profileSchema = defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: "imageAlt",
+      title: "写真の代替テキスト",
+      type: "string",
+      description: "例: 代表の吉田宗太郎",
+    }),
+    defineField({
       name: "beliefTitle",
       title: "想いのタイトル",
       type: "string",

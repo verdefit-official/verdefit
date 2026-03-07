@@ -5,6 +5,7 @@ type BACard = {
   result?: string | null;
   text?: string | null;
   imageUrl?: string | null;
+  imageAlt?: string | null;
 };
 
 type PersonalBeforeAfterData = {
@@ -81,7 +82,7 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
                 {/* 画像エリア */}
                 <div className="relative w-full overflow-hidden bg-gray-100" style={{ aspectRatio: "3/4" }}>
                   {card.imageUrl ? (
-                    <img src={card.imageUrl} alt={card.label} className="absolute inset-0 h-full w-full object-cover object-center" />
+                    <img src={card.imageUrl} alt={card.imageAlt ?? card.label ?? ""} className="absolute inset-0 h-full w-full object-cover object-center" />
                   ) : (
                     <div className="flex h-full items-center justify-center">
                       <PersonIcon />

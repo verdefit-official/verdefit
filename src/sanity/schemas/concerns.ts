@@ -15,7 +15,7 @@ export const concernsSchema = defineType({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
-      description: "例: 多くの方が抱える身体の悩みを、根本から解決します。",
+      description: "例: 多くの方が抱える身体の悩みを、根本から解決します。（空白にするとサブテキストは非表示になります）",
     }),
     defineField({
       name: "concernList",

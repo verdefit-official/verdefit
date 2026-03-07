@@ -19,6 +19,7 @@ export const personalBeforeAfterSchema = defineType({
             defineField({ name: "result", title: "結果", type: "string", description: "例: −30kg達成" }),
             defineField({ name: "text", title: "本文", type: "text", rows: 5, description: "例: 食事の量を減らすだけでは変わらなかった体型が、正しい方法を知ることで6ヶ月で30kg減を達成しました。" }),
             defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
+            defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: 代表の施術前後の比較写真" }),
           ],
           preview: { select: { title: "label" } },
         },

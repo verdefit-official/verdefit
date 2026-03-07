@@ -110,7 +110,7 @@ function ConcernIcon({ type }: { type: IconType }) {
   );
 }
 
-export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[#e8f3ec]", variant = "card", listImageUrl }: { data?: ConcernsData | null; showRootCause?: boolean; sectionBg?: string; variant?: "card" | "list"; listImageUrl?: string | null }) {
+export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[#e8f3ec]", variant = "card", listImageUrl, listImageAlt }: { data?: ConcernsData | null; showRootCause?: boolean; sectionBg?: string; variant?: "card" | "list"; listImageUrl?: string | null; listImageAlt?: string | null }) {
   const sectionTitle = data?.sectionTitle ?? "こんなお悩み、ありませんか？";
   const sectionDescription =
     data?.sectionDescription ??
@@ -149,7 +149,7 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={listImageUrl}
-                    alt="お悩みイメージ"
+                    alt={listImageAlt ?? "お悩みイメージ"}
                     className="h-full w-full object-cover object-top"
                   />
                 ) : (

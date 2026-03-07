@@ -6,6 +6,7 @@ type ProfileData = {
   role?: string | null;
   name?: string | null;
   imageUrl?: string | null;
+  imageAlt?: string | null;
   beliefDescription?: string | null;
   highlight?: string | null;
   closingText?: string | null;
@@ -36,6 +37,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
   const role = data?.role ?? "代表 / 施術者";
   const name = data?.name ?? "吉田 宗太郎";
   const imageUrl = data?.imageUrl ?? "/profile.png";
+  const imageAlt = data?.imageAlt ?? name;
   const beliefDescription =
     data?.beliefDescription ??
     "子どもの頃から体型にコンプレックスがあり、自分に自信を持てずに過ごしてきました。学生時代は柔道に打ち込みましたが、怪我が多く思うように練習ができず、身体と向き合うことの難しさを何度も感じました。このままの自分ではいたくないという思いからボディメイクに取り組み、過去最高体重95kgから65kgまでのダイエットに成功しました。";
@@ -75,7 +77,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imageUrl}
-                alt={name}
+                alt={imageAlt}
                 className="h-full w-full object-cover object-top"
               />
             </div>
