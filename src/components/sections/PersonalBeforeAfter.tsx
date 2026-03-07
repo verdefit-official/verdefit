@@ -6,6 +6,7 @@ const cards = [
     label: "代表のbefore/after（30代）在住",
     result: "−30kg達成",
     text: "私は子供の頃から体型にコンプレックスがあり自分に自信が持てずに生きてきました。こんな人生を変えたいとパーソナルトレーナーの資格を取得しトレーニングと食習慣を見直すことで身体が変わり、考え方や人生まで前向きに変わりました。VERDE FITはこの経験をもとに『誰にでも変わることができる』ことを伝えるために作った場所です。",
+    image: "/images/personal/personal-ba-trainer.png",
     future: false,
   },
   {
@@ -13,6 +14,7 @@ const cards = [
     label: "モニター様before/after（20代）",
     result: "−20kg達成",
     text: "運動習慣がなく体重が増えてしまいましたが、トレーニングと食事習慣の見直しで20kgを達成しました。最初は体力に不安もありましたが、無理のないペースで続けることで徐々に身体が変化。体型だけでなく体力も向上し以前より疲れにくくなりました。正しい方法で続ければ身体は確実に変わることを実感しています。",
+    image: "/images/personal/personal-client.png",
     future: false,
   },
   {
@@ -20,6 +22,7 @@ const cards = [
     label: "未来のお客様",
     result: "次はあなたの番です",
     text: "VERDE FITはこれからたくさんの方の人生の転換点となっていきます。『自分にも変われるだろうか』そう思った今が、その一歩を踏み出すタイミングです。この場所にあなたの変化が加わる日を楽しみにしています。",
+    image: null,
     future: true,
   },
 ];
@@ -53,8 +56,12 @@ export default function PersonalBeforeAfter() {
             <FadeIn key={card.key} delay={i * 100}>
               <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 {/* 画像エリア */}
-                <div className="flex h-52 items-center justify-center bg-gray-100">
-                  <PersonIcon />
+                <div className="flex h-52 items-center justify-center bg-gray-100 overflow-hidden">
+                  {card.image ? (
+                    <img src={card.image} alt={card.label} className="h-full w-full object-cover object-top" />
+                  ) : (
+                    <PersonIcon />
+                  )}
                 </div>
 
                 {/* テキストエリア */}

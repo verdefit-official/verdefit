@@ -4,10 +4,7 @@ const concerns = [
   {
     key: "self",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green-700" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 7v5l3 3" />
-      </svg>
+      <img src="/images/personal/concern-self.png" alt="" className="h-full w-full object-contain" aria-hidden="true" />
     ),
     title: "自己流ダイエットの限界",
     description:
@@ -16,10 +13,7 @@ const concerns = [
   {
     key: "rebound",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green-700" aria-hidden="true">
-        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-        <path d="M3 3v5h5" />
-      </svg>
+      <img src="/images/personal/concern-rebound.png" alt="" className="h-full w-full object-contain" aria-hidden="true" />
     ),
     title: "リバウンドの原因",
     description:
@@ -28,12 +22,7 @@ const concerns = [
   {
     key: "exercise",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green-700" aria-hidden="true">
-        <circle cx="12" cy="5" r="2" />
-        <path d="M12 7v7" />
-        <path d="M8 21l4-7 4 7" />
-        <path d="M8 13H5M19 13h-3" />
-      </svg>
+      <img src="/images/personal/concern-exercise.png" alt="" className="h-full w-full object-contain" aria-hidden="true" />
     ),
     title: "間違った運動の選び方",
     description:
@@ -42,13 +31,7 @@ const concerns = [
   {
     key: "diet",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green-700" aria-hidden="true">
-        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-        <line x1="6" y1="1" x2="6" y2="4" />
-        <line x1="10" y1="1" x2="10" y2="4" />
-        <line x1="14" y1="1" x2="14" y2="4" />
-      </svg>
+      <img src="/images/personal/concern-diet.png" alt="" className="h-full w-full object-contain" aria-hidden="true" />
     ),
     title: "食事制限が続かない理由",
     description:
@@ -57,12 +40,7 @@ const concerns = [
   {
     key: "alone",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green-700" aria-hidden="true">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
+      <img src="/images/personal/concern-alone.png" alt="" className="h-full w-full object-contain" aria-hidden="true" />
     ),
     title: "一人では続けられない環境",
     description:
@@ -87,7 +65,7 @@ export default function PersonalConcerns() {
             <FadeIn key={c.key} delay={i * 60}>
               <div className={i > 0 ? "border-t border-gray-100 pt-10" : ""}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e8f3ec]">
+                  <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#e8f3ec] overflow-hidden p-1">
                     {c.icon}
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#1f2937] md:text-2xl">{c.title}</h3>

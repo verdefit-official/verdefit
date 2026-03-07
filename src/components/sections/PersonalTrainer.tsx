@@ -43,8 +43,12 @@ export default function PersonalTrainer() {
 
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.4fr] lg:gap-16">
           <FadeIn>
-            <div className="flex aspect-[4/5] w-full items-center justify-center rounded-xl bg-[#e8f3ec]">
-              <PersonIcon />
+            <div className="overflow-hidden aspect-[4/5] w-full rounded-xl bg-[#e8f3ec]">
+              <img
+                src="/images/personal/personal-trainer.png"
+                alt="代表トレーナー 吉田宗太郎"
+                className="h-full w-full object-cover object-top"
+              />
             </div>
           </FadeIn>
 

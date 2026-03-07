@@ -46,7 +46,13 @@ export default function PersonalHero({
           </div>
 
           <FadeIn delay={250} className="order-1 lg:order-2">
-            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100" />
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
+              <img
+                src="/images/personal/personal-hero.png"
+                alt="パーソナルトレーニング"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </FadeIn>
         </div>
       </div>
