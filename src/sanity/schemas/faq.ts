@@ -9,11 +9,13 @@ export const faqSchema = defineType({
       name: "sectionTitle",
       title: "セクションタイトル",
       type: "string",
+      description: "例: よくある質問",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
+      description: "例: ご来店前に気になることはこちらでご確認いただけます。",
     }),
     defineField({
       name: "items",
@@ -27,12 +29,14 @@ export const faqSchema = defineType({
               name: "question",
               title: "質問",
               type: "string",
+              description: "例: 初回はどんな流れですか？",
             }),
             defineField({
               name: "answer",
               title: "回答",
               type: "text",
               rows: 4,
+              description: "例: カウンセリング後にお身体の状態を確認し、施術またはトレーニングを行います。",
             }),
           ],
           preview: {

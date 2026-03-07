@@ -15,6 +15,7 @@ export const chiropracticDisordersSchema = defineType({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
+      description: "例: 今の不調を放置すると、将来このような問題に発展することがあります。",
     }),
     defineField({
       name: "items",
@@ -25,12 +26,13 @@ export const chiropracticDisordersSchema = defineType({
         {
           type: "object",
           fields: [
-            defineField({ name: "title", title: "タイトル", type: "string" }),
+            defineField({ name: "title", title: "タイトル", type: "string", description: "例: 股関節の可動域低下" }),
             defineField({
               name: "description",
               title: "説明文",
               type: "text",
               rows: 4,
+              description: "例: 骨盤のゆがみが進行すると股関節の動きが制限され、歩行や階段昇降が困難になることがあります。",
             }),
             defineField({
               name: "icon",
@@ -57,6 +59,7 @@ export const chiropracticDisordersSchema = defineType({
       title: "根本原因 テキスト",
       type: "text",
       rows: 6,
+      description: "例: 骨格のゆがみや筋肉の硬直が積み重なることで、身体の各部位に負荷がかかり続けます。表面的なケアだけでは繰り返す痛みは止まりません。",
     }),
   ],
   preview: {

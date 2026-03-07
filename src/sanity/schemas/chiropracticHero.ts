@@ -34,6 +34,7 @@ export const chiropracticHeroSchema = defineType({
       name: "imageAlt",
       title: "画像の代替テキスト",
       type: "string",
+      description: "例: 施術者が患者の背中を丁寧に施術している様子",
     }),
     defineField({
       name: "primaryButtonText",

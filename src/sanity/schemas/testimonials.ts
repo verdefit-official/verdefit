@@ -9,11 +9,13 @@ export const testimonialsSchema = defineType({
       name: "sectionTitle",
       title: "セクションタイトル",
       type: "string",
+      description: "例: お客様の声",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
+      description: "例: 実際にVERDE FITをご利用いただいたお客様からのリアルな声をご紹介します。",
     }),
     defineField({
       name: "voiceList",
@@ -27,6 +29,7 @@ export const testimonialsSchema = defineType({
               name: "goal",
               title: "ご利用目的",
               type: "string",
+              description: "例: ダイエット・体型改善",
             }),
             defineField({
               name: "demographics",
@@ -39,6 +42,7 @@ export const testimonialsSchema = defineType({
               title: "結果テキスト",
               type: "text",
               rows: 3,
+              description: "例: 3ヶ月で8kg減。食事制限なしでここまで変われると思っていませんでした。",
             }),
             defineField({
               name: "image",

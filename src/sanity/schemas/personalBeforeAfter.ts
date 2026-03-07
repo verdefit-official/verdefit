@@ -6,7 +6,7 @@ export const personalBeforeAfterSchema = defineType({
   type: "document",
   fields: [
     defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 身体が変わると人生も変わります。" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 数字だけでなく、生活が変わった。そんな声が届いています。" }),
     defineField({
       name: "cards",
       title: "カード一覧",
@@ -17,7 +17,7 @@ export const personalBeforeAfterSchema = defineType({
           fields: [
             defineField({ name: "label", title: "ラベル", type: "string", description: "例: 代表のbefore/after（30代）在住" }),
             defineField({ name: "result", title: "結果", type: "string", description: "例: −30kg達成" }),
-            defineField({ name: "text", title: "本文", type: "text", rows: 5 }),
+            defineField({ name: "text", title: "本文", type: "text", rows: 5, description: "例: 食事の量を減らすだけでは変わらなかった体型が、正しい方法を知ることで6ヶ月で30kg減を達成しました。" }),
             defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
           ],
           preview: { select: { title: "label" } },

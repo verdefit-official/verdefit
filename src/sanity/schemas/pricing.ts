@@ -9,11 +9,13 @@ export const pricingSchema = defineType({
       name: "sectionTitle",
       title: "セクションタイトル",
       type: "string",
+      description: "例: 料金案内",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
+      description: "例: 明瞭な料金体系で、安心してご利用いただけます。",
     }),
     // Trial course
     defineField({
@@ -51,6 +53,7 @@ export const pricingSchema = defineType({
       title: "体験コース 特典",
       type: "array",
       of: [{ type: "string" }],
+      description: "例: カウンセリング無料 / 施術後のアドバイスあり",
     }),
     // Pricing table
     defineField({
@@ -65,6 +68,7 @@ export const pricingSchema = defineType({
               name: "title",
               title: "コース名",
               type: "string",
+              description: "例: 整体コース",
             }),
             defineField({
               name: "items",
@@ -78,11 +82,13 @@ export const pricingSchema = defineType({
                       name: "label",
                       title: "メニュー名",
                       type: "string",
+                      description: "例: 30分コース",
                     }),
                     defineField({
                       name: "price",
                       title: "価格",
                       type: "string",
+                      description: "例: ¥4,400",
                     }),
                   ],
                 },
@@ -107,6 +113,7 @@ export const pricingSchema = defineType({
       title: "キャンセルポリシー 前書き",
       type: "text",
       rows: 3,
+      description: "例: すべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。",
     }),
     defineField({
       name: "cancelPolicySections",
@@ -116,7 +123,7 @@ export const pricingSchema = defineType({
         {
           type: "object",
           fields: [
-            defineField({ name: "title", title: "タイトル", type: "string" }),
+            defineField({ name: "title", title: "タイトル", type: "string", description: "例: ■ キャンセル・変更について" }),
             defineField({
               name: "content",
               title: "内容",
@@ -134,6 +141,7 @@ export const pricingSchema = defineType({
       title: "キャンセルポリシー 締めの言葉",
       type: "text",
       rows: 2,
+      description: "例: 皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。",
     }),
   ],
   preview: {

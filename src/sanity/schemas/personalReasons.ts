@@ -17,7 +17,7 @@ export const personalReasonsSchema = defineType({
           type: "object",
           fields: [
             defineField({ name: "title", title: "タイトル", type: "string", description: "例: 完全個別指導" }),
-            defineField({ name: "description", title: "説明文", type: "text", rows: 5 }),
+            defineField({ name: "description", title: "説明文", type: "text", rows: 5, description: "例: お客様一人ひとりの体質・生活習慣・目標に合わせたオーダーメイドのプログラムを提供します。" }),
           ],
           preview: { select: { title: "title" } },
         },

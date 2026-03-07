@@ -28,6 +28,7 @@ export const heroSchema = defineType({
       title: "説明文",
       type: "text",
       rows: 5,
+      description: "例: NSCA認定トレーナー・国家資格者が横手市であなたの身体をトータルサポートします。",
     }),
     defineField({
       name: "image",
@@ -39,6 +40,7 @@ export const heroSchema = defineType({
       name: "imageAlt",
       title: "画像の代替テキスト",
       type: "string",
+      description: "例: VERDE FITのトレーナーと施術の様子",
     }),
     defineField({
       name: "primaryButtonText",
