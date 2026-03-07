@@ -50,7 +50,7 @@ export default function Access({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: Ac
           <FadeIn>
             <div>
               <p className="text-sm font-semibold text-green-700 md:text-base">店舗名</p>
-              <h3 className="mt-2 font-serif text-[26px] font-bold leading-tight text-[#1f2937] md:text-[36px]">
+              <h3 className="mt-2 font-serif text-[20px] font-bold leading-tight text-[#1f2937] sm:text-[26px] md:text-[36px]">
                 {storeName}
               </h3>
 
