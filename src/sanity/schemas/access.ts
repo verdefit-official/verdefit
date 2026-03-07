@@ -25,7 +25,7 @@ export const accessSchema = defineType({
       description: "例: 〒013-0061",
     }),
     defineField({ name: "address", title: "住所", type: "string", description: "例: 秋田県横手市○○町1-2-3" }),
-    defineField({ name: "phone", title: "電話番号", type: "string", description: "例: 0182-XX-XXXX" }),
+    defineField({ name: "phone", title: "電話番号", type: "string", description: "例: 090-XXXX-XXXX" }),
     defineField({
       name: "hours",
       title: "営業時間",
