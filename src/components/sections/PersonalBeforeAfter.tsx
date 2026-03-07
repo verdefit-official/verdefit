@@ -56,11 +56,13 @@ export default function PersonalBeforeAfter() {
             <FadeIn key={card.key} delay={i * 100}>
               <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 {/* 画像エリア */}
-                <div className="flex h-64 items-center justify-center bg-gray-100 overflow-hidden">
+                <div className="relative w-full overflow-hidden bg-gray-100" style={{ aspectRatio: "3/4" }}>
                   {card.image ? (
-                    <img src={card.image} alt={card.label} className="h-full w-full object-cover object-top" />
+                    <img src={card.image} alt={card.label} className="absolute inset-0 h-full w-full object-cover object-center" />
                   ) : (
-                    <PersonIcon />
+                    <div className="flex h-full items-center justify-center">
+                      <PersonIcon />
+                    </div>
                   )}
                 </div>
 
