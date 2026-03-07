@@ -7,7 +7,7 @@ type CTAData = {
   secondaryButtonText?: string | null;
 };
 
-export default function CTA({ data, phone, bookingUrl }: { data?: CTAData | null; phone?: string; bookingUrl?: string }) {
+export default function CTA({ data, phone, bookingUrl, lineUrl, subheading }: { data?: CTAData | null; phone?: string; bookingUrl?: string; lineUrl?: string; subheading?: string }) {
   const heading = data?.heading ?? "身体を変える一歩を、今日から。";
   const description =
     data?.description ??
@@ -15,6 +15,7 @@ export default function CTA({ data, phone, bookingUrl }: { data?: CTAData | null
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const primaryButtonHref = bookingUrl ?? "#";
   const secondaryButtonText = data?.secondaryButtonText ?? "お電話でのご相談";
+  const secondaryHref = lineUrl ? lineUrl : phone ? `tel:${phone.replace(/-/g, "")}` : "#";
 
   return (
     <section id="cta" className="bg-white py-20 md:py-24">
@@ -24,6 +25,12 @@ export default function CTA({ data, phone, bookingUrl }: { data?: CTAData | null
             <h2 className="font-serif text-4xl font-bold text-green-800 md:text-[52px]">
               {heading}
             </h2>
+
+            {subheading && (
+              <p className="mt-4 font-serif text-xl font-bold text-green-700 md:text-2xl">
+                {subheading}
+              </p>
+            )}
 
             <p className="mx-auto mt-8 max-w-3xl text-sm leading-8 text-gray-700 md:text-base md:leading-9 whitespace-pre-line">
               {description}
@@ -37,7 +44,7 @@ export default function CTA({ data, phone, bookingUrl }: { data?: CTAData | null
                 {primaryButtonText}
               </a>
               <a
-                href={phone ? `tel:${phone.replace(/-/g, "")}` : "#"}
+                href={secondaryHref}
                 className="inline-flex h-14 min-w-[240px] items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50"
               >
                 {secondaryButtonText}

@@ -45,9 +45,9 @@ type AccessData = {
 const ctaData = {
   heading: "いつか変わりたいを今日から始めませんか？",
   description:
-    "無料体験カウンセリングを実施しています。\nまずはお気軽にご予約ください。あなたの目標・悩みをじっくりお聞きします。",
+    "ダイエットや身体づくりは、正しい方法と環境があれば必ず変わります。\n一人で悩まずまずは、お気軽にご相談ください。\nあなたの目標やライフスタイルに合わせて、無理なく続けられる方法をご提案します。\n理想の身体と健康的な習慣を一緒に手に入れましょう。",
   primaryButtonText: "予約はこちら",
-  secondaryButtonText: "お電話でのご相談",
+  secondaryButtonText: "LINEで相談する",
 };
 
 export default async function PersonalTrainingPage() {
@@ -74,7 +74,7 @@ export default async function PersonalTrainingPage() {
       <PersonalCancelPolicy />
       <PersonalFlow />
       <PersonalFAQ />
-      <CTA data={ctaData} phone={phone} bookingUrl={bookingUrl} />
+      <CTA data={ctaData} phone={phone} bookingUrl={bookingUrl} lineUrl={lineUrl} subheading="無料カウンセリング実施中" />
       <Access data={accessData} sectionBg="bg-white" />
     </>
   );
