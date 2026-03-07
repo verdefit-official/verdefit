@@ -92,7 +92,7 @@ export default function PersonalCancelPolicy() {
             </div>
 
             {/* クロージング */}
-            <div className="mt-10 text-center">
+            <div className="mt-10">
               <p className="text-sm text-gray-600">
                 皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。
               </p>
