@@ -15,7 +15,7 @@ export const chiropracticDisordersSchema = defineType({
       name: "sectionDescription",
       title: "セクション説明文",
       type: "string",
-      description: "例: 今の不調を放置すると、将来このような問題に発展することがあります。（空白にするとサブテキストは非表示になります）",
+      description: "例: 今の不調を放置すると、将来このような問題に発展することがあります。",
     }),
     defineField({
       name: "items",
