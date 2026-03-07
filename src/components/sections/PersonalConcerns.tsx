@@ -65,7 +65,7 @@ export default function PersonalConcerns() {
             <FadeIn key={c.key} delay={i * 60}>
               <div className={i > 0 ? "border-t border-gray-100 pt-10" : ""}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#e8f3ec] overflow-hidden p-1 [&_img]:mix-blend-multiply">
+                  <span className="inline-flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#e8f3ec] overflow-hidden p-1 [&_img]:mix-blend-multiply">
                     {c.icon}
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#1f2937] md:text-2xl">{c.title}</h3>
