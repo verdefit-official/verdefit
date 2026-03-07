@@ -60,12 +60,9 @@ function PlanCard({ plan, delay = 0 }: { plan: Required<PlanItem>; delay?: numbe
         </div>
 
         <div className="mt-auto">
-          <a
-            href="#"
-            className="inline-flex w-full items-center justify-center rounded-md bg-green-700 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-          >
+          <span className="inline-flex w-full items-center justify-center rounded-md border-2 border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-400 cursor-default">
             詳細を見る
-          </a>
+          </span>
         </div>
       </div>
     </FadeIn>

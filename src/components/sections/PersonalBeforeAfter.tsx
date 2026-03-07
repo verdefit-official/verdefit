@@ -106,12 +106,9 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
 
         <FadeIn delay={200}>
           <div className="mt-12 text-center">
-            <a
-              href="#testimonials"
-              className="inline-flex items-center gap-2 rounded-lg bg-green-700 px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-            >
+            <span className="inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 px-10 py-4 text-sm font-semibold text-gray-400 cursor-default">
               もっと詳しいお客様の声はこちら →
-            </a>
+            </span>
           </div>
         </FadeIn>
       </div>
