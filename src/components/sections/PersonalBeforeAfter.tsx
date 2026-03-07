@@ -58,8 +58,9 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
           result: c.result ?? defaultCards[i]?.result ?? "",
           text: c.text ?? defaultCards[i]?.text ?? "",
           imageUrl: c.imageUrl ?? defaultCards[i]?.imageUrl ?? null,
+          imageAlt: c.imageAlt ?? null,
         }))
-      : defaultCards;
+      : defaultCards.map((c) => ({ ...c, imageAlt: null }));
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
