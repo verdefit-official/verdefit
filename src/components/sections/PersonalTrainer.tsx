@@ -45,7 +45,7 @@ export default function PersonalTrainer() {
           <FadeIn>
             <div className="overflow-hidden aspect-[4/5] w-full rounded-xl bg-[#e8f3ec]">
               <img
-                src="/images/personal/personal-trainer.png"
+                src="/profile.png"
                 alt="代表トレーナー 吉田宗太郎"
                 className="h-full w-full object-cover object-top"
               />
