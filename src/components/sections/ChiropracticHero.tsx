@@ -10,7 +10,7 @@ type ChiropracticHeroData = {
   secondaryButtonText?: string | null;
 };
 
-export default function ChiropracticHero({ data, phone }: { data?: ChiropracticHeroData | null; phone?: string }) {
+export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: ChiropracticHeroData | null; phone?: string; bookingUrl?: string }) {
   const badge = data?.badge ?? "2026年春 GRAND OPEN";
   const heading = data?.heading ?? "将来の身体に不安を感じている方へ";
   const description =
@@ -53,7 +53,7 @@ export default function ChiropracticHero({ data, phone }: { data?: ChiropracticH
             <FadeIn delay={450}>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="#cta"
+                  href={bookingUrl ?? "#cta"}
                   className="inline-flex items-center justify-center rounded-lg bg-green-700 px-9 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800"
                 >
                   {primaryButtonText}

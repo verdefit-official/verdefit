@@ -11,7 +11,7 @@ type HeroData = {
   secondaryButtonText?: string | null;
 };
 
-export default function Hero({ data, phone }: { data?: HeroData | null; phone?: string }) {
+export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | null; phone?: string; bookingUrl?: string }) {
   const badge = data?.badge ?? "2026年春 GRAND OPEN";
   const heading = data?.heading ?? "年齢に左右されない理想の身体へ。";
   const subheadingLocation =
@@ -58,7 +58,7 @@ export default function Hero({ data, phone }: { data?: HeroData | null; phone?: 
             <FadeIn delay={450}>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="#cta"
+                  href={bookingUrl ?? "#cta"}
                   className="inline-flex items-center justify-center rounded-lg bg-green-700 px-9 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800"
                 >
                   {primaryButtonText}

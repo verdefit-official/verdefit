@@ -261,7 +261,7 @@ export default async function SeitaiPage() {
 
   return (
     <>
-      <ChiropracticHero data={heroData} phone={phone} />
+      <ChiropracticHero data={heroData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />
       <Concerns
         data={concernsData}
         showRootCause={false}

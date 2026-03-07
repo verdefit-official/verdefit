@@ -239,7 +239,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero data={heroData} phone={phone} />
+      <Hero data={heroData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />
       <Services data={servicesData} />
       <Concerns data={concernsData} />
       <Reasons data={reasonsData} />
