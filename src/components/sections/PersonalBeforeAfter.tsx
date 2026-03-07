@@ -58,7 +58,7 @@ export default function PersonalBeforeAfter() {
                 {/* 画像エリア */}
                 <div className="flex h-64 items-center justify-center bg-gray-100 overflow-hidden">
                   {card.image ? (
-                    <img src={card.image} alt={card.label} className="h-full w-full object-contain" />
+                    <img src={card.image} alt={card.label} className="h-full w-full object-cover object-top" />
                   ) : (
                     <PersonIcon />
                   )}
