@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
   description:
     "2026年春、横手市にグランドオープン。整体×パーソナルトレーニング×コーチングで、カラダとココロを根本から整えるトータルケアサロンVERDE FIT。",
+  verification: {
+    google: "o4sRBvIHpilVfE387qksnwawU7brd8O8uDgQXaxlDN4",
+  },
 };
 
 export default function RootLayout({
