@@ -76,7 +76,7 @@ export default function PersonalConcerns() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-14 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               ダイエットをしても続かない、効果が出ない本当の理由
             </h2>
           </div>
