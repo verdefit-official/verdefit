@@ -35,7 +35,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
   const sectionDescription = data?.sectionDescription ?? "なりたい理想の自分へとあなたを導きます";
   const role = data?.role ?? "代表トレーナー";
   const name = data?.name ?? "吉田　宗太郎";
-  const imageUrl = data?.imageUrl ?? "/profile.png";
+  const imageUrl = data?.imageUrl ?? "/profile.jpg";
   const imageAlt = data?.imageAlt ?? name;
   const beliefText = data?.beliefText ?? "私自身、過去最高体重95kgから65kgまでのダイエットに成功した経験があります。その過程で学んだのは、「正しい知識」と「継続できる環境」がいかに大切かということ。自己流では限界があり、プロのサポートがあってこそ、本当のダイエット成功があります。";
   const quote = data?.quote ?? "私が生まれ育った横手市で、同じように身体の悩みを抱える方々の力になりたい。その想いから、VERDE FITを立ち上げました。";

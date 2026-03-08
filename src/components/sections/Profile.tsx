@@ -36,7 +36,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
     data?.sectionDescription ?? "なりたい理想の自分へとあなたを導きます";
   const role = data?.role ?? "代表 / 施術者";
   const name = data?.name ?? "吉田 宗太郎";
-  const imageUrl = data?.imageUrl ?? "/profile.png";
+  const imageUrl = data?.imageUrl ?? "/profile.jpg";
   const imageAlt = data?.imageAlt ?? name;
   const beliefDescription =
     data?.beliefDescription ??
