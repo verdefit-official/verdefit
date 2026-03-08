@@ -57,7 +57,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
           </div>
         </FadeIn>
 
-        <div className="grid items-start gap-10 md:grid-cols-[1fr_1.4fr] lg:gap-16">
+        <div className="grid items-start gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
           <FadeIn>
             <div className="overflow-hidden aspect-[4/5] w-full rounded-xl bg-[#e8f3ec]">
               <img
