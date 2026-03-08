@@ -22,7 +22,7 @@ export default function PersonalHero({
   const heading = data?.heading ?? "横手市で一生、リバウンドしない身体づくりを始めませんか？";
   const subheading = data?.subheading ?? "一時的に痩せるダイエットからの卒業。\n一生モノの身体と習慣を身につけることができる。";
   const description = data?.description ?? "横手市で理想の身体が手に入るパーソナルジム、VERDE FIT。\n完全個別指導とプロの食事サポートであなたのなりたい姿を現実にします。\nリバウンドしない、一生使える知識と習慣を身につけましょう。";
-  const imageUrl = data?.imageUrl ?? "/images/personal/personal-hero.png";
+  const imageUrl = data?.imageUrl ?? "/personal-hero.png";
   const imageAlt = data?.imageAlt ?? "パーソナルトレーニング";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "LINEで相談する";
