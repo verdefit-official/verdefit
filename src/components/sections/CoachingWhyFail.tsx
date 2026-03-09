@@ -14,7 +14,7 @@ export default function CoachingWhyFail() {
         {/* ① 続かない理由 */}
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[44px]">
               「意志が弱い」は間違い。<br />
               運動・ダイエットが続かない本当の理由
             </h2>
@@ -25,7 +25,7 @@ export default function CoachingWhyFail() {
         </FadeIn>
 
         <FadeIn delay={80}>
-          <div className="rounded-2xl bg-[#e8f3ec] px-8 py-8 md:px-10">
+          <div className="mx-auto w-fit rounded-2xl bg-[#e8f3ec] px-8 py-8 md:px-10">
             <ul className="space-y-4">
               {bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-3 text-[15px] font-medium text-[#1f2937] md:text-[16px]">
