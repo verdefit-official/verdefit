@@ -1,7 +1,23 @@
 import FadeIn from "@/components/FadeIn";
 
-const testimonials = [
+type TestimonialItem = {
+  _key?: string;
+  name?: string | null;
+  demographics?: string | null;
+  before?: string | null;
+  after?: string | null;
+  text?: string | null;
+};
+
+type CoachingTestimonialsData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  testimonials?: TestimonialItem[] | null;
+};
+
+const defaultTestimonials: TestimonialItem[] = [
   {
+    _key: "t1",
     name: "M.Kさん",
     demographics: "30代女性・横手市在住",
     before: "ダイエットが続かず自信喪失",
@@ -9,6 +25,7 @@ const testimonials = [
     text: "何度もダイエットに失敗していましたが、コーチングで「なぜ続かないのか」の本質が分かりました。横手市で地域に寄り添ったサポートが受けられるのも魅力でした。",
   },
   {
+    _key: "t2",
     name: "T.Sさん",
     demographics: "40代男性・秋田市在住",
     before: "仕事のストレスで不規則な生活",
@@ -16,6 +33,7 @@ const testimonials = [
     text: "忙しくて健康を後回しにしていましたが、小さな行動から始めるアプローチで無理なく習慣が変わりました。秋田でオンラインにも対応していて助かりました。",
   },
   {
+    _key: "t3",
     name: "Y.Nさん",
     demographics: "50代女性・横手市在住",
     before: "更年期で体調不良が続く",
@@ -33,24 +51,32 @@ function PersonIcon() {
   );
 }
 
-export default function CoachingTestimonials() {
+export default function CoachingTestimonials({ data }: { data?: CoachingTestimonialsData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "習慣が変わったお客様の声";
+  const sectionDescription =
+    data?.sectionDescription ?? "横手市・秋田エリアで思考と習慣が変わった体験談";
+  const testimonials =
+    data?.testimonials && data.testimonials.length > 0
+      ? data.testimonials
+      : defaultTestimonials;
+
   return (
     <section id="testimonials" className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-14 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              習慣が変わったお客様の声
+              {sectionTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
-              横手市・秋田エリアで思考と習慣が変わった体験談
+              {sectionDescription}
             </p>
           </div>
         </FadeIn>
 
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 100}>
+            <FadeIn key={t._key ?? i} delay={i * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white">
                 {/* グリーンヘッダー */}
                 <div className="flex items-center gap-4 bg-green-500 px-6 py-6">

@@ -1,13 +1,36 @@
 import FadeIn from "@/components/FadeIn";
 
-const bullets = [
+type CoachingWhyFailData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  bullets?: string[] | null;
+  rootCauseTitle?: string | null;
+  rootCauseText?: string | null;
+  bottomBoxText?: string | null;
+};
+
+const defaultBullets = [
   "「今日は疲れたから明日にしよう」と先延ばしにしてしまう",
   "ダイエットを始めても、いつも三日坊主で終わる",
   "頭では分かっているのに、行動が変わらない",
   "一時的には頑張れるが、すぐに元の生活に戻ってしまう",
 ];
 
-export default function CoachingWhyFail() {
+export default function CoachingWhyFail({ data }: { data?: CoachingWhyFailData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "「意志が弱い」は間違い。";
+  const sectionDescription =
+    data?.sectionDescription ??
+    "横手市・秋田で健康づくりや習慣改善に取り組む多くの方が、こんな経験をされています。";
+  const bullets =
+    data?.bullets && data.bullets.length > 0 ? data.bullets : defaultBullets;
+  const rootCauseTitle = data?.rootCauseTitle ?? "実は、これは意志の問題ではありません";
+  const rootCauseText =
+    data?.rootCauseText ??
+    "脳は「現状維持」を好む仕組みになっています。新しい行動を始めようとすると、脳が自動的にブレーキをかけ、元の習慣に戻そうとするのです。つまり、運動やダイエットが続かないのは、あなたの意志が弱いからではなく、脳の仕組みを理解せずに挑戦しているからなのです。";
+  const bottomBoxText =
+    data?.bottomBoxText ??
+    "VERDE FITのコーチングでは、横手市・秋田で習慣改善に悩む方々に、\n認知科学に基づいた「続く仕組み」をお伝えします。";
+
   return (
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -15,11 +38,11 @@ export default function CoachingWhyFail() {
         <FadeIn>
           <div className="mb-12 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              「意志が弱い」は間違い。<br />
+              {sectionTitle}<br />
               運動・ダイエットが続かない本当の理由
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
-              横手市・秋田で健康づくりや習慣改善に取り組む多くの方が、こんな経験をされています。
+              {sectionDescription}
             </p>
           </div>
         </FadeIn>
@@ -48,18 +71,17 @@ export default function CoachingWhyFail() {
                 </svg>
               </span>
               <h3 className="font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
-                実は、これは意志の問題ではありません
+                {rootCauseTitle}
               </h3>
             </div>
 
             <p className="text-center text-[15px] leading-9 text-gray-700 md:text-[16px]">
-              脳は「現状維持」を好む仕組みになっています。新しい行動を始めようとすると、脳が自動的にブレーキをかけ、元の習慣に戻そうとするのです。つまり、運動やダイエットが続かないのは、あなたの意志が弱いからではなく、脳の仕組みを理解せずに挑戦しているからなのです。
+              {rootCauseText}
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-green-700 bg-white px-8 py-6 text-center">
-              <p className="text-[15px] font-bold leading-8 text-green-800 md:text-[16px]">
-                VERDE FITのコーチングでは、横手市・秋田で習慣改善に悩む方々に、<br className="hidden md:block" />
-                認知科学に基づいた「続く仕組み」をお伝えします。
+              <p className="whitespace-pre-line text-[15px] font-bold leading-8 text-green-800 md:text-[16px]">
+                {bottomBoxText}
               </p>
             </div>
           </div>

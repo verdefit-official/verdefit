@@ -31,6 +31,17 @@ import { personalCancelPolicySchema } from "./personalCancelPolicy";
 import { personalFlowSchema } from "./personalFlow";
 import { personalFaqSchema } from "./personalFaq";
 import { personalCtaSchema } from "./personalCta";
+// COACHING PAGE SCHEMAS
+import { coachingSeoSchema } from "./coachingSeo";
+import { coachingHeroSchema } from "./coachingHero";
+import { coachingWhyFailSchema } from "./coachingWhyFail";
+import { coachingMethodSchema } from "./coachingMethod";
+import { coachingFeaturesSchema } from "./coachingFeatures";
+import { coachingTestimonialsSchema } from "./coachingTestimonials";
+import { coachingPricingSchema } from "./coachingPricing";
+import { coachingCancelPolicySchema } from "./coachingCancelPolicy";
+import { coachingFaqSchema } from "./coachingFaq";
+import { coachingCtaSchema } from "./coachingCta";
 
 export const schemaTypes = [
   siteSettingsSchema,
@@ -66,4 +77,15 @@ export const schemaTypes = [
   personalFlowSchema,
   personalFaqSchema,
   personalCtaSchema,
+  // COACHING
+  coachingSeoSchema,
+  coachingHeroSchema,
+  coachingWhyFailSchema,
+  coachingMethodSchema,
+  coachingFeaturesSchema,
+  coachingTestimonialsSchema,
+  coachingPricingSchema,
+  coachingCancelPolicySchema,
+  coachingFaqSchema,
+  coachingCtaSchema,
 ];
