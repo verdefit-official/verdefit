@@ -42,7 +42,7 @@ export default function CoachingHero({
                 {badge}
               </span>
 
-              <h1 className="mt-5 font-serif text-4xl font-bold leading-tight text-[#1f2937] md:text-[52px] md:leading-[1.15]">
+              <h1 className="mt-5 mb-3 font-serif text-4xl font-bold leading-tight text-[#1f2937] md:text-[52px] md:leading-[1.15]">
                 {heading}
               </h1>
 

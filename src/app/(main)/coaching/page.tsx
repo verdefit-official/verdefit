@@ -117,23 +117,23 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const title =
     seo?.pageTitle ??
-    "横手市・秋田のコーチング｜思考と習慣を変える本格プログラム VERDE FIT";
+    "横手市のコーチングならVERDE FIT｜人生を変える習慣・目標達成サポート";
   const description =
     seo?.metaDescription ??
-    "横手市・秋田でコーチングをお探しの方へ。VERDE FITはCOMPASS認定プロコーチによる認知科学アプローチで、ダイエット・運動・健康習慣の継続をサポート。「続かない」を「続く」に変える本格コーチングプログラム。初回無料相談受付中。";
+    "横手市でコーチングをお探しの方へ。VERDE FITでは身体づくりと同時に思考や習慣を整えるコーチングを提供しています。目標設定や行動習慣をサポートし、理想の人生を実現するお手伝いをします。横手市で自己成長を目指す方はご相談ください。";
 
   return {
     title,
     description,
     keywords: seo?.keywords ?? [
       "横手市 コーチング",
-      "秋田 コーチング",
-      "横手市 習慣化",
-      "横手市 ダイエット コーチング",
-      "VERDE FIT コーチング",
+      "横手市 ライフコーチング",
+      "横手市 自己成長",
+      "横手市 習慣改善",
+      "横手市 メンタルサポート",
     ],
     openGraph: {
-      title: seo?.ogTitle ?? title,
+      title: seo?.ogTitle ?? "横手市のコーチングならVERDE FIT｜人生を変える習慣・目標達成サポート",
       description: seo?.ogDescription ?? description,
       locale: "ja_JP",
       type: "website",
