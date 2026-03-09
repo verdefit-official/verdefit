@@ -26,7 +26,7 @@ const testimonials = [
 
 function PersonIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-10 w-10 text-white" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-8 w-8 text-green-600" aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
     </svg>
@@ -35,7 +35,7 @@ function PersonIcon() {
 
 export default function CoachingTestimonials() {
   return (
-    <section id="testimonials" className="bg-white py-20 md:py-24">
+    <section id="testimonials" className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-14 text-center">
@@ -51,34 +51,30 @@ export default function CoachingTestimonials() {
         <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <FadeIn key={t.name} delay={i * 100}>
-              <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
-                {/* ヘッダー */}
-                <div className="flex items-center gap-4 bg-green-700 px-6 py-5">
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-600">
+              <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+                {/* グリーンヘッダー */}
+                <div className="flex items-center gap-4 bg-green-500 px-6 py-6">
+                  <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white">
                     <PersonIcon />
                   </span>
                   <div>
-                    <p className="font-bold text-white">{t.name}</p>
-                    <p className="text-sm text-green-100">{t.demographics}</p>
+                    <p className="text-base font-bold text-white">{t.name}</p>
+                    <p className="mt-0.5 text-sm text-green-100">{t.demographics}</p>
                   </div>
                 </div>
 
-                {/* BEFORE / AFTER */}
-                <div className="border-b border-gray-100 px-6 py-4">
-                  <div className="flex flex-col gap-2">
-                    <p className="text-sm">
-                      <span className="mr-2 inline-block rounded bg-red-100 px-2 py-0.5 text-xs font-bold text-red-600">BEFORE</span>
-                      {t.before}
+                {/* BEFORE / AFTER + テキスト */}
+                <div className="flex flex-1 flex-col px-6 py-6">
+                  <div className="mb-5 space-y-2">
+                    <p className="flex items-center gap-2 text-sm">
+                      <span className="inline-block rounded bg-red-100 px-2 py-0.5 text-xs font-bold text-red-500">BEFORE</span>
+                      <span className="text-gray-700">{t.before}</span>
                     </p>
-                    <p className="text-sm">
-                      <span className="mr-2 inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700">AFTER</span>
-                      {t.after}
+                    <p className="flex items-center gap-2 text-sm">
+                      <span className="inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700">AFTER</span>
+                      <span className="text-gray-700">{t.after}</span>
                     </p>
                   </div>
-                </div>
-
-                {/* テキスト */}
-                <div className="flex flex-1 items-start px-6 py-5">
                   <p className="text-[14px] leading-8 text-gray-600 md:text-[15px]">{t.text}</p>
                 </div>
               </article>

@@ -10,11 +10,11 @@ const bullets = [
 export default function CoachingWhyFail() {
   return (
     <section className="bg-white py-20 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* ① 続かない理由 */}
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[44px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               「意志が弱い」は間違い。<br />
               運動・ダイエットが続かない本当の理由
             </h2>
