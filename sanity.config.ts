@@ -36,7 +36,7 @@ const coachingSections = [
   { name: "coachingMethod", title: "思考の書き換えメソッド" },
   { name: "coachingFeatures", title: "VERDE FITのメソッド" },
   { name: "coachingTestimonials", title: "お客様の声" },
-  { name: "coachingPricing", title: "料金プラン・キャンセルポリシー" },
+  { name: "coachingPricing", title: "料金プラン" },
   { name: "coachingFaq", title: "よくある質問" },
   { name: "coachingCta", title: "CTA" },
 ];
