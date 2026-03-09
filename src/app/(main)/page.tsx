@@ -92,7 +92,6 @@ type ProfileSanity = {
 
 type PricingItem = { _key: string; label?: string; price?: string };
 type PricingColumn = { _key: string; title?: string; items?: PricingItem[] };
-type CancelPolicySection = { _key: string; title?: string; content?: string };
 type PricingSanity = {
   sectionTitle?: string;
   sectionDescription?: string;
@@ -104,10 +103,8 @@ type PricingSanity = {
   trialBenefits?: string[];
   pricingColumns?: PricingColumn[];
   pricingNote?: string;
-  cancelPolicyIntro?: string;
-  cancelPolicySections?: CancelPolicySection[];
-  cancelPolicyClosing?: string;
 };
+type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
 type FAQItem = { _key: string; question?: string; answer?: string };
 type FAQSanity = {
@@ -174,6 +171,7 @@ export default async function Home() {
     accessData,
     ctaData,
     siteSettingsData,
+    cancelPolicyRaw,
   ] = await Promise.all([
     safeFetch<HeroRaw>(
       `*[_type == "hero"][0]{ ..., image{ asset{ _ref, _type } } }`
@@ -196,6 +194,7 @@ export default async function Home() {
     safeFetch<AccessSanity>(`*[_type == "access"][0]`),
     safeFetch<CTASanity>(`*[_type == "cta"][0]`),
     safeFetch<SiteSettingsSanity>(`*[_type == "siteSettings"][0]{ bookingUrl }`),
+    safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
   ]);
 
   // Transform: resolve image URLs
@@ -247,7 +246,7 @@ export default async function Home() {
       <Reasons data={reasonsData} />
       <Testimonials data={testimonialsData} />
       <Profile data={profileData} />
-      <Pricing data={pricingData} bookingUrl={siteSettingsData?.bookingUrl} />
+      <Pricing data={pricingData} cancelPolicy={cancelPolicyRaw} bookingUrl={siteSettingsData?.bookingUrl} />
       <FAQ data={faqData} />
       <Access data={accessData} />
       <CTA data={ctaData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />
