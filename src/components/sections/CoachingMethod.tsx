@@ -25,7 +25,7 @@ const successCases = [
   {
     icon: (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src="/icon-exercise.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
+      <img src="/icon-exercise.png" alt="" className="h-10 w-10 object-contain" aria-hidden="true" />
     ),
     title: "運動習慣の定着",
     thoughtBefore: "「運動は苦手」",
@@ -36,7 +36,7 @@ const successCases = [
   {
     icon: (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src="/icon-food.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
+      <img src="/icon-food.png" alt="" className="h-10 w-10 object-contain" aria-hidden="true" />
     ),
     title: "食習慣の改善",
     thoughtBefore: "「ダイエットは続かない」",
@@ -47,7 +47,7 @@ const successCases = [
   {
     icon: (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src="/icon-sleep.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
+      <img src="/icon-sleep.png" alt="" className="h-10 w-10 object-contain" aria-hidden="true" />
     ),
     title: "睡眠習慣の改善",
     thoughtBefore: "「夜更かしが当たり前」",
