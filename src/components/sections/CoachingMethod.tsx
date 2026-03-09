@@ -25,7 +25,8 @@ const successCases = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <circle cx="13" cy="5" r="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.5l2 2.5-2 5M13 11l3-2.5M11 11l1 5.5 3-3" />
       </svg>
     ),
     title: "運動習慣の定着",
@@ -37,7 +38,7 @@ const successCases = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M3 12h18M3 18h12" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 3v5a3 3 0 0 0 6 0V3M9 8v13M18 3v4M18 3c0 0-2 1-2 3.5S18 10 18 10v10M16 10h4" />
       </svg>
     ),
     title: "食習慣の改善",
@@ -49,8 +50,7 @@ const successCases = [
   {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 3" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
     ),
     title: "睡眠習慣の改善",
