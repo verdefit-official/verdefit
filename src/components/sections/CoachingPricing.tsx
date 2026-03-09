@@ -132,7 +132,7 @@ export default function CoachingPricing({
 
         {/* 初回無料体験カード */}
         <FadeIn delay={60}>
-          <div className="mb-8 rounded-2xl bg-gray-50 px-8 py-10 text-center">
+          <div className="mb-8 rounded-2xl bg-white px-8 py-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
             <span className="inline-block rounded-full bg-green-600 px-4 py-1.5 text-xs font-semibold text-white">
               {trialBadge}
             </span>
@@ -166,12 +166,9 @@ export default function CoachingPricing({
                     <li key={j} className="text-sm text-gray-600">{d}</li>
                   ))}
                 </ul>
-                <a
-                  href={bookingUrl ?? "#cta"}
-                  className="mt-8 inline-flex h-11 w-full items-center justify-center rounded-lg bg-green-600 text-sm font-semibold text-white transition-colors hover:bg-green-700"
-                >
+                <span className="mt-8 inline-flex h-11 w-full items-center justify-center rounded-lg border-2 border-gray-300 text-sm font-semibold text-gray-400 cursor-default">
                   詳細を見る
-                </a>
+                </span>
               </div>
             </FadeIn>
           ))}

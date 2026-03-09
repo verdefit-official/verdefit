@@ -32,7 +32,7 @@ export default function CoachingHero({
   const secondaryButtonText = data?.secondaryButtonText ?? "LINEで相談する";
 
   return (
-    <section className="bg-[#e8f3ec] pt-24 pb-20 md:pt-28 md:pb-24">
+    <section className="bg-[#e8f3ec] pt-16 pb-12 sm:pt-28 sm:pb-20 md:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
           {/* テキスト */}
