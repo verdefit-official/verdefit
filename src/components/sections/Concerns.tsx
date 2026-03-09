@@ -149,7 +149,7 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={listImageUrl}
-                    alt={listImageAlt ?? "お悩みイメージ"}
+                    alt={listImageAlt ?? "横手市で整体・パーソナルトレーニングのお悩みを抱える方のイメージ"}
                     className="h-full w-full object-cover object-top"
                   />
                 ) : (
