@@ -1,7 +1,7 @@
 import FadeIn from "@/components/FadeIn";
 
 // 内部リンクはコードで固定管理（インデックス順: 整体, パーソナル, コーチング）
-const STATIC_HREFS: (string | undefined)[] = ["/seitai", "/personal-training", undefined];
+const STATIC_HREFS: (string | undefined)[] = ["/seitai", "/personal-training", "/coaching"];
 
 type ServiceItem = {
   _key?: string;

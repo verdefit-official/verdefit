@@ -50,39 +50,41 @@ export default function PersonalCancelPolicy({ data, sectionBg = "bg-[#e8f3ec]" 
         </FadeIn>
 
         <FadeIn delay={80}>
-          <div className="rounded-xl border border-green-600 bg-white px-8 py-8 md:px-10 md:py-8">
-            {/* ヘッダー */}
-            <div className="mb-6 text-center">
-              <p className="inline-flex items-center gap-2 text-lg font-bold text-[#1f2937]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="h-6 w-6 text-green-700" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4M12 16h.01" />
-                </svg>
-                大切なお知らせ
-              </p>
-              <p className="mt-3 whitespace-pre-line text-[13px] leading-7 text-gray-600">
-                {intro}
-              </p>
-            </div>
+          <div className="rounded-xl bg-white px-8 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-10 md:py-10">
+            <div className="rounded-lg border border-gray-200 px-6 py-7 text-sm leading-7 text-gray-700 md:px-10 md:py-8">
+              {/* ヘッダー */}
+              <div className="mb-6 text-center">
+                <p className="inline-flex items-center gap-2 text-lg font-bold text-[#1f2937]">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className="h-6 w-6 text-green-700" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4M12 16h.01" />
+                  </svg>
+                  大切なお知らせ
+                </p>
+                <p className="mt-3 whitespace-pre-line text-[13px] leading-7 text-gray-600">
+                  {intro}
+                </p>
+              </div>
 
-            {/* 各セクション */}
-            <div className="space-y-6">
-              {sections.map((s, i) => (
-                <div key={i}>
-                  <p className="mb-2 text-center font-bold text-[#1f2937]">{s.title}</p>
-                  <p className="whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
-                    {s.content}
-                  </p>
-                </div>
-              ))}
-            </div>
+              {/* 各セクション */}
+              <div className="space-y-6">
+                {sections.map((s, i) => (
+                  <div key={i}>
+                    <p className="mb-2 text-center font-bold text-[#1f2937]">{s.title}</p>
+                    <p className="whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
+                      {s.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
-            {/* クロージング */}
-            <div className="mt-8 text-center">
-              <p className="whitespace-pre-line text-[13px] font-medium text-gray-600">
-                {closing}
-              </p>
-              <p className="mt-3 text-[13px] font-bold text-green-700">VERDE FIT</p>
+              {/* クロージング */}
+              <div className="mt-8 text-center">
+                <p className="whitespace-pre-line text-[13px] font-medium text-gray-600">
+                  {closing}
+                </p>
+                <p className="mt-3 text-[13px] font-bold text-green-700">VERDE FIT</p>
+              </div>
             </div>
           </div>
         </FadeIn>

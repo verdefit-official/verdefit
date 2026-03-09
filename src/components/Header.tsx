@@ -5,7 +5,7 @@ import { useMenu } from "@/components/MenuProvider";
 const navLinks = [
   { href: "/seitai", label: "整体" },
   { href: "/personal-training", label: "パーソナル" },
-  { href: "#coaching", label: "コーチング" },
+  { href: "/coaching", label: "コーチング" },
   { href: "#pricing", label: "料金" },
   { href: "#testimonials", label: "お客様の声" },
   { href: "#blog", label: "ブログ" },
