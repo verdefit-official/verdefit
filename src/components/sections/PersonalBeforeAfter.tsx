@@ -84,7 +84,7 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
             <FadeIn key={card.key} delay={i * 100}>
               <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 {/* 画像エリア */}
-                <div className="relative w-full overflow-hidden bg-gray-100" style={{ aspectRatio: "1/1" }}>
+                <div className="relative w-full overflow-hidden bg-gray-100" style={{ aspectRatio: "4/3" }}>
                   {card.imageUrl ? (
                     <img src={card.imageUrl} alt={card.imageAlt ?? card.label ?? ""} className="absolute inset-0 h-full w-full object-cover object-center" />
                   ) : (
