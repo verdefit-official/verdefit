@@ -36,7 +36,7 @@ export default function CoachingHero({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
           {/* テキスト */}
-          <FadeIn>
+          <FadeIn className="order-2 md:order-1">
             <div>
               <span className="inline-block rounded-full bg-green-700 px-4 py-1.5 text-xs font-semibold tracking-wide text-white">
                 {badge}
@@ -72,7 +72,7 @@ export default function CoachingHero({
           </FadeIn>
 
           {/* ヒーロー画像 */}
-          <FadeIn delay={150}>
+          <FadeIn delay={150} className="order-1 md:order-2">
             <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
