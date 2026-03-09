@@ -87,7 +87,6 @@ export default function Footer({
                 height={36}
                 className="h-9 w-9 object-contain rounded-full"
               />
-              <span className="font-serif text-[22px] font-semibold leading-none text-[#1f2937]">VERDE FIT</span>
             </a>
 
             <p className="mt-4 max-w-xs text-sm leading-7 text-gray-600">
