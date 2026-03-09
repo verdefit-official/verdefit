@@ -7,7 +7,6 @@ import CoachingMethod from "@/components/sections/CoachingMethod";
 import CoachingFeatures from "@/components/sections/CoachingFeatures";
 import CoachingTestimonials from "@/components/sections/CoachingTestimonials";
 import CoachingPricing from "@/components/sections/CoachingPricing";
-import PersonalCancelPolicy from "@/components/sections/PersonalCancelPolicy";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import Access from "@/components/sections/Access";
@@ -73,13 +72,9 @@ type PricingRaw = {
   trialButtonText?: string;
   plans?: { _key: string; badge?: string; title?: string; price?: string; details?: string[] }[];
   note?: string;
-};
-
-type CancelPolicyRaw = {
-  sectionTitle?: string;
-  intro?: string;
-  sections?: { _key: string; title?: string; content?: string }[];
-  closing?: string;
+  cancelPolicyIntro?: string;
+  cancelPolicySections?: { _key: string; title?: string; content?: string }[];
+  cancelPolicyClosing?: string;
 };
 
 type FAQRaw = {
@@ -155,7 +150,6 @@ export default async function CoachingPage() {
     featuresRaw,
     testimonialsRaw,
     pricingRaw,
-    cancelPolicyRaw,
     faqRaw,
     ctaRaw,
     accessData,
@@ -167,7 +161,6 @@ export default async function CoachingPage() {
     safeFetch<FeaturesRaw>(`*[_type == "coachingFeatures"][0]`),
     safeFetch<TestimonialsRaw>(`*[_type == "coachingTestimonials"][0]`),
     safeFetch<PricingRaw>(`*[_type == "coachingPricing"][0]`),
-    safeFetch<CancelPolicyRaw>(`*[_type == "coachingCancelPolicy"][0]`),
     safeFetch<FAQRaw>(`*[_type == "coachingFaq"][0]`),
     safeFetch<CTARaw>(`*[_type == "coachingCta"][0]`),
     safeFetch<AccessRaw>(`*[_type == "access"][0]`),
@@ -219,7 +212,6 @@ export default async function CoachingPage() {
       <CoachingFeatures data={featuresRaw} />
       <CoachingTestimonials data={testimonialsRaw} />
       <CoachingPricing data={pricingRaw} bookingUrl={bookingUrl} />
-      <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-white" />
       <FAQ data={faqData} sectionBg="bg-[#e8f3ec]" />
       <CTA
         data={ctaData}
