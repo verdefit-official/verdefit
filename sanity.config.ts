@@ -29,6 +29,18 @@ const chiropracticSections = [
   { name: "chiropracticCta", title: "CTA" },
 ];
 
+const coachingSections = [
+  { name: "coachingSeo", title: "SEO設定" },
+  { name: "coachingHero", title: "ヒーロー" },
+  { name: "coachingWhyFail", title: "続かない理由" },
+  { name: "coachingMethod", title: "思考の書き換えメソッド" },
+  { name: "coachingFeatures", title: "VERDE FITのメソッド" },
+  { name: "coachingTestimonials", title: "お客様の声" },
+  { name: "coachingPricing", title: "料金プラン・キャンセルポリシー" },
+  { name: "coachingFaq", title: "よくある質問" },
+  { name: "coachingCta", title: "CTA" },
+];
+
 const personalSections = [
   { name: "personalSeo", title: "SEO設定" },
   { name: "personalHero", title: "ヒーロー" },
@@ -90,6 +102,19 @@ export default defineConfig({
                   .title("整体ページ")
                   .items(
                     chiropracticSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    )
+                  )
+              ),
+            S.listItem()
+              .title("コーチングページ")
+              .id("coaching")
+              .child(
+                S.list()
+                  .id("coaching-list")
+                  .title("コーチングページ")
+                  .items(
+                    coachingSections.map(({ name, title }) =>
                       singleton(S, name, title)
                     )
                   )
