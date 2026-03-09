@@ -132,7 +132,7 @@ export default function CoachingPricing({
 
         {/* 初回無料体験カード */}
         <FadeIn delay={60}>
-          <div className="mb-8 rounded-2xl bg-white px-8 py-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+          <div className="mb-8 rounded-2xl bg-white px-8 py-10 text-center shadow-[0_4px_20px_rgba(0,0,0,0.10)]">
             <span className="inline-block rounded-full bg-green-600 px-4 py-1.5 text-xs font-semibold text-white">
               {trialBadge}
             </span>
@@ -152,7 +152,7 @@ export default function CoachingPricing({
         <div className="grid gap-5 sm:grid-cols-2">
           {plans.map((plan, i) => (
             <FadeIn key={plan._key ?? i} delay={i * 80}>
-              <div className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+              <div className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.10)]">
                 <span className="mb-4 inline-block self-start rounded-full bg-green-600 px-4 py-1 text-xs font-semibold text-white">
                   {plan.badge}
                 </span>
@@ -182,7 +182,7 @@ export default function CoachingPricing({
 
         {/* キャンセルポリシー */}
         <FadeIn delay={350}>
-          <div className="mt-10 rounded-xl bg-white px-8 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-10 md:py-10">
+          <div className="mt-10 rounded-xl bg-white px-8 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.10)] md:px-10 md:py-10">
             <h3 className="mb-6 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
               キャンセルポリシー
             </h3>
