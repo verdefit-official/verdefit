@@ -86,7 +86,7 @@ src/
 │   ├── (main)/              # サイト本体（Header / Footer あり）
 │   │   ├── layout.tsx       # SEO メタデータ取得
 │   │   ├── page.tsx         # トップページ
-│   │   ├── chiropractic/    # 整体ページ（/chiropractic）
+│   │   ├── seitai/          # 整体ページ（/seitai）
 │   │   │   └── page.tsx
 │   │   └── personal-training/ # パーソナルトレーニングページ（/personal-training）
 │   │       └── page.tsx
@@ -122,7 +122,7 @@ src/
 | Access | 店舗情報・アクセス |
 | CTA | 最終CTA |
 
-### 整体ページ（/chiropractic）
+### 整体ページ（/seitai）
 
 | セクション | 内容 |
 |---|---|

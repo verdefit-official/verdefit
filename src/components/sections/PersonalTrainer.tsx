@@ -70,30 +70,32 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
 
           <FadeIn delay={150}>
             <div>
-              <p className="text-sm font-semibold text-green-700">{role}</p>
-              <h3 className="mt-1 font-serif text-[36px] font-bold text-[#1f2937] md:text-[44px]">
+              <p className="text-sm font-semibold text-green-700 md:text-base">{role}</p>
+              <h3 className="mt-2 font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
                 {name}
               </h3>
-              <div className="mt-3 h-1 w-14 bg-green-700" />
+              <span className="mt-4 block h-1 w-16 bg-green-700" />
 
               <div className="mt-8">
-                <p className="mb-3 font-bold text-green-700">想い</p>
-                <p className="text-sm leading-8 text-gray-600">{beliefText}</p>
+                <p className="text-xl font-bold text-green-700 md:text-2xl">想い</p>
+                <div className="mt-4 space-y-4 text-[15px] leading-8 text-gray-700 md:text-[16px] md:leading-9">
+                  <p>{beliefText}</p>
+                </div>
               </div>
 
               <div className="mt-6 rounded-lg border border-green-600 px-6 py-5">
-                <p className="text-center text-sm font-bold leading-8 text-green-800">
+                <p className="text-center text-[15px] font-bold leading-8 text-green-800 md:text-[16px]">
                   {quote}
                 </p>
               </div>
 
-              <p className="mt-6 text-sm leading-8 text-gray-600">{closingText}</p>
+              <p className="mt-6 text-[15px] leading-8 text-gray-700 md:text-[16px] md:leading-9">{closingText}</p>
 
               <div className="mt-8">
-                <p className="mb-4 font-bold text-green-700">保有資格・経歴</p>
+                <p className="mb-4 text-xl font-bold text-green-700 md:text-2xl">保有資格・経歴</p>
                 <ul className="space-y-3">
                   {credentials.map((c, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-gray-700">
+                    <li key={i} className="flex items-center gap-3 text-[15px] text-gray-700 md:text-[16px]">
                       <CheckIcon />
                       {c}
                     </li>
