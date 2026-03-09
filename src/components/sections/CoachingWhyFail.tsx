@@ -17,7 +17,7 @@ const defaultBullets = [
 ];
 
 export default function CoachingWhyFail({ data }: { data?: CoachingWhyFailData | null }) {
-  const sectionTitle = data?.sectionTitle ?? "「意志が弱い」は間違い。";
+  const sectionTitle = data?.sectionTitle ?? "「意志が弱い」は間違い。\n運動・ダイエットが続かない本当の理由";
   const sectionDescription =
     data?.sectionDescription ??
     "横手市・秋田で健康づくりや習慣改善に取り組む多くの方が、こんな経験をされています。";
@@ -37,9 +37,8 @@ export default function CoachingWhyFail({ data }: { data?: CoachingWhyFailData |
         {/* ① 続かない理由 */}
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              {sectionTitle}<br />
-              運動・ダイエットが続かない本当の理由
+            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+              {sectionTitle}
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}
