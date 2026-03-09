@@ -124,7 +124,7 @@ export default async function CoachingPage() {
           sectionDescription: "横手市・秋田でコーチングを受ける前の疑問を解消",
           items: coachingFAQItems,
         }}
-        sectionBg="bg-white"
+        sectionBg="bg-[#e8f3ec]"
       />
       <CTA
         data={{
