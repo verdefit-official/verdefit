@@ -37,15 +37,15 @@ export async function generateMetadata(): Promise<Metadata> {
     ogDescription?: string;
   }>(`*[_type == "personalSeo"][0]`);
 
-  const title = seo?.pageTitle ?? "パーソナルトレーニング｜VERDE FIT";
+  const title = seo?.pageTitle ?? "横手市のパーソナルジム｜本気で痩せるダイエット専門 VERDE FIT";
   const description =
     seo?.metaDescription ??
-    "横手市で一生リバウンドしない体づくりを。NSCA認定トレーナーによる完全個別指導・食事サポート・習慣化メソッドで理想の体へ導きます。";
+    "横手市でパーソナルジムをお探しの方へ。VERDE FITはダイエット・ボディメイク専門のパーソナルトレーニングジムです。食事サポートと個別トレーニングで理想の身体づくりをサポート。横手市で本気で痩せたい方は無料カウンセリングへ。";
 
   return {
     title,
     description,
-    keywords: seo?.keywords ?? ["横手市", "パーソナルトレーニング", "ダイエット", "ボディメイク", "VERDE FIT"],
+    keywords: seo?.keywords ?? ["横手市 パーソナルジム", "横手市 ダイエット", "横手市 パーソナルトレーニング", "横手市 ボディメイク", "横手市 ジム"],
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,

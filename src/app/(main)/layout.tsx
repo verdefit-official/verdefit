@@ -35,14 +35,14 @@ type TopPageSeoSanity = {
 };
 
 const defaultMetadata: Metadata = {
-  title: "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
+  title: "横手市の整体ならVERDE FIT｜国家資格者が教える腰痛・骨盤矯正のパーソナル",
   description:
-    "2026年春、横手市にグランドオープン。整体×パーソナルトレーニング×コーチングで、カラダとココロを根本から整えるトータルケアサロンVERDE FIT。",
-  keywords: ["横手市", "整体", "パーソナルトレーニング", "コーチング", "VERDE FIT"],
+    "横手市で整体をお探しの方へ。腰痛や身体の不調にお悩みならVERDE FITへ。厚生労働省認可の国家資格（柔道整復師）を持つ院長が延べ5,000人以上を施術。横手市で痛みの根本改善を目指す整体院です。初回体験受付中。",
+  keywords: ["横手市 整体", "横手市 腰痛", "横手市 骨盤矯正", "横手市 パーソナルジム", "横手市 ジム"],
   openGraph: {
-    title: "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
+    title: "横手市の整体ならVERDE FIT｜国家資格者が教える腰痛・骨盤矯正のパーソナル",
     description:
-      "整体×パーソナルトレーニング×コーチングで、カラダとココロを根本から整えるトータルケアサロン",
+      "横手市で整体をお探しの方へ。腰痛や身体の不調にお悩みならVERDE FITへ。厚生労働省認可の国家資格（柔道整復師）を持つ院長が延べ5,000人以上を施術。横手市で痛みの根本改善を目指す整体院です。初回体験受付中。",
     locale: "ja_JP",
     type: "website",
   },
@@ -68,21 +68,21 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title:
       seo.pageTitle ??
-      "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
+      "横手市の整体ならVERDE FIT｜国家資格者が教える腰痛・骨盤矯正のパーソナル",
     description:
       seo.metaDescription ??
-      "2026年春、横手市にグランドオープン。整体×パーソナルトレーニング×コーチングで、カラダとココロを根本から整えるトータルケアサロンVERDE FIT。",
-    keywords: seo.keywords ?? ["横手市", "整体", "パーソナルトレーニング", "コーチング"],
+      "横手市で整体をお探しの方へ。腰痛や身体の不調にお悩みならVERDE FITへ。厚生労働省認可の国家資格（柔道整復師）を持つ院長が延べ5,000人以上を施術。横手市で痛みの根本改善を目指す整体院です。初回体験受付中。",
+    keywords: seo.keywords ?? ["横手市 整体", "横手市 腰痛", "横手市 骨盤矯正", "横手市 パーソナルジム", "横手市 ジム"],
     icons,
     openGraph: {
       title:
         seo.ogTitle ??
         seo.pageTitle ??
-        "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
+        "横手市の整体ならVERDE FIT｜国家資格者が教える腰痛・骨盤矯正のパーソナル",
       description:
         seo.ogDescription ??
         seo.metaDescription ??
-        "整体×パーソナルトレーニング×コーチングで、カラダとココロを根本から整えるトータルケアサロン",
+        "横手市で整体をお探しの方へ。腰痛や身体の不調にお悩みならVERDE FITへ。厚生労働省認可の国家資格（柔道整復師）を持つ院長が延べ5,000人以上を施術。横手市で痛みの根本改善を目指す整体院です。初回体験受付中。",
       images: ogImageUrl ? [{ url: ogImageUrl }] : [],
       locale: "ja_JP",
       type: "website",

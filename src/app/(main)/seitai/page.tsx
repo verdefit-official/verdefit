@@ -35,15 +35,15 @@ export async function generateMetadata(): Promise<Metadata> {
     ogDescription?: string;
   }>(`*[_type == "chiropracticSeo"][0]`);
 
-  const title = seo?.pageTitle ?? "整体｜VERDE FIT";
+  const title = seo?.pageTitle ?? "横手市の整体｜腰痛・肩こりを根本改善 VERDE FIT整体院";
   const description =
     seo?.metaDescription ??
-    "延べ5,000人以上を治療してきた国家資格者が横手市であなたの痛みを根本から整えます。腰痛・肩こり・坐骨神経痛など、あらゆる不調に対応した分析型整体。";
+    "横手市で整体をお探しの方へ。腰痛・肩こり・姿勢の悩みを根本改善。VERDE FITは国家資格（柔道整復師）を持つ院長が対応する整体院です。延べ5,000人以上の施術実績。横手市で身体を変えたい方はご相談ください。";
 
   return {
     title,
     description,
-    keywords: seo?.keywords ?? ["横手市", "整体", "腰痛", "肩こり", "坐骨神経痛", "VERDE FIT"],
+    keywords: seo?.keywords ?? ["横手市 整体", "横手市 腰痛", "横手市 肩こり", "横手市 骨盤矯正", "横手市 姿勢改善", "VERDE FIT"],
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
