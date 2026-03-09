@@ -41,6 +41,7 @@ import { coachingTestimonialsSchema } from "./coachingTestimonials";
 import { coachingPricingSchema } from "./coachingPricing";
 import { coachingFaqSchema } from "./coachingFaq";
 import { coachingCtaSchema } from "./coachingCta";
+import { priceSeoSchema } from "./priceSeo";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -86,4 +87,5 @@ export const schemaTypes = [
   coachingPricingSchema,
   coachingFaqSchema,
   coachingCtaSchema,
+  priceSeoSchema,
 ];
