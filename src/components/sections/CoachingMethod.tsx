@@ -95,7 +95,7 @@ export default function CoachingMethod() {
                     {step.number}
                   </span>
                   <h3 className="mb-4 font-serif text-xl font-bold text-[#1f2937]">{step.title}</h3>
-                  <p className="text-center text-[14px] leading-8 text-gray-600 md:text-[15px]">{step.description}</p>
+                  <p className="text-[14px] leading-8 text-gray-600 md:text-[15px]">{step.description}</p>
                 </div>
               </FadeIn>
               {i < steps.length - 1 && (

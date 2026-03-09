@@ -23,7 +23,7 @@ export default function CoachingHero({
                 挫折しない自分へ。
               </h1>
 
-              <p className="mt-5 font-serif text-lg font-bold text-green-800 md:text-xl">
+              <p className="mb-5 text-[17px] font-semibold leading-8 text-[#374151] whitespace-pre-line md:text-[19px]">
                 思考と習慣を整え、「続かない」を卒業する本格コーチング
               </p>
 
@@ -50,12 +50,14 @@ export default function CoachingHero({
 
           {/* 画像プレースホルダー */}
           <FadeIn delay={150}>
-            <div className="flex h-[340px] w-full items-center justify-center rounded-2xl bg-white shadow-[0_8px_24px_rgba(0,0,0,0.06)] md:h-[420px]">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-24 w-24 text-green-300" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4M12 16h.01" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a3 3 0 0 1 6 0c0 2-3 3-3 5" />
-              </svg>
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
+              <div className="flex h-full w-full items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-24 w-24 text-green-300" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4M12 16h.01" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a3 3 0 0 1 6 0c0 2-3 3-3 5" />
+                </svg>
+              </div>
             </div>
           </FadeIn>
         </div>

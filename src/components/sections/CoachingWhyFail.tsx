@@ -52,7 +52,7 @@ export default function CoachingWhyFail() {
               </h3>
             </div>
 
-            <p className="text-[15px] leading-9 text-gray-700 md:text-[16px]">
+            <p className="text-center text-[15px] leading-9 text-gray-700 md:text-[16px]">
               脳は「現状維持」を好む仕組みになっています。新しい行動を始めようとすると、脳が自動的にブレーキをかけ、元の習慣に戻そうとするのです。つまり、運動やダイエットが続かないのは、あなたの意志が弱いからではなく、脳の仕組みを理解せずに挑戦しているからなのです。
             </p>
 
