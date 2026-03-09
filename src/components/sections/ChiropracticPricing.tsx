@@ -54,9 +54,11 @@ const defaultCoupons: CouponItem[] = [
 export default function ChiropracticPricing({
   data,
   sectionBg = "bg-[#e8f3ec]",
+  pricePageUrl = "/price#seitai",
 }: {
   data?: ChiropracticPricingData | null;
   sectionBg?: string;
+  pricePageUrl?: string;
 }) {
   const sectionTitle = data?.sectionTitle ?? "料金案内";
   const sectionDescription = data?.sectionDescription ?? "明瞭な料金体系で、安心してご利用いただけます";
@@ -162,13 +164,15 @@ export default function ChiropracticPricing({
           </div>
         </FadeIn>
 
-        {/* 料金詳細ボタン（未作成のためグレー表示） */}
         <FadeIn delay={200}>
           <div className="text-center">
-            <span className="inline-flex items-center gap-1.5 rounded-md border-2 border-gray-300 px-7 py-2.5 text-sm font-semibold text-gray-400 cursor-default">
+            <a
+              href={pricePageUrl}
+              className="inline-flex items-center gap-1.5 rounded-md border-2 border-green-700 px-7 py-2.5 text-sm font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white"
+            >
               料金詳細はこちら
               <span aria-hidden="true">→</span>
-            </span>
+            </a>
           </div>
         </FadeIn>
 

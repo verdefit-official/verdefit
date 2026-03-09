@@ -92,10 +92,12 @@ export default function CoachingPricing({
   data,
   cancelPolicy,
   bookingUrl,
+  pricePageUrl = "/price#coaching",
 }: {
   data?: CoachingPricingData | null;
   cancelPolicy?: CancelPolicyData | null;
   bookingUrl?: string;
+  pricePageUrl?: string;
 }) {
   const sectionTitle = data?.sectionTitle ?? "料金プラン";
   const sectionDescription =
@@ -166,9 +168,12 @@ export default function CoachingPricing({
                     <li key={j} className="text-sm text-gray-600">{d}</li>
                   ))}
                 </ul>
-                <span className="mt-8 inline-flex h-11 w-full items-center justify-center rounded-lg border-2 border-gray-300 text-sm font-semibold text-gray-400 cursor-default">
+                <a
+                  href={pricePageUrl}
+                  className="mt-8 inline-flex h-11 w-full items-center justify-center rounded-lg border-2 border-green-700 text-sm font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white"
+                >
                   詳細を見る
-                </span>
+                </a>
               </div>
             </FadeIn>
           ))}

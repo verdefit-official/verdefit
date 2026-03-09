@@ -36,7 +36,7 @@ const defaultPlans: PlanItem[] = [
   { name: "単発セッション", foodLabel: "都度払い", foodGreen: false, price: "¥11,000", details: ["60分 / 1回", "メンテナンス・お試しに", "予約制"], popular: false },
 ];
 
-function PlanCard({ plan, delay = 0 }: { plan: Required<PlanItem>; delay?: number }) {
+function PlanCard({ plan, delay = 0, pricePageUrl }: { plan: Required<PlanItem>; delay?: number; pricePageUrl: string }) {
   return (
     <FadeIn delay={delay}>
       <div className={`relative flex h-full flex-col rounded-xl bg-white px-7 py-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)] text-center ${plan.popular ? "ring-2 ring-green-600" : ""}`}>
@@ -63,9 +63,12 @@ function PlanCard({ plan, delay = 0 }: { plan: Required<PlanItem>; delay?: numbe
         </div>
 
         <div className="mt-auto">
-          <span className="inline-flex w-full items-center justify-center rounded-md border-2 border-gray-300 px-6 py-2.5 text-sm font-semibold text-gray-400 cursor-default">
+          <a
+            href={pricePageUrl}
+            className="inline-flex w-full items-center justify-center rounded-md border-2 border-green-700 px-6 py-2.5 text-sm font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white"
+          >
             詳細を見る
-          </span>
+          </a>
         </div>
       </div>
     </FadeIn>
@@ -79,7 +82,7 @@ const defaultCancelPolicySections: CancelPolicySection[] = [
   { _key: "cp4", title: "■ 体調不良・やむを得ない事情の場合", content: "体調不良や急なご事情の際は、無理をなさらずお早めにご連絡ください。\n医師の診断書の提出など客観的にやむを得ない理由が確認できる場合は、個別に対応させていただきます。\nなお、「悪天候」「気分」「他のご予定」などの理由によるキャンセルは通常のキャンセル規定の対象となります。" },
 ];
 
-export default function PersonalPricing({ data, cancelPolicy }: { data?: PersonalPricingData | null; cancelPolicy?: CancelPolicyData | null }) {
+export default function PersonalPricing({ data, cancelPolicy, pricePageUrl = "/price#personal" }: { data?: PersonalPricingData | null; cancelPolicy?: CancelPolicyData | null; pricePageUrl?: string }) {
   const sectionTitle = data?.sectionTitle ?? "料金プラン";
   const sectionDescription = data?.sectionDescription ?? "横手市で通いやすい、明瞭な料金体系";
   const note = data?.note ?? "※分割払いも承ります。詳しくはお問い合わせください。";
@@ -120,7 +123,7 @@ export default function PersonalPricing({ data, cancelPolicy }: { data?: Persona
         {/* 上段3列 */}
         <div className="grid gap-5 sm:grid-cols-3">
           {topPlans.map((plan, i) => (
-            <PlanCard key={i} plan={plan} delay={i * 60} />
+            <PlanCard key={i} plan={plan} delay={i * 60} pricePageUrl={pricePageUrl} />
           ))}
         </div>
 
@@ -128,7 +131,7 @@ export default function PersonalPricing({ data, cancelPolicy }: { data?: Persona
         {bottomPlans.length > 0 && (
           <div className="mx-auto mt-5 grid max-w-[680px] gap-5 sm:grid-cols-2">
             {bottomPlans.map((plan, i) => (
-              <PlanCard key={i} plan={plan} delay={i * 60 + 180} />
+              <PlanCard key={i} plan={plan} delay={i * 60 + 180} pricePageUrl={pricePageUrl} />
             ))}
           </div>
         )}

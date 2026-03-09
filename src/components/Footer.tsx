@@ -17,7 +17,7 @@ const footerLinks = [
   { href: "/seitai", label: "整体" },
   { href: "/personal-training", label: "パーソナルトレーニング" },
   { href: "/coaching", label: "コーチング" },
-  { href: "#pricing", label: "料金" },
+  { href: "/price", label: "料金" },
   { href: "#testimonials", label: "お客様の声" },
   { href: "#blog", label: "ブログ" },
 ];
