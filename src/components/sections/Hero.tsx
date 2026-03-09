@@ -20,7 +20,7 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
     data?.description ??
     "その不調、年齢のせいにしていませんか？\n身体が変わらないのは努力不足ではありません。\n整体・パーソナルトレーニング・コーチングを融合したトータルサポートで\nいつまでも自分らしく生きられる身体へと導きます。";
   const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/hero.png";
-  const imageAlt = data?.imageAlt ?? "ストレッチをする女性";
+  const imageAlt = data?.imageAlt ?? "横手市の整体・パーソナルジムVERDE FITで腰痛改善に取り組む女性";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "お電話でのご相談";
 

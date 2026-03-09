@@ -26,7 +26,7 @@ const defaultServices: ServiceItem[] = [
       "厚生労働省認可の国家資格保有者があなたにあった最適な施術を提供。肩こり・腰痛・姿勢の歪みなど、痛みの原因を徹底的に分析し根本改善を目指します。10年の実績で培った確かな技術で痛みのない日常を取り戻しましょう。横手市でプロフェッショナルな整体をあなたに。",
     buttonText: "整体の詳細を見る",
     imageUrl: "/service-seitai.png",
-    imageAlt: "整体施術のシーン",
+    imageAlt: "横手市で腰痛・骨盤矯正を行う整体施術の様子",
   },
   {
     _key: "personal",
@@ -35,7 +35,7 @@ const defaultServices: ServiceItem[] = [
       "NSCA-CPT資格保有トレーナーによる完全個別指導。運動が苦手な方でも安心して始められる、あなた専用のプログラムを作成します。食事指導も含めた総合的なサポートで、理想の身体づくりを実現。横手市で本格的なパーソナルトレーニングを。",
     buttonText: "パーソナルの詳細を見る",
     imageUrl: "/service-personal.png",
-    imageAlt: "パーソナルトレーニングのシーン",
+    imageAlt: "横手市のパーソナルジムVERDE FITでのマンツーマン指導",
   },
   {
     _key: "coaching",
@@ -44,7 +44,7 @@ const defaultServices: ServiceItem[] = [
       "認定コーチによる習慣形成サポート。「続かない」を「続く」に変えるメンタルケア。目標達成に向けた思考パターンの改善と行動習慣の確立で、長期的な健康維持を実現します。横手市で、あなたの人生を変える習慣づくりを始めませんか。",
     buttonText: "コーチングの詳細を見る",
     imageUrl: "/service-coaching.png",
-    imageAlt: "コーチングセッションのシーン",
+    imageAlt: "横手市のジムVERDE FITでの習慣化コーチングセッション",
   },
 ];
 

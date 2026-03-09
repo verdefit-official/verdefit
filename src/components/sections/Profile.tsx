@@ -37,7 +37,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
   const role = data?.role ?? "代表 / 施術者";
   const name = data?.name ?? "吉田 宗太郎";
   const imageUrl = data?.imageUrl ?? "/profile.jpg";
-  const imageAlt = data?.imageAlt ?? name;
+  const imageAlt = data?.imageAlt ?? "横手市の整体師・パーソナルトレーナー 吉田宗太郎の施術風景";
   const beliefDescription =
     data?.beliefDescription ??
     "子どもの頃から体型にコンプレックスがあり、自分に自信を持てずに過ごしてきました。学生時代は柔道に打ち込みましたが、怪我が多く思うように練習ができず、身体と向き合うことの難しさを何度も感じました。このままの自分ではいたくないという思いからボディメイクに取り組み、過去最高体重95kgから65kgまでのダイエットに成功しました。";
