@@ -41,7 +41,7 @@ export const coachingHeroSchema = defineType({
       name: "imageAlt",
       title: "画像の代替テキスト",
       type: "string",
-      description: "例: 横手市・秋田のコーチングセッション VERDE FIT",
+      description: "例: コーチとクライアントがコーチングセッションを行っている様子",
     }),
     defineField({
       name: "primaryButtonText",

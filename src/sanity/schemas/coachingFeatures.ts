@@ -19,7 +19,7 @@ export const coachingFeaturesSchema = defineType({
     }),
     defineField({
       name: "features",
-      title: "メソッド一覧（アイコンはコードで固定）",
+      title: "メソッド一覧",
       type: "array",
       validation: (Rule) => Rule.max(3),
       of: [
