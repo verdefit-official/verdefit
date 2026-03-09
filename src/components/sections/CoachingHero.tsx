@@ -1,0 +1,65 @@
+import FadeIn from "@/components/FadeIn";
+
+export default function CoachingHero({
+  bookingUrl,
+  lineUrl,
+}: {
+  bookingUrl?: string;
+  lineUrl?: string;
+}) {
+  return (
+    <section className="bg-[#e8f3ec] pt-24 pb-20 md:pt-28 md:pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+          {/* テキスト */}
+          <FadeIn>
+            <div>
+              <span className="inline-block rounded-full bg-green-700 px-4 py-1.5 text-xs font-semibold tracking-wide text-white">
+                COMPASS認定プロコーチ
+              </span>
+
+              <h1 className="mt-5 font-serif text-4xl font-bold leading-tight text-[#1f2937] md:text-[52px] md:leading-[1.15]">
+                横手市・秋田で、<br />
+                挫折しない自分へ。
+              </h1>
+
+              <p className="mt-5 font-serif text-lg font-bold text-green-800 md:text-xl">
+                思考と習慣を整え、「続かない」を卒業する本格コーチング
+              </p>
+
+              <p className="mt-5 text-[15px] leading-8 text-gray-700 md:text-[16px] md:leading-9">
+                「続けたいのに続かない」「やろうと思っても行動できない」。その原因は意志の弱さではなく、思考や習慣のパターンにあります。VERDE FITのコーチングでは、COMPASS認定プロコーチが認知科学のアプローチをもとに思考を整理し、行動が自然と続く習慣づくりをサポートします。ダイエットや運動、健康習慣、仕事や人生の目標まで、あなたの理想の未来を明確にし、実現まで伴走します。「続かない」を「続く」に変え、自分らしく前向きに生きられる毎日へ導きます。
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={bookingUrl ?? "#cta"}
+                  className="inline-flex h-14 items-center justify-center rounded-lg bg-green-700 px-8 text-base font-semibold text-white transition-colors hover:bg-green-800"
+                >
+                  無料相談はこちら
+                </a>
+                <a
+                  href={lineUrl ?? "#"}
+                  className="inline-flex h-14 items-center justify-center rounded-lg border-2 border-green-700 bg-white px-8 text-base font-semibold text-green-700 transition-colors hover:bg-green-50"
+                >
+                  LINEで相談する
+                </a>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* 画像プレースホルダー */}
+          <FadeIn delay={150}>
+            <div className="flex h-[340px] w-full items-center justify-center rounded-2xl bg-white shadow-[0_8px_24px_rgba(0,0,0,0.06)] md:h-[420px]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-24 w-24 text-green-300" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4M12 16h.01" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 10a3 3 0 0 1 6 0c0 2-3 3-3 5" />
+              </svg>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}

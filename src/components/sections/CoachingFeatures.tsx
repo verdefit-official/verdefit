@@ -1,0 +1,68 @@
+import FadeIn from "@/components/FadeIn";
+
+const features = [
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-8 w-8 text-green-700" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    title: "科学的習慣化メソッド",
+    description:
+      "脳科学・行動経済学・認知心理学に基づいた、エビデンスのあるアプローチ。横手市・秋田で唯一、科学的根拠に基づいた習慣改善プログラムを提供します。感覚や精神論ではなく、再現性の高いメソッドであなたをサポートします。",
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-8 w-8 text-green-700" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5l-3 3v-3z" />
+      </svg>
+    ),
+    title: "対話による思考アップデート",
+    description:
+      "コーチとの1対1の対話を通じて、あなたの思考パターンを深掘り。無意識に持っている「できない理由」を見つけ出し、新しい視点を提供します。横手市・秋田で健康サポートに悩む方の思考を根本から変えます。",
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-8 w-8 text-green-700" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+      </svg>
+    ),
+    title: "地域密着の伴走サポート",
+    description:
+      "横手市・秋田県南エリアで、対面・オンライン両方に対応。あなたの生活環境やライフスタイルに合わせた、現実的なサポートを提供します。遠方の大手コーチングにはない、地域に根ざした継続的な伴走が可能です。",
+  },
+];
+
+export default function CoachingFeatures() {
+  return (
+    <section className="bg-[#e8f3ec] py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-14 text-center">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+              VERDE FITの習慣が変わる3つのメソッド
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
+              思考・行動・環境を整え続く自分をつくる
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {features.map((f, i) => (
+            <FadeIn key={f.title} delay={i * 100}>
+              <article className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+                <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#e8f3ec]">
+                  {f.icon}
+                </span>
+                <h3 className="mb-4 font-serif text-xl font-bold text-[#1f2937]">{f.title}</h3>
+                <p className="text-[14px] leading-8 text-gray-600 md:text-[15px]">{f.description}</p>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
