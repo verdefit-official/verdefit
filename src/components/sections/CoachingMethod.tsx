@@ -24,10 +24,8 @@ const steps = [
 const successCases = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <circle cx="13" cy="5" r="1.5" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 8.5l2 2.5-2 5M13 11l3-2.5M11 11l1 5.5 3-3" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src="/icon-exercise.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
     ),
     title: "運動習慣の定着",
     thoughtBefore: "「運動は苦手」",
@@ -37,9 +35,8 @@ const successCases = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6 3v5a3 3 0 0 0 6 0V3M9 8v13M18 3v4M18 3c0 0-2 1-2 3.5S18 10 18 10v10M16 10h4" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src="/icon-food.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
     ),
     title: "食習慣の改善",
     thoughtBefore: "「ダイエットは続かない」",
@@ -49,9 +46,8 @@ const successCases = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5 text-green-700" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src="/icon-sleep.png" alt="" className="h-7 w-7 object-contain" aria-hidden="true" />
     ),
     title: "睡眠習慣の改善",
     thoughtBefore: "「夜更かしが当たり前」",

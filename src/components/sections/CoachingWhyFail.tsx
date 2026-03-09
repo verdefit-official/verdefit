@@ -40,7 +40,7 @@ export default function CoachingWhyFail() {
         {/* ② 根本原因 */}
         <FadeIn delay={120}>
           <div className="mt-16">
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 flex flex-col items-center gap-3 text-center md:flex-row md:text-left">
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-700">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" className="h-5 w-5" aria-hidden="true">
                   <circle cx="12" cy="12" r="9" />
