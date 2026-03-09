@@ -124,7 +124,7 @@ export default function CoachingMethod({ data }: { data?: CoachingMethodData | n
         </FadeIn>
 
         {/* 3ステップ */}
-        <div className="mb-20 grid gap-0 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
+        <div className="mb-20 grid gap-6 md:gap-0 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
           {steps.map((step, i) => (
             <>
               <FadeIn key={step._key ?? i} delay={i * 100}>

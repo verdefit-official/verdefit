@@ -22,9 +22,12 @@ type CoachingPricingData = {
   trialButtonText?: string | null;
   plans?: PlanItem[] | null;
   note?: string | null;
-  cancelPolicyIntro?: string | null;
-  cancelPolicySections?: CancelPolicySection[] | null;
-  cancelPolicyClosing?: string | null;
+};
+
+type CancelPolicyData = {
+  intro?: string | null;
+  sections?: CancelPolicySection[] | null;
+  closing?: string | null;
 };
 
 const defaultPlans: PlanItem[] = [
@@ -87,9 +90,11 @@ const defaultCancelPolicySections: CancelPolicySection[] = [
 
 export default function CoachingPricing({
   data,
+  cancelPolicy,
   bookingUrl,
 }: {
   data?: CoachingPricingData | null;
+  cancelPolicy?: CancelPolicyData | null;
   bookingUrl?: string;
 }) {
   const sectionTitle = data?.sectionTitle ?? "料金プラン";
@@ -101,14 +106,14 @@ export default function CoachingPricing({
   const plans =
     data?.plans && data.plans.length > 0 ? data.plans : defaultPlans;
   const cancelPolicyIntro =
-    data?.cancelPolicyIntro ??
+    cancelPolicy?.intro ??
     "VERDE FITでは、お一人おひとりに十分なお時間を確保した完全予約制でご案内しております。\nすべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。";
   const cancelPolicySections =
-    data?.cancelPolicySections && data.cancelPolicySections.length > 0
-      ? data.cancelPolicySections
+    cancelPolicy?.sections && cancelPolicy.sections.length > 0
+      ? cancelPolicy.sections
       : defaultCancelPolicySections;
   const cancelPolicyClosing =
-    data?.cancelPolicyClosing ??
+    cancelPolicy?.closing ??
     "皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。";
 
   return (
@@ -147,7 +152,7 @@ export default function CoachingPricing({
         <div className="grid gap-5 sm:grid-cols-2">
           {plans.map((plan, i) => (
             <FadeIn key={plan._key ?? i} delay={i * 80}>
-              <div className="flex h-full flex-col rounded-2xl bg-gray-50 p-8">
+              <div className="flex h-full flex-col rounded-2xl bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
                 <span className="mb-4 inline-block self-start rounded-full bg-green-600 px-4 py-1 text-xs font-semibold text-white">
                   {plan.badge}
                 </span>

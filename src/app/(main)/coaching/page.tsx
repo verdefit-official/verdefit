@@ -72,10 +72,9 @@ type PricingRaw = {
   trialButtonText?: string;
   plans?: { _key: string; badge?: string; title?: string; price?: string; details?: string[] }[];
   note?: string;
-  cancelPolicyIntro?: string;
-  cancelPolicySections?: { _key: string; title?: string; content?: string }[];
-  cancelPolicyClosing?: string;
 };
+
+type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
 type FAQRaw = {
   sectionTitle?: string;
@@ -154,6 +153,7 @@ export default async function CoachingPage() {
     ctaRaw,
     accessData,
     siteSettingsData,
+    cancelPolicyRaw,
   ] = await Promise.all([
     safeFetch<HeroRaw>(`*[_type == "coachingHero"][0]{ ..., image{ asset{ _ref, _type } } }`),
     safeFetch<WhyFailRaw>(`*[_type == "coachingWhyFail"][0]`),
@@ -167,6 +167,7 @@ export default async function CoachingPage() {
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
+    safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
   ]);
 
   const heroData = heroRaw
@@ -211,7 +212,7 @@ export default async function CoachingPage() {
       <CoachingMethod data={methodRaw} />
       <CoachingFeatures data={featuresRaw} />
       <CoachingTestimonials data={testimonialsRaw} />
-      <CoachingPricing data={pricingRaw} bookingUrl={bookingUrl} />
+      <CoachingPricing data={pricingRaw} cancelPolicy={cancelPolicyRaw} bookingUrl={bookingUrl} />
       <FAQ data={faqData} sectionBg="bg-[#e8f3ec]" />
       <CTA
         data={ctaData}

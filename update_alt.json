@@ -1,0 +1,32 @@
+{
+  "mutations": [
+    {"patch": {"id": "hero", "set": {"imageAlt": "横手市の整体・パーソナルジムVERDE FITで腰痛改善に取り組む女性"}}},
+    {"patch": {"id": "profile", "set": {"imageAlt": "横手市の整体師・パーソナルトレーナー 吉田宗太郎の施術風景"}}},
+    {"patch": {"id": "chiropracticHero", "set": {"imageAlt": "横手市の整体で腰痛・肩こり・骨盤矯正が改善し笑顔でストレッチする女性"}}},
+    {"patch": {"id": "chiropracticProfile", "set": {"imageAlt": "横手市の整体院VERDE FIT代表・柔道整復師 吉田宗太郎"}}},
+    {"patch": {"id": "personalHero", "set": {"imageAlt": "横手市のパーソナルジムVERDE FITでダイエット・ボディメイクに取り組む様子"}}},
+    {"patch": {"id": "personalTrainer", "set": {"imageAlt": "横手市のパーソナルジムVERDE FITトレーナー・ダイエット専門 吉田宗太郎"}}},
+    {"patch": {"id": "services", "set": {
+      "serviceList[_key==\"seitai\"].imageAlt": "横手市で腰痛・骨盤矯正を行う整体施術の様子",
+      "serviceList[_key==\"personal\"].imageAlt": "横手市のパーソナルジムVERDE FITでのマンツーマン指導",
+      "serviceList[_key==\"coaching\"].imageAlt": "横手市のジムVERDE FITでの習慣化コーチングセッション"
+    }}},
+    {"patch": {"id": "reasons", "set": {
+      "reasonList[_key==\"r01\"].imageAlt": "横手市の整体・パーソナルジムで国家資格を持つ施術者が施術する様子",
+      "reasonList[_key==\"r02\"].imageAlt": "横手市で腰痛改善と骨盤矯正を組み合わせたトータルケア",
+      "reasonList[_key==\"r03\"].imageAlt": "横手市のパーソナルジムで完全個別対応のトレーニング指導"
+    }}},
+    {"patch": {"id": "testimonials", "set": {
+      "voiceList[_key==\"v1\"].imageAlt": "横手市のVERDE FITで健康維持・ボディメイクに取り組む30代女性",
+      "voiceList[_key==\"v2\"].imageAlt": "横手市のパーソナルジムで6ヶ月10kgのダイエットに成功した30代女性",
+      "voiceList[_key==\"v3\"].imageAlt": "横手市のVERDE FITで3ヶ月10kgのダイエットに成功した60代女性",
+      "voiceList[_key==\"v4\"].imageAlt": "横手市のVERDE FITでボディメイクに取り組む50代女性",
+      "voiceList[_key==\"v5\"].imageAlt": "横手市の整体で肩こり・肩の痛みが改善した60代女性",
+      "voiceList[_key==\"v6\"].imageAlt": "横手市の整体で膝の痛みが改善した40代女性"
+    }}},
+    {"patch": {"id": "personalBeforeAfter", "set": {
+      "cards[_key==\"trainer\"].imageAlt": "横手市のパーソナルジムで30kgのダイエットに成功した代表のビフォーアフター",
+      "cards[_key==\"monitor\"].imageAlt": "横手市パーソナルトレーニングで20kgのダイエットに成功したモニターのビフォーアフター"
+    }}}
+  ]
+}

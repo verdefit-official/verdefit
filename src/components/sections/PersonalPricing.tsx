@@ -20,9 +20,12 @@ type PersonalPricingData = {
   sectionDescription?: string | null;
   plans?: PlanItem[] | null;
   note?: string | null;
-  cancelPolicyIntro?: string | null;
-  cancelPolicySections?: CancelPolicySection[] | null;
-  cancelPolicyClosing?: string | null;
+};
+
+type CancelPolicyData = {
+  intro?: string | null;
+  sections?: CancelPolicySection[] | null;
+  closing?: string | null;
 };
 
 const defaultPlans: PlanItem[] = [
@@ -69,20 +72,21 @@ function PlanCard({ plan, delay = 0 }: { plan: Required<PlanItem>; delay?: numbe
   );
 }
 
-export default function PersonalPricing({ data }: { data?: PersonalPricingData | null }) {
+const defaultCancelPolicySections: CancelPolicySection[] = [
+  { _key: "cp1", title: "■ キャンセル・変更について", content: "ご予約の変更・キャンセルは、できるだけお早めにご連絡ください。\n・2日前までのご連絡：無料で変更可能\n・前日のキャンセル：ご利用料金の50%\n・当日キャンセル：ご利用料金の100%\n※前日までにご連絡をいただいた場合、1回のみ振替対応が可能です。\n※振替は同月内でのご利用をお願いしております。" },
+  { _key: "cp2", title: "■ 無断キャンセルについて", content: "ご連絡のないキャンセルは「1回分消化」とさせていただきます。\nまた、無断キャンセルや直前のキャンセル・変更が続く場合は、今後のご予約方法やご契約内容の見直しをお願いする場合がございます。" },
+  { _key: "cp3", title: "■ 遅刻について", content: "ご予約時間に遅れてご来店された場合、次のお客様の関係上、セッション時間を短縮させていただくことがございます。\nなお、ご連絡なく10分以上遅れた場合はキャンセル扱いとなる場合がございます。" },
+  { _key: "cp4", title: "■ 体調不良・やむを得ない事情の場合", content: "体調不良や急なご事情の際は、無理をなさらずお早めにご連絡ください。\n医師の診断書の提出など客観的にやむを得ない理由が確認できる場合は、個別に対応させていただきます。\nなお、「悪天候」「気分」「他のご予定」などの理由によるキャンセルは通常のキャンセル規定の対象となります。" },
+];
+
+export default function PersonalPricing({ data, cancelPolicy }: { data?: PersonalPricingData | null; cancelPolicy?: CancelPolicyData | null }) {
   const sectionTitle = data?.sectionTitle ?? "料金プラン";
   const sectionDescription = data?.sectionDescription ?? "横手市で通いやすい、明瞭な料金体系";
   const note = data?.note ?? "※分割払いも承ります。詳しくはお問い合わせください。";
 
-  const defaultCancelPolicySections: CancelPolicySection[] = [
-    { _key: "cp1", title: "■ キャンセル・変更について", content: "ご予約の変更・キャンセルは、できるだけお早めにご連絡ください。\n・2日前までのご連絡：無料で変更可能\n・前日のキャンセル：ご利用料金の50%\n・当日キャンセル：ご利用料金の100%\n※前日までにご連絡をいただいた場合、1回のみ振替対応が可能です。\n※振替は同月内でのご利用をお願いしております。" },
-    { _key: "cp2", title: "■ 無断キャンセルについて", content: "ご連絡のないキャンセルは「1回分消化」とさせていただきます。\nまた、無断キャンセルや直前のキャンセル・変更が続く場合は、今後のご予約方法やご契約内容の見直しをお願いする場合がございます。" },
-    { _key: "cp3", title: "■ 遅刻について", content: "ご予約時間に遅れてご来店された場合、次のお客様の関係上、セッション時間を短縮させていただくことがございます。\nなお、ご連絡なく10分以上遅れた場合はキャンセル扱いとなる場合がございます。" },
-    { _key: "cp4", title: "■ 体調不良・やむを得ない事情の場合", content: "体調不良や急なご事情の際は、無理をなさらずお早めにご連絡ください。\n医師の診断書の提出など客観的にやむを得ない理由が確認できる場合は、個別に対応させていただきます。\nなお、「悪天候」「気分」「他のご予定」などの理由によるキャンセルは通常のキャンセル規定の対象となります。" },
-  ];
-  const cancelPolicyIntro = data?.cancelPolicyIntro ?? "VERDE FITでは、お一人おひとりに十分なお時間を確保した完全予約制でご案内しております。\nすべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。";
-  const cancelPolicySections = data?.cancelPolicySections && data.cancelPolicySections.length > 0 ? data.cancelPolicySections : defaultCancelPolicySections;
-  const cancelPolicyClosing = data?.cancelPolicyClosing ?? "皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。";
+  const cancelPolicyIntro = cancelPolicy?.intro ?? "VERDE FITでは、お一人おひとりに十分なお時間を確保した完全予約制でご案内しております。\nすべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。";
+  const cancelPolicySections = cancelPolicy?.sections && cancelPolicy.sections.length > 0 ? cancelPolicy.sections : defaultCancelPolicySections;
+  const cancelPolicyClosing = cancelPolicy?.closing ?? "皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。";
 
   const rawPlans =
     data?.plans && data.plans.length > 0 ? data.plans : defaultPlans;

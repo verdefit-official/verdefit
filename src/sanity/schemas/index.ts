@@ -1,3 +1,4 @@
+import { cancelPolicySchema } from "./cancelPolicy";
 import { siteSettingsSchema } from "./siteSettings";
 import { topPageSeoSchema } from "./topPageSeo";
 import { heroSchema } from "./hero";
@@ -27,7 +28,6 @@ import { personalComparisonSchema } from "./personalComparison";
 import { personalBeforeAfterSchema } from "./personalBeforeAfter";
 import { personalTrainerSchema } from "./personalTrainer";
 import { personalPricingSchema } from "./personalPricing";
-import { personalCancelPolicySchema } from "./personalCancelPolicy";
 import { personalFlowSchema } from "./personalFlow";
 import { personalFaqSchema } from "./personalFaq";
 import { personalCtaSchema } from "./personalCta";
@@ -43,6 +43,7 @@ import { coachingFaqSchema } from "./coachingFaq";
 import { coachingCtaSchema } from "./coachingCta";
 
 export const schemaTypes = [
+  cancelPolicySchema,
   siteSettingsSchema,
   topPageSeoSchema,
   heroSchema,
@@ -72,7 +73,6 @@ export const schemaTypes = [
   personalBeforeAfterSchema,
   personalTrainerSchema,
   personalPricingSchema,
-  personalCancelPolicySchema,
   personalFlowSchema,
   personalFaqSchema,
   personalCtaSchema,

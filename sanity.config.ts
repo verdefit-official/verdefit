@@ -79,6 +79,7 @@ export default defineConfig({
           .items([
             singleton(S, "siteSettings", "サイト設定"),
             singleton(S, "access", "店舗情報・アクセス"),
+            singleton(S, "cancelPolicy", "キャンセルポリシー"),
             S.divider(),
             S.listItem()
               .title("トップページ")

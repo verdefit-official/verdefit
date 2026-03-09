@@ -99,7 +99,8 @@ type TrainerRaw = {
 };
 
 type PlanItemRaw = { _key: string; name?: string; foodLabel?: string; foodGreen?: boolean; price?: string; details?: string[]; popular?: boolean };
-type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string; cancelPolicyIntro?: string; cancelPolicySections?: { _key: string; title?: string; content?: string }[]; cancelPolicyClosing?: string };
+type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string };
+type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
 type FlowStepRaw = { _key: string; number?: string; title?: string; description?: string };
 type FlowRaw = { sectionTitle?: string; sectionDescription?: string; steps?: FlowStepRaw[] };
@@ -131,6 +132,7 @@ export default async function PersonalTrainingPage() {
     ctaRaw,
     accessData,
     siteSettingsData,
+    cancelPolicyRaw,
   ] = await Promise.all([
     safeFetch<HeroRaw>(`*[_type == "personalHero"][0]{ ..., image{ asset{ _ref, _type } } }`),
     safeFetch<ConcernsRaw>(`*[_type == "personalConcerns"][0]{ ..., items[]{ ..., icon{ asset{ _ref, _type } } } }`),
@@ -144,6 +146,7 @@ export default async function PersonalTrainingPage() {
     safeFetch<CTARaw>(`*[_type == "personalCta"][0]`),
     safeFetch<AccessRaw>(`*[_type == "access"][0]`),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(`*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`),
+    safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
   ]);
 
   // Transform image refs → URLs
@@ -188,7 +191,7 @@ export default async function PersonalTrainingPage() {
       <PersonalComparison data={comparisonRaw} />
       <PersonalBeforeAfter data={beforeAfterData} />
       <PersonalTrainer data={trainerData} />
-      <PersonalPricing data={pricingRaw} />
+      <PersonalPricing data={pricingRaw} cancelPolicy={cancelPolicyRaw} />
       <PersonalFlow data={flowRaw} />
       <PersonalFAQ data={faqRaw} />
       <CTA
