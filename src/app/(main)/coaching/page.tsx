@@ -116,8 +116,8 @@ export default async function CoachingPage() {
       <CoachingMethod />
       <CoachingFeatures />
       <CoachingTestimonials />
-      <CoachingPricing />
-      <PersonalCancelPolicy />
+      <CoachingPricing bookingUrl={bookingUrl} />
+      <PersonalCancelPolicy sectionBg="bg-white" />
       <FAQ
         data={{
           sectionTitle: "よくある質問",

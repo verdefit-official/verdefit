@@ -31,7 +31,7 @@ const defaultSections = [
   },
 ];
 
-export default function PersonalCancelPolicy({ data }: { data?: PersonalCancelPolicyData | null }) {
+export default function PersonalCancelPolicy({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: PersonalCancelPolicyData | null; sectionBg?: string }) {
   const sectionTitle = data?.sectionTitle ?? "キャンセルポリシー";
   const intro = data?.intro ?? "VERDE FITでは、お一人おひとりに十分なお時間を確保した完全予約制でご案内しております。\nすべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。";
   const sections =
@@ -41,7 +41,7 @@ export default function PersonalCancelPolicy({ data }: { data?: PersonalCancelPo
   const closing = data?.closing ?? "皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。";
 
   return (
-    <section className="bg-[#e8f3ec] pb-20 md:pb-24">
+    <section className={`${sectionBg} pb-20 md:pb-24`}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="mb-10 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
