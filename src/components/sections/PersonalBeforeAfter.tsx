@@ -17,7 +17,7 @@ type PersonalBeforeAfterData = {
 const defaultCards = [
   {
     key: "trainer",
-    label: "代表のbefore/after（30代）在住",
+    label: "代表のbefore/after（30代）",
     result: "−30kg達成",
     text: "私は子供の頃から体型にコンプレックスがあり自分に自信が持てずに生きてきました。こんな人生を変えたいとパーソナルトレーナーの資格を取得しトレーニングと食習慣を見直すことで身体が変わり、考え方や人生まで前向きに変わりました。VERDE FITはこの経験をもとに『誰にでも変わることができる』ことを伝えるために作った場所です。",
     imageUrl: "/personal-trainer.jpg",
