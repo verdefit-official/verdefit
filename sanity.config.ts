@@ -107,19 +107,6 @@ export default defineConfig({
                   )
               ),
             S.listItem()
-              .title("コーチングページ")
-              .id("coaching")
-              .child(
-                S.list()
-                  .id("coaching-list")
-                  .title("コーチングページ")
-                  .items(
-                    coachingSections.map(({ name, title }) =>
-                      singleton(S, name, title)
-                    )
-                  )
-              ),
-            S.listItem()
               .title("パーソナルトレーニングページ")
               .id("personal")
               .child(
@@ -128,6 +115,19 @@ export default defineConfig({
                   .title("パーソナルトレーニングページ")
                   .items(
                     personalSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    )
+                  )
+              ),
+            S.listItem()
+              .title("コーチングページ")
+              .id("coaching")
+              .child(
+                S.list()
+                  .id("coaching-list")
+                  .title("コーチングページ")
+                  .items(
+                    coachingSections.map(({ name, title }) =>
                       singleton(S, name, title)
                     )
                   )
