@@ -37,6 +37,7 @@ const priceSections = [
   { name: "personalPricing", title: "パーソナルトレーニング 料金" },
   { name: "coachingPricing", title: "コーチング 料金" },
   { name: "pricePremium", title: "トータルケアプレミアムプラン" },
+  { name: "priceCta", title: "CTA" },
 ];
 
 const coachingSections = [

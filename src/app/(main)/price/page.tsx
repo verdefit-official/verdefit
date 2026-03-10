@@ -55,6 +55,13 @@ type CoachingPricingRaw = {
   monthlyPlans?: { _key: string; badge?: string; title?: string; price?: string; perSession?: string }[];
 };
 
+type PriceCtaRaw = {
+  heading?: string;
+  description?: string;
+  primaryButtonText?: string;
+  secondaryButtonText?: string;
+};
+
 type PricePremiumRaw = {
   planTitle?: string;
   programLabel?: string;
@@ -117,6 +124,7 @@ export default async function PricePage() {
     personalPricingRaw,
     coachingPricingRaw,
     pricePremiumRaw,
+    priceCtaRaw,
   ] = await Promise.all([
     safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
@@ -128,17 +136,19 @@ export default async function PricePage() {
     safeFetch<PersonalPricingRaw>(`*[_type == "personalPricing"][0]`),
     safeFetch<CoachingPricingRaw>(`*[_type == "coachingPricing"][0]`),
     safeFetch<PricePremiumRaw>(`*[_type == "pricePremium"][0]`),
+    safeFetch<PriceCtaRaw>(`*[_type == "priceCta"][0]`),
   ]);
 
   const bookingUrl = siteSettingsData?.bookingUrl ?? undefined;
   const lineUrl = siteSettingsData?.lineUrl ?? undefined;
 
   const ctaData = {
-    heading: "あなたに合う方法を、一緒に見つけましょう",
+    heading: priceCtaRaw?.heading ?? "あなたに合う方法を、一緒に見つけましょう",
     description:
+      priceCtaRaw?.description ??
       "「本当に変われるのか不安」\n「自分に合う方法が分からない」\n\nそんな方のために、VERDE FITではあなたの身体の状態や生活習慣、目標を丁寧にヒアリングし、最適な改善プランをご提案します。無理な勧誘は一切ありません。まずはお気軽にご相談ください。",
-    primaryButtonText: "予約はこちら",
-    secondaryButtonText: "LINEで相談する",
+    primaryButtonText: priceCtaRaw?.primaryButtonText ?? "予約はこちら",
+    secondaryButtonText: priceCtaRaw?.secondaryButtonText ?? "LINEで相談する",
   };
 
   return (

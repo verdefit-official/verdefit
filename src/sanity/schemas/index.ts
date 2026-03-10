@@ -46,6 +46,7 @@ import { priceSeoSchema } from "./priceSeo";
 import { priceHeroSchema } from "./priceHero";
 import { priceTrialSchema } from "./priceTrial";
 import { pricePremiumSchema } from "./pricePremium";
+import { priceCtaSchema } from "./priceCta";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -96,4 +97,5 @@ export const schemaTypes = [
   priceHeroSchema,
   priceTrialSchema,
   pricePremiumSchema,
+  priceCtaSchema,
 ];
