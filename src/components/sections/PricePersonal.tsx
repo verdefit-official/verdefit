@@ -54,7 +54,7 @@ function CheckIcon() {
 
 export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
   return (
-    <section id="personal" className="scroll-mt-24 bg-[#e8f3ec] py-20 md:py-24">
+    <section id="personal" className="scroll-mt-24 bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
@@ -72,7 +72,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
           <p className="mb-4 text-sm font-semibold text-gray-700">月額プラン（食事指導なし）</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {monthlyPlans.map((plan, i) => (
-              <div key={i} className="rounded-xl bg-white px-7 py-8 text-center">
+              <div key={i} className="rounded-xl bg-[#e8f3ec] px-7 py-8 text-center">
                 <h3 className="font-serif text-xl font-bold text-[#1f2937]">{plan.name}</h3>
                 <p className="mt-4 font-serif text-[40px] font-bold leading-none text-green-700">
                   {plan.price}
@@ -90,7 +90,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
           <p className="mb-4 text-sm font-semibold text-gray-700">短期集中プラン</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {intensivePlans.map((plan, i) => (
-              <div key={i} className="relative rounded-xl bg-white px-7 py-8">
+              <div key={i} className="relative rounded-xl bg-[#e8f3ec] px-7 py-8">
                 {plan.popular && (
                   <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-amber-500 px-4 py-1 text-[12px] font-bold text-white">
                     人気No.1
@@ -123,7 +123,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
         {/* 単発 */}
         <FadeIn delay={140}>
           <p className="mb-4 text-center text-sm font-semibold text-gray-700">単発</p>
-          <div className="mx-auto mb-10 max-w-xs rounded-xl bg-white px-7 py-8 text-center">
+          <div className="mx-auto mb-10 max-w-xs rounded-xl bg-[#e8f3ec] px-7 py-8 text-center">
             <p className="text-sm text-gray-500">60分</p>
             <p className="mt-3 font-serif text-[40px] font-bold leading-none text-green-700">
               ¥11,000
