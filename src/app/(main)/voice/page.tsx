@@ -237,8 +237,8 @@ function VoiceCategoryNav() {
           {cats.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
-                {/* 上部：グレー背景＋アイコン */}
-                <div className="flex items-center justify-center bg-gray-100 py-10">
+                {/* 上部：グレー背景＋アイコン（画像差し替え予定） */}
+                <div className="flex items-center justify-center bg-gray-100" style={{ aspectRatio: "4/3" }}>
                   <c.Icon />
                 </div>
                 {/* 下部：テキスト＋ボタン */}
@@ -266,22 +266,22 @@ function VoiceCategoryNav() {
 function VoiceSeitaiSection() {
   const voices = [
     {
-      tag: "長年の肩こり・姿勢改善",
-      title: "デスクワークが楽になりました",
-      demographics: "女性（40代）",
-      text: "デスクワークが多く長年肩こりに悩まされていました。ここで施術を受けて猫背が改善され、肩こりも姿勢も良くなりました。今では気楽に通えるようになり、自分の姿勢が良くなったことで自信もつきました。",
+      smallTitle: "長年の肩こりが楽になりました",
+      tags: ["肩こり", "姿勢"],
+      heading: "デスクワークで慢性的な肩こりと姿勢の悪さに悩んでいました",
+      text: "デスクワークが多く、常に肩こりに悩まされていました。整体で身体の状態を見てもらい、姿勢や身体の使い方を整えてもらったことで肩の重さが軽くなりました。今では仕事終わりの疲れも以前ほど感じなくなり、身体がとても楽になりました。",
     },
     {
-      tag: "腰痛・骨盤矯正",
-      title: "長年悩んでいた腰痛が改善しました",
-      demographics: "女性（40代）",
-      text: "長年腰痛に悩んでいましたが、施術を受けるたびに体が軽くなっていきました。日常生活での痛みも以前より気にならなくなり、定期的に通い続けることで安定しています。",
+      smallTitle: "猫背が改善して姿勢が良くなりました",
+      tags: ["肩こり", "姿勢"],
+      heading: "長年気になっていた姿勢の悪さが改善しました",
+      text: "以前から猫背が気になっていましたが、整体で身体のバランスを整えてもらい姿勢が変わってきました。周りからも姿勢が良くなったと言われるようになり、肩や背中の負担も減りました。今では以前より身体が軽く感じます。",
     },
     {
-      tag: "肩こり・姿勢改善",
-      title: "10回の施術で大きく改善しました",
-      demographics: "女性（30代）",
-      text: "以前から肩こりと姿勢が気になっていましたが、10回ほど施術を受けただけで大きく変わりました。先生が毎回丁寧に状態を確認してくださり、少しずつ正しい姿勢になれていることを実感しています。",
+      smallTitle: "10年悩んだ腰痛が改善しました",
+      tags: ["腰痛", "骨盤矯正"],
+      heading: "長年の腰痛で日常生活にも不安がありました",
+      text: "長年腰痛に悩んでおり、整形外科にも通っていましたがなかなか改善しませんでした。こちらの整体で身体の状態や原因を丁寧に説明してもらい、施術を受けるうちに徐々に痛みが軽くなりました。今では日常生活でも腰を気にすることが減り、安心して過ごせています。",
     },
   ];
 
@@ -289,32 +289,39 @@ function VoiceSeitaiSection() {
     <section id="seitai" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              整体で不調が改善したお客様の体験談
-            </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">
-              実際にご利用いただいたお客様の声です。掲載許可をいただいた方の体験談をご紹介します。
-            </p>
-          </div>
+          <h2 className="mb-12 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            整体で不調が改善したお客様の体験談
+          </h2>
         </FadeIn>
 
         <div className="grid gap-6 md:grid-cols-3">
           {voices.map((v, i) => (
             <FadeIn key={i} delay={i * 100}>
-              <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-                <div className="bg-[#e8f3ec] px-5 py-4 text-center">
-                  <p className="text-xs font-semibold text-green-700">{v.tag}</p>
-                  <p className="mt-1 text-base font-bold text-[#1f2937]">{v.title}</p>
-                  <p className="mt-1 text-sm text-gray-500">{v.demographics}</p>
+              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                {/* 上部：グレー背景＋人物アイコン（写真差し替え予定） */}
+                <div
+                  className="flex items-center justify-center bg-gray-100"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <PersonIcon className="h-20 w-20 text-green-300" />
                 </div>
-                <div className="flex flex-col items-center px-5 pt-5 pb-2">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
-                    <PersonIcon className="h-8 w-8 text-gray-400" />
+                {/* 下部：テキスト */}
+                <div className="flex flex-1 flex-col px-5 py-5">
+                  <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
+                  <div className="mb-3 flex flex-wrap gap-1.5">
+                    {v.tags.map((tag, j) => (
+                      <span
+                        key={j}
+                        className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-gray-600"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                </div>
-                <div className="flex flex-1 px-5 pb-6 pt-4">
-                  <p className="text-sm leading-7 text-gray-600">{v.text}</p>
+                  <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">
+                    {v.heading}
+                  </h3>
+                  <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
                 </div>
               </article>
             </FadeIn>
@@ -324,10 +331,10 @@ function VoiceSeitaiSection() {
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
             <a
-              href="/voice/seitai"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
+              href="/seitai"
+              className="inline-flex h-12 items-center justify-center rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              整体のお客様の声をもっと見る <span aria-hidden="true">→</span>
+              整体の詳細ページを見る
             </a>
           </div>
         </FadeIn>
