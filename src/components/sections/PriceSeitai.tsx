@@ -13,6 +13,7 @@ type CouponItem = {
   price?: string | null;
   unit?: string | null;
   validity?: string | null;
+  badge?: string | null;
 };
 
 type OptionItem = {
@@ -41,11 +42,29 @@ const defaultOptions: OptionItem[] = [
 ];
 
 const defaultCoupons: CouponItem[] = [
-  { _key: "k1", name: "60分整体 × 4回", price: "¥34,000", unit: "税込", validity: "1回あたり ¥8,500 ／ 通常より2回分お得" },
-  { _key: "k2", name: "60分整体 × 8回", price: "¥61,600", unit: "税込", validity: "1回あたり ¥7,700 ／ 通常より4回分お得" },
-  { _key: "k3", name: "60分整体 × 12回", price: "¥84,000", unit: "税込", validity: "1回あたり ¥7,000 ／ 通常より6回分お得" },
-  { _key: "k4", name: "90分整体 × 12回", price: "¥126,000", unit: "税込", validity: "1回あたり ¥10,500 ／ 通常より6回分お得" },
+  { _key: "k1", name: "60分整体 × 4回", price: "¥34,000", unit: "税込", validity: "1回あたり ¥8,500\n有効期限：2ヶ月" },
+  { _key: "k2", name: "60分整体 × 8回", price: "¥61,600", unit: "税込", validity: "1回あたり ¥7,700\n有効期限：4ヶ月", badge: "人気" },
+  { _key: "k3", name: "60分整体 × 12回", price: "¥84,000", unit: "税込", validity: "1回あたり ¥7,000\n有効期限：6ヶ月" },
+  { _key: "k4", name: "90分整体 × 12回", price: "¥126,000", unit: "税込", validity: "1回あたり ¥10,500\n有効期限：6ヶ月" },
 ];
+
+function CouponCard({ coupon, i }: { coupon: CouponItem; i: number }) {
+  return (
+    <div key={coupon._key ?? i} className="relative rounded-xl bg-white px-4 py-6 text-center">
+      {coupon.badge && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-block rounded-full bg-amber-500 px-3 py-0.5 text-[10px] font-semibold text-white">
+          {coupon.badge}
+        </span>
+      )}
+      <p className="text-xs text-gray-500 md:text-sm">{coupon.name}</p>
+      <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
+        {coupon.price}
+      </p>
+      <p className="mt-1 text-[10px] text-gray-400">（{coupon.unit}）</p>
+      <p className="mt-2 whitespace-pre-line text-[11px] text-gray-500">{coupon.validity}</p>
+    </div>
+  );
+}
 
 export default function PriceSeitai({
   data,
@@ -55,21 +74,24 @@ export default function PriceSeitai({
   bookingUrl?: string;
 }) {
   const sectionTitle = data?.sectionTitle ?? "整体 料金";
-  const sectionDescription = data?.sectionDescription ?? "明瞭な料金体系で、安心してご利用いただけます";
+  const sectionDescription = data?.sectionDescription ?? "国家資格保有者による根本改善の整体";
   const courses = data?.courses && data.courses.length > 0 ? data.courses : defaultCourses;
   const options = data?.options && data.options.length > 0 ? data.options : defaultOptions;
   const couponSectionTitle = data?.couponSectionTitle ?? "回数券";
   const coupons = data?.coupons && data.coupons.length > 0 ? data.coupons : defaultCoupons;
 
+  const topCoupons = coupons.slice(0, 3);
+  const bottomCoupons = coupons.slice(3);
+
   return (
-    <section id="seitai" className="scroll-mt-24 bg-white py-20 md:py-24">
+    <section id="seitai" className="scroll-mt-24 bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-10 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               {sectionTitle}
             </h2>
-            <p className="mt-4 text-sm font-medium text-gray-500 md:text-base">
+            <p className="mt-4 text-sm text-gray-500 md:text-base">
               {sectionDescription}
             </p>
           </div>
@@ -77,12 +99,12 @@ export default function PriceSeitai({
 
         {/* 単発料金 */}
         <FadeIn delay={60}>
-          <p className="mb-4 text-center text-sm font-semibold text-gray-500">単発料金</p>
+          <p className="mb-4 text-sm font-semibold text-gray-700">単発料金</p>
           <div className="mb-8 grid grid-cols-3 gap-3 md:gap-4">
             {courses.map((course, i) => (
               <div
                 key={course._key ?? i}
-                className="rounded-xl bg-[#e8f3ec] px-3 py-6 text-center"
+                className="rounded-xl bg-white px-3 py-6 text-center"
               >
                 <p className="text-xs text-gray-500 md:text-sm">{course.name}</p>
                 <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
@@ -100,7 +122,7 @@ export default function PriceSeitai({
             {options.map((option, i) => (
               <div
                 key={option._key ?? i}
-                className="rounded-xl bg-[#e8f3ec] px-8 py-5 text-center"
+                className="rounded-xl bg-white px-8 py-5 text-center"
               >
                 <p className="text-xs text-gray-400">オプション</p>
                 <p className="mt-1 text-base font-bold text-[#1f2937]">{option.name}</p>
@@ -113,37 +135,32 @@ export default function PriceSeitai({
 
         {/* 回数券 */}
         <FadeIn delay={140}>
-          <div className="mb-6 text-center">
-            <h3 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              {couponSectionTitle}
-            </h3>
-          </div>
+          <p className="mb-4 text-sm font-semibold text-gray-700">{couponSectionTitle}</p>
         </FadeIn>
         <FadeIn delay={160}>
-          <div className="mb-10 grid grid-cols-2 gap-3 md:gap-4">
-            {coupons.map((coupon, i) => (
-              <div
-                key={coupon._key ?? i}
-                className="rounded-xl bg-[#e8f3ec] px-4 py-6 text-center"
-              >
-                <p className="text-xs text-gray-500 md:text-sm">{coupon.name}</p>
-                <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
-                  {coupon.price}
-                </p>
-                <p className="mt-1 text-[10px] text-gray-400">（{coupon.unit}）</p>
-                <p className="mt-2 text-[11px] text-gray-500">{coupon.validity}</p>
-              </div>
+          <div className="grid grid-cols-3 gap-3 md:gap-4">
+            {topCoupons.map((coupon, i) => (
+              <CouponCard key={coupon._key ?? i} coupon={coupon} i={i} />
             ))}
           </div>
+          {bottomCoupons.length > 0 && (
+            <div className="mt-3 flex flex-wrap justify-center gap-3 md:gap-4">
+              {bottomCoupons.map((coupon, i) => (
+                <div key={coupon._key ?? i} className="w-full max-w-xs">
+                  <CouponCard coupon={coupon} i={i + 3} />
+                </div>
+              ))}
+            </div>
+          )}
         </FadeIn>
 
         <FadeIn delay={200}>
-          <div className="text-center">
+          <div className="mt-10 text-center">
             <a
-              href={bookingUrl ?? "#cta"}
+              href="/seitai"
               className="inline-flex h-12 items-center justify-center rounded-lg bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800"
             >
-              整体の予約をする
+              整体について詳しく見る →
             </a>
           </div>
         </FadeIn>
