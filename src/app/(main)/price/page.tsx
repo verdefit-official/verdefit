@@ -86,21 +86,21 @@ export async function generateMetadata(): Promise<Metadata> {
   }>(`*[_type == "priceSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription, ogImage }`);
 
   const title =
-    seo?.pageTitle ?? "料金・プラン一覧｜横手市の整体・パーソナルジム・コーチング VERDE FIT";
+    seo?.pageTitle ?? "横手市の整体・パーソナルジム・コーチング料金｜VERDE FITの施術・トレーニング・セッション費用";
   const description =
     seo?.metaDescription ??
-    "VERDE FITの料金・プラン一覧ページです。整体（単発・回数券）、パーソナルトレーニング（月額・短期集中）、コーチング（オンライン・対面）、トータルケアプレミアムプランをご確認いただけます。横手市で本格的な身体づくりをサポートします。";
+    "横手市の整体・パーソナルジムVERDE FITの料金一覧。整体、パーソナルトレーニング、ダイエットプラン、コーチングの料金をご紹介しています。初めての方でも安心して通える料金設定です。横手市で身体を変えたい方はぜひご覧ください。";
   const ogImageUrl = seo?.ogImage ? urlForImage(seo.ogImage) : undefined;
 
   return {
     title,
     description,
     keywords: seo?.keywords ?? [
-      "横手市 料金",
       "横手市 整体 料金",
       "横手市 パーソナルジム 料金",
-      "横手市 コーチング 料金",
-      "VERDE FIT 料金",
+      "横手市 ジム 料金",
+      "横手市 ダイエット 費用",
+      "横手市 パーソナルトレーニング 料金",
     ],
     openGraph: {
       title: seo?.ogTitle ?? title,
