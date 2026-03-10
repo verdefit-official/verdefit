@@ -120,7 +120,7 @@ function VoiceConcerns() {
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <FadeIn>
-          <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[42px]">
+          <h2 className="mb-10 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
             その身体のお悩み、放置していませんか？
           </h2>
         </FadeIn>
@@ -229,7 +229,7 @@ function VoiceCategoryNav() {
     <section className="bg-[#e8f3ec] py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <FadeIn>
-          <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+          <h2 className="mb-10 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
             あなたと同じ悩みの体験談を探す
           </h2>
         </FadeIn>
@@ -290,7 +290,7 @@ function VoiceSeitaiSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               整体で不調が改善したお客様の体験談
             </h2>
             <p className="mt-4 text-sm text-gray-500 md:text-base">
@@ -368,7 +368,7 @@ function VoicePersonalSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               パーソナルトレーニングで身体が変わった体験談
             </h2>
             <p className="mt-4 text-sm text-gray-500 md:text-base">
@@ -443,7 +443,7 @@ function VoiceCoachingSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               コーチングを受けたお客様の声
             </h2>
             <p className="mt-4 text-sm text-gray-500 md:text-base">
@@ -503,7 +503,7 @@ function VoiceBeforeAfter() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               理想の身体を手に入れた成功事例
             </h2>
             <p className="mt-3 text-sm text-gray-500 md:text-base">Before / After</p>
@@ -561,7 +561,7 @@ function VoiceGoogleReviews() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               Googleロコミでも高評価をいただいています
             </h2>
           </div>
@@ -608,7 +608,7 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
     <section className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <FadeIn>
-          <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+          <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
             あなたも変化を体験しませんか？
           </h2>
           <p className="mt-4 text-sm text-gray-600 md:text-base">
