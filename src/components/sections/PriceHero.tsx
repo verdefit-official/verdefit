@@ -28,10 +28,10 @@ export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
         </FadeIn>
         <FadeIn delay={80}>
           <div className="mt-10 rounded-2xl border border-gray-300 bg-white/60 px-4 py-4">
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between">
+            <div className="flex flex-wrap justify-center gap-2 sm:flex-nowrap sm:items-center sm:justify-between">
               <a
                 href="#trial"
-                className="rounded-lg border-2 border-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-[#3a8a5c] transition-colors hover:bg-[#3a8a5c] hover:text-white sm:flex-1"
+                className="w-[calc(50%-0.25rem)] rounded-lg border-2 border-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-[#3a8a5c] transition-colors hover:bg-[#3a8a5c] hover:text-white sm:w-auto sm:flex-1"
               >
                 初回体験
               </a>
@@ -39,7 +39,7 @@ export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
                 <a
                   key={tab.href}
                   href={tab.href}
-                  className="rounded-lg bg-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2d6e49] last:col-span-2 sm:flex-1 sm:last:col-span-1"
+                  className="w-[calc(50%-0.25rem)] rounded-lg bg-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2d6e49] sm:w-auto sm:flex-1"
                 >
                   {tab.label}
                 </a>
