@@ -46,9 +46,9 @@ export default function PriceTrial({
               通常{regularPrice}→初回{trialPrice}
             </p>
             <p className="mt-1 text-xs text-gray-500">（税込）</p>
-            <div className="mt-8 inline-block text-left">
+            <div className="mt-8 text-center">
               <p className="mb-3 font-semibold text-gray-700">内容</p>
-              <div className="space-y-2">
+              <div className="inline-flex flex-col items-start space-y-2">
                 {[detail1, detail2].map((d, i) => (
                   <p key={i} className="flex items-center gap-2 text-sm text-gray-700">
                     <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-green-600 text-green-600">
