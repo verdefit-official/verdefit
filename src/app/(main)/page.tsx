@@ -90,19 +90,15 @@ type ProfileSanity = {
   credentials?: string[];
 };
 
-type PricingItem = { _key: string; label?: string; price?: string };
-type PricingColumn = { _key: string; title?: string; items?: PricingItem[] };
-type PricingSanity = {
-  sectionTitle?: string;
-  sectionDescription?: string;
-  trialBadge?: string;
-  trialTitle?: string;
-  trialPrice?: string;
-  trialDetails?: string;
-  trialDuration?: string;
-  trialBenefits?: string[];
-  pricingColumns?: PricingColumn[];
-  pricingNote?: string;
+type PriceTrialTopRaw = { trialPrice?: string; detail1?: string; detail2?: string };
+type ChiropracticTopRaw = { courses?: { _key?: string; name?: string; price?: string }[] };
+type PersonalTopRaw = {
+  intensivePlans?: { _key?: string; name?: string; price?: string }[];
+  monthlyPlans?: { _key?: string; name?: string; price?: string }[];
+};
+type CoachingTopRaw = {
+  singlePlans?: { _key?: string; badge?: string; price?: string }[];
+  monthlyPlans?: { _key?: string; badge?: string; title?: string; price?: string }[];
 };
 type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
@@ -166,7 +162,10 @@ export default async function Home() {
     reasonsRaw,
     testimonialsRaw,
     profileRaw,
-    pricingData,
+    priceTrialTopRaw,
+    chiropracticTopRaw,
+    personalTopRaw,
+    coachingTopRaw,
     faqData,
     accessData,
     ctaData,
@@ -189,7 +188,10 @@ export default async function Home() {
     safeFetch<ProfileRaw>(
       `*[_type == "profile"][0]{ ..., image{ asset{ _ref, _type } } }`
     ),
-    safeFetch<PricingSanity>(`*[_type == "pricing"][0]`),
+    safeFetch<PriceTrialTopRaw>(`*[_type == "priceTrial"][0]{ trialPrice, detail1, detail2 }`),
+    safeFetch<ChiropracticTopRaw>(`*[_type == "chiropracticPricing"][0]{ courses }`),
+    safeFetch<PersonalTopRaw>(`*[_type == "personalPricing"][0]{ "intensivePlans": intensivePlans[]{ _key, name, price }, "monthlyPlans": monthlyPlans[]{ _key, name, price } }`),
+    safeFetch<CoachingTopRaw>(`*[_type == "coachingPricing"][0]{ "singlePlans": singlePlans[]{ _key, badge, price }, "monthlyPlans": monthlyPlans[]{ _key, badge, title, price } }`),
     safeFetch<FAQSanity>(`*[_type == "faqSection"][0]`),
     safeFetch<AccessSanity>(`*[_type == "access"][0]`),
     safeFetch<CTASanity>(`*[_type == "cta"][0]`),
@@ -235,6 +237,33 @@ export default async function Home() {
   const profileData: ProfileSanity | null = profileRaw
     ? { ...profileRaw, imageUrl: imgUrl(profileRaw.image) }
     : null;
+
+  // Build top page pricing columns from shared specialized schemas
+  const seitaiItems = (chiropracticTopRaw?.courses ?? []).map((c, i) => ({
+    _key: c._key ?? `s${i}`,
+    label: c.name,
+    price: c.price,
+  }));
+  const personalItems = [
+    ...(personalTopRaw?.intensivePlans ?? []).map((p, i) => ({ _key: p._key ?? `pi${i}`, label: p.name, price: p.price })),
+    ...(personalTopRaw?.monthlyPlans ?? []).map((p, i) => ({ _key: p._key ?? `pm${i}`, label: p.name, price: p.price })),
+  ];
+  const coachingItems = [
+    ...(coachingTopRaw?.singlePlans ?? []).map((p, i) => ({ _key: p._key ?? `cs${i}`, label: `${p.badge ?? ""} 60分`, price: p.price })),
+    ...(coachingTopRaw?.monthlyPlans ?? []).map((p, i) => ({ _key: p._key ?? `cm${i}`, label: `${p.title ?? ""} ${p.badge ?? ""}`, price: p.price })),
+  ];
+  const hasSpecializedData = seitaiItems.length + personalItems.length + coachingItems.length > 0;
+  const pricingData = {
+    trialPrice: priceTrialTopRaw?.trialPrice,
+    trialDetails: priceTrialTopRaw?.detail1 && priceTrialTopRaw?.detail2
+      ? `${priceTrialTopRaw.detail1} + ${priceTrialTopRaw.detail2}`
+      : undefined,
+    pricingColumns: hasSpecializedData ? [
+      { _key: "seitai", title: "整体コース", items: seitaiItems },
+      { _key: "personal", title: "パーソナルトレーニング", items: personalItems },
+      { _key: "coaching", title: "コーチング", items: coachingItems },
+    ] : null,
+  };
 
   const phone = accessData?.phone ?? undefined;
 
