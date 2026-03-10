@@ -69,7 +69,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
 
         {/* 月額プラン */}
         <FadeIn delay={60}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">月額プラン（食事指導なし）</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">月額プラン（食事指導なし）</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {monthlyPlans.map((plan, i) => (
               <div key={i} className="rounded-xl bg-[#e8f3ec] px-7 py-8 text-center">
@@ -87,7 +87,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
 
         {/* 短期集中プラン */}
         <FadeIn delay={100}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">短期集中プラン</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">短期集中プラン</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {intensivePlans.map((plan, i) => (
               <div key={i} className="relative rounded-xl bg-[#e8f3ec] px-7 py-8">
@@ -102,7 +102,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
                 </p>
                 <p className="mt-1 text-center text-xs text-gray-400">（税込）</p>
                 <div className="mt-4 text-center">
-                  <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
+                  <p className="mb-2 text-lg font-bold text-[#1f2937]">内容</p>
                   <div className="inline-flex flex-col items-start space-y-1.5">
                     {plan.checkItems.map((item, j) => (
                       <p key={j} className="flex items-center gap-2 text-sm text-gray-700">
@@ -122,7 +122,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
 
         {/* 単発 */}
         <FadeIn delay={140}>
-          <p className="mb-4 text-center text-sm font-semibold text-gray-700">単発</p>
+          <p className="mb-4 text-center text-lg font-bold text-[#1f2937]">単発</p>
           <div className="mx-auto mb-10 max-w-xs rounded-xl bg-[#e8f3ec] px-7 py-8 text-center">
             <p className="text-sm text-gray-500">60分</p>
             <p className="mt-3 font-serif text-[40px] font-bold leading-none text-green-700">

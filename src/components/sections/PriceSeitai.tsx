@@ -99,7 +99,7 @@ export default function PriceSeitai({
 
         {/* 単発料金 */}
         <FadeIn delay={60}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">単発料金</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">単発料金</p>
           <div className="mb-8 grid grid-cols-3 gap-3 md:gap-4">
             {courses.map((course, i) => (
               <div
@@ -135,7 +135,7 @@ export default function PriceSeitai({
 
         {/* 回数券 */}
         <FadeIn delay={140}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">{couponSectionTitle}</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">{couponSectionTitle}</p>
         </FadeIn>
         <FadeIn delay={160}>
           <div className="grid grid-cols-3 gap-3 md:gap-4">

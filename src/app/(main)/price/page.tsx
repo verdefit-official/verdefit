@@ -86,7 +86,7 @@ export default async function PricePage() {
       <PriceCoaching bookingUrl={bookingUrl} />
       <PricePremium bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-[#e8f3ec]" />
-      <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} plain />
+      <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
     </>
   );
 }

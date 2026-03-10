@@ -54,7 +54,7 @@ export default function PriceCoaching({ bookingUrl }: { bookingUrl?: string }) {
 
         {/* 単発 */}
         <FadeIn delay={80}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">単発</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">単発</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {singlePlans.map((plan, i) => (
               <div key={i} className="rounded-xl bg-white px-7 py-8 text-center">
@@ -71,7 +71,7 @@ export default function PriceCoaching({ bookingUrl }: { bookingUrl?: string }) {
 
         {/* 月額 */}
         <FadeIn delay={120}>
-          <p className="mb-4 text-sm font-semibold text-gray-700">月額</p>
+          <p className="mb-4 text-lg font-bold text-[#1f2937]">月額</p>
           <div className="mb-10 grid gap-4 sm:grid-cols-2">
             {monthlyPlans.map((plan, i) => (
               <div key={i} className="rounded-xl bg-white px-7 py-8 text-center">
