@@ -46,36 +46,31 @@ function StarIcon() {
 
 function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
   return (
-    <section className="bg-[#e8f3ec] py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+    <section className="bg-[#e8f3ec] py-20 md:py-24">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <FadeIn>
-          <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">
-            お客様の声
-          </span>
-        </FadeIn>
-        <FadeIn delay={100}>
-          <h1 className="mt-4 font-serif text-3xl font-bold leading-[1.4] text-[#1f2937] sm:text-4xl md:text-[44px]">
-            なりたい理想の自分になれた方の<br className="hidden sm:block" />リアルな体験談
+          <h1 className="font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
+            なりたい理想の自分になれた方の<br />リアルな体験談
           </h1>
         </FadeIn>
-        <FadeIn delay={200}>
-          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-gray-600">
-            VERDE FITでは整体・パーソナルトレーニング・コーチングの3つのアプローチで、あなたの身体のお悩みを根本からサポートします。実際に変化を実感されたお客様の体験談をぜひご覧ください。
+        <FadeIn delay={150}>
+          <p className="mx-auto mt-6 text-[15px] leading-8 text-gray-600">
+            VERDE FITで身体と習慣を整え、理想の自分になれたお客様のリアルな声をご紹介します。
           </p>
         </FadeIn>
-        <FadeIn delay={300}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <FadeIn delay={280}>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={bookingUrl ?? "#cta"}
-              className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-green-600 px-10 text-base font-semibold text-white transition-colors hover:bg-green-700 sm:w-auto"
             >
               予約はこちら
             </a>
             <a
               href={lineUrl ?? "#cta"}
-              className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-green-600 bg-transparent px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
             >
-              LINEで予約する
+              LINEで相談する
             </a>
           </div>
         </FadeIn>
