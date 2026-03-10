@@ -56,11 +56,11 @@ function CouponCard({ coupon, i }: { coupon: CouponItem; i: number }) {
           {coupon.badge}
         </span>
       )}
-      <p className="text-xs text-gray-500 md:text-sm">{coupon.name}</p>
-      <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
+      <p className="text-sm text-gray-500 md:text-base">{coupon.name}</p>
+      <p className="mt-2 font-serif text-[28px] font-bold text-green-700 md:text-[36px]">
         {coupon.price}
       </p>
-      <p className="mt-1 text-[10px] text-gray-400">（{coupon.unit}）</p>
+      <p className="mt-1 text-xs text-gray-400">（{coupon.unit}）</p>
       <p className="mt-2 whitespace-pre-line text-[11px] text-gray-500">{coupon.validity}</p>
     </div>
   );
@@ -106,11 +106,11 @@ export default function PriceSeitai({
                 key={course._key ?? i}
                 className="rounded-xl bg-white px-5 py-8 text-center"
               >
-                <p className="text-xs text-gray-500 md:text-sm">{course.name}</p>
-                <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
+                <p className="text-sm text-gray-500 md:text-base">{course.name}</p>
+                <p className="mt-2 font-serif text-[28px] font-bold text-green-700 md:text-[36px]">
                   {course.price}
                 </p>
-                <p className="mt-1 text-[10px] text-gray-400">（税込）</p>
+                <p className="mt-1 text-xs text-gray-400">（税込）</p>
               </div>
             ))}
           </div>
