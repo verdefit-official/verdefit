@@ -96,11 +96,11 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
                     人気No.1
                   </span>
                 )}
-                <h3 className="font-serif text-xl font-bold text-[#1f2937]">{plan.name}</h3>
-                <p className="mt-3 font-serif text-[40px] font-bold leading-none text-green-700">
+                <h3 className="text-center font-serif text-xl font-bold text-[#1f2937]">{plan.name}</h3>
+                <p className="mt-3 text-center font-serif text-[40px] font-bold leading-none text-green-700">
                   {plan.price}
                 </p>
-                <p className="mt-1 text-xs text-gray-400">（税込）</p>
+                <p className="mt-1 text-center text-xs text-gray-400">（税込）</p>
                 <div className="mt-4">
                   <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
                   <div className="space-y-1.5">

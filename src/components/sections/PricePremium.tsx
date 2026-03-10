@@ -1,20 +1,23 @@
 import FadeIn from "@/components/FadeIn";
 
-const features = [
-  "月8回 60分 パーソナルトレーニング",
-  "月4回 60分 コーチング",
+const checkItems = ["整体（60分）", "パーソナルトレーニング（60分）", "コーチング（60分）"];
+const supports = ["食事サポート", "24時間LINE相談サポート", "習慣設計プログラム"];
+
+const descriptions = [
+  "VERDE FITでは、３つのアプローチであなたの理想を叶えます。\n理想の状態に整える整体、理想の身体を作るパーソナルトレーニング、理想の習慣を手に入れるコーチング。\nこの3つを組み合わせることで、理想のあなたが実現します。",
+  "整体・トレーニング・コーチングを一体化した6ヶ月のボディメイクプログラムは単なるダイエットではなく、身体・思考・習慣のすべてを整え、リバウンドしない身体づくりを目指します。",
+  "一人では続かなかった方でも、専門家の伴走サポートにより理想の身体と健康習慣を手にしませんか？",
 ];
 
-const supports = [
-  "スターターサポート",
-  "オーダーサポート",
-  "24時間LINEサポート",
-  "食事管理",
-  "プログラム作成",
-];
-
-const description =
-  "VERDE FITでは、あなたの悩みを解決します。体の悩みに対する整体、体の改善を求めるパーソナルトレーニング、習慣を整えるコーチング。この3つを組み合わせることで、あなたの体が変わります。\n通常のダイエットではなく、改善・強化・悩みのすべてを一つで。今まで変われなかった悩みでも、充実したサポートからあなたの変化・改善を実現します。";
+function CheckIcon() {
+  return (
+    <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-green-600 text-green-600">
+      <svg className="h-3 w-3" viewBox="0 0 12 12" fill="none">
+        <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
 
 export default function PricePremium({
   bookingUrl,
@@ -24,77 +27,60 @@ export default function PricePremium({
   lineUrl?: string;
 }) {
   return (
-    <section id="premium" className="scroll-mt-24 bg-[#e8f3ec] py-20 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <section id="premium" className="scroll-mt-24 bg-white py-20 md:py-24">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-10 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h2 className="whitespace-nowrap font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               トータルケアプレミアムプラン
             </h2>
           </div>
         </FadeIn>
         <FadeIn delay={80}>
           <div className="rounded-2xl border-2 border-green-700 bg-white px-8 py-10 md:px-12 md:py-12">
+            {/* タイトル・価格 */}
             <div className="text-center">
-              <span className="inline-block rounded-full bg-amber-500 px-5 py-1.5 text-xs font-bold text-white">
+              <p className="font-serif text-xl font-bold text-[#1f2937]">
                 VERDE FIT式ボディメイクコーチング
-              </span>
-              <p className="mt-4 text-sm font-semibold text-gray-500">６ヶ月プラン</p>
-              <p className="mt-2 font-serif text-[52px] font-bold leading-none text-green-700">
-                ¥498,000
+              </p>
+              <p className="mt-2 text-sm font-semibold text-green-700">6か月プログラム</p>
+              <p className="mt-1 font-serif text-[52px] font-bold leading-none text-green-700">
+                ¥ 498,000
               </p>
               <p className="mt-1 text-xs text-gray-400">（税込）</p>
             </div>
 
-            <div className="mt-8 border-t border-gray-200 pt-8">
-              <p className="mb-3 text-center text-sm font-bold text-[#1f2937]">内容</p>
+            {/* 内容 */}
+            <div className="mt-8">
+              <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
+              <p className="mb-3 text-sm text-gray-600">月8回まで利用可能</p>
               <div className="space-y-2">
-                {features.map((f, i) => (
+                {checkItems.map((item, i) => (
                   <p key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-green-700" />
-                    {f}
+                    <CheckIcon />
+                    {item}
                   </p>
                 ))}
               </div>
-              <div className="mt-4 space-y-2">
-                {supports.map((s, i) => (
-                  <p key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      className="h-4 w-4 shrink-0 text-green-600"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {s}
-                  </p>
-                ))}
+              <p className="mt-2 text-xs text-gray-500">※組み合わせ自由</p>
+
+              <div className="mt-5">
+                <p className="mb-2 text-sm text-gray-700">追加サポート</p>
+                <div className="space-y-1">
+                  {supports.map((s, i) => (
+                    <p key={i} className="text-sm text-gray-600">・{s}</p>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <p className="mt-8 whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
-              {description}
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a
-                href={bookingUrl ?? "#cta"}
-                className="inline-flex h-12 items-center justify-center rounded-lg bg-green-700 px-8 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-              >
-                予約はこちら
-              </a>
-              <a
-                href={lineUrl ?? "#cta"}
-                className="inline-flex h-12 items-center justify-center rounded-lg border-2 border-green-700 px-8 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
-              >
-                LINEで相談する
-              </a>
+            {/* 説明文 */}
+            <div className="mt-8 space-y-4">
+              {descriptions.map((d, i) => (
+                <p key={i} className="whitespace-pre-line text-[13px] leading-7 text-gray-600">
+                  {d}
+                </p>
+              ))}
             </div>
           </div>
         </FadeIn>
