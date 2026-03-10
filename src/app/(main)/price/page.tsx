@@ -114,7 +114,7 @@ export default async function PricePage() {
       <PricePersonal bookingUrl={bookingUrl} />
       <PriceCoaching bookingUrl={bookingUrl} />
       <PricePremium bookingUrl={bookingUrl} lineUrl={lineUrl} />
-      <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-white" />
+      <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-[#e8f3ec]" />
       <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} phone={phone} />
       <Access data={accessData} sectionBg="bg-[#e8f3ec]" />
     </>

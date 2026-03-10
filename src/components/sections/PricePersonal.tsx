@@ -101,9 +101,9 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
                   {plan.price}
                 </p>
                 <p className="mt-1 text-center text-xs text-gray-400">（税込）</p>
-                <div className="mt-4">
+                <div className="mt-4 text-center">
                   <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
-                  <div className="space-y-1.5">
+                  <div className="inline-flex flex-col items-start space-y-1.5">
                     {plan.checkItems.map((item, j) => (
                       <p key={j} className="flex items-center gap-2 text-sm text-gray-700">
                         <CheckIcon />

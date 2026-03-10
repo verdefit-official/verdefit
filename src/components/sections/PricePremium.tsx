@@ -51,10 +51,10 @@ export default function PricePremium({
             </div>
 
             {/* 内容 */}
-            <div className="mt-8">
+            <div className="mt-8 text-center">
               <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
               <p className="mb-3 text-sm text-gray-600">月8回まで利用可能</p>
-              <div className="space-y-2">
+              <div className="inline-flex flex-col items-start space-y-2">
                 {checkItems.map((item, i) => (
                   <p key={i} className="flex items-center gap-2 text-sm text-gray-700">
                     <CheckIcon />
@@ -66,7 +66,7 @@ export default function PricePremium({
 
               <div className="mt-5">
                 <p className="mb-2 text-sm text-gray-700">追加サポート</p>
-                <div className="space-y-1">
+                <div className="inline-flex flex-col items-start space-y-1">
                   {supports.map((s, i) => (
                     <p key={i} className="text-sm text-gray-600">・{s}</p>
                   ))}
@@ -77,7 +77,7 @@ export default function PricePremium({
             {/* 説明文 */}
             <div className="mt-8 space-y-4">
               {descriptions.map((d, i) => (
-                <p key={i} className="whitespace-pre-line text-[13px] leading-7 text-gray-600">
+                <p key={i} className="whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
                   {d}
                 </p>
               ))}
