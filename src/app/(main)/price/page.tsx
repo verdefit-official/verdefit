@@ -8,7 +8,6 @@ import PriceCoaching from "@/components/sections/PriceCoaching";
 import PricePremium from "@/components/sections/PricePremium";
 import PersonalCancelPolicy from "@/components/sections/PersonalCancelPolicy";
 import CTA from "@/components/sections/CTA";
-import Access from "@/components/sections/Access";
 
 // ─── Sanity Types ──────────────────────────────────────────────────────────────
 
@@ -16,28 +15,6 @@ type CancelPolicyRaw = {
   intro?: string;
   sections?: { _key: string; title?: string; content?: string }[];
   closing?: string;
-};
-
-type CTARaw = {
-  heading?: string;
-  description?: string;
-  primaryButtonText?: string;
-  secondaryButtonText?: string;
-};
-
-type AccessRaw = {
-  sectionTitle?: string;
-  sectionDescription?: string;
-  storeName?: string;
-  postalCode?: string;
-  address?: string;
-  phone?: string;
-  hours?: string;
-  lastEntry?: string;
-  closedDays?: string;
-  closedDaysNote?: string;
-  parking?: string;
-  payment?: string;
 };
 
 // ─── generateMetadata ──────────────────────────────────────────────────────────
@@ -81,13 +58,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PricePage() {
   const [
     cancelPolicyRaw,
-    ctaRaw,
-    accessData,
     siteSettingsData,
   ] = await Promise.all([
     safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
-    safeFetch<CTARaw>(`*[_type == "cta"][0]`),
-    safeFetch<AccessRaw>(`*[_type == "access"][0]`),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
@@ -95,15 +68,13 @@ export default async function PricePage() {
 
   const bookingUrl = siteSettingsData?.bookingUrl ?? undefined;
   const lineUrl = siteSettingsData?.lineUrl ?? undefined;
-  const phone = accessData?.phone ?? undefined;
 
   const ctaData = {
-    heading: ctaRaw?.heading ?? "あなたに合う方法を、一緒に見つけましょう",
+    heading: "あなたに合う方法を、一緒に見つけましょう",
     description:
-      ctaRaw?.description ??
-      "整体・パーソナルトレーニング・コーチングから、あなたの目標に合ったプランをご提案します。\nまずは初回体験で、VERDE FITの違いを実感してください。",
-    primaryButtonText: ctaRaw?.primaryButtonText ?? "予約はこちら",
-    secondaryButtonText: ctaRaw?.secondaryButtonText ?? "LINEで相談する",
+      "「本当に変われるのか不安」\n「自分に合う方法が分からない」\n\nそんな方のために、VERDE FITではあなたの身体の状態や生活習慣、目標を丁寧にヒアリングし、最適な改善プランをご提案します。無理な勧誘は一切ありません。まずはお気軽にご相談ください。",
+    primaryButtonText: "予約はこちら",
+    secondaryButtonText: "LINEで相談する",
   };
 
   return (
@@ -115,8 +86,7 @@ export default async function PricePage() {
       <PriceCoaching bookingUrl={bookingUrl} />
       <PricePremium bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-[#e8f3ec]" />
-      <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} phone={phone} />
-      <Access data={accessData} sectionBg="bg-[#e8f3ec]" />
+      <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} plain />
     </>
   );
 }
