@@ -173,22 +173,55 @@ function VoiceConcerns() {
 
 // ─── Category Nav ─────────────────────────────────────────────────
 
+function SeitaiCardIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-green-300" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21C12 21 4 14.5 4 9a8 8 0 0 1 16 0c0 5.5-8 12-8 12z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9" />
+    </svg>
+  );
+}
+
+function TrainingCardIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-green-300" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 6.5h1v11h-1zM16.5 6.5h1v11h-1zM7.5 12H16.5M4 9.5h2.5M17.5 9.5H20M4 14.5h2.5M17.5 14.5H20" />
+    </svg>
+  );
+}
+
+function CoachingCardIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-green-300" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 4 12.8V17H8v-2.2A7 7 0 0 1 12 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v1a3 3 0 0 0 6 0v-1" />
+      <line x1="12" y1="22" x2="12" y2="22" />
+    </svg>
+  );
+}
+
 function VoiceCategoryNav() {
   const cats = [
     {
       href: "/voice/seitai",
       label: "整体のお客様の声",
-      desc: "肩こり・腰痛・姿勢改善など",
+      desc: "肩こり・腰痛・姿勢の乱れなど、慢性的な身体の不調を改善されたお客様の体験談をご紹介します。痛みの原因を根本から整えることで、日常生活が楽になったリアルな声をご覧ください。",
+      btnLabel: "整体の声を見る",
+      Icon: SeitaiCardIcon,
     },
     {
       href: "/voice/personal-training",
-      label: "パーソナルジムの声を見る",
-      desc: "ダイエット・ボディメイクなど",
+      label: "パーソナルジムのお客様の声",
+      desc: "ダイエット成功・筋力向上・体型改善など、トレーニングによって理想の身体を手に入れたお客様の体験談をご紹介します。無理のない習慣づくりで変化を実感されたリアルな声をご覧ください。",
+      btnLabel: "ジムの声を見る",
+      Icon: TrainingCardIcon,
     },
     {
       href: "/voice/coaching",
       label: "コーチングのお客様の声",
-      desc: "思考・習慣・行動変容など",
+      desc: "思考の変化・習慣改善・人生の前向きな変化など、コーチングを通して内面から変わったお客様の体験談をご紹介します。行動が続くようになったリアルな変化の声をご覧ください。",
+      btnLabel: "コーチングの声を見る",
+      Icon: CoachingCardIcon,
     },
   ];
 
@@ -196,26 +229,30 @@ function VoiceCategoryNav() {
     <section className="bg-[#e8f3ec] py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <FadeIn>
-          <h2 className="mb-10 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-3xl">
+          <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
             あなたと同じ悩みの体験談を探す
           </h2>
         </FadeIn>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-3">
           {cats.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
-              <a
-                href={c.href}
-                className="flex flex-col items-center rounded-xl bg-white px-6 py-8 text-center shadow-sm transition-shadow hover:shadow-md"
-              >
-                <span className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f3ec]">
-                  <PersonIcon className="h-6 w-6 text-green-700" />
-                </span>
-                <p className="text-base font-bold text-[#1f2937]">{c.label}</p>
-                <p className="mt-1 text-sm text-gray-500">{c.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-green-700">
-                  声を見る <span aria-hidden="true">→</span>
-                </span>
-              </a>
+              <div className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
+                {/* 上部：グレー背景＋アイコン */}
+                <div className="flex items-center justify-center bg-gray-100 py-10">
+                  <c.Icon />
+                </div>
+                {/* 下部：テキスト＋ボタン */}
+                <div className="flex flex-1 flex-col px-6 py-6">
+                  <p className="mb-3 text-lg font-bold leading-snug text-[#1f2937]">{c.label}</p>
+                  <p className="flex-1 text-sm leading-7 text-gray-600">{c.desc}</p>
+                  <a
+                    href={c.href}
+                    className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-green-500 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+                  >
+                    {c.btnLabel}
+                  </a>
+                </div>
+              </div>
             </FadeIn>
           ))}
         </div>
