@@ -85,7 +85,7 @@ export default function PriceSeitai({
 
   return (
     <section id="seitai" className="scroll-mt-24 bg-[#e8f3ec] py-20 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-10 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
