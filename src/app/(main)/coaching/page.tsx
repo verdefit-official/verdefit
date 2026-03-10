@@ -112,7 +112,8 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords?: string[];
     ogTitle?: string;
     ogDescription?: string;
-  }>(`*[_type == "coachingSeo"][0]`);
+    ogImage?: { asset: { _ref: string; _type: string } };
+  }>(`*[_type == "coachingSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription, ogImage }`);
 
   const title =
     seo?.pageTitle ??
@@ -120,6 +121,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description =
     seo?.metaDescription ??
     "横手市でコーチングをお探しの方へ。VERDE FITでは身体づくりと同時に思考や習慣を整えるコーチングを提供しています。目標設定や行動習慣をサポートし、理想の人生を実現するお手伝いをします。横手市で自己成長を目指す方はご相談ください。";
+  const ogImageUrl = seo?.ogImage ? urlForImage(seo.ogImage) : undefined;
 
   return {
     title,
@@ -132,8 +134,9 @@ export async function generateMetadata(): Promise<Metadata> {
       "横手市 メンタルサポート",
     ],
     openGraph: {
-      title: seo?.ogTitle ?? "横手市のコーチングならVERDE FIT｜人生を変える習慣・目標達成サポート",
+      title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
+      images: ogImageUrl ? [{ url: ogImageUrl }] : [],
       locale: "ja_JP",
       type: "website",
     },

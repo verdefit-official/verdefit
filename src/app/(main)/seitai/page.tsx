@@ -33,12 +33,14 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords?: string[];
     ogTitle?: string;
     ogDescription?: string;
-  }>(`*[_type == "chiropracticSeo"][0]`);
+    ogImage?: { asset: { _ref: string; _type: string } };
+  }>(`*[_type == "chiropracticSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription, ogImage }`);
 
   const title = seo?.pageTitle ?? "横手市の整体｜腰痛・肩こりを根本改善 VERDE FIT整体院";
   const description =
     seo?.metaDescription ??
     "横手市で整体をお探しの方へ。腰痛・肩こり・姿勢の悩みを根本改善。VERDE FITは国家資格（柔道整復師）を持つ院長が対応する整体院です。延べ5,000人以上の施術実績。横手市で身体を変えたい方はご相談ください。";
+  const ogImageUrl = seo?.ogImage ? urlForImage(seo.ogImage) : undefined;
 
   return {
     title,
@@ -47,6 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
+      images: ogImageUrl ? [{ url: ogImageUrl }] : [],
       locale: "ja_JP",
       type: "website",
     },

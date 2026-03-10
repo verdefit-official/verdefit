@@ -35,12 +35,14 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords?: string[];
     ogTitle?: string;
     ogDescription?: string;
-  }>(`*[_type == "personalSeo"][0]`);
+    ogImage?: { asset: { _ref: string; _type: string } };
+  }>(`*[_type == "personalSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription, ogImage }`);
 
   const title = seo?.pageTitle ?? "横手市のパーソナルジム｜本気で痩せるダイエット専門 VERDE FIT";
   const description =
     seo?.metaDescription ??
     "横手市でパーソナルジムをお探しの方へ。VERDE FITはダイエット・ボディメイク専門のパーソナルトレーニングジムです。食事サポートと個別トレーニングで理想の身体づくりをサポート。横手市で本気で痩せたい方は無料カウンセリングへ。";
+  const ogImageUrl = seo?.ogImage ? urlForImage(seo.ogImage) : undefined;
 
   return {
     title,
@@ -49,6 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
+      images: ogImageUrl ? [{ url: ogImageUrl }] : [],
       locale: "ja_JP",
       type: "website",
     },

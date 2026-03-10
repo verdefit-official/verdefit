@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import PriceHero from "@/components/sections/PriceHero";
 import PriceTrial from "@/components/sections/PriceTrial";
 import PriceSeitai from "@/components/sections/PriceSeitai";
@@ -74,13 +75,15 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords?: string[];
     ogTitle?: string;
     ogDescription?: string;
-  }>(`*[_type == "priceSeo"][0]`);
+    ogImage?: { asset: { _ref: string; _type: string } };
+  }>(`*[_type == "priceSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription, ogImage }`);
 
   const title =
     seo?.pageTitle ?? "料金・プラン一覧｜横手市の整体・パーソナルジム・コーチング VERDE FIT";
   const description =
     seo?.metaDescription ??
     "VERDE FITの料金・プラン一覧ページです。整体（単発・回数券）、パーソナルトレーニング（月額・短期集中）、コーチング（オンライン・対面）、トータルケアプレミアムプランをご確認いただけます。横手市で本格的な身体づくりをサポートします。";
+  const ogImageUrl = seo?.ogImage ? urlForImage(seo.ogImage) : undefined;
 
   return {
     title,
@@ -95,6 +98,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
+      images: ogImageUrl ? [{ url: ogImageUrl }] : [],
       locale: "ja_JP",
       type: "website",
     },
