@@ -50,18 +50,18 @@ const defaultCoupons: CouponItem[] = [
 
 function CouponCard({ coupon, i }: { coupon: CouponItem; i: number }) {
   return (
-    <div key={coupon._key ?? i} className="relative rounded-xl bg-white px-5 py-8 text-center">
+    <div key={coupon._key ?? i} className="relative rounded-xl bg-white px-1 py-6 text-center md:px-5 md:py-8">
       {coupon.badge && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-block rounded-full bg-amber-500 px-3 py-0.5 text-[10px] font-semibold text-white">
           {coupon.badge}
         </span>
       )}
-      <p className="text-sm text-gray-500 md:text-base">{coupon.name}</p>
-      <p className="mt-2 font-serif text-[28px] font-bold text-green-700 md:text-[36px]">
+      <p className="text-xs text-gray-500 md:text-sm lg:text-base">{coupon.name}</p>
+      <p className="mt-2 font-serif text-[18px] font-bold text-green-700 sm:text-[24px] md:text-[28px] lg:text-[36px]">
         {coupon.price}
       </p>
-      <p className="mt-1 text-xs text-gray-400">（{coupon.unit}）</p>
-      <p className="mt-2 whitespace-pre-line text-[11px] text-gray-500">{coupon.validity}</p>
+      <p className="mt-1 text-[10px] text-gray-400 md:text-xs">（{coupon.unit}）</p>
+      <p className="mt-2 whitespace-pre-line text-[10px] text-gray-500 md:text-[11px]">{coupon.validity}</p>
     </div>
   );
 }
@@ -104,13 +104,13 @@ export default function PriceSeitai({
             {courses.map((course, i) => (
               <div
                 key={course._key ?? i}
-                className="rounded-xl bg-white px-5 py-8 text-center"
+                className="rounded-xl bg-white px-1 py-6 text-center md:px-5 md:py-8"
               >
-                <p className="text-sm text-gray-500 md:text-base">{course.name}</p>
-                <p className="mt-2 font-serif text-[28px] font-bold text-green-700 md:text-[36px]">
+                <p className="text-xs text-gray-500 md:text-sm lg:text-base">{course.name}</p>
+                <p className="mt-2 font-serif text-[18px] font-bold text-green-700 sm:text-[24px] md:text-[28px] lg:text-[36px]">
                   {course.price}
                 </p>
-                <p className="mt-1 text-xs text-gray-400">（税込）</p>
+                <p className="mt-1 text-[10px] text-gray-400 md:text-xs">（税込）</p>
               </div>
             ))}
           </div>

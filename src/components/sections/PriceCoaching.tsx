@@ -64,7 +64,7 @@ export default function PriceCoaching({ data, bookingUrl }: { data?: CoachingPri
               <Badge label="オンライン" />
               <Badge label="対面" />
             </div>
-            <h3 className="mt-4 font-serif text-2xl font-bold text-green-700">
+            <h3 className="mt-4 whitespace-nowrap font-serif text-lg font-bold text-green-700 sm:text-2xl">
               {trialTitle}
             </h3>
           </div>
