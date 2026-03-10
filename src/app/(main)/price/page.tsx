@@ -70,7 +70,7 @@ type PricePremiumRaw = {
   checkItems?: string[];
   flexNote?: string;
   supports?: string[];
-  descriptions?: string[];
+  description?: string;
 };
 
 // ─── generateMetadata ──────────────────────────────────────────────────────────

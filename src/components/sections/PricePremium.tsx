@@ -8,17 +8,14 @@ type PricePremiumData = {
   checkItems?: string[] | null;
   flexNote?: string | null;
   supports?: string[] | null;
-  descriptions?: string[] | null;
+  description?: string | null;
 };
 
 const defaultCheckItems = ["整体（60分）", "パーソナルトレーニング（60分）", "コーチング（60分）"];
 const defaultSupports = ["食事サポート", "24時間LINE相談サポート", "習慣設計プログラム"];
 
-const defaultDescriptions = [
-  "VERDE FITでは、３つのアプローチであなたの理想を叶えます。\n理想の状態に整える整体、理想の身体を作るパーソナルトレーニング、理想の習慣を手に入れるコーチング。\nこの3つを組み合わせることで、理想のあなたが実現します。",
-  "整体・トレーニング・コーチングを一体化した6ヶ月のボディメイクプログラムは単なるダイエットではなく、身体・思考・習慣のすべてを整え、リバウンドしない身体づくりを目指します。",
-  "一人では続かなかった方でも、専門家の伴走サポートにより理想の身体と健康習慣を手にしませんか？",
-];
+const defaultDescription =
+  "VERDE FITでは、３つのアプローチであなたの理想を叶えます。\n理想の状態に整える整体、理想の身体を作るパーソナルトレーニング、理想の習慣を手に入れるコーチング。\nこの3つを組み合わせることで、理想のあなたが実現します。\n\n整体・トレーニング・コーチングを一体化した6ヶ月のボディメイクプログラムは単なるダイエットではなく、身体・思考・習慣のすべてを整え、リバウンドしない身体づくりを目指します。\n\n一人では続かなかった方でも、専門家の伴走サポートにより理想の身体と健康習慣を手にしませんか？";
 
 function CheckIcon() {
   return (
@@ -46,7 +43,7 @@ export default function PricePremium({
   const checkItems = (data?.checkItems && data.checkItems.length > 0) ? data.checkItems : defaultCheckItems;
   const flexNote = data?.flexNote ?? "※組み合わせ自由";
   const supports = (data?.supports && data.supports.length > 0) ? data.supports : defaultSupports;
-  const descriptions = (data?.descriptions && data.descriptions.length > 0) ? data.descriptions : defaultDescriptions;
+  const description = data?.description ?? defaultDescription;
 
   return (
     <section id="premium" className="scroll-mt-24 bg-white py-20 md:py-24">
@@ -97,12 +94,10 @@ export default function PricePremium({
             </div>
 
             {/* 説明文 */}
-            <div className="mt-8 space-y-4">
-              {descriptions.map((d, i) => (
-                <p key={i} className="whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
-                  {d}
-                </p>
-              ))}
+            <div className="mt-8">
+              <p className="whitespace-pre-line text-center text-[13px] leading-7 text-gray-600">
+                {description}
+              </p>
             </div>
           </div>
         </FadeIn>
