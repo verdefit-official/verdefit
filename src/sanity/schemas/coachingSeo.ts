@@ -5,7 +5,7 @@ export const coachingSeoSchema = defineType({
   title: "SEO設定",
   type: "document",
   fields: [
-    defineField({ name: "pageTitle", title: "ページタイトル", type: "string", description: "例: コーチング｜VERDE FIT" }),
+    defineField({ name: "pageTitle", title: "ページタイトル", type: "string", description: "ブラウザのタブに表示されるタイトル" }),
     defineField({ name: "metaDescription", title: "メタディスクリプション", type: "text", rows: 3, description: "検索結果に表示される説明文（120〜160文字推奨）" }),
     defineField({ name: "keywords", title: "キーワード", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "ogTitle", title: "OGP タイトル", type: "string", description: "SNSシェア時のタイトル（空欄の場合はページタイトルを使用）" }),
