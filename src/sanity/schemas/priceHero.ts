@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const priceHeroSchema = defineType({
   name: "priceHero",
-  title: "料金ページ ヒーロー",
+  title: "ヒーロー",
   type: "document",
   fields: [
     defineField({
@@ -12,5 +12,5 @@ export const priceHeroSchema = defineType({
       description: "例: ご不明な点などはお気軽にご相談ください。",
     }),
   ],
-  preview: { prepare: () => ({ title: "料金ページ ヒーロー" }) },
+  preview: { prepare: () => ({ title: "ヒーロー" }) },
 });
