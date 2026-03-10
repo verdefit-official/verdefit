@@ -208,10 +208,10 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
             <p className="mt-6 text-center text-xs text-gray-500">{pricingNote}</p>
 
             <div className="mt-6 text-center">
-              <span className="inline-flex items-center gap-1.5 rounded-md border-2 border-gray-300 px-7 py-2.5 text-sm font-semibold text-gray-400 cursor-default">
+              <a href="/price" className="inline-flex items-center gap-1.5 rounded-md border-2 border-green-700 px-7 py-2.5 text-sm font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white">
                 料金詳細はこちら
                 <span aria-hidden="true">→</span>
-              </span>
+              </a>
             </div>
           </div>
         </FadeIn>
