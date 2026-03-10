@@ -57,13 +57,13 @@ export default function CoachingHero({
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href={bookingUrl ?? "#cta"}
-                  className="inline-flex w-full items-center justify-center rounded-lg bg-green-700 px-9 py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
+                  className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-9 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
                 >
                   {primaryButtonText}
                 </a>
                 <a
                   href={lineUrl ?? "#"}
-                  className="inline-flex w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-9 py-3.5 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
+                  className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-9 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
                 >
                   {secondaryButtonText}
                 </a>
