@@ -29,6 +29,16 @@ const chiropracticSections = [
   { name: "chiropracticCta", title: "CTA" },
 ];
 
+const priceSections = [
+  { name: "priceSeo", title: "SEO設定" },
+  { name: "priceHero", title: "ヒーロー" },
+  { name: "priceTrial", title: "初回体験セッション" },
+  { name: "chiropracticPricing", title: "整体 料金" },
+  { name: "personalPricing", title: "パーソナルトレーニング 料金" },
+  { name: "coachingPricing", title: "コーチング 料金" },
+  { name: "pricePremium", title: "トータルケアプレミアムプラン" },
+];
+
 const coachingSections = [
   { name: "coachingSeo", title: "SEO設定" },
   { name: "coachingHero", title: "ヒーロー" },
@@ -129,6 +139,19 @@ export default defineConfig({
                   .title("コーチングページ")
                   .items(
                     coachingSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    )
+                  )
+              ),
+            S.listItem()
+              .title("料金ページ")
+              .id("price")
+              .child(
+                S.list()
+                  .id("price-list")
+                  .title("料金ページ")
+                  .items(
+                    priceSections.map(({ name, title }) =>
                       singleton(S, name, title)
                     )
                   )
