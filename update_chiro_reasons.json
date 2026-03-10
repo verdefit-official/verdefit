@@ -1,9 +1,0 @@
-{
-  "mutations": [
-    {"patch": {"id": "chiropracticReasons", "set": {
-      "reasonList[_key==\"r1\"].imageAlt": "横手市で腰痛・骨盤矯正の原因を分析する整体施術",
-      "reasonList[_key==\"r2\"].imageAlt": "横手市の整体院VERDE FITで肩こり・腰痛を改善する安心の施術",
-      "reasonList[_key==\"r3\"].imageAlt": "横手市の整体で姿勢改善・骨盤矯正を丁寧にサポートする様子"
-    }}}
-  ]
-}
