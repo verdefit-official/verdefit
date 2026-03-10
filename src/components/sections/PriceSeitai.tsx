@@ -50,7 +50,7 @@ const defaultCoupons: CouponItem[] = [
 
 function CouponCard({ coupon, i }: { coupon: CouponItem; i: number }) {
   return (
-    <div key={coupon._key ?? i} className="relative rounded-xl bg-white px-4 py-6 text-center">
+    <div key={coupon._key ?? i} className="relative rounded-xl bg-white px-5 py-8 text-center">
       {coupon.badge && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-block rounded-full bg-amber-500 px-3 py-0.5 text-[10px] font-semibold text-white">
           {coupon.badge}
@@ -104,7 +104,7 @@ export default function PriceSeitai({
             {courses.map((course, i) => (
               <div
                 key={course._key ?? i}
-                className="rounded-xl bg-white px-3 py-6 text-center"
+                className="rounded-xl bg-white px-5 py-8 text-center"
               >
                 <p className="text-xs text-gray-500 md:text-sm">{course.name}</p>
                 <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">

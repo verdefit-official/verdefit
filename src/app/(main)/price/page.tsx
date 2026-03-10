@@ -12,23 +12,6 @@ import Access from "@/components/sections/Access";
 
 // ─── Sanity Types ──────────────────────────────────────────────────────────────
 
-type ChiropracticPricingRaw = {
-  sectionTitle?: string;
-  sectionDescription?: string;
-  courses?: { _key: string; name?: string; price?: string; description?: string }[];
-  options?: { _key: string; name?: string; price?: string }[];
-  couponSectionTitle?: string;
-  coupons?: { _key: string; name?: string; price?: string; unit?: string; validity?: string }[];
-};
-
-type CoachingPricingRaw = {
-  sectionTitle?: string;
-  sectionDescription?: string;
-  trialBadge?: string;
-  trialTitle?: string;
-  plans?: { _key: string; badge?: string; title?: string; price?: string; details?: string[] }[];
-};
-
 type CancelPolicyRaw = {
   intro?: string;
   sections?: { _key: string; title?: string; content?: string }[];
@@ -97,15 +80,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PricePage() {
   const [
-    chiropracticPricingRaw,
-    coachingPricingRaw,
     cancelPolicyRaw,
     ctaRaw,
     accessData,
     siteSettingsData,
   ] = await Promise.all([
-    safeFetch<ChiropracticPricingRaw>(`*[_type == "chiropracticPricing"][0]`),
-    safeFetch<CoachingPricingRaw>(`*[_type == "coachingPricing"][0]`),
     safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
     safeFetch<CTARaw>(`*[_type == "cta"][0]`),
     safeFetch<AccessRaw>(`*[_type == "access"][0]`),
@@ -131,9 +110,9 @@ export default async function PricePage() {
     <>
       <PriceHero />
       <PriceTrial bookingUrl={bookingUrl} />
-      <PriceSeitai data={chiropracticPricingRaw} bookingUrl={bookingUrl} />
+      <PriceSeitai bookingUrl={bookingUrl} />
       <PricePersonal bookingUrl={bookingUrl} />
-      <PriceCoaching data={coachingPricingRaw} bookingUrl={bookingUrl} />
+      <PriceCoaching bookingUrl={bookingUrl} />
       <PricePremium bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-white" />
       <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} phone={phone} />
