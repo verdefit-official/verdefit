@@ -1,9 +1,20 @@
 import FadeIn from "@/components/FadeIn";
 
-const checkItems = ["整体（60分）", "パーソナルトレーニング（60分）", "コーチング（60分）"];
-const supports = ["食事サポート", "24時間LINE相談サポート", "習慣設計プログラム"];
+type PricePremiumData = {
+  planTitle?: string | null;
+  programLabel?: string | null;
+  price?: string | null;
+  monthlyLimit?: string | null;
+  checkItems?: string[] | null;
+  flexNote?: string | null;
+  supports?: string[] | null;
+  descriptions?: string[] | null;
+};
 
-const descriptions = [
+const defaultCheckItems = ["整体（60分）", "パーソナルトレーニング（60分）", "コーチング（60分）"];
+const defaultSupports = ["食事サポート", "24時間LINE相談サポート", "習慣設計プログラム"];
+
+const defaultDescriptions = [
   "VERDE FITでは、３つのアプローチであなたの理想を叶えます。\n理想の状態に整える整体、理想の身体を作るパーソナルトレーニング、理想の習慣を手に入れるコーチング。\nこの3つを組み合わせることで、理想のあなたが実現します。",
   "整体・トレーニング・コーチングを一体化した6ヶ月のボディメイクプログラムは単なるダイエットではなく、身体・思考・習慣のすべてを整え、リバウンドしない身体づくりを目指します。",
   "一人では続かなかった方でも、専門家の伴走サポートにより理想の身体と健康習慣を手にしませんか？",
@@ -20,12 +31,23 @@ function CheckIcon() {
 }
 
 export default function PricePremium({
+  data,
   bookingUrl,
   lineUrl,
 }: {
+  data?: PricePremiumData | null;
   bookingUrl?: string;
   lineUrl?: string;
 }) {
+  const planTitle = data?.planTitle ?? "VERDE FIT式ボディメイクコーチング";
+  const programLabel = data?.programLabel ?? "6か月プログラム";
+  const price = data?.price ?? "¥ 498,000";
+  const monthlyLimit = data?.monthlyLimit ?? "月8回まで利用可能";
+  const checkItems = (data?.checkItems && data.checkItems.length > 0) ? data.checkItems : defaultCheckItems;
+  const flexNote = data?.flexNote ?? "※組み合わせ自由";
+  const supports = (data?.supports && data.supports.length > 0) ? data.supports : defaultSupports;
+  const descriptions = (data?.descriptions && data.descriptions.length > 0) ? data.descriptions : defaultDescriptions;
+
   return (
     <section id="premium" className="scroll-mt-24 bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -41,11 +63,11 @@ export default function PricePremium({
             {/* タイトル・価格 */}
             <div className="text-center">
               <p className="font-serif text-xl font-bold text-[#1f2937]">
-                VERDE FIT式ボディメイクコーチング
+                {planTitle}
               </p>
-              <p className="mt-2 text-sm font-semibold text-green-700">6か月プログラム</p>
+              <p className="mt-2 text-sm font-semibold text-green-700">{programLabel}</p>
               <p className="mt-1 font-serif text-[52px] font-bold leading-none text-green-700">
-                ¥ 498,000
+                {price}
               </p>
               <p className="mt-1 text-xs text-gray-400">（税込）</p>
             </div>
@@ -53,7 +75,7 @@ export default function PricePremium({
             {/* 内容 */}
             <div className="mt-8 text-center">
               <p className="mb-2 text-sm font-semibold text-gray-700">内容</p>
-              <p className="mb-3 text-sm text-gray-600">月8回まで利用可能</p>
+              <p className="mb-3 text-sm text-gray-600">{monthlyLimit}</p>
               <div className="inline-flex flex-col items-start space-y-2">
                 {checkItems.map((item, i) => (
                   <p key={i} className="flex items-center gap-2 text-sm text-gray-700">
@@ -62,7 +84,7 @@ export default function PricePremium({
                   </p>
                 ))}
               </div>
-              <p className="mt-2 text-xs text-gray-500">※組み合わせ自由</p>
+              <p className="mt-2 text-xs text-gray-500">{flexNote}</p>
 
               <div className="mt-5">
                 <p className="mb-2 text-sm text-gray-700">追加サポート</p>

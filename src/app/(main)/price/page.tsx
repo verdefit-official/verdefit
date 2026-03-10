@@ -17,6 +17,54 @@ type CancelPolicyRaw = {
   closing?: string;
 };
 
+type PriceHeroRaw = { subtitle?: string };
+
+type PriceTrialRaw = {
+  badge?: string;
+  regularPrice?: string;
+  trialPrice?: string;
+  detail1?: string;
+  detail2?: string;
+  description?: string;
+  buttonText?: string;
+};
+
+type ChiropracticPricingRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  courses?: { _key: string; name?: string; price?: string }[];
+  options?: { _key: string; name?: string; price?: string }[];
+  couponSectionTitle?: string;
+  coupons?: { _key: string; name?: string; price?: string; unit?: string; validity?: string; badge?: string }[];
+};
+
+type PersonalPricingRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  monthlyPlans?: { _key: string; name?: string; price?: string; perSession?: string; validity?: string }[];
+  intensivePlans?: { _key: string; name?: string; price?: string; popular?: boolean; checkItems?: string[]; period?: string; validityPeriod?: string; description?: string }[];
+  singlePrice?: string;
+};
+
+type CoachingPricingRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  trialTitle?: string;
+  singlePlans?: { _key: string; badge?: string; price?: string }[];
+  monthlyPlans?: { _key: string; badge?: string; title?: string; price?: string; perSession?: string }[];
+};
+
+type PricePremiumRaw = {
+  planTitle?: string;
+  programLabel?: string;
+  price?: string;
+  monthlyLimit?: string;
+  checkItems?: string[];
+  flexNote?: string;
+  supports?: string[];
+  descriptions?: string[];
+};
+
 // ─── generateMetadata ──────────────────────────────────────────────────────────
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -59,11 +107,23 @@ export default async function PricePage() {
   const [
     cancelPolicyRaw,
     siteSettingsData,
+    priceHeroRaw,
+    priceTrialRaw,
+    chiropracticPricingRaw,
+    personalPricingRaw,
+    coachingPricingRaw,
+    pricePremiumRaw,
   ] = await Promise.all([
     safeFetch<CancelPolicyRaw>(`*[_type == "cancelPolicy"][0]`),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
+    safeFetch<PriceHeroRaw>(`*[_type == "priceHero"][0]`),
+    safeFetch<PriceTrialRaw>(`*[_type == "priceTrial"][0]`),
+    safeFetch<ChiropracticPricingRaw>(`*[_type == "chiropracticPricing"][0]`),
+    safeFetch<PersonalPricingRaw>(`*[_type == "personalPricing"][0]`),
+    safeFetch<CoachingPricingRaw>(`*[_type == "coachingPricing"][0]`),
+    safeFetch<PricePremiumRaw>(`*[_type == "pricePremium"][0]`),
   ]);
 
   const bookingUrl = siteSettingsData?.bookingUrl ?? undefined;
@@ -79,12 +139,12 @@ export default async function PricePage() {
 
   return (
     <>
-      <PriceHero />
-      <PriceTrial bookingUrl={bookingUrl} />
-      <PriceSeitai bookingUrl={bookingUrl} />
-      <PricePersonal bookingUrl={bookingUrl} />
-      <PriceCoaching bookingUrl={bookingUrl} />
-      <PricePremium bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <PriceHero data={priceHeroRaw} />
+      <PriceTrial data={priceTrialRaw} bookingUrl={bookingUrl} />
+      <PriceSeitai data={chiropracticPricingRaw} bookingUrl={bookingUrl} />
+      <PricePersonal data={personalPricingRaw} bookingUrl={bookingUrl} />
+      <PriceCoaching data={coachingPricingRaw} bookingUrl={bookingUrl} />
+      <PricePremium data={pricePremiumRaw} bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <PersonalCancelPolicy data={cancelPolicyRaw} sectionBg="bg-[#e8f3ec]" />
       <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
     </>
