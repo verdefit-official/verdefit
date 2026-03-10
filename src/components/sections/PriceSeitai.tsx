@@ -118,16 +118,16 @@ export default function PriceSeitai({
 
         {/* オプション */}
         <FadeIn delay={100}>
-          <div className="mb-12 flex flex-wrap justify-center gap-4">
+          <div className="mb-12 grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
             {options.map((option, i) => (
               <div
                 key={option._key ?? i}
-                className="rounded-xl bg-white px-8 py-5 text-center"
+                className="rounded-xl bg-white px-7 py-8 text-center"
               >
-                <p className="text-xs text-gray-400">オプション</p>
+                <p className="text-sm text-gray-400">オプション</p>
                 <p className="mt-1 text-base font-bold text-[#1f2937]">{option.name}</p>
-                <p className="mt-2 font-serif text-3xl font-bold text-green-700">+{option.price}</p>
-                <p className="mt-1 text-[11px] text-gray-400">（税込）</p>
+                <p className="mt-2 font-serif text-[40px] font-bold leading-none text-green-700">+{option.price}</p>
+                <p className="mt-1 text-xs text-gray-400">（税込）</p>
               </div>
             ))}
           </div>
@@ -144,11 +144,9 @@ export default function PriceSeitai({
             ))}
           </div>
           {bottomCoupons.length > 0 && (
-            <div className="mt-3 flex flex-wrap justify-center gap-3 md:gap-4">
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
               {bottomCoupons.map((coupon, i) => (
-                <div key={coupon._key ?? i} className="w-full max-w-xs">
-                  <CouponCard coupon={coupon} i={i + 3} />
-                </div>
+                <CouponCard key={coupon._key ?? i} coupon={coupon} i={i + 3} />
               ))}
             </div>
           )}
