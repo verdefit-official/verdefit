@@ -11,6 +11,7 @@ export const personalFlowSchema = defineType({
       name: "steps",
       title: "ステップ一覧",
       type: "array",
+      validation: (Rule) => Rule.max(4),
       of: [
         {
           type: "object",

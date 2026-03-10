@@ -11,6 +11,7 @@ export const personalBeforeAfterSchema = defineType({
       name: "cards",
       title: "カード一覧",
       type: "array",
+      validation: (Rule) => Rule.max(3),
       of: [
         {
           type: "object",

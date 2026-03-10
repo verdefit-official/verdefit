@@ -21,6 +21,7 @@ export const chiropracticReasonsSchema = defineType({
       name: "reasonList",
       title: "理由一覧",
       type: "array",
+      validation: (Rule) => Rule.max(3),
       of: [
         {
           type: "object",
