@@ -83,10 +83,10 @@ type ProfileSanity = {
   name?: string;
   imageUrl?: string;
   imageAlt?: string;
-  beliefTitle?: string;
   beliefDescription?: string;
   highlight?: string;
   closingText?: string;
+  history?: string[];
   credentials?: string[];
 };
 

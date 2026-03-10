@@ -37,12 +37,6 @@ export const profileSchema = defineType({
       description: "例: 代表の吉田宗太郎",
     }),
     defineField({
-      name: "beliefTitle",
-      title: "想いのタイトル",
-      type: "string",
-      description: "例: 「痛みのない人生を、すべての人に」",
-    }),
-    defineField({
       name: "beliefDescription",
       title: "想いの説明（1段落目）",
       type: "text",
@@ -64,11 +58,18 @@ export const profileSchema = defineType({
       description: "例: あなたの目標を一緒に実現しましょう。横手市で、本気で向き合います。",
     }),
     defineField({
-      name: "credentials",
-      title: "経歴・資格",
+      name: "history",
+      title: "経歴",
       type: "array",
       of: [{ type: "string" }],
-      description: "例: NSCA-CPT（認定パーソナルトレーナー）",
+      description: "例: 1995.10.16 横手市出身",
+    }),
+    defineField({
+      name: "credentials",
+      title: "保有資格",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "例: 柔道整復師 国家資格取得",
     }),
   ],
   preview: {

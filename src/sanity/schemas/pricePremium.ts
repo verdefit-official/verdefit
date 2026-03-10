@@ -54,7 +54,7 @@ export const pricePremiumSchema = defineType({
       title: "説明文",
       type: "text",
       rows: 6,
-      description: "改行で段落を区切ってください",
+      description: "例: VERDE FITでは、３つのアプローチであなたの理想を叶えます。",
     }),
   ],
   preview: { prepare: () => ({ title: "トータルケアプレミアムプラン" }) },
