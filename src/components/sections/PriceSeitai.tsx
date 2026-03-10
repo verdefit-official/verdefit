@@ -100,7 +100,7 @@ export default function PriceSeitai({
         {/* 単発料金 */}
         <FadeIn delay={60}>
           <p className="mb-4 text-lg font-bold text-[#1f2937]">単発料金</p>
-          <div className="mb-8 grid grid-cols-3 gap-3 md:gap-4">
+          <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
             {courses.map((course, i) => (
               <div
                 key={course._key ?? i}
@@ -138,7 +138,7 @@ export default function PriceSeitai({
           <p className="mb-4 text-lg font-bold text-[#1f2937]">{couponSectionTitle}</p>
         </FadeIn>
         <FadeIn delay={160}>
-          <div className="grid grid-cols-3 gap-3 md:gap-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
             {topCoupons.map((coupon, i) => (
               <CouponCard key={coupon._key ?? i} coupon={coupon} i={i} />
             ))}

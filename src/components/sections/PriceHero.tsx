@@ -39,7 +39,7 @@ export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
                 <a
                   key={tab.href}
                   href={tab.href}
-                  className="rounded-lg bg-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2d6e49] sm:flex-1"
+                  className="rounded-lg bg-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2d6e49] last:col-span-2 sm:flex-1 sm:last:col-span-1"
                 >
                   {tab.label}
                 </a>
