@@ -3,12 +3,20 @@ import FadeIn from "@/components/FadeIn";
 type SinglePlan = { badge: string; price: string };
 type MonthlyPlan = { badge: string; title: string; price: string; perSession: string };
 
-const singlePlans: SinglePlan[] = [
+type CoachingPricingData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  trialTitle?: string | null;
+  singlePlans?: Array<{ _key?: string; badge?: string; price?: string }> | null;
+  monthlyPlans?: Array<{ _key?: string; badge?: string; title?: string; price?: string; perSession?: string }> | null;
+};
+
+const defaultSinglePlans: SinglePlan[] = [
   { badge: "オンライン", price: "¥8,000" },
   { badge: "対面", price: "¥8,800" },
 ];
 
-const monthlyPlans: MonthlyPlan[] = [
+const defaultMonthlyPlans: MonthlyPlan[] = [
   { badge: "オンライン", title: "1ヶ月 / 4回", price: "¥28,000", perSession: "1回あたり ¥7,000" },
   { badge: "対面", title: "1ヶ月 / 4回", price: "¥30,000", perSession: "1回あたり ¥7,500" },
 ];
@@ -26,16 +34,26 @@ function Badge({ label }: { label: string }) {
   );
 }
 
-export default function PriceCoaching({ bookingUrl }: { bookingUrl?: string }) {
+export default function PriceCoaching({ data, bookingUrl }: { data?: CoachingPricingData | null; bookingUrl?: string }) {
+  const sectionTitle = data?.sectionTitle ?? "コーチング 料金";
+  const sectionDescription = data?.sectionDescription ?? "思考を変え、習慣をデザインする";
+  const trialTitle = data?.trialTitle ?? "初回無料体験セッション６０分";
+  const singlePlans: SinglePlan[] = (data?.singlePlans && data.singlePlans.length > 0)
+    ? data.singlePlans.map((p) => ({ badge: p.badge ?? "", price: p.price ?? "" }))
+    : defaultSinglePlans;
+  const monthlyPlans: MonthlyPlan[] = (data?.monthlyPlans && data.monthlyPlans.length > 0)
+    ? data.monthlyPlans.map((p) => ({ badge: p.badge ?? "", title: p.title ?? "", price: p.price ?? "", perSession: p.perSession ?? "" }))
+    : defaultMonthlyPlans;
+
   return (
     <section id="coaching" className="scroll-mt-24 bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              コーチング 料金
+              {sectionTitle}
             </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">思考を変え、習慣をデザインする</p>
+            <p className="mt-4 text-sm text-gray-500 md:text-base">{sectionDescription}</p>
           </div>
         </FadeIn>
 
@@ -47,7 +65,7 @@ export default function PriceCoaching({ bookingUrl }: { bookingUrl?: string }) {
               <Badge label="対面" />
             </div>
             <h3 className="mt-4 font-serif text-2xl font-bold text-green-700">
-              初回無料体験セッション６０分
+              {trialTitle}
             </h3>
           </div>
         </FadeIn>

@@ -1,5 +1,9 @@
 import FadeIn from "@/components/FadeIn";
 
+type PriceHeroData = {
+  subtitle?: string | null;
+};
+
 const filledTabs = [
   { href: "#seitai", label: "整体" },
   { href: "#personal", label: "パーソナル" },
@@ -7,7 +11,8 @@ const filledTabs = [
   { href: "#premium", label: "プレミアム" },
 ];
 
-export default function PriceHero() {
+export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
+  const subtitle = data?.subtitle ?? "ご不明な点などはお気軽にご相談ください。";
   return (
     <section className="bg-[#e8f3ec] pt-28 pb-12 md:pt-32 md:pb-14">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -17,7 +22,7 @@ export default function PriceHero() {
               料金・プラン一覧
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-500 md:text-base">
-              ご不明な点などはお気軽にご相談ください。
+              {subtitle}
             </p>
           </div>
         </FadeIn>

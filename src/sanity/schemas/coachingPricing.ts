@@ -2,85 +2,65 @@ import { defineType, defineField } from "sanity";
 
 export const coachingPricingSchema = defineType({
   name: "coachingPricing",
-  title: "料金プラン",
+  title: "コーチング 料金",
   type: "document",
   fields: [
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
       type: "string",
-      description: "例: 料金プラン",
+      description: "例: コーチング 料金",
     }),
     defineField({
       name: "sectionDescription",
-      title: "セクション説明文",
+      title: "サブタイトル",
       type: "string",
-      description: "例: 横手市・秋田で通いやすい、明瞭な料金体系",
-    }),
-    defineField({
-      name: "trialBadge",
-      title: "無料体験 バッジ",
-      type: "string",
-      description: "例: オンライン・対面",
+      description: "例: 思考を変え、習慣をデザインする",
     }),
     defineField({
       name: "trialTitle",
-      title: "無料体験 タイトル",
+      title: "無料体験タイトル",
       type: "string",
       description: "例: 初回無料体験セッション６０分",
     }),
+
+    // 単発
     defineField({
-      name: "trialButtonText",
-      title: "無料体験 ボタンテキスト",
-      type: "string",
-      description: "例: 予約はこちら",
-    }),
-    defineField({
-      name: "plans",
-      title: "プラン一覧",
+      name: "singlePlans",
+      title: "単発プラン",
       type: "array",
       of: [
         {
           type: "object",
           fields: [
-            defineField({
-              name: "badge",
-              title: "バッジ",
-              type: "string",
-              description: "例: オンライン / 対面",
-            }),
-            defineField({
-              name: "title",
-              title: "プラン名",
-              type: "string",
-              description: "例: 単発セッション",
-            }),
-            defineField({
-              name: "price",
-              title: "料金",
-              type: "string",
-              description: "例: ¥8,000",
-            }),
-            defineField({
-              name: "details",
-              title: "詳細",
-              type: "array",
-              of: [{ type: "string" }],
-              description: "例: 60分 / 1回",
-            }),
+            defineField({ name: "badge", title: "バッジ（オンライン/対面）", type: "string", description: "例: オンライン" }),
+            defineField({ name: "price", title: "料金", type: "string", description: "例: ¥8,000" }),
           ],
-          preview: { select: { title: "title" } },
+          preview: { select: { title: "badge" } },
         },
       ],
     }),
+
+    // 月額
     defineField({
-      name: "note",
-      title: "注意書き",
-      type: "string",
-      description: "例: ※分割払いも承ります。詳しくはお問い合わせください。",
+      name: "monthlyPlans",
+      title: "月額プラン",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "badge", title: "バッジ（オンライン/対面）", type: "string", description: "例: オンライン" }),
+            defineField({ name: "title", title: "プラン名", type: "string", description: "例: 1ヶ月 / 4回" }),
+            defineField({ name: "price", title: "料金", type: "string", description: "例: ¥28,000" }),
+            defineField({ name: "perSession", title: "1回あたり", type: "string", description: "例: 1回あたり ¥7,000" }),
+          ],
+          preview: { select: { title: "badge" } },
+        },
+      ],
     }),
   ],
   preview: {
-    prepare: () => ({ title: "料金プラン" }),
+    prepare: () => ({ title: "コーチング 料金" }),
   },
 });

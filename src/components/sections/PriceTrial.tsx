@@ -6,7 +6,7 @@ type PriceTrialData = {
   trialPrice?: string | null;
   detail1?: string | null;
   detail2?: string | null;
-  detail3?: string | null;
+  description?: string | null;
   buttonText?: string | null;
 };
 
@@ -23,7 +23,7 @@ export default function PriceTrial({
   const detail1 = data?.detail1 ?? "カウンセリング30分";
   const detail2 = data?.detail2 ?? "整体orパーソナル60分";
   const detail3 =
-    data?.detail3 ?? "現在の身体の状態を確認し\nあなたに最適な改善プランをご提案します。";
+    data?.description ?? "現在の身体の状態を確認し\nあなたに最適な改善プランをご提案します。";
   const buttonText = data?.buttonText ?? "体験予約をする";
 
   return (

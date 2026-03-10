@@ -17,12 +17,20 @@ type IntensivePlan = {
   description: string;
 };
 
-const monthlyPlans: MonthlyPlan[] = [
+type PersonalPricingData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  monthlyPlans?: Array<{ _key?: string; name?: string; price?: string; perSession?: string; validity?: string }> | null;
+  intensivePlans?: Array<{ _key?: string; name?: string; price?: string; popular?: boolean; checkItems?: string[]; period?: string; validityPeriod?: string; description?: string }> | null;
+  singlePrice?: string | null;
+};
+
+const defaultMonthlyPlans: MonthlyPlan[] = [
   { name: "月4回プラン", price: "¥32,000", perSession: "1回あたり ¥8,000", validity: "有効期限：2ヶ月" },
   { name: "月8回プラン", price: "¥56,000", perSession: "1回あたり ¥7,000", validity: "有効期限：4ヶ月" },
 ];
 
-const intensivePlans: IntensivePlan[] = [
+const defaultIntensivePlans: IntensivePlan[] = [
   {
     name: "24回ダイエットプラン",
     price: "¥198,000",
@@ -52,17 +60,27 @@ function CheckIcon() {
   );
 }
 
-export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
+export default function PricePersonal({ data, bookingUrl }: { data?: PersonalPricingData | null; bookingUrl?: string }) {
+  const sectionTitle = data?.sectionTitle ?? "パーソナルトレーニング 料金";
+  const sectionDescription = data?.sectionDescription ?? "完全個別指導で理想の身体づくりを実現";
+  const monthlyPlans: MonthlyPlan[] = (data?.monthlyPlans && data.monthlyPlans.length > 0)
+    ? data.monthlyPlans.map((p) => ({ name: p.name ?? "", price: p.price ?? "", perSession: p.perSession ?? "", validity: p.validity ?? "" }))
+    : defaultMonthlyPlans;
+  const intensivePlans: IntensivePlan[] = (data?.intensivePlans && data.intensivePlans.length > 0)
+    ? data.intensivePlans.map((p) => ({ name: p.name ?? "", price: p.price ?? "", popular: p.popular, checkItems: p.checkItems ?? [], period: p.period ?? "", validityPeriod: p.validityPeriod ?? "", description: p.description ?? "" }))
+    : defaultIntensivePlans;
+  const singlePrice = data?.singlePrice ?? "¥11,000";
+
   return (
     <section id="personal" className="scroll-mt-24 bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-              パーソナルトレーニング 料金
+              {sectionTitle}
             </h2>
             <p className="mt-4 text-sm text-gray-500 md:text-base">
-              完全個別指導で理想の身体づくりを実現
+              {sectionDescription}
             </p>
           </div>
         </FadeIn>
@@ -126,7 +144,7 @@ export default function PricePersonal({ bookingUrl }: { bookingUrl?: string }) {
           <div className="mx-auto mb-10 max-w-xs rounded-xl bg-[#e8f3ec] px-7 py-8 text-center">
             <p className="text-sm text-gray-500">60分</p>
             <p className="mt-3 font-serif text-[40px] font-bold leading-none text-green-700">
-              ¥11,000
+              {singlePrice}
             </p>
             <p className="mt-1 text-xs text-gray-400">（税込）</p>
           </div>

@@ -2,37 +2,76 @@ import { defineType, defineField } from "sanity";
 
 export const personalPricingSchema = defineType({
   name: "personalPricing",
-  title: "料金プラン",
+  title: "パーソナルトレーニング 料金",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 料金プラン" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 横手市で通いやすい、明瞭な料金体系" }),
     defineField({
-      name: "plans",
-      title: "プラン一覧",
+      name: "sectionTitle",
+      title: "セクションタイトル",
+      type: "string",
+      description: "例: パーソナルトレーニング 料金",
+    }),
+    defineField({
+      name: "sectionDescription",
+      title: "サブタイトル",
+      type: "string",
+      description: "例: 完全個別指導で理想の身体づくりを実現",
+    }),
+
+    // 月額プラン
+    defineField({
+      name: "monthlyPlans",
+      title: "月額プラン（食事指導なし）",
       type: "array",
       of: [
         {
           type: "object",
           fields: [
             defineField({ name: "name", title: "プラン名", type: "string", description: "例: 月4回プラン" }),
-            defineField({ name: "foodLabel", title: "食事指導ラベル", type: "string", description: "例: 食事指導なし / 食事指導付き / 都度払い" }),
-            defineField({ name: "foodGreen", title: "食事指導ラベルを緑色にする", type: "boolean" }),
             defineField({ name: "price", title: "料金", type: "string", description: "例: ¥32,000" }),
-            defineField({
-              name: "details",
-              title: "詳細（複数行）",
-              type: "array",
-              of: [{ type: "string" }],
-              description: "例: 1ヶ月／4回セッション",
-            }),
-            defineField({ name: "popular", title: "人気No.1バッジを表示する", type: "boolean" }),
+            defineField({ name: "perSession", title: "1回あたり", type: "string", description: "例: 1回あたり ¥8,000" }),
+            defineField({ name: "validity", title: "有効期限", type: "string", description: "例: 有効期限：2ヶ月" }),
           ],
           preview: { select: { title: "name" } },
         },
       ],
     }),
-    defineField({ name: "note", title: "注意書き", type: "string", description: "例: ※分割払いも承ります。詳しくはお問い合わせください。" }),
+
+    // 短期集中プラン
+    defineField({
+      name: "intensivePlans",
+      title: "短期集中プラン",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "name", title: "プラン名", type: "string", description: "例: 24回ダイエットプラン" }),
+            defineField({ name: "price", title: "料金", type: "string", description: "例: ¥198,000" }),
+            defineField({ name: "popular", title: "人気No.1バッジを表示", type: "boolean" }),
+            defineField({
+              name: "checkItems",
+              title: "内容（チェック項目）",
+              type: "array",
+              of: [{ type: "string" }],
+              description: "例: 60分パーソナルトレーニング24回",
+            }),
+            defineField({ name: "period", title: "推奨利用期間", type: "string", description: "例: 推奨利用期間：3ヶ月" }),
+            defineField({ name: "validityPeriod", title: "有効期限", type: "string", description: "例: 有効期限：初回利用日から6ヶ月" }),
+            defineField({ name: "description", title: "説明文", type: "text" }),
+          ],
+          preview: { select: { title: "name" } },
+        },
+      ],
+    }),
+
+    // 単発
+    defineField({
+      name: "singlePrice",
+      title: "単発料金",
+      type: "string",
+      description: "例: ¥11,000",
+    }),
   ],
-  preview: { prepare: () => ({ title: "料金プラン" }) },
+  preview: { prepare: () => ({ title: "パーソナルトレーニング 料金" }) },
 });
