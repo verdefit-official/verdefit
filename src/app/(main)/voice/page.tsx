@@ -46,7 +46,7 @@ function StarIcon() {
 
 function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
   return (
-    <section className="bg-[#e8f3ec] py-20 md:py-24">
+    <section className="bg-[#e8f3ec] pt-28 pb-16 md:pt-32 md:pb-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <FadeIn>
           <h1 className="font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
