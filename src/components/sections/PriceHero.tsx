@@ -1,6 +1,6 @@
 import FadeIn from "@/components/FadeIn";
 
-const tabs = [
+const filledTabs = [
   { href: "#seitai", label: "整体" },
   { href: "#personal", label: "パーソナル" },
   { href: "#coaching", label: "コーチング" },
@@ -9,29 +9,37 @@ const tabs = [
 
 export default function PriceHero() {
   return (
-    <section className="bg-white pt-28 pb-12 md:pt-32 md:pb-14">
+    <section className="bg-[#e8f3ec] pt-28 pb-12 md:pt-32 md:pb-14">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center">
             <h1 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
               料金・プラン一覧
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
-              初回体験から月額プランまで、あなたのペースに合わせてお選びいただけます
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-500 md:text-base">
+              ご不明な点などはお気軽にご相談ください。
             </p>
           </div>
         </FadeIn>
         <FadeIn delay={80}>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {tabs.map((tab) => (
+          <div className="mt-10 rounded-2xl border border-gray-300 bg-white/60 px-4 py-4">
+            <div className="flex items-center justify-between gap-2">
               <a
-                key={tab.href}
-                href={tab.href}
-                className="rounded-full border-2 border-green-700 px-6 py-2 text-sm font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white"
+                href="#trial"
+                className="flex-1 rounded-lg border-2 border-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-[#3a8a5c] transition-colors hover:bg-[#3a8a5c] hover:text-white"
               >
-                {tab.label}
+                初回体験
               </a>
-            ))}
+              {filledTabs.map((tab) => (
+                <a
+                  key={tab.href}
+                  href={tab.href}
+                  className="flex-1 rounded-lg bg-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2d6e49]"
+                >
+                  {tab.label}
+                </a>
+              ))}
+            </div>
           </div>
         </FadeIn>
       </div>
