@@ -110,7 +110,7 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
         <FadeIn delay={200}>
           <div className="mt-12 text-center">
             <a
-              href="/voice/personal-training"
+              href="/voice"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-10 py-4 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
             >
               もっと詳しいお客様の声はこちら →
