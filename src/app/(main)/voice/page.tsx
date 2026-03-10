@@ -81,55 +81,91 @@ function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: str
 
 // ─── Concerns ─────────────────────────────────────────────────────
 
+function SeitaiIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-7 w-7 text-white" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21C12 21 4 14.5 4 9a8 8 0 0 1 16 0c0 5.5-8 12-8 12z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9" />
+    </svg>
+  );
+}
+
+function TrainingIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-7 w-7 text-white" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 8h2m8 0h2M4 12h2m12 0h2M6 8v8m4-10v12m4-12v12m2-8v8" />
+    </svg>
+  );
+}
+
+function CoachingIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-7 w-7 text-white" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 4 12.8V17H8v-2.2A7 7 0 0 1 12 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v1a3 3 0 0 0 6 0v-1" />
+    </svg>
+  );
+}
+
 function VoiceConcerns() {
-  const concerns = [
-    "肩こりや腰痛が続いている",
-    "運動不足を感じている",
-    "ダイエットに何度も失敗している",
-    "身体が思うように動かない",
-  ];
+  const concerns = ["肩こりや腰痛", "運動不足", "ダイエット失敗", "体型の悩み", "自信の低下"];
 
   const approaches = [
-    { label: "整体", desc: "身体の不調を根本から改善" },
-    { label: "トレーニング", desc: "正しい方法で身体を変える" },
-    { label: "コーチング", desc: "思考と習慣から行動を変える" },
+    { label: "整体", Icon: SeitaiIcon },
+    { label: "トレーニング", Icon: TrainingIcon },
+    { label: "コーチング", Icon: CoachingIcon },
   ];
 
   return (
     <section className="bg-white py-20 md:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[42px]">
-              その身体のお悩み、放置していませんか？
-            </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">
-              その悩みをVERDE FITが3つのアプローチで解決します
-            </p>
+          <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[42px]">
+            その身体のお悩み、放置していませんか？
+          </h2>
+        </FadeIn>
+
+        {/* タグ */}
+        <FadeIn delay={100}>
+          <div className="mb-8 flex flex-wrap justify-center gap-3">
+            {concerns.map((c, i) => (
+              <span
+                key={i}
+                className="rounded-full border border-gray-300 px-5 py-2 text-sm text-gray-600"
+              >
+                {c}
+              </span>
+            ))}
           </div>
         </FadeIn>
 
-        <div className="mb-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {concerns.map((c, i) => (
-            <FadeIn key={i} delay={i * 80}>
-              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-green-600" />
-                <p className="text-sm font-medium text-gray-700">{c}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+        {/* サブテキスト */}
+        <FadeIn delay={180}>
+          <p className="mb-8 text-center text-sm text-gray-500 md:text-base">
+            その悩みを、3つのアプローチで解決しています。
+          </p>
+        </FadeIn>
 
-        <div className="grid gap-4 sm:grid-cols-3">
-          {approaches.map((a, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <div className="rounded-xl bg-[#e8f3ec] px-6 py-8 text-center">
-                <p className="text-lg font-bold text-[#1f2937]">{a.label}</p>
-                <p className="mt-2 text-sm text-gray-600">{a.desc}</p>
+        {/* アイコン */}
+        <FadeIn delay={260}>
+          <div className="flex justify-center gap-10 sm:gap-16">
+            {approaches.map((a, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
+                  <a.Icon />
+                </span>
+                <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* 下部テキスト */}
+        <FadeIn delay={340}>
+          <p className="mt-10 text-center text-sm text-gray-500 md:text-base">
+            ここでは実際に変化を実感されたお客様の声をご紹介します。
+          </p>
+        </FadeIn>
       </div>
     </section>
   );
