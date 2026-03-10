@@ -1,0 +1,617 @@
+import type { Metadata } from "next";
+import { safeFetch } from "@/sanity/client";
+import FadeIn from "@/components/FadeIn";
+import CTA from "@/components/sections/CTA";
+
+export const metadata: Metadata = {
+  title: "お客様の声｜横手市の整体・パーソナルジム VERDE FIT",
+  description:
+    "VERDE FITで整体・パーソナルトレーニング・コーチングを体験されたお客様のリアルな体験談をご紹介します。横手市で身体の悩みを解決したお客様の声をぜひご覧ください。",
+};
+
+// ─── Icons ────────────────────────────────────────────────────────
+
+function PersonIcon({ className = "h-8 w-8 text-green-600" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      className={className}
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+function StarIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-4 w-4 text-yellow-400"
+      aria-hidden="true"
+    >
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  );
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────
+
+function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
+  return (
+    <section className="bg-[#e8f3ec] py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <FadeIn>
+          <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">
+            お客様の声
+          </span>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <h1 className="mt-4 font-serif text-3xl font-bold leading-[1.4] text-[#1f2937] sm:text-4xl md:text-[44px]">
+            なりたい理想の自分になれた方の<br className="hidden sm:block" />リアルな体験談
+          </h1>
+        </FadeIn>
+        <FadeIn delay={200}>
+          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-gray-600">
+            VERDE FITでは整体・パーソナルトレーニング・コーチングの3つのアプローチで、あなたの身体のお悩みを根本からサポートします。実際に変化を実感されたお客様の体験談をぜひご覧ください。
+          </p>
+        </FadeIn>
+        <FadeIn delay={300}>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href={bookingUrl ?? "#cta"}
+              className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
+            >
+              予約はこちら
+            </a>
+            <a
+              href={lineUrl ?? "#cta"}
+              className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
+            >
+              LINEで予約する
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Concerns ─────────────────────────────────────────────────────
+
+function VoiceConcerns() {
+  const concerns = [
+    "肩こりや腰痛が続いている",
+    "運動不足を感じている",
+    "ダイエットに何度も失敗している",
+    "身体が思うように動かない",
+  ];
+
+  const approaches = [
+    { label: "整体", desc: "身体の不調を根本から改善" },
+    { label: "トレーニング", desc: "正しい方法で身体を変える" },
+    { label: "コーチング", desc: "思考と習慣から行動を変える" },
+  ];
+
+  return (
+    <section className="bg-white py-20 md:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[42px]">
+              その身体のお悩み、放置していませんか？
+            </h2>
+            <p className="mt-4 text-sm text-gray-500 md:text-base">
+              その悩みをVERDE FITが3つのアプローチで解決します
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="mb-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {concerns.map((c, i) => (
+            <FadeIn key={i} delay={i * 80}>
+              <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-gray-50 px-4 py-3">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-green-600" />
+                <p className="text-sm font-medium text-gray-700">{c}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          {approaches.map((a, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <div className="rounded-xl bg-[#e8f3ec] px-6 py-8 text-center">
+                <p className="text-lg font-bold text-[#1f2937]">{a.label}</p>
+                <p className="mt-2 text-sm text-gray-600">{a.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Category Nav ─────────────────────────────────────────────────
+
+function VoiceCategoryNav() {
+  const cats = [
+    {
+      href: "/voice/seitai",
+      label: "整体のお客様の声",
+      desc: "肩こり・腰痛・姿勢改善など",
+    },
+    {
+      href: "/voice/personal-training",
+      label: "パーソナルジムの声を見る",
+      desc: "ダイエット・ボディメイクなど",
+    },
+    {
+      href: "/voice/coaching",
+      label: "コーチングのお客様の声",
+      desc: "思考・習慣・行動変容など",
+    },
+  ];
+
+  return (
+    <section className="bg-[#e8f3ec] py-16 md:py-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <FadeIn>
+          <h2 className="mb-10 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-3xl">
+            あなたと同じ悩みの体験談を探す
+          </h2>
+        </FadeIn>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {cats.map((c, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <a
+                href={c.href}
+                className="flex flex-col items-center rounded-xl bg-white px-6 py-8 text-center shadow-sm transition-shadow hover:shadow-md"
+              >
+                <span className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f3ec]">
+                  <PersonIcon className="h-6 w-6 text-green-700" />
+                </span>
+                <p className="text-base font-bold text-[#1f2937]">{c.label}</p>
+                <p className="mt-1 text-sm text-gray-500">{c.desc}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-green-700">
+                  声を見る <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Seitai Section ───────────────────────────────────────────────
+
+function VoiceSeitaiSection() {
+  const voices = [
+    {
+      tag: "長年の肩こり・姿勢改善",
+      title: "デスクワークが楽になりました",
+      demographics: "女性（40代）",
+      text: "デスクワークが多く長年肩こりに悩まされていました。ここで施術を受けて猫背が改善され、肩こりも姿勢も良くなりました。今では気楽に通えるようになり、自分の姿勢が良くなったことで自信もつきました。",
+    },
+    {
+      tag: "腰痛・骨盤矯正",
+      title: "長年悩んでいた腰痛が改善しました",
+      demographics: "女性（40代）",
+      text: "長年腰痛に悩んでいましたが、施術を受けるたびに体が軽くなっていきました。日常生活での痛みも以前より気にならなくなり、定期的に通い続けることで安定しています。",
+    },
+    {
+      tag: "肩こり・姿勢改善",
+      title: "10回の施術で大きく改善しました",
+      demographics: "女性（30代）",
+      text: "以前から肩こりと姿勢が気になっていましたが、10回ほど施術を受けただけで大きく変わりました。先生が毎回丁寧に状態を確認してくださり、少しずつ正しい姿勢になれていることを実感しています。",
+    },
+  ];
+
+  return (
+    <section id="seitai" className="bg-white py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              整体で不調が改善したお客様の体験談
+            </h2>
+            <p className="mt-4 text-sm text-gray-500 md:text-base">
+              実際にご利用いただいたお客様の声です。掲載許可をいただいた方の体験談をご紹介します。
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {voices.map((v, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div className="bg-[#e8f3ec] px-5 py-4 text-center">
+                  <p className="text-xs font-semibold text-green-700">{v.tag}</p>
+                  <p className="mt-1 text-base font-bold text-[#1f2937]">{v.title}</p>
+                  <p className="mt-1 text-sm text-gray-500">{v.demographics}</p>
+                </div>
+                <div className="flex flex-col items-center px-5 pt-5 pb-2">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+                    <PersonIcon className="h-8 w-8 text-gray-400" />
+                  </div>
+                </div>
+                <div className="flex flex-1 px-5 pb-6 pt-4">
+                  <p className="text-sm leading-7 text-gray-600">{v.text}</p>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={200}>
+          <div className="mt-10 text-center">
+            <a
+              href="/voice/seitai"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
+            >
+              整体のお客様の声をもっと見る <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Personal Section ─────────────────────────────────────────────
+
+function VoicePersonalSection() {
+  const cards = [
+    {
+      label: "3ヶ月で-8kg減量",
+      result: "−8kg達成",
+      fat: "体脂肪 −6%",
+      demographics: "女性（30代）",
+      text: "今まで諦めていたダイエットが、正しいトレーニングと食事管理で無理なく達成できました。身体が変わっただけでなく、自分に自信が持てるようになりました。",
+    },
+    {
+      label: "健康的な身体の改善",
+      result: "−12kg達成",
+      fat: "体脂肪 −8%",
+      demographics: "男性（40代）",
+      text: "仕事が忙しく運動できずにいましたが、パーソナルトレーニングで短時間でも効果的なトレーニングができるようになりました。12kgの減量に成功し、今では体が楽になりました。",
+    },
+    {
+      label: "仕事が忙しくても継続できた",
+      result: "−14kg達成",
+      fat: "体脂肪 −8%",
+      demographics: "女性（50代）",
+      text: "今まで何度も運動しようとしてもすぐに諦めていましたが、パーソナルトレーニングでは自分のペースで続けることができました。結果として14kg・体脂肪8%を落とし、身体だけでなく考え方まで前向きに変わりました。",
+    },
+  ];
+
+  return (
+    <section id="personal" className="bg-[#e8f3ec] py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              パーソナルトレーニングで身体が変わった体験談
+            </h2>
+            <p className="mt-4 text-sm text-gray-500 md:text-base">
+              ビフォーアフターの結果をご紹介します
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {cards.map((c, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                <div
+                  className="flex w-full flex-col items-center justify-center gap-2 bg-gray-100"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <PersonIcon className="h-16 w-16 text-gray-300" />
+                  <p className="text-xs text-gray-400">Before / After</p>
+                </div>
+                <div className="flex flex-1 flex-col px-6 py-5">
+                  <p className="text-xs font-semibold text-green-700">{c.label}</p>
+                  <div className="mt-2 flex items-baseline gap-3">
+                    <p className="font-serif text-3xl font-bold text-green-700">{c.result}</p>
+                    <p className="text-sm font-semibold text-gray-500">{c.fat}</p>
+                  </div>
+                  <p className="mt-1 text-xs text-gray-400">{c.demographics}</p>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={200}>
+          <div className="mt-10 text-center">
+            <a
+              href="/voice/personal-training"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-white"
+            >
+              パーソナルトレーニングのお客様の声をもっと見る <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Coaching Section ─────────────────────────────────────────────
+
+function VoiceCoachingSection() {
+  const voices = [
+    {
+      title: "今まで気づかなかったことに気づくようになりました",
+      demographics: "女性（30代）",
+      text: "自分の気持ちをうまく整理することができず、やりたいことを諦めてしまうことが多かったのですが、コーチングでは自分の思いを理解しながら行動に移すことができるようになりました。今では自分自身の変化が楽しみになっています。",
+    },
+    {
+      title: "自分らしく行動することができるようになりました",
+      demographics: "女性（40代）",
+      text: "今まで自分のやりたいことを後回しにしていましたが、コーチングで本当にやりたいことに向かって気持ちを整理することができました。今では自分らしく行動できるようになり、毎日が充実しています。",
+    },
+    {
+      title: "変化を楽しむことに気がつきました",
+      demographics: "女性（40代）",
+      text: "目標に向かって努力しているのになかなか変わらないことに悩んでいましたが、コーチングで自分の思考パターンを理解することで少しずつ変化を実感できるようになりました。今ではやりたいことを楽しみながら実現できています。",
+    },
+  ];
+
+  return (
+    <section id="coaching" className="bg-white py-20 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              コーチングを受けたお客様の声
+            </h2>
+            <p className="mt-4 text-sm text-gray-500 md:text-base">
+              思考と習慣が変わったお客様の体験談
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {voices.map((v, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div className="flex items-center gap-4 bg-green-600 px-6 py-5">
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white">
+                    <PersonIcon className="h-6 w-6 text-green-600" />
+                  </span>
+                  <div>
+                    <p className="text-xs text-green-100">コーチング</p>
+                    <p className="text-sm font-semibold text-white">{v.demographics}</p>
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col px-6 py-5">
+                  <p className="mb-3 font-bold text-[#1f2937]">{v.title}</p>
+                  <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={200}>
+          <div className="mt-10 text-center">
+            <a
+              href="/voice/coaching"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
+            >
+              コーチングのお客様の声をもっと見る <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Before/After Success ─────────────────────────────────────────
+
+function VoiceBeforeAfter() {
+  const cases = [
+    { label: "女性（30代）", result: "−8kg達成", fat: "体脂肪 −6%" },
+    { label: "男性（40代）", result: "−12kg達成", fat: "体脂肪 −8%" },
+    { label: "女性（50代）", result: "−6kg達成", fat: "体脂肪 −5%" },
+  ];
+
+  return (
+    <section className="bg-[#e8f3ec] py-20 md:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              理想の身体を手に入れた成功事例
+            </h2>
+            <p className="mt-3 text-sm text-gray-500 md:text-base">Before / After</p>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {cases.map((c, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <div className="overflow-hidden rounded-xl bg-white shadow-sm">
+                <div
+                  className="flex w-full flex-col items-center justify-center gap-2 bg-gray-100"
+                  style={{ aspectRatio: "3/4" }}
+                >
+                  <PersonIcon className="h-16 w-16 text-gray-300" />
+                  <p className="text-xs text-gray-400">Before / After</p>
+                </div>
+                <div className="px-5 py-4 text-center">
+                  <p className="text-xs text-gray-400">{c.label}</p>
+                  <p className="font-serif text-3xl font-bold text-green-700">{c.result}</p>
+                  <p className="mt-1 text-sm font-semibold text-gray-500">{c.fat}</p>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Google Reviews ───────────────────────────────────────────────
+
+function VoiceGoogleReviews() {
+  const reviews = [
+    {
+      name: "M.U様",
+      demographics: "女性",
+      text: "丁寧な施術と分かりやすい説明で、通うたびに身体が軽くなるのを実感しています。長年悩んでいた肩こりが改善され、毎日の生活が楽になりました。スタッフの方も親切で安心して通えています。",
+    },
+    {
+      name: "T.U様",
+      demographics: "女性",
+      text: "パーソナルトレーニングで3ヶ月で8kgを落とすことができました。食事制限もきつくなく、無理のないペースで続けることができました。今では運動が楽しくなり、ここに来るのが毎回楽しみです。",
+    },
+    {
+      name: "横田様",
+      demographics: "男性",
+      text: "コーチングを受けて、仕事でもプライベートでも自分らしく行動できるようになりました。自分が変わっていく実感があり、目標に向かって毎日を過ごせるようになっています。",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-20 md:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <FadeIn>
+          <div className="mb-12 text-center">
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              Googleロコミでも高評価をいただいています
+            </h2>
+          </div>
+        </FadeIn>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {reviews.map((r, i) => (
+            <FadeIn key={i} delay={i * 100}>
+              <div className="flex h-full flex-col rounded-xl border border-gray-200 bg-white px-6 py-6 shadow-sm">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e8f3ec]">
+                    <PersonIcon className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-[#1f2937]">{r.name}</p>
+                    <p className="text-xs text-gray-400">{r.demographics}</p>
+                  </div>
+                </div>
+                <div className="mb-3 flex gap-0.5">
+                  {[...Array(5)].map((_, j) => (
+                    <StarIcon key={j} />
+                  ))}
+                </div>
+                <p className="flex-1 text-sm leading-7 text-gray-600">{r.text}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Small CTA ────────────────────────────────────────────────────
+
+function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
+  const items = [
+    { label: "整体" },
+    { label: "パーソナル" },
+    { label: "コーチング" },
+  ];
+
+  return (
+    <section className="bg-[#e8f3ec] py-20 md:py-24">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <FadeIn>
+          <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            あなたも変化を体験しませんか？
+          </h2>
+          <p className="mt-4 text-sm text-gray-600 md:text-base">
+            1名でも多くの方に、まずはご相談ください
+          </p>
+
+          <div className="mt-8 flex justify-center gap-8">
+            {items.map((a, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm">
+                  <PersonIcon className="h-7 w-7 text-green-600" />
+                </span>
+                <p className="text-sm font-semibold text-[#1f2937]">{a.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href={bookingUrl ?? "#cta"}
+              className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
+            >
+              予約はこちら
+            </a>
+            <a
+              href={lineUrl ?? "#cta"}
+              className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
+            >
+              LINEで予約する
+            </a>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────
+
+export default async function VoicePage() {
+  const siteSettings = await safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+    `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
+  );
+
+  const bookingUrl = siteSettings?.bookingUrl;
+  const lineUrl = siteSettings?.lineUrl;
+
+  return (
+    <>
+      <VoiceHero bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <VoiceConcerns />
+      <VoiceCategoryNav />
+      <VoiceSeitaiSection />
+      <VoicePersonalSection />
+      <VoiceCoachingSection />
+      <VoiceBeforeAfter />
+      <VoiceGoogleReviews />
+      <VoiceSmallCTA bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <CTA
+        data={{
+          heading: "VERDE FITで自分を変えたい方へ",
+          description:
+            "初回限定90分体験セッション実施中\n整体・パーソナルトレーニング・コーチングで、あなたの理想の身体と健康習慣を実現します。\nまずは初回体験で、その違いを実感してください。",
+          primaryButtonText: "無料体験はこちら",
+          secondaryButtonText: "LINEで予約する",
+        }}
+        bookingUrl={bookingUrl}
+        lineUrl={lineUrl}
+        subheading="初回限定90分体験セッション実施中"
+        plain
+      />
+    </>
+  );
+}

@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/personal-training", label: "パーソナル" },
   { href: "/coaching", label: "コーチング" },
   { href: "/price", label: "料金" },
-  { href: "#testimonials", label: "お客様の声" },
+  { href: "/voice", label: "お客様の声" },
   { href: "#blog", label: "ブログ" },
   { href: "#access", label: "アクセス" },
 ];

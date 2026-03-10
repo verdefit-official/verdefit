@@ -117,10 +117,13 @@ export default function Testimonials({ data }: { data?: TestimonialsData | null 
         </div>
 
         <div className="mt-10 text-center">
-          <span className="inline-flex items-center gap-2 rounded-lg px-8 py-3 text-sm font-semibold border-2 border-gray-300 text-gray-400 cursor-default">
+          <a
+            href="/voice"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
+          >
             お客様の声一覧へ
             <span aria-hidden="true">→</span>
-          </span>
+          </a>
         </div>
       </div>
     </section>

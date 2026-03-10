@@ -18,7 +18,7 @@ const footerLinks = [
   { href: "/personal-training", label: "パーソナルトレーニング" },
   { href: "/coaching", label: "コーチング" },
   { href: "/price", label: "料金" },
-  { href: "#testimonials", label: "お客様の声" },
+  { href: "/voice", label: "お客様の声" },
   { href: "#blog", label: "ブログ" },
 ];
 
