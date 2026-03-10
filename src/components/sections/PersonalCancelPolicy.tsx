@@ -41,7 +41,7 @@ export default function PersonalCancelPolicy({ data, sectionBg = "bg-[#e8f3ec]" 
   const closing = data?.closing ?? "皆さまが安心して通っていただける環境づくりのため、何卒ご理解のほどよろしくお願いいたします。";
 
   return (
-    <section className={`${sectionBg} pb-20 md:pb-24`}>
+    <section className={`${sectionBg} py-20 md:py-24`}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="mb-10 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
