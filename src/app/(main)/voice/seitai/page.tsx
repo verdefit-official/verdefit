@@ -99,7 +99,7 @@ export default async function SeitaiVoicePage() {
     <>
       {/* ─── Hero ─── */}
       <section className="bg-[#e8f3ec] pt-28 pb-12 md:pt-32 md:pb-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <FadeIn>
             <nav className="mb-4 text-sm text-gray-500">
               <a href="/" className="hover:text-green-700">TOP</a>
