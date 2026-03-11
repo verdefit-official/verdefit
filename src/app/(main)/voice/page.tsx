@@ -605,7 +605,7 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <FadeIn>
           <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
             あなたも変化を体験しませんか？
@@ -614,7 +614,7 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
             1人で悩まず、まずはお気軽にご相談ください
           </p>
 
-          <div className="mt-8 flex gap-6 sm:gap-10">
+          <div className="mt-8 flex justify-center gap-6 sm:gap-10">
             {items.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
@@ -659,9 +659,9 @@ export default async function VoicePage() {
         data={{
           heading: "VERDE FITで自分を変えたい方へ",
           description:
-            "初回限定90分体験セッション実施中\n整体・パーソナルトレーニング・コーチングで、あなたの理想の身体と健康習慣を実現します。\nまずは初回体験で、その違いを実感してください。",
-          primaryButtonText: "無料体験はこちら",
-          secondaryButtonText: "LINEで予約する",
+            "まずはお気軽にご相談ください。\nあなたの目標達成までの道のりを、一緒に考えましょう。",
+          primaryButtonText: "無料体験を予約する",
+          secondaryButtonText: "LINEで相談する",
         }}
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}
