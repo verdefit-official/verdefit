@@ -633,7 +633,13 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
   ];
 
   const voices =
-    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
+    data?.voices && data.voices.length > 0
+      ? data.voices.map((v, i) => ({
+          ...v,
+          imageUrl: v.imageUrl || staticCoachingImgs[i]?.src || "",
+          imageAlt: v.imageAlt || staticCoachingImgs[i]?.alt || "",
+        }))
+      : defaultVoices;
 
   return (
     <section id="coaching" className="bg-white py-20 md:py-24">
