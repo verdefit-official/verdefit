@@ -598,47 +598,36 @@ function VoiceGoogleReviews() {
 
 function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
   const items = [
-    { label: "整体" },
-    { label: "パーソナル" },
-    { label: "コーチング" },
+    { label: "整体", Icon: SeitaiIcon },
+    { label: "トレーニング", Icon: TrainingIcon },
+    { label: "コーチング", Icon: CoachingIcon },
   ];
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
             あなたも変化を体験しませんか？
           </h2>
           <p className="mt-4 text-sm text-gray-600 md:text-base">
-            1名でも多くの方に、まずはご相談ください
+            1人で悩まず、まずはお気軽にご相談ください
           </p>
 
-          <div className="mt-8 flex justify-center gap-8">
+          <div className="mt-8 flex gap-6 sm:gap-10">
             {items.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm">
-                  <PersonIcon className="h-7 w-7 text-green-600" />
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
+                  <a.Icon />
                 </span>
-                <p className="text-sm font-semibold text-[#1f2937]">{a.label}</p>
+                <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={bookingUrl ?? "#cta"}
-              className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
-            >
-              予約はこちら
-            </a>
-            <a
-              href={lineUrl ?? "#cta"}
-              className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
-            >
-              LINEで予約する
-            </a>
-          </div>
+          <p className="mt-8 text-sm text-gray-600 md:text-base">
+            それぞれのアプローチで、あなたの身体をサポートします。
+          </p>
         </FadeIn>
       </div>
     </section>
