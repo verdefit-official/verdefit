@@ -24,41 +24,6 @@ export const voicePersonalSchema = defineType({
       type: "string",
       description: "例: パーソナルジムの詳細ページを見る",
     }),
-    defineField({
-      name: "cards",
-      title: "カード一覧",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            defineField({ name: "smallTitle", title: "小見出し", type: "string", description: "例: 横手市在住・30代女性" }),
-            defineField({ name: "heading", title: "見出し", type: "text", rows: 2, description: "例: 3ヶ月で-8kg達成" }),
-            defineField({ name: "text", title: "本文", type: "text", rows: 5, description: "例: 今まで何度もダイエットに失敗していましたが..." }),
-            defineField({
-              name: "stats",
-              title: "結果数値",
-              type: "array",
-              of: [
-                {
-                  type: "object",
-                  fields: [
-                    defineField({ name: "label", title: "ラベル", type: "string", description: "例: 体重" }),
-                    defineField({ name: "value", title: "値", type: "string", description: "例: -8kg" }),
-                  ],
-                  preview: { select: { title: "label" } },
-                },
-              ],
-            }),
-            defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
-            defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: ビフォーアフター写真" }),
-          ],
-          preview: {
-            select: { title: "smallTitle" },
-          },
-        },
-      ],
-    }),
   ],
   preview: {
     prepare: () => ({ title: "パーソナル体験談" }),
