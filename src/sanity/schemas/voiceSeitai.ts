@@ -42,7 +42,7 @@ export const voiceSeitaiSchema = defineType({
             }),
             defineField({ name: "heading", title: "見出し", type: "text", rows: 2, description: "例: デスクワークで慢性的な肩こりと姿勢の悪さに悩んでいました" }),
             defineField({ name: "text", title: "本文", type: "text", rows: 5, description: "例: デスクワークが多く..." }),
-            defineField({ name: "imageUrl", title: "画像URL", type: "string", description: "例: /voice-seitai-01.png" }),
+            defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
             defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: お客様の写真" }),
           ],
           preview: {

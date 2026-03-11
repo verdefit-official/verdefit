@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
 import ResponsiveTitle from "@/components/ResponsiveTitle";
+
+type SanityImageRef = { asset: { _ref: string; _type: string }; hotspot?: unknown };
+function imgUrl(ref: SanityImageRef | undefined | null): string {
+  if (!ref?.asset?._ref) return "";
+  try { return urlForImage(ref); } catch { return ""; }
+}
 
 // ─── generateMetadata ─────────────────────────────────────────────
 
@@ -362,7 +369,7 @@ type VoiceSeitaiVoice = {
   tags?: string[] | null;
   heading?: string | null;
   text?: string | null;
-  imageUrl?: string | null;
+  image?: SanityImageRef | null;
   imageAlt?: string | null;
 };
 
@@ -423,8 +430,8 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
                 {/* 上部：お客様写真 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={v.imageUrl ?? staticSeitaiImgs[i]?.src ?? ""}
-                    alt={v.imageAlt ?? staticSeitaiImgs[i]?.alt ?? ""}
+                    src={imgUrl(v.image) || staticSeitaiImgs[i]?.src || ""}
+                    alt={v.imageAlt || staticSeitaiImgs[i]?.alt || ""}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
@@ -478,7 +485,7 @@ type VoicePersonalCard = {
   heading?: string | null;
   text?: string | null;
   stats?: VoicePersonalStat[] | null;
-  imageUrl?: string | null;
+  image?: SanityImageRef | null;
   imageAlt?: string | null;
 };
 
@@ -548,8 +555,8 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
                 {/* 上部：ビフォーアフター画像 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={c.imageUrl ?? staticPersonalImgs[i]?.src ?? ""}
-                    alt={c.imageAlt ?? staticPersonalImgs[i]?.alt ?? ""}
+                    src={imgUrl(c.image) || staticPersonalImgs[i]?.src || ""}
+                    alt={c.imageAlt || staticPersonalImgs[i]?.alt || ""}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
@@ -593,7 +600,7 @@ type VoiceCoachingVoice = {
   smallTitle?: string | null;
   heading?: string | null;
   text?: string | null;
-  imageUrl?: string | null;
+  image?: SanityImageRef | null;
   imageAlt?: string | null;
 };
 
@@ -633,13 +640,7 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
   ];
 
   const voices =
-    data?.voices && data.voices.length > 0
-      ? data.voices.map((v, i) => ({
-          ...v,
-          imageUrl: v.imageUrl || staticCoachingImgs[i]?.src || "",
-          imageAlt: v.imageAlt || staticCoachingImgs[i]?.alt || "",
-        }))
-      : defaultVoices;
+    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
 
   return (
     <section id="coaching" className="bg-white py-20 md:py-24">
@@ -657,8 +658,8 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
                 {/* 上部：お客様写真 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={v.imageUrl ?? staticCoachingImgs[i]?.src ?? ""}
-                    alt={v.imageAlt ?? staticCoachingImgs[i]?.alt ?? ""}
+                    src={imgUrl(v.image) || staticCoachingImgs[i]?.src || ""}
+                    alt={v.imageAlt || staticCoachingImgs[i]?.alt || ""}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
@@ -693,7 +694,7 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
 type VoiceBeforeAfterCase = {
   label?: string | null;
   result?: string | null;
-  imageUrl?: string | null;
+  image?: SanityImageRef | null;
   imageAlt?: string | null;
 };
 
@@ -708,9 +709,9 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
   const sectionDescription = data?.sectionDescription ?? "VERDE FITで理想の身体を手に入れた方々の変化";
 
   const defaultCases: VoiceBeforeAfterCase[] = [
-    { label: "横手市在住・30代女性", result: "−8kg達成", imageUrl: "/voice-beforeafter-01.jpg" },
-    { label: "横手市在住・40代男性", result: "−12kg達成", imageUrl: "/voice-beforeafter-02.jpg" },
-    { label: "横手市在住・50代女性", result: "−6kg達成", imageUrl: "/voice-beforeafter-03.jpg" },
+    { label: "横手市在住・30代女性", result: "−8kg達成" },
+    { label: "横手市在住・40代男性", result: "−12kg達成" },
+    { label: "横手市在住・50代女性", result: "−6kg達成" },
   ];
 
   const staticImgs = [
@@ -720,13 +721,7 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
   ];
 
   const cases =
-    data?.cases && data.cases.length > 0
-      ? data.cases.map((c, i) => ({
-          ...c,
-          imageUrl: c.imageUrl ?? staticImgs[i]?.src ?? "",
-          imageAlt: c.imageAlt ?? staticImgs[i]?.alt ?? "",
-        }))
-      : defaultCases;
+    data?.cases && data.cases.length > 0 ? data.cases : defaultCases;
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
@@ -748,8 +743,8 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
               <div className="overflow-hidden rounded-xl bg-white shadow-sm">
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={c.imageUrl ?? ""}
-                    alt={c.imageAlt ?? `Before After ${c.label ?? ""}`}
+                    src={imgUrl(c.image) || staticImgs[i]?.src || ""}
+                    alt={c.imageAlt || staticImgs[i]?.alt || `Before After ${c.label ?? ""}`}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>

@@ -35,7 +35,7 @@ export const voiceCoachingSchema = defineType({
             defineField({ name: "smallTitle", title: "小見出し", type: "string", description: "例: 三日坊主だった私でも習慣が続くようになりました" }),
             defineField({ name: "heading", title: "見出し", type: "text", rows: 2, description: "例: これまで何を始めても続かないことが悩みでした" }),
             defineField({ name: "text", title: "本文", type: "text", rows: 5, description: "例: これまで運動やダイエットを始めても..." }),
-            defineField({ name: "imageUrl", title: "画像URL", type: "string", description: "例: /voice-coaching-01.png" }),
+            defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
             defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: お客様の写真" }),
           ],
           preview: {

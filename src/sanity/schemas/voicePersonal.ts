@@ -50,7 +50,7 @@ export const voicePersonalSchema = defineType({
                 },
               ],
             }),
-            defineField({ name: "imageUrl", title: "画像URL", type: "string", description: "例: /voice-personal-01.png" }),
+            defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
             defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: ビフォーアフター写真" }),
           ],
           preview: {
