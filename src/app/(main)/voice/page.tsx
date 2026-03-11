@@ -227,13 +227,13 @@ function VoiceCategoryNav() {
 
   return (
     <section className="bg-[#e8f3ec] py-16 md:py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
             あなたと同じ悩みの体験談を探す
           </h2>
         </FadeIn>
-        <div className="grid gap-5 sm:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {cats.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
@@ -435,19 +435,19 @@ function VoicePersonalSection() {
 function VoiceCoachingSection() {
   const voices = [
     {
-      title: "今まで気づかなかったことに気づくようになりました",
-      demographics: "女性（30代）",
-      text: "自分の気持ちをうまく整理することができず、やりたいことを諦めてしまうことが多かったのですが、コーチングでは自分の思いを理解しながら行動に移すことができるようになりました。今では自分自身の変化が楽しみになっています。",
+      smallTitle: "三日坊主だった私でも習慣が続くようになりました",
+      heading: "これまで何を始めても続かないことが悩みでした",
+      text: "これまで運動やダイエットを始めても、三日坊主で終わってしまうことが多く悩んでいました。コーチングでは考え方や行動の習慣を見直し、小さな行動から始める方法を教えてもらいました。無理なく続けることができ、今では運動や健康習慣が自然と生活の一部になっています。",
     },
     {
-      title: "自分らしく行動することができるようになりました",
-      demographics: "女性（40代）",
-      text: "今まで自分のやりたいことを後回しにしていましたが、コーチングで本当にやりたいことに向かって気持ちを整理することができました。今では自分らしく行動できるようになり、毎日が充実しています。",
+      smallTitle: "自分を変えるきっかけになりました",
+      heading: "自分に自信が持てず、行動することが苦手でした",
+      text: "これまで自分に自信が持てず、新しいことに挑戦するのが苦手でした。コーチングを通して自分の考え方の癖に気づき、少しずつ行動できるようになりました。小さな成功体験を積み重ねることで自信もつき、以前より前向きに物事に取り組めるようになりました。",
     },
     {
-      title: "変化を楽しむことに気がつきました",
-      demographics: "女性（40代）",
-      text: "目標に向かって努力しているのになかなか変わらないことに悩んでいましたが、コーチングで自分の思考パターンを理解することで少しずつ変化を実感できるようになりました。今ではやりたいことを楽しみながら実現できています。",
+      smallTitle: "思考が変わると人生も変わりました",
+      heading: "何となく毎日を過ごしていることに悩んでいました",
+      text: "毎日を忙しく過ごしていましたが、どこか満足できない気持ちがありました。コーチングで自分の価値観や目標を整理することで、本当に大切にしたいことが明確になりました。今では目標に向かって行動できるようになり、以前より充実した毎日を過ごせています。",
     },
   ];
 
@@ -455,31 +455,26 @@ function VoiceCoachingSection() {
     <section id="coaching" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              コーチングを受けたお客様の声
-            </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">
-              思考と習慣が変わったお客様の体験談
-            </p>
-          </div>
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            コーチングを受けたお客様の声
+          </h2>
         </FadeIn>
 
         <div className="grid gap-6 md:grid-cols-3">
           {voices.map((v, i) => (
             <FadeIn key={i} delay={i * 100}>
-              <article className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-                <div className="flex items-center gap-4 bg-green-600 px-6 py-5">
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white">
-                    <PersonIcon className="h-6 w-6 text-green-600" />
-                  </span>
-                  <div>
-                    <p className="text-xs text-green-100">コーチング</p>
-                    <p className="text-sm font-semibold text-white">{v.demographics}</p>
-                  </div>
+              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                {/* 上部：グレー背景＋人物アイコン（写真差し替え予定） */}
+                <div
+                  className="flex items-center justify-center bg-gray-100"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <PersonIcon className="h-20 w-20 text-green-300" />
                 </div>
-                <div className="flex flex-1 flex-col px-6 py-5">
-                  <p className="mb-3 font-bold text-[#1f2937]">{v.title}</p>
+                {/* 下部：テキスト */}
+                <div className="flex flex-1 flex-col px-5 py-5">
+                  <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
+                  <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">{v.heading}</h3>
                   <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
                 </div>
               </article>
@@ -491,9 +486,9 @@ function VoiceCoachingSection() {
           <div className="mt-10 text-center">
             <a
               href="/voice/coaching"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              コーチングのお客様の声をもっと見る <span aria-hidden="true">→</span>
+              コーチングの声を見る <span aria-hidden="true">→</span>
             </a>
           </div>
         </FadeIn>
