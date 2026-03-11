@@ -61,8 +61,8 @@ const voiceSections = [
   { name: "voicePersonal", title: "パーソナル体験談" },
   { name: "voiceCoaching", title: "コーチング体験談" },
   { name: "voiceBeforeAfter", title: "成功事例" },
-  { name: "voiceGoogleReviews", title: "Google口コミ" },
-  { name: "voiceSmallCta", title: "変化体験CTA" },
+  { name: "voiceGoogleReviews", title: "Googleクチコミ" },
+  { name: "voiceSmallCta", title: "スモールCTA" },
   { name: "voiceCta", title: "CTA" },
 ];
 
