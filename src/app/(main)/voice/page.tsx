@@ -154,21 +154,23 @@ function CoachingIcon() {
 }
 
 type VoiceConcernsData = {
+  heading?: string | null;
   concerns?: string[] | null;
   subText?: string | null;
   bottomText?: string | null;
 };
 
 function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
+  const heading = data?.heading ?? "その身体のお悩み、放置していませんか？";
   const defaultConcerns = ["肩こりや腰痛", "運動不足", "ダイエット失敗", "体型の悩み", "自信の低下"];
   const concerns = data?.concerns && data.concerns.length > 0 ? data.concerns : defaultConcerns;
   const subText = data?.subText ?? "その悩みを、3つのアプローチで解決しています。";
   const bottomText = data?.bottomText ?? "ここでは実際に変化を実感されたお客様の声をご紹介します。";
 
   const approaches = [
-    { label: "整体", Icon: SeitaiIcon },
-    { label: "トレーニング", Icon: TrainingIcon },
-    { label: "コーチング", Icon: CoachingIcon },
+    { label: "整体", img: "/icon-seitai.png" },
+    { label: "トレーニング", img: "/icon-training.png" },
+    { label: "コーチング", img: "/icon-coaching.png" },
   ];
 
   return (
@@ -176,7 +178,7 @@ function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <FadeIn>
           <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            その身体のお悩み、放置していませんか？
+            {heading}
           </h2>
         </FadeIn>
 
@@ -206,9 +208,7 @@ function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
           <div className="flex justify-center gap-10 sm:gap-16">
             {approaches.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
-                  <a.Icon />
-                </span>
+                <img src={a.img} alt={a.label} className="h-14 w-14" />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
@@ -359,11 +359,13 @@ type VoiceSeitaiVoice = {
 type VoiceSeitaiData = {
   sectionTitle?: string | null;
   sectionDescription?: string | null;
+  linkText?: string | null;
   voices?: VoiceSeitaiVoice[] | null;
 };
 
 function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
   const sectionTitle = data?.sectionTitle ?? "整体で不調が改善したお客様の体験談";
+  const linkText = data?.linkText ?? "整体の詳細ページを見る";
 
   const defaultVoices: VoiceSeitaiVoice[] = [
     {
@@ -438,7 +440,7 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
               href="/seitai"
               className="inline-flex h-12 items-center justify-center rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              整体の詳細ページを見る
+              {linkText}
             </a>
           </div>
         </FadeIn>
@@ -466,11 +468,13 @@ type VoicePersonalCard = {
 type VoicePersonalData = {
   sectionTitle?: string | null;
   sectionDescription?: string | null;
+  linkText?: string | null;
   cards?: VoicePersonalCard[] | null;
 };
 
 function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
   const sectionTitle = data?.sectionTitle ?? "パーソナルトレーニングで\n身体が変わった体験談";
+  const linkText = data?.linkText ?? "パーソナルジムの詳細ページを見る";
 
   const defaultCards: VoicePersonalCard[] = [
     {
@@ -550,7 +554,7 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
               href="/personal-training"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              パーソナルジムの詳細ページを見る <span aria-hidden="true">→</span>
+              {linkText} <span aria-hidden="true">→</span>
             </a>
           </div>
         </FadeIn>
@@ -572,11 +576,13 @@ type VoiceCoachingVoice = {
 type VoiceCoachingData = {
   sectionTitle?: string | null;
   sectionDescription?: string | null;
+  linkText?: string | null;
   voices?: VoiceCoachingVoice[] | null;
 };
 
 function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
   const sectionTitle = data?.sectionTitle ?? "コーチングを受けたお客様の声";
+  const linkText = data?.linkText ?? "コーチングの声を見る";
 
   const defaultVoices: VoiceCoachingVoice[] = [
     {
@@ -636,7 +642,7 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
               href="/voice/coaching"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              コーチングの声を見る <span aria-hidden="true">→</span>
+              {linkText} <span aria-hidden="true">→</span>
             </a>
           </div>
         </FadeIn>
@@ -796,9 +802,9 @@ function VoiceSmallCTA({
   const bottomText = data?.bottomText ?? "それぞれのアプローチで、あなたの身体をサポートします。";
 
   const items = [
-    { label: "整体", Icon: SeitaiIcon },
-    { label: "トレーニング", Icon: TrainingIcon },
-    { label: "コーチング", Icon: CoachingIcon },
+    { label: "整体", img: "/icon-seitai.png" },
+    { label: "トレーニング", img: "/icon-training.png" },
+    { label: "コーチング", img: "/icon-coaching.png" },
   ];
 
   return (
@@ -815,9 +821,7 @@ function VoiceSmallCTA({
           <div className="mt-8 flex justify-center gap-6 sm:gap-10">
             {items.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500">
-                  <a.Icon />
-                </span>
+                <img src={a.img} alt={a.label} className="h-14 w-14" />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
@@ -836,6 +840,7 @@ function VoiceSmallCTA({
 
 export default async function VoicePage() {
   type VoiceCtaData = {
+    subheading?: string;
     heading?: string;
     description?: string;
     primaryButtonText?: string;
@@ -895,7 +900,7 @@ export default async function VoicePage() {
         }}
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}
-        subheading="初回限定90分体験セッション実施中"
+        subheading={ctaData?.subheading ?? "初回限定90分体験セッション実施中"}
       />
     </>
   );

@@ -19,6 +19,12 @@ export const voicePersonalSchema = defineType({
       description: "例: ダイエット成功・体型改善のリアルな変化",
     }),
     defineField({
+      name: "linkText",
+      title: "詳細ページリンクテキスト",
+      type: "string",
+      description: "例: パーソナルジムの詳細ページを見る",
+    }),
+    defineField({
       name: "cards",
       title: "カード一覧",
       type: "array",

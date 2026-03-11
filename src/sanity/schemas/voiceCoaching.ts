@@ -19,6 +19,12 @@ export const voiceCoachingSchema = defineType({
       description: "例: 思考と習慣が変わったリアルな体験談",
     }),
     defineField({
+      name: "linkText",
+      title: "詳細ページリンクテキスト",
+      type: "string",
+      description: "例: コーチングの声を見る",
+    }),
+    defineField({
       name: "voices",
       title: "体験談一覧",
       type: "array",

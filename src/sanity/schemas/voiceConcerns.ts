@@ -6,6 +6,12 @@ export const voiceConcernsSchema = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "heading",
+      title: "セクション見出し",
+      type: "text",
+      description: "例: その身体のお悩み、放置していませんか？",
+    }),
+    defineField({
       name: "concerns",
       title: "お悩みタグ一覧",
       type: "array",

@@ -6,6 +6,12 @@ export const voiceCtaSchema = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "subheading",
+      title: "サブ見出し（ヒント文）",
+      type: "string",
+      description: "例: 初回限定90分体験セッション実施中",
+    }),
+    defineField({
       name: "heading",
       title: "見出し",
       type: "string",

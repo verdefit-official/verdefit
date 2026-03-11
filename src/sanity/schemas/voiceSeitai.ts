@@ -19,6 +19,12 @@ export const voiceSeitaiSchema = defineType({
       description: "例: 肩こり・腰痛など慢性的な不調が改善したリアルな声",
     }),
     defineField({
+      name: "linkText",
+      title: "詳細ページリンクテキスト",
+      type: "string",
+      description: "例: 整体の詳細ページを見る",
+    }),
+    defineField({
       name: "voices",
       title: "体験談一覧",
       type: "array",
