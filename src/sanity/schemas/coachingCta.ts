@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const coachingCtaSchema = defineType({
   name: "coachingCta",
-  title: "CTA（行動喚起）",
+  title: "CTA",
   type: "document",
   fields: [
     defineField({
@@ -32,6 +32,6 @@ export const coachingCtaSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "CTA（行動喚起）" }),
+    prepare: () => ({ title: "CTA" }),
   },
 });

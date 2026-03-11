@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const voiceBeforeAfterSchema = defineType({
   name: "voiceBeforeAfter",
-  title: "ビフォーアフター",
+  title: "成功事例",
   type: "document",
   fields: [
     defineField({
@@ -29,7 +29,7 @@ export const voiceBeforeAfterSchema = defineType({
             defineField({ name: "label", title: "ラベル", type: "string", description: "例: 横手市在住・30代女性" }),
             defineField({ name: "result", title: "結果", type: "string", description: "例: −8kg達成" }),
             defineField({ name: "imageUrl", title: "画像URL", type: "string", description: "例: /voice-beforeafter-01.png" }),
-            defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: ビフォーアフター写真" }),
+            defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: 成功事例写真" }),
           ],
           preview: {
             select: { title: "label" },
@@ -39,6 +39,6 @@ export const voiceBeforeAfterSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "ビフォーアフター" }),
+    prepare: () => ({ title: "成功事例" }),
   },
 });
