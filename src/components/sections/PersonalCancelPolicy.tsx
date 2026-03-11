@@ -44,7 +44,7 @@ export default function PersonalCancelPolicy({ data, sectionBg = "bg-[#e8f3ec]" 
     <section className={`${sectionBg} py-20 md:py-24`}>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-10 text-center font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+          <h2 className="mb-10 text-center whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
             {sectionTitle}
           </h2>
         </FadeIn>

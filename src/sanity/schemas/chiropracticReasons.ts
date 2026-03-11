@@ -8,13 +8,13 @@ export const chiropracticReasonsSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: VERDE FITが選ばれる理由",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 横手市で多くの方に選ばれ続ける、3つの理由をご紹介します。",
     }),
     defineField({

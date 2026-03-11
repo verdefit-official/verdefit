@@ -8,13 +8,13 @@ export const coachingTestimonialsSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: 習慣が変わったお客様の声",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 横手市・秋田エリアで思考と習慣が変わった体験談",
     }),
     defineField({

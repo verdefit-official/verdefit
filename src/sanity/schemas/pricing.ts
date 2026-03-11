@@ -8,13 +8,13 @@ export const pricingSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: 料金案内",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 明瞭な料金体系で、安心してご利用いただけます。",
     }),
     // Trial course

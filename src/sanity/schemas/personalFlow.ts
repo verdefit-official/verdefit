@@ -5,8 +5,8 @@ export const personalFlowSchema = defineType({
   title: "体験の流れ",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 体験トレーニングの流れ" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: お問い合わせから体験、スタートまでの流れをご紹介します" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: 体験トレーニングの流れ" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: お問い合わせから体験、スタートまでの流れをご紹介します" }),
     defineField({
       name: "steps",
       title: "ステップ一覧",

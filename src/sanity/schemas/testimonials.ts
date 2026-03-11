@@ -8,13 +8,13 @@ export const testimonialsSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: お客様の声",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 実際にVERDE FITをご利用いただいたお客様からのリアルな声をご紹介します。",
     }),
     defineField({

@@ -8,13 +8,13 @@ export const chiropracticPricingSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: 整体 料金",
     }),
     defineField({
       name: "sectionDescription",
       title: "サブタイトル",
-      type: "string",
+      type: "text",
       description: "例: 国家資格保有者による根本改善の整体",
     }),
 

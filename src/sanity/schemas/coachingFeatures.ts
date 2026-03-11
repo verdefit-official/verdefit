@@ -8,13 +8,13 @@ export const coachingFeaturesSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: VERDE FITの習慣が変わる3つのメソッド",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 思考・行動・環境を整え続く自分をつくる",
     }),
     defineField({

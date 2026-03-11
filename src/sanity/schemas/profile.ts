@@ -8,13 +8,13 @@ export const profileSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: 代表プロフィール",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: あなたの身体と人生に、本気で向き合います。",
     }),
     defineField({

@@ -5,8 +5,8 @@ export const personalTrainerSchema = defineType({
   title: "トレーナー紹介",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: トレーナー紹介" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: あなたの目標に、本気で向き合います。" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: トレーナー紹介" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: あなたの目標に、本気で向き合います。" }),
     defineField({ name: "role", title: "役職", type: "string", description: "例: 代表トレーナー" }),
     defineField({ name: "name", title: "名前", type: "string", description: "例: 吉田　宗太郎" }),
     defineField({ name: "image", title: "プロフィール画像", type: "image", options: { hotspot: true } }),

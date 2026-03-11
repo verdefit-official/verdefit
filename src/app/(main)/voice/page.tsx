@@ -237,8 +237,8 @@ function VoiceCategoryNav() {
         </FadeIn>
         <div className="grid gap-6 md:grid-cols-3">
           {cats.map((c, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <div className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
+            <FadeIn key={i} delay={i * 100} className="h-full">
+              <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
                 {/* 上部：グレー背景＋アイコン（画像差し替え予定） */}
                 <div className="flex items-center justify-center bg-gray-100" style={{ aspectRatio: "4/3" }}>
                   <c.Icon />

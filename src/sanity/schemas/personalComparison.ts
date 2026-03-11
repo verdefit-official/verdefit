@@ -5,8 +5,8 @@ export const personalComparisonSchema = defineType({
   title: "比較表",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 本気で変わりたい人のための選択基準" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 自己流や一般的なジムで結果が出なかったあなたへ" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: 本気で変わりたい人のための選択基準" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: 自己流や一般的なジムで結果が出なかったあなたへ" }),
     defineField({
       name: "rows",
       title: "比較行",

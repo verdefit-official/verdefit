@@ -8,13 +8,13 @@ export const coachingFaqSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: よくある質問",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 横手市・秋田でコーチングを受ける前の疑問を解消",
     }),
     defineField({

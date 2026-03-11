@@ -8,13 +8,13 @@ export const faqSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: よくある質問",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: ご来店前に気になることはこちらでご確認いただけます。",
     }),
     defineField({

@@ -78,7 +78,7 @@ export default function ChiropracticPricing({
         {/* セクションヘッダー */}
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               {sectionTitle}
             </h2>
             <p className="mt-4 text-sm font-medium text-gray-500 md:text-base">
@@ -139,7 +139,7 @@ export default function ChiropracticPricing({
         {/* 回数券タイトル */}
         <FadeIn delay={150}>
           <div className="mb-6 text-center">
-            <h3 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <h3 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
               {couponSectionTitle}
             </h3>
           </div>

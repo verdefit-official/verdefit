@@ -8,13 +8,13 @@ export const personalPricingSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: パーソナルトレーニング 料金",
     }),
     defineField({
       name: "sectionDescription",
       title: "サブタイトル",
-      type: "string",
+      type: "text",
       description: "例: 完全個別指導で理想の身体づくりを実現",
     }),
 

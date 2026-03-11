@@ -5,8 +5,8 @@ export const personalConcernsSchema = defineType({
   title: "ダイエットが続かない理由",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: ダイエットをしても続かない、効果が出ない本当の理由" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 頑張っているのに変わらない…その原因を正しく知ることが、本当の変化への第一歩です" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: ダイエットをしても続かない、効果が出ない本当の理由" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: 頑張っているのに変わらない…その原因を正しく知ることが、本当の変化への第一歩です" }),
     defineField({
       name: "items",
       title: "項目一覧",

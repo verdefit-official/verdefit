@@ -8,13 +8,13 @@ export const coachingPricingSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: コーチング 料金",
     }),
     defineField({
       name: "sectionDescription",
       title: "サブタイトル",
-      type: "string",
+      type: "text",
       description: "例: 思考を変え、習慣をデザインする",
     }),
     defineField({

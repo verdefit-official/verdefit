@@ -5,8 +5,8 @@ export const chiropracticProfileSchema = defineType({
   title: "代表プロフィール",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 代表プロフィール" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: あなたの痛みに、本気で向き合います。" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: 代表プロフィール" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: あなたの痛みに、本気で向き合います。" }),
     defineField({ name: "role", title: "肩書き", type: "string", description: "例: 代表 / 施術者" }),
     defineField({ name: "name", title: "氏名", type: "string", description: "例: 吉田　宗太郎" }),
     defineField({

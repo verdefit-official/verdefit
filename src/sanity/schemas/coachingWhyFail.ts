@@ -8,13 +8,13 @@ export const coachingWhyFailSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: 「意志が弱い」は間違い。運動・ダイエットが続かない本当の理由",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 横手市・秋田で健康づくりや習慣改善に取り組む多くの方が、こんな経験をされています。",
     }),
     defineField({

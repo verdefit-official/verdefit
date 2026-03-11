@@ -130,7 +130,7 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
       <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 md:pb-24">
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               {sectionTitle}
             </h2>
             {sectionDescription && (
@@ -197,7 +197,7 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <FadeIn delay={120}>
               <div className="text-center">
-                <h3 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+                <h3 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
                   {rootCauseTitle}
                 </h3>
                 <div className="mt-8 rounded-xl border-2 border-green-700 bg-white px-8 py-8 md:px-20 md:py-10">

@@ -8,13 +8,13 @@ export const concernsSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: こんなお悩みはありませんか？",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 多くの方が抱える身体の悩みを、根本から解決します。",
     }),
     defineField({

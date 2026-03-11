@@ -5,8 +5,8 @@ export const chiropracticFaqSchema = defineType({
   title: "よくある質問",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: よくある質問" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: ご来店前に気になることはこちらでご確認いただけます。" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: よくある質問" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: ご来店前に気になることはこちらでご確認いただけます。" }),
     defineField({
       name: "items",
       title: "Q&A一覧",

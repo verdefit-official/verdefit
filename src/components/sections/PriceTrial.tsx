@@ -31,7 +31,7 @@ export default function PriceTrial({
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               初回限定90分体験セッション
             </h2>
           </div>

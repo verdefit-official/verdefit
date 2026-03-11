@@ -8,13 +8,13 @@ export const servicesSchema = defineType({
     defineField({
       name: "sectionTitle",
       title: "セクションタイトル",
-      type: "string",
+      type: "text",
       description: "例: VERDE FITのサービス",
     }),
     defineField({
       name: "sectionDescription",
       title: "セクション説明文",
-      type: "string",
+      type: "text",
       description: "例: 整体・パーソナルトレーニングの2つのアプローチで、あなたの身体を根本から変えます。",
     }),
     defineField({

@@ -5,8 +5,8 @@ export const personalReasonsSchema = defineType({
   title: "選ばれる理由",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: だからVERDE FITは結果が違う" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 一人では変われなかったあなたへ。本気を形にする3つの支え" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: だからVERDE FITは結果が違う" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: 一人では変われなかったあなたへ。本気を形にする3つの支え" }),
     defineField({
       name: "reasons",
       title: "理由一覧",

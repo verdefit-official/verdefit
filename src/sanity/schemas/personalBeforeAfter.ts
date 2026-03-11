@@ -5,8 +5,8 @@ export const personalBeforeAfterSchema = defineType({
   title: "before/after",
   type: "document",
   fields: [
-    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "string", description: "例: 身体が変わると人生も変わります。" }),
-    defineField({ name: "sectionDescription", title: "セクション説明文", type: "string", description: "例: 数字だけでなく、生活が変わった。そんな声が届いています。" }),
+    defineField({ name: "sectionTitle", title: "セクションタイトル", type: "text", description: "例: 身体が変わると人生も変わります。" }),
+    defineField({ name: "sectionDescription", title: "セクション説明文", type: "text", description: "例: 数字だけでなく、生活が変わった。そんな声が届いています。" }),
     defineField({
       name: "cards",
       title: "カード一覧",
