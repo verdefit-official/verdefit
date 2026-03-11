@@ -22,15 +22,15 @@ export async function generateMetadata(): Promise<Metadata> {
     ogDescription?: string;
   }>(`*[_type == "voiceSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription }`);
 
-  const title = seo?.pageTitle ?? "お客様の声｜横手市の整体・パーソナルジム VERDE FIT";
+  const title = seo?.pageTitle ?? "横手市で選ばれる整体・パーソナルジム・コーチング｜VERDE FITのお客様の声";
   const description =
     seo?.metaDescription ??
-    "VERDE FITで整体・パーソナルトレーニング・コーチングを体験されたお客様のリアルな体験談をご紹介します。横手市で身体の悩みを解決したお客様の声をぜひご覧ください。";
+    "横手市の整体・パーソナルジムVERDE FITをご利用いただいたお客様の体験談をご紹介。肩こりや腰痛の改善、ダイエット成功など実際の変化をご覧いただけます。横手市で整体やパーソナルジムをお探しの方はぜひ参考にしてください。";
 
   return {
     title,
     description,
-    keywords: seo?.keywords ?? ["横手市 お客様の声", "横手市 整体 口コミ", "横手市 パーソナルジム 口コミ", "VERDE FIT 評判"],
+    keywords: seo?.keywords ?? ["横手市 整体 口コミ", "横手市 パーソナルジム 口コミ", "横手市 整体 評判", "横手市 ダイエット 成功事例", "横手市 パーソナルトレーニング 体験談"],
     openGraph: {
       title: seo?.ogTitle ?? title,
       description: seo?.ogDescription ?? description,
@@ -279,9 +279,9 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
   const sectionTitle = data?.sectionTitle ?? "あなたと同じ悩みの体験談を探す";
 
   const staticImgs = [
-    { src: "/voice-cat-seitai.jpg", alt: "整体施術の様子" },
-    { src: "/voice-cat-personal.jpg", alt: "パーソナルトレーニングの様子" },
-    { src: "/voice-cat-coaching.jpg", alt: "コーチングセッションの様子" },
+    { src: "/voice-cat-seitai.jpg", alt: "横手市の整体施術の様子・VERDE FITのお客様の声" },
+    { src: "/voice-cat-personal.jpg", alt: "横手市パーソナルジムVERDE FITのトレーニング風景" },
+    { src: "/voice-cat-coaching.jpg", alt: "横手市VERDE FITのコーチングセッションの様子" },
   ];
 
   const defaultCats = [
@@ -401,9 +401,9 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
   ];
 
   const staticSeitaiImgs = [
-    { src: "/voice-seitai-01.jpg", alt: "お客様の声 整体1" },
-    { src: "/voice-seitai-02.jpg", alt: "お客様の声 整体2" },
-    { src: "/voice-seitai-03.jpg", alt: "お客様の声 整体3" },
+    { src: "/voice-seitai-01.jpg", alt: "横手市整体VERDE FITで長年の肩こりが改善したお客様の写真" },
+    { src: "/voice-seitai-02.jpg", alt: "横手市の整体で猫背・姿勢が改善したお客様の笑顔写真" },
+    { src: "/voice-seitai-03.jpg", alt: "横手市VERDE FITの整体で10年来の腰痛が改善したお客様写真" },
   ];
 
   const voices =
@@ -526,9 +526,9 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
   ];
 
   const staticPersonalImgs = [
-    { src: "/voice-personal-01.jpg", alt: "ビフォーアフター 30代女性" },
-    { src: "/voice-personal-02.jpg", alt: "ビフォーアフター 40代男性" },
-    { src: "/voice-personal-03.jpg", alt: "ビフォーアフター 女性" },
+    { src: "/voice-personal-01.jpg", alt: "横手市パーソナルジムVERDE FITで3ヶ月-8kg・ウエスト-10cmを達成した30代女性のビフォーアフター写真" },
+    { src: "/voice-personal-02.jpg", alt: "横手市VERDE FITのパーソナルトレーニングで健康診断の数値が改善した40代男性の体型変化ビフォーアフター写真" },
+    { src: "/voice-personal-03.jpg", alt: "横手市パーソナルジムで仕事しながら-14kg・体脂肪率-8%を達成した女性のダイエット成功ビフォーアフター写真" },
   ];
 
   const cards =
@@ -629,9 +629,9 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
   ];
 
   const staticCoachingImgs = [
-    { src: "/voice-coaching-01.jpg", alt: "お客様の声 コーチング1" },
-    { src: "/voice-coaching-02.jpg", alt: "お客様の声 コーチング2" },
-    { src: "/voice-coaching-03.jpg", alt: "お客様の声 コーチング3" },
+    { src: "/voice-coaching-01.jpg", alt: "横手市VERDE FITのコーチングで運動習慣が続くようになった女性のお客様写真" },
+    { src: "/voice-coaching-02.jpg", alt: "横手市のコーチングで自信をつけ前向きに行動できるようになったお客様写真" },
+    { src: "/voice-coaching-03.jpg", alt: "横手市VERDE FITのコーチングで思考と習慣が変わり充実した生活を送るお客様写真" },
   ];
 
   const voices =
@@ -710,9 +710,9 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
   ];
 
   const staticImgs = [
-    { src: "/voice-beforeafter-01.jpg", alt: "Before After 30代女性" },
-    { src: "/voice-beforeafter-02.jpg", alt: "Before After 40代男性" },
-    { src: "/voice-beforeafter-03.jpg", alt: "Before After 50代女性" },
+    { src: "/voice-beforeafter-01.jpg", alt: "横手市パーソナルジムVERDE FITで-8kg達成した30代女性のダイエット成功事例ビフォーアフター写真" },
+    { src: "/voice-beforeafter-02.jpg", alt: "横手市VERDE FITのパーソナルトレーニングで-12kg達成した40代男性のボディメイク成功事例ビフォーアフター写真" },
+    { src: "/voice-beforeafter-03.jpg", alt: "横手市パーソナルジムで50代女性が-6kg達成した体型改善の成功事例ビフォーアフター写真" },
   ];
 
   const cases =
