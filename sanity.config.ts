@@ -184,7 +184,7 @@ export default defineConfig({
                     ),
                     S.divider(),
                     S.listItem()
-                      .title("整体 お客様の声（個別登録）")
+                      .title("整体 お客様の声")
                       .id("seitai-testimonials")
                       .child(
                         S.documentTypeList("seitaiTestimonial")
@@ -192,7 +192,7 @@ export default defineConfig({
                           .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
                       ),
                     S.listItem()
-                      .title("パーソナル お客様の声（個別登録）")
+                      .title("パーソナル お客様の声")
                       .id("personal-testimonials")
                       .child(
                         S.documentTypeList("personalTestimonial")
@@ -200,7 +200,7 @@ export default defineConfig({
                           .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
                       ),
                     S.listItem()
-                      .title("コーチング お客様の声（個別登録）")
+                      .title("コーチング お客様の声")
                       .id("coaching-testimonials")
                       .child(
                         S.documentTypeList("coachingTestimonial")

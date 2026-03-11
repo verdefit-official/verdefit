@@ -50,38 +50,6 @@ type VoiceCtaData = {
   secondaryButtonText?: string;
 };
 
-const defaultTestimonials: PersonalTestimonial[] = [
-  {
-    _id: "default-1",
-    smallTitle: "横手市在住・30代女性",
-    heading: "3ヶ月で-8kg達成",
-    text: "今まで何度もダイエットに失敗していましたが、食事とトレーニングを教えてもらい無理なく体型を変えることができました。リバウンドもせず、自信がつきました。",
-    stats: [
-      { label: "体重", value: "-8kg" },
-      { label: "ウエスト", value: "-10cm" },
-    ],
-  },
-  {
-    _id: "default-2",
-    smallTitle: "横手市在住・40代男性",
-    heading: "健康診断の数値が改善",
-    text: "仕事が忙しく運動する時間がありませんでしたが、効率的なトレーニングと食事管理で無理なく-12kg。健康診断の数値も改善し、体調が良くなりました。",
-    stats: [
-      { label: "体重", value: "-12kg" },
-      { label: "体脂肪率", value: "-8%" },
-    ],
-  },
-  {
-    _id: "default-3",
-    smallTitle: "忙しくても-14kgの減量に成功",
-    heading: "仕事が忙しく運動する時間がありませんでした",
-    text: "仕事が忙しく、これまで運動する時間が取れず体重も増えていました。パーソナルトレーニングでは短時間でも効果的なトレーニングと食事のアドバイスを受け、無理なく続けることができました。結果として-14kg、体脂肪率-9%を達成し、健康診断の数値も改善。体調も良くなり身体が軽くなりました。",
-    stats: [
-      { label: "体重", value: "-14kg" },
-      { label: "体脂肪率", value: "-8%" },
-    ],
-  },
-];
 
 export default async function PersonalTrainingVoicePage() {
   const [testimonials, personalData, ctaData, siteSettings] = await Promise.all([
@@ -97,8 +65,7 @@ export default async function PersonalTrainingVoicePage() {
     ),
   ]);
 
-  const cards =
-    testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  const cards = testimonials ?? [];
   const sectionTitle = personalData?.sectionTitle ?? "パーソナルトレーニングで身体が変わった体験談";
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
@@ -133,7 +100,7 @@ export default async function PersonalTrainingVoicePage() {
       </section>
 
       {/* ─── Cards ─── */}
-      <section className="bg-[#e8f3ec] py-16 md:py-20">
+      <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {cards.length === 0 ? (
             <p className="text-center text-gray-500">体験談を準備中です。</p>

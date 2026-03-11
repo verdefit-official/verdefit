@@ -44,26 +44,6 @@ type VoiceCtaData = {
   secondaryButtonText?: string;
 };
 
-const defaultTestimonials: CoachingTestimonial[] = [
-  {
-    _id: "default-1",
-    smallTitle: "三日坊主だった私でも習慣が続くようになりました",
-    heading: "これまで何を始めても続かないことが悩みでした",
-    text: "これまで運動やダイエットを始めても、三日坊主で終わってしまうことが多く悩んでいました。コーチングでは考え方や行動の習慣を見直し、小さな行動から始める方法を教えてもらいました。無理なく続けることができ、今では運動や健康習慣が自然と生活の一部になっています。",
-  },
-  {
-    _id: "default-2",
-    smallTitle: "自分を変えるきっかけになりました",
-    heading: "自分に自信が持てず、行動することが苦手でした",
-    text: "これまで自分に自信が持てず、新しいことに挑戦するのが苦手でした。コーチングを通して自分の考え方の癖に気づき、少しずつ行動できるようになりました。小さな成功体験を積み重ねることで自信もつき、以前より前向きに物事に取り組めるようになりました。",
-  },
-  {
-    _id: "default-3",
-    smallTitle: "思考が変わると人生も変わりました",
-    heading: "何となく毎日を過ごしていることに悩んでいました",
-    text: "毎日を忙しく過ごしていましたが、どこか満足できない気持ちがありました。コーチングで自分の価値観や目標を整理することで、本当に大切にしたいことが明確になりました。今では目標に向かって行動できるようになり、以前より充実した毎日を過ごせています。",
-  },
-];
 
 export default async function CoachingVoicePage() {
   const [testimonials, coachingData, ctaData, siteSettings] = await Promise.all([
@@ -79,8 +59,7 @@ export default async function CoachingVoicePage() {
     ),
   ]);
 
-  const voices =
-    testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  const voices = testimonials ?? [];
   const sectionTitle = coachingData?.sectionTitle ?? "コーチングを受けたお客様の声";
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;

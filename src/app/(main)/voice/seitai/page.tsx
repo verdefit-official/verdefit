@@ -45,29 +45,6 @@ type VoiceCtaData = {
   secondaryButtonText?: string;
 };
 
-const defaultTestimonials: SeitaiTestimonial[] = [
-  {
-    _id: "default-1",
-    smallTitle: "長年の肩こりが楽になりました",
-    tags: ["肩こり", "姿勢"],
-    heading: "デスクワークで慢性的な肩こりと姿勢の悪さに悩んでいました",
-    text: "デスクワークが多く、常に肩こりに悩まされていました。整体で身体の状態を見てもらい、姿勢や身体の使い方を整えてもらったことで肩の重さが軽くなりました。今では仕事終わりの疲れも以前ほど感じなくなり、身体がとても楽になりました。",
-  },
-  {
-    _id: "default-2",
-    smallTitle: "猫背が改善して姿勢が良くなりました",
-    tags: ["肩こり", "姿勢"],
-    heading: "長年気になっていた姿勢の悪さが改善しました",
-    text: "以前から猫背が気になっていましたが、整体で身体のバランスを整えてもらい姿勢が変わってきました。周りからも姿勢が良くなったと言われるようになり、肩や背中の負担も減りました。今では以前より身体が軽く感じます。",
-  },
-  {
-    _id: "default-3",
-    smallTitle: "10年悩んだ腰痛が改善しました",
-    tags: ["腰痛", "骨盤矯正"],
-    heading: "長年の腰痛で日常生活にも不安がありました",
-    text: "長年腰痛に悩んでおり、整形外科にも通っていましたがなかなか改善しませんでした。こちらの整体で身体の状態や原因を丁寧に説明してもらい、施術を受けるうちに徐々に痛みが軽くなりました。今では日常生活でも腰を気にすることが減り、安心して過ごせています。",
-  },
-];
 
 export default async function SeitaiVoicePage() {
   const [testimonials, seitaiData, ctaData, siteSettings] = await Promise.all([
@@ -83,8 +60,7 @@ export default async function SeitaiVoicePage() {
     ),
   ]);
 
-  const voices =
-    testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
+  const voices = testimonials ?? [];
   const sectionTitle = seitaiData?.sectionTitle ?? "整体で不調が改善したお客様の体験談";
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
