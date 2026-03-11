@@ -462,7 +462,7 @@ function VoiceCoachingSection() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {voices.map((v, i) => (
-            <FadeIn key={i} delay={i * 100}>
+            <FadeIn key={i} delay={i * 100} className="h-full">
               <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                 {/* 上部：グレー背景＋人物アイコン（写真差し替え予定） */}
                 <div
@@ -501,38 +501,38 @@ function VoiceCoachingSection() {
 
 function VoiceBeforeAfter() {
   const cases = [
-    { label: "女性（30代）", result: "−8kg達成", fat: "体脂肪 −6%" },
-    { label: "男性（40代）", result: "−12kg達成", fat: "体脂肪 −8%" },
-    { label: "女性（50代）", result: "−6kg達成", fat: "体脂肪 −5%" },
+    { label: "横手市在住・30代女性", result: "−8kg達成" },
+    { label: "横手市在住・40代男性", result: "−12kg達成" },
+    { label: "横手市在住・50代女性", result: "−6kg達成" },
   ];
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
             <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
               理想の身体を手に入れた成功事例
             </h2>
-            <p className="mt-3 text-sm text-gray-500 md:text-base">Before / After</p>
+            <p className="mt-3 text-sm text-gray-500 md:text-base">
+              VERDE FITで理想の身体を手に入れた方々の変化
+            </p>
           </div>
         </FadeIn>
 
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {cases.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div className="overflow-hidden rounded-xl bg-white shadow-sm">
                 <div
-                  className="flex w-full flex-col items-center justify-center gap-2 bg-gray-100"
-                  style={{ aspectRatio: "3/4" }}
+                  className="flex w-full items-center justify-center bg-gray-100"
+                  style={{ aspectRatio: "4/3" }}
                 >
-                  <PersonIcon className="h-16 w-16 text-gray-300" />
-                  <p className="text-xs text-gray-400">Before / After</p>
+                  <p className="text-sm font-medium text-gray-400">Before / After</p>
                 </div>
                 <div className="px-5 py-4 text-center">
-                  <p className="text-xs text-gray-400">{c.label}</p>
-                  <p className="font-serif text-3xl font-bold text-green-700">{c.result}</p>
-                  <p className="mt-1 text-sm font-semibold text-gray-500">{c.fat}</p>
+                  <p className="text-xs text-gray-500">{c.label}</p>
+                  <p className="mt-1 font-serif text-2xl font-bold text-green-700">{c.result}</p>
                 </div>
               </div>
             </FadeIn>
