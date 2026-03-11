@@ -1,0 +1,71 @@
+import { defineType, defineField } from "sanity";
+
+export const personalTestimonialSchema = defineType({
+  name: "personalTestimonial",
+  title: "パーソナル お客様の声",
+  type: "document",
+  fields: [
+    defineField({
+      name: "publishedAt",
+      title: "公開日",
+      type: "datetime",
+      description: "新しい順に表示されます",
+      initialValue: () => new Date().toISOString(),
+    }),
+    defineField({
+      name: "smallTitle",
+      title: "小見出し",
+      type: "string",
+      description: "例: 横手市在住・30代女性",
+    }),
+    defineField({
+      name: "heading",
+      title: "見出し",
+      type: "text",
+      rows: 2,
+      description: "例: 3ヶ月で-8kg達成",
+    }),
+    defineField({
+      name: "text",
+      title: "本文",
+      type: "text",
+      rows: 6,
+    }),
+    defineField({
+      name: "stats",
+      title: "結果数値",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "label", title: "ラベル", type: "string", description: "例: 体重" }),
+            defineField({ name: "value", title: "値", type: "string", description: "例: -8kg" }),
+          ],
+          preview: { select: { title: "label" } },
+        },
+      ],
+    }),
+    defineField({
+      name: "image",
+      title: "画像",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: "imageAlt",
+      title: "画像の代替テキスト",
+      type: "string",
+    }),
+  ],
+  preview: {
+    select: { title: "smallTitle", subtitle: "publishedAt" },
+  },
+  orderings: [
+    {
+      title: "公開日（新しい順）",
+      name: "publishedAtDesc",
+      by: [{ field: "publishedAt", direction: "desc" }],
+    },
+  ],
+});

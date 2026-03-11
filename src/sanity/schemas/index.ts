@@ -59,6 +59,10 @@ import { voiceBeforeAfterSchema } from "./voiceBeforeAfter";
 import { voiceGoogleReviewsSchema } from "./voiceGoogleReviews";
 import { voiceSmallCtaSchema } from "./voiceSmallCTA";
 import { voiceCtaSchema } from "./voiceCta";
+// VOICE TESTIMONIAL DOCUMENTS (individual entries)
+import { seitaiTestimonialSchema } from "./seitaiTestimonial";
+import { personalTestimonialSchema } from "./personalTestimonial";
+import { coachingTestimonialSchema } from "./coachingTestimonial";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -122,4 +126,8 @@ export const schemaTypes = [
   voiceGoogleReviewsSchema,
   voiceSmallCtaSchema,
   voiceCtaSchema,
+  // VOICE TESTIMONIAL DOCUMENTS
+  seitaiTestimonialSchema,
+  personalTestimonialSchema,
+  coachingTestimonialSchema,
 ];

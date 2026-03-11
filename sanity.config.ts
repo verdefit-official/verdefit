@@ -178,11 +178,36 @@ export default defineConfig({
                 S.list()
                   .id("voice-list")
                   .title("お客様の声ページ")
-                  .items(
-                    voiceSections.map(({ name, title }) =>
+                  .items([
+                    ...voiceSections.map(({ name, title }) =>
                       singleton(S, name, title)
-                    )
-                  )
+                    ),
+                    S.divider(),
+                    S.listItem()
+                      .title("整体 お客様の声（個別登録）")
+                      .id("seitai-testimonials")
+                      .child(
+                        S.documentTypeList("seitaiTestimonial")
+                          .title("整体 お客様の声")
+                          .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+                      ),
+                    S.listItem()
+                      .title("パーソナル お客様の声（個別登録）")
+                      .id("personal-testimonials")
+                      .child(
+                        S.documentTypeList("personalTestimonial")
+                          .title("パーソナル お客様の声")
+                          .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+                      ),
+                    S.listItem()
+                      .title("コーチング お客様の声（個別登録）")
+                      .id("coaching-testimonials")
+                      .child(
+                        S.documentTypeList("coachingTestimonial")
+                          .title("コーチング お客様の声")
+                          .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+                      ),
+                  ])
               ),
           ]),
     }),

@@ -339,11 +339,12 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
                 <div className="flex flex-1 flex-col px-6 py-6">
                   <p className="mb-3 text-lg font-bold leading-snug text-[#1f2937]">{c.label}</p>
                   <p className="flex-1 text-sm leading-7 text-gray-600">{c.desc}</p>
-                  <span
-                    className="mt-6 inline-flex h-11 cursor-not-allowed items-center justify-center rounded-lg bg-gray-400 px-6 text-sm font-semibold text-white"
+                  <a
+                    href={c.href}
+                    className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800"
                   >
                     {c.btnLabel}
-                  </span>
+                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -452,11 +453,12 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <span
-              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
+            <a
+              href="/voice/seitai"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800"
             >
               {linkText} <span aria-hidden="true">→</span>
-            </span>
+            </a>
           </div>
         </FadeIn>
       </div>
@@ -572,11 +574,12 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <span
-              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
+            <a
+              href="/voice/personal-training"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800"
             >
               {linkText} <span aria-hidden="true">→</span>
-            </span>
+            </a>
           </div>
         </FadeIn>
       </div>
@@ -666,11 +669,12 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <span
-              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
+            <a
+              href="/voice/coaching"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800"
             >
               {linkText} <span aria-hidden="true">→</span>
-            </span>
+            </a>
           </div>
         </FadeIn>
       </div>
@@ -888,6 +892,9 @@ export default async function VoicePage() {
     seitaiData,
     personalData,
     coachingData,
+    latestSeitaiVoices,
+    latestPersonalCards,
+    latestCoachingVoices,
     beforeAfterData,
     googleReviewsData,
     smallCtaData,
@@ -897,9 +904,18 @@ export default async function VoicePage() {
     safeFetch<VoiceHeroData>(`*[_type == "voiceHero"][0]`),
     safeFetch<VoiceConcernsData>(`*[_type == "voiceConcerns"][0]`),
     safeFetch<VoiceCategoryNavData>(`*[_type == "voiceCategoryNav"][0]`),
-    safeFetch<VoiceSeitaiData>(`*[_type == "voiceSeitai"][0]`),
-    safeFetch<VoicePersonalData>(`*[_type == "voicePersonal"][0]`),
-    safeFetch<VoiceCoachingData>(`*[_type == "voiceCoaching"][0]`),
+    safeFetch<VoiceSeitaiData>(`*[_type == "voiceSeitai"][0]{ sectionTitle, sectionDescription, linkText }`),
+    safeFetch<VoicePersonalData>(`*[_type == "voicePersonal"][0]{ sectionTitle, sectionDescription, linkText }`),
+    safeFetch<VoiceCoachingData>(`*[_type == "voiceCoaching"][0]{ sectionTitle, sectionDescription, linkText }`),
+    safeFetch<VoiceSeitaiVoice[]>(
+      `*[_type == "seitaiTestimonial"] | order(publishedAt desc) [0..2]{ smallTitle, tags, heading, text, image, imageAlt }`
+    ),
+    safeFetch<VoicePersonalCard[]>(
+      `*[_type == "personalTestimonial"] | order(publishedAt desc) [0..2]{ smallTitle, heading, text, stats, image, imageAlt }`
+    ),
+    safeFetch<VoiceCoachingVoice[]>(
+      `*[_type == "coachingTestimonial"] | order(publishedAt desc) [0..2]{ smallTitle, heading, text, image, imageAlt }`
+    ),
     safeFetch<VoiceBeforeAfterData>(`*[_type == "voiceBeforeAfter"][0]`),
     safeFetch<VoiceGoogleReviewsData>(`*[_type == "voiceGoogleReviews"][0]`),
     safeFetch<VoiceSmallCtaData>(`*[_type == "voiceSmallCta"][0]`),
@@ -917,9 +933,9 @@ export default async function VoicePage() {
       <VoiceHero data={heroData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <VoiceConcerns data={concernsData} />
       <VoiceCategoryNav data={categoryNavData} />
-      <VoiceSeitaiSection data={seitaiData} />
-      <VoicePersonalSection data={personalData} />
-      <VoiceCoachingSection data={coachingData} />
+      <VoiceSeitaiSection data={{ ...seitaiData, voices: latestSeitaiVoices && latestSeitaiVoices.length > 0 ? latestSeitaiVoices : undefined }} />
+      <VoicePersonalSection data={{ ...personalData, cards: latestPersonalCards && latestPersonalCards.length > 0 ? latestPersonalCards : undefined }} />
+      <VoiceCoachingSection data={{ ...coachingData, voices: latestCoachingVoices && latestCoachingVoices.length > 0 ? latestCoachingVoices : undefined }} />
       <VoiceBeforeAfter data={beforeAfterData} />
       <VoiceGoogleReviews data={googleReviewsData} />
       <VoiceSmallCTA data={smallCtaData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
