@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const voiceCoachingSchema = defineType({
   name: "voiceCoaching",
-  title: "お客様の声 コーチングセクション",
+  title: "コーチングセクション",
   type: "document",
   fields: [
     defineField({
@@ -46,6 +46,6 @@ export const voiceCoachingSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "お客様の声 コーチングセクション" }),
+    prepare: () => ({ title: "コーチングセクション" }),
   },
 });

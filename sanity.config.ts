@@ -55,7 +55,7 @@ const coachingSections = [
 const voiceSections = [
   { name: "voiceSeo", title: "SEO設定" },
   { name: "voiceHero", title: "ヒーロー" },
-  { name: "voiceConcerns", title: "お悩みセクション" },
+  { name: "voiceConcerns", title: "お悩み" },
   { name: "voiceCategoryNav", title: "カテゴリナビ" },
   { name: "voiceSeitai", title: "整体体験談" },
   { name: "voicePersonal", title: "パーソナル体験談" },

@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const voiceSeoSchema = defineType({
   name: "voiceSeo",
-  title: "お客様の声 SEO設定",
+  title: "SEO設定",
   type: "document",
   fields: [
     defineField({
@@ -46,6 +46,6 @@ export const voiceSeoSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "お客様の声 SEO設定" }),
+    prepare: () => ({ title: "SEO設定" }),
   },
 });

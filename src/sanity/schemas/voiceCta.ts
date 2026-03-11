@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const voiceCtaSchema = defineType({
   name: "voiceCta",
-  title: "お客様の声 CTA（行動喚起）",
+  title: "CTA（行動喚起）",
   type: "document",
   fields: [
     defineField({
@@ -38,6 +38,6 @@ export const voiceCtaSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "お客様の声 CTA（行動喚起）" }),
+    prepare: () => ({ title: "CTA（行動喚起）" }),
   },
 });

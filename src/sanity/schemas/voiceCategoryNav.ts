@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const voiceCategoryNavSchema = defineType({
   name: "voiceCategoryNav",
-  title: "お客様の声 カテゴリーナビ",
+  title: "カテゴリーナビ",
   type: "document",
   fields: [
     defineField({
@@ -33,6 +33,6 @@ export const voiceCategoryNavSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "お客様の声 カテゴリーナビ" }),
+    prepare: () => ({ title: "カテゴリーナビ" }),
   },
 });
