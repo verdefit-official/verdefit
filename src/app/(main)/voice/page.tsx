@@ -626,6 +626,12 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
     },
   ];
 
+  const staticCoachingImgs = [
+    { src: "/voice-coaching-01.jpg", alt: "お客様の声 コーチング1" },
+    { src: "/voice-coaching-02.jpg", alt: "お客様の声 コーチング2" },
+    { src: "/voice-coaching-03.jpg", alt: "お客様の声 コーチング3" },
+  ];
+
   const voices =
     data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
 
@@ -642,12 +648,13 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
           {voices.map((v, i) => (
             <FadeIn key={i} delay={i * 100} className="h-full">
               <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-                {/* 上部：グレー背景＋人物アイコン（写真差し替え予定） */}
-                <div
-                  className="flex items-center justify-center bg-gray-100"
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <PersonIcon className="h-20 w-20 text-green-300" />
+                {/* 上部：お客様写真 */}
+                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img
+                    src={v.imageUrl ?? staticCoachingImgs[i]?.src ?? ""}
+                    alt={v.imageAlt ?? staticCoachingImgs[i]?.alt ?? ""}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
                 {/* 下部：テキスト */}
                 <div className="flex flex-1 flex-col px-5 py-5">
