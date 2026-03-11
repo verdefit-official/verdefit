@@ -193,7 +193,7 @@ function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
             {concerns.map((c, i) => (
               <span
                 key={i}
-                className="rounded-full border border-gray-300 px-5 py-2 text-sm text-gray-600"
+                className="w-36 text-center rounded-full border border-gray-300 px-5 py-2 text-sm text-gray-600"
               >
                 {c}
               </span>

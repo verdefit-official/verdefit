@@ -36,13 +36,13 @@ export default function CTA({ data, phone, bookingUrl, lineUrl, subheading, plai
       <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
         <a
           href={primaryButtonHref}
-          className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white transition-colors hover:bg-green-800"
+          className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-10 text-base font-semibold text-white transition-colors hover:bg-green-800 sm:w-auto sm:min-w-[200px]"
         >
           {primaryButtonText}
         </a>
         <a
           href={secondaryHref}
-          className="inline-flex h-14 min-w-[200px] items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50"
+          className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 bg-white px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto sm:min-w-[200px]"
         >
           {secondaryButtonText}
         </a>
