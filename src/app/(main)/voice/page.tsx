@@ -702,9 +702,9 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
   const sectionDescription = data?.sectionDescription ?? "VERDE FITで理想の身体を手に入れた方々の変化";
 
   const defaultCases: VoiceBeforeAfterCase[] = [
-    { label: "横手市在住・30代女性", result: "−8kg達成" },
-    { label: "横手市在住・40代男性", result: "−12kg達成" },
-    { label: "横手市在住・50代女性", result: "−6kg達成" },
+    { label: "横手市在住・30代女性", result: "−8kg達成", imageUrl: "/voice-beforeafter-01.jpg" },
+    { label: "横手市在住・40代男性", result: "−12kg達成", imageUrl: "/voice-beforeafter-02.jpg" },
+    { label: "横手市在住・50代女性", result: "−6kg達成", imageUrl: "/voice-beforeafter-03.jpg" },
   ];
 
   const cases =
@@ -728,11 +728,12 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
           {cases.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div className="overflow-hidden rounded-xl bg-white shadow-sm">
-                <div
-                  className="flex w-full items-center justify-center bg-gray-100"
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <p className="text-sm font-medium text-gray-400">Before / After</p>
+                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img
+                    src={c.imageUrl ?? ""}
+                    alt={c.imageAlt ?? `Before After ${c.label ?? ""}`}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
                 <div className="px-5 py-4 text-center">
                   <p className="text-xs text-gray-500">{c.label}</p>
