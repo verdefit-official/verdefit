@@ -666,7 +666,6 @@ export default async function VoicePage() {
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}
         subheading="初回限定90分体験セッション実施中"
-        plain
       />
     </>
   );

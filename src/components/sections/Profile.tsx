@@ -59,7 +59,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center md:mb-14">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               {sectionTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-base">
@@ -86,7 +86,7 @@ export default function Profile({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: P
           <FadeIn delay={120}>
             <div>
               <p className="text-sm font-semibold text-green-700 md:text-base">{role}</p>
-              <h3 className="mt-2 font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+              <h3 className="mt-2 font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
                 {name}
               </h3>
               <span className="mt-4 block h-1 w-16 bg-green-700" />

@@ -18,7 +18,7 @@ export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center">
-            <h1 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h1 className="font-serif text-3xl font-bold text-[#1f2937] sm:text-4xl lg:text-[42px]">
               料金・プラン一覧
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-500 md:text-base">

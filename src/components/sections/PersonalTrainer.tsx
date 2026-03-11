@@ -48,7 +48,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-14 text-center">
-            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               {sectionTitle}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
@@ -71,7 +71,7 @@ export default function PersonalTrainer({ data }: { data?: PersonalTrainerData |
           <FadeIn delay={150}>
             <div>
               <p className="text-sm font-semibold text-green-700 md:text-base">{role}</p>
-              <h3 className="mt-2 font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+              <h3 className="mt-2 font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
                 {name}
               </h3>
               <span className="mt-4 block h-1 w-16 bg-green-700" />

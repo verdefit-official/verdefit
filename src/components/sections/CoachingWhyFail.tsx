@@ -37,7 +37,7 @@ export default function CoachingWhyFail({ data }: { data?: CoachingWhyFailData |
         {/* ① 続かない理由 */}
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               {sectionTitle}
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
