@@ -266,7 +266,7 @@ type CategoryNavItem = {
   label?: string | null;
   desc?: string | null;
   btnLabel?: string | null;
-  imageUrl?: string | null;
+  image?: SanityImageRef | null;
   imageAlt?: string | null;
 };
 
@@ -317,7 +317,7 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
           label: item.label ?? defaultCats[i]?.label ?? "",
           desc: item.desc ?? defaultCats[i]?.desc ?? "",
           btnLabel: item.btnLabel ?? defaultCats[i]?.btnLabel ?? "",
-          img: { src: item.imageUrl ?? staticImgs[i]?.src ?? "", alt: item.imageAlt ?? staticImgs[i]?.alt ?? "" },
+          img: { src: imgUrl(item.image) || staticImgs[i]?.src || "", alt: item.imageAlt || staticImgs[i]?.alt || "" },
         }))
       : defaultCats;
 

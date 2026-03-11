@@ -22,7 +22,7 @@ export const voiceCategoryNavSchema = defineType({
             defineField({ name: "label", title: "ラベル", type: "string", description: "例: 整体のお客様の声" }),
             defineField({ name: "desc", title: "説明文", type: "text", rows: 4, description: "例: 肩こり・腰痛・姿勢の乱れなど..." }),
             defineField({ name: "btnLabel", title: "ボタンテキスト", type: "string", description: "例: 整体の声を見る" }),
-            defineField({ name: "imageUrl", title: "画像URL", type: "string", description: "例: /voice-seitai.png" }),
+            defineField({ name: "image", title: "画像", type: "image", options: { hotspot: true } }),
             defineField({ name: "imageAlt", title: "画像の代替テキスト", type: "string", description: "例: 整体のカテゴリー画像" }),
           ],
           preview: {
