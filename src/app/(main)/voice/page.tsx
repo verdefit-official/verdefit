@@ -548,11 +548,11 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
             <FadeIn key={i} delay={i * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                 {/* 上部：ビフォーアフター画像 */}
-                <div className="overflow-hidden bg-gray-50" style={{ aspectRatio: "4/3" }}>
+                <div className="overflow-hidden" style={{ aspectRatio: "3/2" }}>
                   <img
                     src={imgUrl(c.image) || staticPersonalImgs[i]?.src || ""}
                     alt={c.imageAlt || staticPersonalImgs[i]?.alt || ""}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 {/* 下部：テキスト */}
@@ -736,11 +736,11 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
           {cases.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div className="overflow-hidden rounded-xl bg-white shadow-sm">
-                <div className="overflow-hidden bg-gray-50" style={{ aspectRatio: "4/3" }}>
+                <div className="overflow-hidden" style={{ aspectRatio: "3/2" }}>
                   <img
                     src={imgUrl(c.image) || staticImgs[i]?.src || ""}
                     alt={c.imageAlt || staticImgs[i]?.alt || `Before After ${c.label ?? ""}`}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full object-cover"
                   />
                 </div>
                 <div className="px-5 py-4 text-center">
