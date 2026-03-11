@@ -215,12 +215,7 @@ function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
           <div className="flex justify-center gap-10 sm:gap-16">
             {approaches.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <div
-                  className="h-20 w-20 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${a.img})` }}
-                  aria-label={a.label}
-                  role="img"
-                />
+                <img src={a.img} alt={a.label} className="h-20 w-20" />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
@@ -866,12 +861,7 @@ function VoiceSmallCTA({
           <div className="mt-8 flex justify-center gap-6 sm:gap-10">
             {items.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <div
-                  className="h-20 w-20 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${a.img})` }}
-                  aria-label={a.label}
-                  role="img"
-                />
+                <img src={a.img} alt={a.label} className="h-20 w-20" />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
