@@ -3,11 +3,34 @@ import { safeFetch } from "@/sanity/client";
 import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
 
-export const metadata: Metadata = {
-  title: "お客様の声｜横手市の整体・パーソナルジム VERDE FIT",
-  description:
-    "VERDE FITで整体・パーソナルトレーニング・コーチングを体験されたお客様のリアルな体験談をご紹介します。横手市で身体の悩みを解決したお客様の声をぜひご覧ください。",
-};
+// ─── generateMetadata ─────────────────────────────────────────────
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await safeFetch<{
+    pageTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+    ogTitle?: string;
+    ogDescription?: string;
+  }>(`*[_type == "voiceSeo"][0]{ pageTitle, metaDescription, keywords, ogTitle, ogDescription }`);
+
+  const title = seo?.pageTitle ?? "お客様の声｜横手市の整体・パーソナルジム VERDE FIT";
+  const description =
+    seo?.metaDescription ??
+    "VERDE FITで整体・パーソナルトレーニング・コーチングを体験されたお客様のリアルな体験談をご紹介します。横手市で身体の悩みを解決したお客様の声をぜひご覧ください。";
+
+  return {
+    title,
+    description,
+    keywords: seo?.keywords ?? ["横手市 お客様の声", "横手市 整体 口コミ", "横手市 パーソナルジム 口コミ", "VERDE FIT 評判"],
+    openGraph: {
+      title: seo?.ogTitle ?? title,
+      description: seo?.ogDescription ?? description,
+      locale: "ja_JP",
+      type: "website",
+    },
+  };
+}
 
 // ─── Icons ────────────────────────────────────────────────────────
 
@@ -46,18 +69,38 @@ function StarIcon() {
 
 // ─── Hero ─────────────────────────────────────────────────────────
 
-function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
+type VoiceHeroData = {
+  heading?: string | null;
+  description?: string | null;
+  primaryButtonText?: string | null;
+  secondaryButtonText?: string | null;
+};
+
+function VoiceHero({
+  data,
+  bookingUrl,
+  lineUrl,
+}: {
+  data?: VoiceHeroData | null;
+  bookingUrl?: string;
+  lineUrl?: string;
+}) {
+  const heading = data?.heading ?? "なりたい理想の自分になれた方の\nリアルな体験談";
+  const description = data?.description ?? "VERDE FITで身体と習慣を整え、理想の自分になれたお客様のリアルな声をご紹介します。";
+  const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
+  const secondaryButtonText = data?.secondaryButtonText ?? "LINEで相談する";
+
   return (
     <section className="bg-[#e8f3ec] pt-28 pb-16 md:pt-32 md:pb-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <FadeIn>
-          <h1 className="font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
-            なりたい理想の自分になれた方の<br />リアルな体験談
+          <h1 className="whitespace-pre-line font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
+            {heading}
           </h1>
         </FadeIn>
         <FadeIn delay={150}>
           <p className="mx-auto mt-6 text-[15px] leading-8 text-gray-600">
-            VERDE FITで身体と習慣を整え、理想の自分になれたお客様のリアルな声をご紹介します。
+            {description}
           </p>
         </FadeIn>
         <FadeIn delay={280}>
@@ -66,13 +109,13 @@ function VoiceHero({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: str
               href={bookingUrl ?? "#cta"}
               className="inline-flex h-12 w-full items-center justify-center rounded-lg bg-green-600 px-10 text-base font-semibold text-white transition-colors hover:bg-green-700 sm:w-auto"
             >
-              予約はこちら
+              {primaryButtonText}
             </a>
             <a
               href={lineUrl ?? "#cta"}
               className="inline-flex h-12 w-full items-center justify-center rounded-lg border border-green-600 bg-transparent px-10 text-base font-semibold text-green-700 transition-colors hover:bg-green-50 sm:w-auto"
             >
-              LINEで相談する
+              {secondaryButtonText}
             </a>
           </div>
         </FadeIn>
@@ -109,8 +152,17 @@ function CoachingIcon() {
   );
 }
 
-function VoiceConcerns() {
-  const concerns = ["肩こりや腰痛", "運動不足", "ダイエット失敗", "体型の悩み", "自信の低下"];
+type VoiceConcernsData = {
+  concerns?: string[] | null;
+  subText?: string | null;
+  bottomText?: string | null;
+};
+
+function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
+  const defaultConcerns = ["肩こりや腰痛", "運動不足", "ダイエット失敗", "体型の悩み", "自信の低下"];
+  const concerns = data?.concerns && data.concerns.length > 0 ? data.concerns : defaultConcerns;
+  const subText = data?.subText ?? "その悩みを、3つのアプローチで解決しています。";
+  const bottomText = data?.bottomText ?? "ここでは実際に変化を実感されたお客様の声をご紹介します。";
 
   const approaches = [
     { label: "整体", Icon: SeitaiIcon },
@@ -144,7 +196,7 @@ function VoiceConcerns() {
         {/* サブテキスト */}
         <FadeIn delay={180}>
           <p className="mb-8 text-center text-sm text-gray-500 md:text-base">
-            その悩みを、3つのアプローチで解決しています。
+            {subText}
           </p>
         </FadeIn>
 
@@ -165,7 +217,7 @@ function VoiceConcerns() {
         {/* 下部テキスト */}
         <FadeIn delay={340}>
           <p className="mt-10 text-center text-sm text-gray-500 md:text-base">
-            ここでは実際に変化を実感されたお客様の声をご紹介します。
+            {bottomText}
           </p>
         </FadeIn>
       </div>
@@ -202,8 +254,23 @@ function CoachingCardIcon() {
   );
 }
 
-function VoiceCategoryNav() {
-  const cats = [
+type CategoryNavItem = {
+  label?: string | null;
+  desc?: string | null;
+  btnLabel?: string | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+type VoiceCategoryNavData = {
+  sectionTitle?: string | null;
+  items?: CategoryNavItem[] | null;
+};
+
+function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "あなたと同じ悩みの体験談を探す";
+
+  const defaultCats = [
     {
       href: "/voice/seitai",
       label: "整体のお客様の声",
@@ -227,12 +294,26 @@ function VoiceCategoryNav() {
     },
   ];
 
+  const staticHrefs = ["/voice/seitai", "/voice/personal-training", "/voice/coaching"];
+  const staticIcons = [SeitaiCardIcon, TrainingCardIcon, CoachingCardIcon];
+
+  const cats =
+    data?.items && data.items.length > 0
+      ? data.items.map((item, i) => ({
+          href: staticHrefs[i] ?? "#",
+          label: item.label ?? defaultCats[i]?.label ?? "",
+          desc: item.desc ?? defaultCats[i]?.desc ?? "",
+          btnLabel: item.btnLabel ?? defaultCats[i]?.btnLabel ?? "",
+          Icon: staticIcons[i] ?? SeitaiCardIcon,
+        }))
+      : defaultCats;
+
   return (
     <section className="bg-[#e8f3ec] py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            あなたと同じ悩みの体験談を探す
+            {sectionTitle}
           </h2>
         </FadeIn>
         <div className="grid gap-6 md:grid-cols-3">
@@ -265,8 +346,25 @@ function VoiceCategoryNav() {
 
 // ─── Seitai Section ───────────────────────────────────────────────
 
-function VoiceSeitaiSection() {
-  const voices = [
+type VoiceSeitaiVoice = {
+  smallTitle?: string | null;
+  tags?: string[] | null;
+  heading?: string | null;
+  text?: string | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+type VoiceSeitaiData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  voices?: VoiceSeitaiVoice[] | null;
+};
+
+function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "整体で不調が改善したお客様の体験談";
+
+  const defaultVoices: VoiceSeitaiVoice[] = [
     {
       smallTitle: "長年の肩こりが楽になりました",
       tags: ["肩こり", "姿勢"],
@@ -287,12 +385,15 @@ function VoiceSeitaiSection() {
     },
   ];
 
+  const voices =
+    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
+
   return (
     <section id="seitai" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            整体で不調が改善したお客様の体験談
+          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            {sectionTitle}
           </h2>
         </FadeIn>
 
@@ -311,7 +412,7 @@ function VoiceSeitaiSection() {
                 <div className="flex flex-1 flex-col px-5 py-5">
                   <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
                   <div className="mb-3 flex flex-wrap gap-1.5">
-                    {v.tags.map((tag, j) => (
+                    {(v.tags ?? []).map((tag, j) => (
                       <span
                         key={j}
                         className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-gray-600"
@@ -347,8 +448,30 @@ function VoiceSeitaiSection() {
 
 // ─── Personal Section ─────────────────────────────────────────────
 
-function VoicePersonalSection() {
-  const cards = [
+type VoicePersonalStat = {
+  label?: string | null;
+  value?: string | null;
+};
+
+type VoicePersonalCard = {
+  smallTitle?: string | null;
+  heading?: string | null;
+  text?: string | null;
+  stats?: VoicePersonalStat[] | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+type VoicePersonalData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  cards?: VoicePersonalCard[] | null;
+};
+
+function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "パーソナルトレーニングで\n身体が変わった体験談";
+
+  const defaultCards: VoicePersonalCard[] = [
     {
       smallTitle: "横手市在住・30代女性",
       heading: "3ヶ月で-8kg達成",
@@ -378,12 +501,15 @@ function VoicePersonalSection() {
     },
   ];
 
+  const cards =
+    data?.cards && data.cards.length > 0 ? data.cards : defaultCards;
+
   return (
     <section id="personal" className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            パーソナルトレーニングで身体が変わった体験談
+          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            {sectionTitle}
           </h2>
         </FadeIn>
 
@@ -405,9 +531,9 @@ function VoicePersonalSection() {
                   <p className="flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
                   {/* 結果ボックス */}
                   <div className="mt-4 rounded-lg bg-gray-50 px-4 py-3">
-                    {c.stats.map((s, j) => (
+                    {(c.stats ?? []).map((s, j) => (
                       <p key={j} className="text-sm font-bold text-[#1f2937]">
-                        {s.label}<span className="text-green-600">−{s.value.replace("-", "")}</span>
+                        {s.label}<span className="text-green-600">−{(s.value ?? "").replace("-", "")}</span>
                       </p>
                     ))}
                   </div>
@@ -434,8 +560,24 @@ function VoicePersonalSection() {
 
 // ─── Coaching Section ─────────────────────────────────────────────
 
-function VoiceCoachingSection() {
-  const voices = [
+type VoiceCoachingVoice = {
+  smallTitle?: string | null;
+  heading?: string | null;
+  text?: string | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+type VoiceCoachingData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  voices?: VoiceCoachingVoice[] | null;
+};
+
+function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "コーチングを受けたお客様の声";
+
+  const defaultVoices: VoiceCoachingVoice[] = [
     {
       smallTitle: "三日坊主だった私でも習慣が続くようになりました",
       heading: "これまで何を始めても続かないことが悩みでした",
@@ -453,12 +595,15 @@ function VoiceCoachingSection() {
     },
   ];
 
+  const voices =
+    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
+
   return (
     <section id="coaching" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            コーチングを受けたお客様の声
+          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            {sectionTitle}
           </h2>
         </FadeIn>
 
@@ -501,23 +646,42 @@ function VoiceCoachingSection() {
 
 // ─── Before/After Success ─────────────────────────────────────────
 
-function VoiceBeforeAfter() {
-  const cases = [
+type VoiceBeforeAfterCase = {
+  label?: string | null;
+  result?: string | null;
+  imageUrl?: string | null;
+  imageAlt?: string | null;
+};
+
+type VoiceBeforeAfterData = {
+  sectionTitle?: string | null;
+  sectionDescription?: string | null;
+  cases?: VoiceBeforeAfterCase[] | null;
+};
+
+function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "理想の身体を手に入れた成功事例";
+  const sectionDescription = data?.sectionDescription ?? "VERDE FITで理想の身体を手に入れた方々の変化";
+
+  const defaultCases: VoiceBeforeAfterCase[] = [
     { label: "横手市在住・30代女性", result: "−8kg達成" },
     { label: "横手市在住・40代男性", result: "−12kg達成" },
     { label: "横手市在住・50代女性", result: "−6kg達成" },
   ];
+
+  const cases =
+    data?.cases && data.cases.length > 0 ? data.cases : defaultCases;
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              理想の身体を手に入れた成功事例
+            <h2 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              {sectionTitle}
             </h2>
             <p className="mt-3 text-sm text-gray-500 md:text-base">
-              VERDE FITで理想の身体を手に入れた方々の変化
+              {sectionDescription}
             </p>
           </div>
         </FadeIn>
@@ -547,8 +711,20 @@ function VoiceBeforeAfter() {
 
 // ─── Google Reviews ───────────────────────────────────────────────
 
-function VoiceGoogleReviews() {
-  const reviews = [
+type VoiceGoogleReview = {
+  name?: string | null;
+  text?: string | null;
+};
+
+type VoiceGoogleReviewsData = {
+  sectionTitle?: string | null;
+  reviews?: VoiceGoogleReview[] | null;
+};
+
+function VoiceGoogleReviews({ data }: { data?: VoiceGoogleReviewsData | null }) {
+  const sectionTitle = data?.sectionTitle ?? "Google口コミでも\n高評価をいただいています";
+
+  const defaultReviews: VoiceGoogleReview[] = [
     {
       name: "横手市在住・Mさん",
       text: "丁寧なカウンセリングで、自分の身体の状態をしっかり理解できました。施術も的確で、長年の肩こりが改善しました。横手市でこんなに質の高い整体が受けられるとは思いませんでした。",
@@ -563,12 +739,15 @@ function VoiceGoogleReviews() {
     },
   ];
 
+  const reviews =
+    data?.reviews && data.reviews.length > 0 ? data.reviews : defaultReviews;
+
   return (
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            Google口コミでも高評価をいただいています
+          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            {sectionTitle}
           </h2>
         </FadeIn>
 
@@ -596,7 +775,25 @@ function VoiceGoogleReviews() {
 
 // ─── Small CTA ────────────────────────────────────────────────────
 
-function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?: string }) {
+type VoiceSmallCtaData = {
+  heading?: string | null;
+  subText?: string | null;
+  bottomText?: string | null;
+};
+
+function VoiceSmallCTA({
+  data,
+  bookingUrl,
+  lineUrl,
+}: {
+  data?: VoiceSmallCtaData | null;
+  bookingUrl?: string;
+  lineUrl?: string;
+}) {
+  const heading = data?.heading ?? "あなたも変化を体験しませんか？";
+  const subText = data?.subText ?? "1人で悩まず、まずはお気軽にご相談ください";
+  const bottomText = data?.bottomText ?? "それぞれのアプローチで、あなたの身体をサポートします。";
+
   const items = [
     { label: "整体", Icon: SeitaiIcon },
     { label: "トレーニング", Icon: TrainingIcon },
@@ -607,11 +804,11 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
     <section className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <FadeIn>
-          <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            あなたも変化を体験しませんか？
+          <h2 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            {heading}
           </h2>
           <p className="mt-4 text-sm text-gray-600 md:text-base">
-            1人で悩まず、まずはお気軽にご相談ください
+            {subText}
           </p>
 
           <div className="mt-8 flex justify-center gap-6 sm:gap-10">
@@ -626,7 +823,7 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
           </div>
 
           <p className="mt-8 text-sm text-gray-600 md:text-base">
-            それぞれのアプローチで、あなたの身体をサポートします。
+            {bottomText}
           </p>
         </FadeIn>
       </div>
@@ -637,31 +834,63 @@ function VoiceSmallCTA({ bookingUrl, lineUrl }: { bookingUrl?: string; lineUrl?:
 // ─── Page ─────────────────────────────────────────────────────────
 
 export default async function VoicePage() {
-  const siteSettings = await safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
-    `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
-  );
+  type VoiceCtaData = {
+    heading?: string;
+    description?: string;
+    primaryButtonText?: string;
+    secondaryButtonText?: string;
+  };
+
+  const [
+    heroData,
+    concernsData,
+    categoryNavData,
+    seitaiData,
+    personalData,
+    coachingData,
+    beforeAfterData,
+    googleReviewsData,
+    smallCtaData,
+    ctaData,
+    siteSettings,
+  ] = await Promise.all([
+    safeFetch<VoiceHeroData>(`*[_type == "voiceHero"][0]`),
+    safeFetch<VoiceConcernsData>(`*[_type == "voiceConcerns"][0]`),
+    safeFetch<VoiceCategoryNavData>(`*[_type == "voiceCategoryNav"][0]`),
+    safeFetch<VoiceSeitaiData>(`*[_type == "voiceSeitai"][0]`),
+    safeFetch<VoicePersonalData>(`*[_type == "voicePersonal"][0]`),
+    safeFetch<VoiceCoachingData>(`*[_type == "voiceCoaching"][0]`),
+    safeFetch<VoiceBeforeAfterData>(`*[_type == "voiceBeforeAfter"][0]`),
+    safeFetch<VoiceGoogleReviewsData>(`*[_type == "voiceGoogleReviews"][0]`),
+    safeFetch<VoiceSmallCtaData>(`*[_type == "voiceSmallCta"][0]`),
+    safeFetch<VoiceCtaData>(`*[_type == "voiceCta"][0]`),
+    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
+    ),
+  ]);
 
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
 
   return (
     <>
-      <VoiceHero bookingUrl={bookingUrl} lineUrl={lineUrl} />
-      <VoiceConcerns />
-      <VoiceCategoryNav />
-      <VoiceSeitaiSection />
-      <VoicePersonalSection />
-      <VoiceCoachingSection />
-      <VoiceBeforeAfter />
-      <VoiceGoogleReviews />
-      <VoiceSmallCTA bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <VoiceHero data={heroData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
+      <VoiceConcerns data={concernsData} />
+      <VoiceCategoryNav data={categoryNavData} />
+      <VoiceSeitaiSection data={seitaiData} />
+      <VoicePersonalSection data={personalData} />
+      <VoiceCoachingSection data={coachingData} />
+      <VoiceBeforeAfter data={beforeAfterData} />
+      <VoiceGoogleReviews data={googleReviewsData} />
+      <VoiceSmallCTA data={smallCtaData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
       <CTA
         data={{
-          heading: "VERDE FITで自分を変えたい方へ",
+          heading: ctaData?.heading ?? "VERDE FITで自分を変えたい方へ",
           description:
+            ctaData?.description ??
             "まずはお気軽にご相談ください。\nあなたの目標達成までの道のりを、一緒に考えましょう。",
-          primaryButtonText: "無料体験を予約する",
-          secondaryButtonText: "LINEで相談する",
+          primaryButtonText: ctaData?.primaryButtonText ?? "無料体験を予約する",
+          secondaryButtonText: ctaData?.secondaryButtonText ?? "LINEで相談する",
         }}
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}

@@ -47,6 +47,18 @@ import { priceHeroSchema } from "./priceHero";
 import { priceTrialSchema } from "./priceTrial";
 import { pricePremiumSchema } from "./pricePremium";
 import { priceCtaSchema } from "./priceCta";
+// VOICE PAGE SCHEMAS
+import { voiceSeoSchema } from "./voiceSeo";
+import { voiceHeroSchema } from "./voiceHero";
+import { voiceConcernsSchema } from "./voiceConcerns";
+import { voiceCategoryNavSchema } from "./voiceCategoryNav";
+import { voiceSeitaiSchema } from "./voiceSeitai";
+import { voicePersonalSchema } from "./voicePersonal";
+import { voiceCoachingSchema } from "./voiceCoaching";
+import { voiceBeforeAfterSchema } from "./voiceBeforeAfter";
+import { voiceGoogleReviewsSchema } from "./voiceGoogleReviews";
+import { voiceSmallCtaSchema } from "./voiceSmallCTA";
+import { voiceCtaSchema } from "./voiceCta";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -98,4 +110,16 @@ export const schemaTypes = [
   priceTrialSchema,
   pricePremiumSchema,
   priceCtaSchema,
+  // VOICE PAGE
+  voiceSeoSchema,
+  voiceHeroSchema,
+  voiceConcernsSchema,
+  voiceCategoryNavSchema,
+  voiceSeitaiSchema,
+  voicePersonalSchema,
+  voiceCoachingSchema,
+  voiceBeforeAfterSchema,
+  voiceGoogleReviewsSchema,
+  voiceSmallCtaSchema,
+  voiceCtaSchema,
 ];

@@ -51,7 +51,7 @@ const defaultConcerns = [
 ];
 
 export default function PersonalConcerns({ data }: { data?: PersonalConcernsData | null }) {
-  const sectionTitle = data?.sectionTitle ?? "ダイエットをしても続かない、効果が出ない本当の理由";
+  const sectionTitle = data?.sectionTitle ?? "ダイエットをしても続かない、\n効果が出ない本当の理由";
   const sectionDescription = data?.sectionDescription ?? "頑張っているのに変わらない…その原因を正しく知ることが、本当の変化への第一歩です";
   const items =
     data?.items && data.items.length > 0

@@ -48,7 +48,7 @@ const featureIcons = [
 ];
 
 export default function CoachingFeatures({ data }: { data?: CoachingFeaturesData | null }) {
-  const sectionTitle = data?.sectionTitle ?? "VERDE FITの習慣が変わる3つのメソッド";
+  const sectionTitle = data?.sectionTitle ?? "VERDE FITの習慣が変わる\n3つのメソッド";
   const sectionDescription = data?.sectionDescription ?? "思考・行動・環境を整え続く自分をつくる";
   const features =
     data?.features && data.features.length > 0 ? data.features : defaultFeatures;
