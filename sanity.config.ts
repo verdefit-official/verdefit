@@ -52,6 +52,20 @@ const coachingSections = [
   { name: "coachingCta", title: "CTA" },
 ];
 
+const voiceSections = [
+  { name: "voiceSeo", title: "SEO設定" },
+  { name: "voiceHero", title: "ヒーロー" },
+  { name: "voiceConcerns", title: "お悩みセクション" },
+  { name: "voiceCategoryNav", title: "カテゴリナビ" },
+  { name: "voiceSeitai", title: "整体体験談" },
+  { name: "voicePersonal", title: "パーソナル体験談" },
+  { name: "voiceCoaching", title: "コーチング体験談" },
+  { name: "voiceBeforeAfter", title: "成功事例" },
+  { name: "voiceGoogleReviews", title: "Google口コミ" },
+  { name: "voiceSmallCta", title: "変化体験CTA" },
+  { name: "voiceCta", title: "CTA" },
+];
+
 const personalSections = [
   { name: "personalSeo", title: "SEO設定" },
   { name: "personalHero", title: "ヒーロー" },
@@ -153,6 +167,19 @@ export default defineConfig({
                   .title("料金ページ")
                   .items(
                     priceSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    )
+                  )
+              ),
+            S.listItem()
+              .title("お客様の声ページ")
+              .id("voice")
+              .child(
+                S.list()
+                  .id("voice-list")
+                  .title("お客様の声ページ")
+                  .items(
+                    voiceSections.map(({ name, title }) =>
                       singleton(S, name, title)
                     )
                   )
