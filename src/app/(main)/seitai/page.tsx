@@ -281,8 +281,8 @@ export default async function SeitaiPage() {
       <Reasons data={reasonsData} sectionBg="bg-[#e8f3ec]" />
       <Profile data={profileData} sectionBg="bg-white" />
       <ChiropracticPricing data={pricingData} sectionBg="bg-[#e8f3ec]" />
-      <FAQ data={faqData} sectionBg="bg-[#e8f3ec]" />
-      <Access data={accessData} sectionBg="bg-white" />
+      <FAQ data={faqData} sectionBg="bg-white" />
+      <Access data={accessData} sectionBg="bg-[#e8f3ec]" />
       <CTA data={ctaData} phone={phone} bookingUrl={siteSettingsData?.bookingUrl} />
     </>
   );
