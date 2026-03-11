@@ -122,7 +122,7 @@ export default function PriceSeitai({
             {options.map((option, i) => (
               <div
                 key={option._key ?? i}
-                className="w-full max-w-xs rounded-xl bg-white px-7 py-8 text-center"
+                className="w-full max-w-[268px] rounded-xl bg-white px-7 py-8 text-center"
               >
                 <p className="text-sm text-gray-400">オプション</p>
                 <p className="mt-1 text-base font-bold text-[#1f2937]">{option.name}</p>
