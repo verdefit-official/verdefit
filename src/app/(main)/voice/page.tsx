@@ -348,25 +348,31 @@ function VoiceSeitaiSection() {
 function VoicePersonalSection() {
   const cards = [
     {
-      label: "3ヶ月で-8kg減量",
-      result: "−8kg達成",
-      fat: "体脂肪 −6%",
-      demographics: "女性（30代）",
-      text: "今まで諦めていたダイエットが、正しいトレーニングと食事管理で無理なく達成できました。身体が変わっただけでなく、自分に自信が持てるようになりました。",
+      smallTitle: "横手市在住・30代女性",
+      heading: "3ヶ月で-8kg達成",
+      text: "今まで何度もダイエットに失敗していましたが、食事とトレーニングを教えてもらい無理なく体型を変えることができました。リバウンドもせず、自信がつきました。",
+      stats: [
+        { label: "体重", value: "-8kg" },
+        { label: "ウエスト", value: "-10cm" },
+      ],
     },
     {
-      label: "健康的な身体の改善",
-      result: "−12kg達成",
-      fat: "体脂肪 −8%",
-      demographics: "男性（40代）",
-      text: "仕事が忙しく運動できずにいましたが、パーソナルトレーニングで短時間でも効果的なトレーニングができるようになりました。12kgの減量に成功し、今では体が楽になりました。",
+      smallTitle: "横手市在住・40代男性",
+      heading: "健康診断の数値が改善",
+      text: "仕事が忙しく運動する時間がありませんでしたが、効率的なトレーニングと食事管理で無理なく-12kg。健康診断の数値も改善し、体調が良くなりました。",
+      stats: [
+        { label: "体重", value: "-12kg" },
+        { label: "体脂肪率", value: "-8%" },
+      ],
     },
     {
-      label: "仕事が忙しくても継続できた",
-      result: "−14kg達成",
-      fat: "体脂肪 −8%",
-      demographics: "女性（50代）",
-      text: "今まで何度も運動しようとしてもすぐに諦めていましたが、パーソナルトレーニングでは自分のペースで続けることができました。結果として14kg・体脂肪8%を落とし、身体だけでなく考え方まで前向きに変わりました。",
+      smallTitle: "忙しくても-14kgの減量に成功",
+      heading: "仕事が忙しく運動する時間がありませんでした",
+      text: "仕事が忙しく、これまで運動する時間が取れず体重も増えていました。パーソナルトレーニングでは短時間でも効果的なトレーニングと食事のアドバイスを受け、無理なく続けることができました。結果として-14kg、体脂肪率-9%を達成し、健康診断の数値も改善。体調も良くなり身体が軽くなりました。",
+      stats: [
+        { label: "体重", value: "-14kg" },
+        { label: "体脂肪率", value: "-8%" },
+      ],
     },
   ];
 
@@ -374,35 +380,35 @@ function VoicePersonalSection() {
     <section id="personal" className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              パーソナルトレーニングで身体が変わった体験談
-            </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">
-              ビフォーアフターの結果をご紹介します
-            </p>
-          </div>
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            パーソナルトレーニングで身体が変わった体験談
+          </h2>
         </FadeIn>
 
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                {/* 上部：ビフォーアフター画像プレースホルダー */}
                 <div
-                  className="flex w-full flex-col items-center justify-center gap-2 bg-gray-100"
+                  className="flex w-full items-center justify-center bg-gray-100"
                   style={{ aspectRatio: "4/3" }}
                 >
-                  <PersonIcon className="h-16 w-16 text-gray-300" />
-                  <p className="text-xs text-gray-400">Before / After</p>
+                  <p className="text-sm text-gray-400">ビフォーアフター</p>
                 </div>
-                <div className="flex flex-1 flex-col px-6 py-5">
-                  <p className="text-xs font-semibold text-green-700">{c.label}</p>
-                  <div className="mt-2 flex items-baseline gap-3">
-                    <p className="font-serif text-3xl font-bold text-green-700">{c.result}</p>
-                    <p className="text-sm font-semibold text-gray-500">{c.fat}</p>
+                {/* 下部：テキスト */}
+                <div className="flex flex-1 flex-col px-5 py-5">
+                  <p className="mb-1 text-xs text-gray-400">{c.smallTitle}</p>
+                  <h3 className="mb-3 text-xl font-bold leading-snug text-[#1f2937]">{c.heading}</h3>
+                  <p className="flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
+                  {/* 結果ボックス */}
+                  <div className="mt-4 rounded-lg bg-gray-50 px-4 py-3">
+                    {c.stats.map((s, j) => (
+                      <p key={j} className="text-sm font-bold text-[#1f2937]">
+                        {s.label}<span className="text-green-600">−{s.value.replace("-", "")}</span>
+                      </p>
+                    ))}
                   </div>
-                  <p className="mt-1 text-xs text-gray-400">{c.demographics}</p>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
                 </div>
               </article>
             </FadeIn>
@@ -412,10 +418,10 @@ function VoicePersonalSection() {
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
             <a
-              href="/voice/personal-training"
-              className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-8 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-white"
+              href="/personal-training"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
             >
-              パーソナルトレーニングのお客様の声をもっと見る <span aria-hidden="true">→</span>
+              パーソナルジムの詳細ページを見る <span aria-hidden="true">→</span>
             </a>
           </div>
         </FadeIn>
