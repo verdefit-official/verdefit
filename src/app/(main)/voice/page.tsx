@@ -271,32 +271,37 @@ type VoiceCategoryNavData = {
 function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
   const sectionTitle = data?.sectionTitle ?? "あなたと同じ悩みの体験談を探す";
 
+  const staticImgs = [
+    { src: "/voice-cat-seitai.jpg", alt: "整体施術の様子" },
+    { src: "/voice-cat-personal.jpg", alt: "パーソナルトレーニングの様子" },
+    { src: "/voice-cat-coaching.jpg", alt: "コーチングセッションの様子" },
+  ];
+
   const defaultCats = [
     {
       href: "/voice/seitai",
       label: "整体のお客様の声",
       desc: "肩こり・腰痛・姿勢の乱れなど、慢性的な身体の不調を改善されたお客様の体験談をご紹介します。痛みの原因を根本から整えることで、日常生活が楽になったリアルな声をご覧ください。",
       btnLabel: "整体の声を見る",
-      Icon: SeitaiCardIcon,
+      img: staticImgs[0],
     },
     {
       href: "/voice/personal-training",
       label: "パーソナルジムのお客様の声",
       desc: "ダイエット成功・筋力向上・体型改善など、トレーニングによって理想の身体を手に入れたお客様の体験談をご紹介します。無理のない習慣づくりで変化を実感されたリアルな声をご覧ください。",
       btnLabel: "ジムの声を見る",
-      Icon: TrainingCardIcon,
+      img: staticImgs[1],
     },
     {
       href: "/voice/coaching",
       label: "コーチングのお客様の声",
       desc: "思考の変化・習慣改善・人生の前向きな変化など、コーチングを通して内面から変わったお客様の体験談をご紹介します。行動が続くようになったリアルな変化の声をご覧ください。",
       btnLabel: "コーチングの声を見る",
-      Icon: CoachingCardIcon,
+      img: staticImgs[2],
     },
   ];
 
   const staticHrefs = ["/voice/seitai", "/voice/personal-training", "/voice/coaching"];
-  const staticIcons = [SeitaiCardIcon, TrainingCardIcon, CoachingCardIcon];
 
   const cats =
     data?.items && data.items.length > 0
@@ -305,7 +310,7 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
           label: item.label ?? defaultCats[i]?.label ?? "",
           desc: item.desc ?? defaultCats[i]?.desc ?? "",
           btnLabel: item.btnLabel ?? defaultCats[i]?.btnLabel ?? "",
-          Icon: staticIcons[i] ?? SeitaiCardIcon,
+          img: { src: item.imageUrl ?? staticImgs[i]?.src ?? "", alt: item.imageAlt ?? staticImgs[i]?.alt ?? "" },
         }))
       : defaultCats;
 
@@ -321,9 +326,9 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
           {cats.map((c, i) => (
             <FadeIn key={i} delay={i * 100} className="h-full">
               <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
-                {/* 上部：グレー背景＋アイコン（画像差し替え予定） */}
-                <div className="flex items-center justify-center bg-gray-100" style={{ aspectRatio: "4/3" }}>
-                  <c.Icon />
+                {/* 上部：カテゴリ画像 */}
+                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img src={c.img.src} alt={c.img.alt} className="h-full w-full object-cover" />
                 </div>
                 {/* 下部：テキスト＋ボタン */}
                 <div className="flex flex-1 flex-col px-6 py-6">
