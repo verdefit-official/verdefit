@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 type ConcernItem = {
   _key?: string;
@@ -130,8 +131,8 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
       <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 md:pb-24">
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              {sectionTitle}
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             {sectionDescription && (
               <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-xl">

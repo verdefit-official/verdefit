@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 type BACard = {
   label?: string | null;
@@ -70,8 +71,8 @@ export default function PersonalBeforeAfter({ data }: { data?: PersonalBeforeAft
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-14 text-center">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              {sectionTitle}
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}

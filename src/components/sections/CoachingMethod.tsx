@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 type StepItem = {
   _key?: string;
@@ -108,8 +109,8 @@ export default function CoachingMethod({ data }: { data?: CoachingMethodData | n
         {/* セクションヘッダー */}
         <FadeIn>
           <div className="mb-10 text-center">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              {sectionTitle}
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}

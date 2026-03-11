@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 // 内部リンクはコードで固定管理（インデックス順: 整体, パーソナル, コーチング）
 const STATIC_HREFS: (string | undefined)[] = ["/seitai", "/personal-training", "/coaching"];
@@ -65,8 +66,8 @@ export default function Services({ data }: { data?: ServicesData | null }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center md:mb-14">
-            <h2 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[44px] whitespace-pre-line">
-              {sectionTitle}
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[44px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}

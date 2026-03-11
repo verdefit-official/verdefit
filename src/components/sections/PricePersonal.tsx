@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 type MonthlyPlan = {
   name: string;
@@ -76,8 +77,8 @@ export default function PricePersonal({ data, bookingUrl }: { data?: PersonalPri
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              {sectionTitle}
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mt-4 text-sm text-gray-500 md:text-base">
               {sectionDescription}

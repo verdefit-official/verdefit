@@ -1,4 +1,5 @@
 import FadeIn from "@/components/FadeIn";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 type CourseItem = {
   _key?: string;
@@ -78,8 +79,8 @@ export default function ChiropracticPricing({
         {/* セクションヘッダー */}
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
-            <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              {sectionTitle}
+            <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mt-4 text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}

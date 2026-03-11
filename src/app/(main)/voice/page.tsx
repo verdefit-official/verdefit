@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
 import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
+import ResponsiveTitle from "@/components/ResponsiveTitle";
 
 // ─── generateMetadata ─────────────────────────────────────────────
 
@@ -94,8 +95,8 @@ function VoiceHero({
     <section className="bg-[#e8f3ec] pt-28 pb-16 md:pt-32 md:pb-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <FadeIn>
-          <h1 className="whitespace-pre-line font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
-            {heading}
+          <h1 className="font-serif text-3xl font-bold leading-[1.45] text-[#1f2937] sm:text-4xl md:text-[46px]">
+            <ResponsiveTitle>{heading}</ResponsiveTitle>
           </h1>
         </FadeIn>
         <FadeIn delay={150}>
@@ -392,8 +393,8 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
     <section id="seitai" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            {sectionTitle}
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
           </h2>
         </FadeIn>
 
@@ -508,8 +509,8 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
     <section id="personal" className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            {sectionTitle}
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
           </h2>
         </FadeIn>
 
@@ -602,8 +603,8 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
     <section id="coaching" className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            {sectionTitle}
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
           </h2>
         </FadeIn>
 
@@ -677,8 +678,8 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mb-12 text-center">
-            <h2 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              {sectionTitle}
+            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+              <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             <p className="mt-3 text-sm text-gray-500 md:text-base">
               {sectionDescription}
@@ -746,8 +747,8 @@ function VoiceGoogleReviews({ data }: { data?: VoiceGoogleReviewsData | null }) 
     <section className="bg-white py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <h2 className="mb-12 whitespace-pre-line text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            {sectionTitle}
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
           </h2>
         </FadeIn>
 
@@ -804,8 +805,8 @@ function VoiceSmallCTA({
     <section className="bg-[#e8f3ec] py-20 md:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <FadeIn>
-          <h2 className="whitespace-pre-line font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-            {heading}
+          <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            <ResponsiveTitle>{heading}</ResponsiveTitle>
           </h2>
           <p className="mt-4 text-sm text-gray-600 md:text-base">
             {subText}
