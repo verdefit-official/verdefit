@@ -33,11 +33,13 @@ function StarIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
       className="h-4 w-4 text-yellow-400"
       aria-hidden="true"
     >
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      <path strokeLinejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
     </svg>
   );
 }
@@ -548,52 +550,41 @@ function VoiceBeforeAfter() {
 function VoiceGoogleReviews() {
   const reviews = [
     {
-      name: "M.U様",
-      demographics: "女性",
-      text: "丁寧な施術と分かりやすい説明で、通うたびに身体が軽くなるのを実感しています。長年悩んでいた肩こりが改善され、毎日の生活が楽になりました。スタッフの方も親切で安心して通えています。",
+      name: "横手市在住・Mさん",
+      text: "丁寧なカウンセリングで、自分の身体の状態をしっかり理解できました。施術も的確で、長年の肩こりが改善しました。横手市でこんなに質の高い整体が受けられるとは思いませんでした。",
     },
     {
-      name: "T.U様",
-      demographics: "女性",
-      text: "パーソナルトレーニングで3ヶ月で8kgを落とすことができました。食事制限もきつくなく、無理のないペースで続けることができました。今では運動が楽しくなり、ここに来るのが毎回楽しみです。",
+      name: "横手市在住・Tさん",
+      text: "パーソナルトレーニングを受けて3ヶ月で-8kg達成。食事指導も無理のない内容で、今でもリバウンドしていません。横手市で本気でダイエットするならここがおすすめです。",
     },
     {
-      name: "横田様",
-      demographics: "男性",
-      text: "コーチングを受けて、仕事でもプライベートでも自分らしく行動できるようになりました。自分が変わっていく実感があり、目標に向かって毎日を過ごせるようになっています。",
+      name: "秋田市在住・Yさん",
+      text: "コーチングで人生観が変わりました。思考の整理ができて、自信を持って行動できるようになりました。秋田からでも通う価値があります。",
     },
   ];
 
   return (
     <section className="bg-white py-20 md:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <div className="mb-12 text-center">
-            <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
-              Googleロコミでも高評価をいただいています
-            </h2>
-          </div>
+          <h2 className="mb-12 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
+            Google口コミでも高評価をいただいています
+          </h2>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="flex flex-col gap-4">
           {reviews.map((r, i) => (
             <FadeIn key={i} delay={i * 100}>
-              <div className="flex h-full flex-col rounded-xl border border-gray-200 bg-white px-6 py-6 shadow-sm">
+              <div className="rounded-xl border border-gray-200 bg-white px-6 py-6">
                 <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#e8f3ec]">
-                    <PersonIcon className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-[#1f2937]">{r.name}</p>
-                    <p className="text-xs text-gray-400">{r.demographics}</p>
+                  <p className="text-sm font-bold text-[#1f2937]">{r.name}</p>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, j) => (
+                      <StarIcon key={j} />
+                    ))}
                   </div>
                 </div>
-                <div className="mb-3 flex gap-0.5">
-                  {[...Array(5)].map((_, j) => (
-                    <StarIcon key={j} />
-                  ))}
-                </div>
-                <p className="flex-1 text-sm leading-7 text-gray-600">{r.text}</p>
+                <p className="text-sm leading-7 text-gray-600">{r.text}</p>
               </div>
             </FadeIn>
           ))}
