@@ -707,8 +707,20 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
     { label: "横手市在住・50代女性", result: "−6kg達成", imageUrl: "/voice-beforeafter-03.jpg" },
   ];
 
+  const staticImgs = [
+    { src: "/voice-beforeafter-01.jpg", alt: "Before After 30代女性" },
+    { src: "/voice-beforeafter-02.jpg", alt: "Before After 40代男性" },
+    { src: "/voice-beforeafter-03.jpg", alt: "Before After 50代女性" },
+  ];
+
   const cases =
-    data?.cases && data.cases.length > 0 ? data.cases : defaultCases;
+    data?.cases && data.cases.length > 0
+      ? data.cases.map((c, i) => ({
+          ...c,
+          imageUrl: c.imageUrl ?? staticImgs[i]?.src ?? "",
+          imageAlt: c.imageAlt ?? staticImgs[i]?.alt ?? "",
+        }))
+      : defaultCases;
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
