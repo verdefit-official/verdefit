@@ -208,9 +208,12 @@ function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
           <div className="flex justify-center gap-10 sm:gap-16">
             {approaches.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <span className="block h-20 w-20 overflow-hidden rounded-full">
-                  <img src={a.img} alt={a.label} className="h-full w-full object-cover" />
-                </span>
+                <div
+                  className="h-20 w-20 rounded-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${a.img})` }}
+                  aria-label={a.label}
+                  role="img"
+                />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
@@ -520,6 +523,12 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
     },
   ];
 
+  const staticPersonalImgs = [
+    { src: "/voice-personal-01.jpg", alt: "ビフォーアフター 30代女性" },
+    { src: "/voice-personal-02.jpg", alt: "ビフォーアフター 40代男性" },
+    { src: "/voice-personal-03.jpg", alt: "ビフォーアフター 女性" },
+  ];
+
   const cards =
     data?.cards && data.cards.length > 0 ? data.cards : defaultCards;
 
@@ -536,12 +545,13 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
           {cards.map((c, i) => (
             <FadeIn key={i} delay={i * 100}>
               <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-                {/* 上部：ビフォーアフター画像プレースホルダー */}
-                <div
-                  className="flex w-full items-center justify-center bg-gray-100"
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <p className="text-sm text-gray-400">ビフォーアフター</p>
+                {/* 上部：ビフォーアフター画像 */}
+                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img
+                    src={c.imageUrl ?? staticPersonalImgs[i]?.src ?? ""}
+                    alt={c.imageAlt ?? staticPersonalImgs[i]?.alt ?? ""}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
                 {/* 下部：テキスト */}
                 <div className="flex flex-1 flex-col px-5 py-5">
@@ -835,9 +845,12 @@ function VoiceSmallCTA({
           <div className="mt-8 flex justify-center gap-6 sm:gap-10">
             {items.map((a, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <span className="block h-20 w-20 overflow-hidden rounded-full">
-                  <img src={a.img} alt={a.label} className="h-full w-full object-cover" />
-                </span>
+                <div
+                  className="h-20 w-20 rounded-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${a.img})` }}
+                  aria-label={a.label}
+                  role="img"
+                />
                 <p className="text-sm font-semibold text-green-600">{a.label}</p>
               </div>
             ))}
