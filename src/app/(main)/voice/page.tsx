@@ -339,12 +339,11 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
                 <div className="flex flex-1 flex-col px-6 py-6">
                   <p className="mb-3 text-lg font-bold leading-snug text-[#1f2937]">{c.label}</p>
                   <p className="flex-1 text-sm leading-7 text-gray-600">{c.desc}</p>
-                  <a
-                    href={c.href}
-                    className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-green-500 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+                  <span
+                    className="mt-6 inline-flex h-11 cursor-not-allowed items-center justify-center rounded-lg bg-gray-400 px-6 text-sm font-semibold text-white"
                   >
                     {c.btnLabel}
-                  </a>
+                  </span>
                 </div>
               </div>
             </FadeIn>
@@ -375,7 +374,7 @@ type VoiceSeitaiData = {
 
 function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
   const sectionTitle = data?.sectionTitle ?? "整体で不調が改善したお客様の体験談";
-  const linkText = data?.linkText ?? "整体の詳細ページを見る";
+  const linkText = data?.linkText ?? "整体の声を見る";
 
   const defaultVoices: VoiceSeitaiVoice[] = [
     {
@@ -453,12 +452,11 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <a
-              href="/seitai"
-              className="inline-flex h-12 items-center justify-center rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+            <span
+              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
             >
-              {linkText}
-            </a>
+              {linkText} <span aria-hidden="true">→</span>
+            </span>
           </div>
         </FadeIn>
       </div>
@@ -491,7 +489,7 @@ type VoicePersonalData = {
 
 function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
   const sectionTitle = data?.sectionTitle ?? "パーソナルトレーニングで\n身体が変わった体験談";
-  const linkText = data?.linkText ?? "パーソナルジムの詳細ページを見る";
+  const linkText = data?.linkText ?? "パーソナルの声を見る";
 
   const defaultCards: VoicePersonalCard[] = [
     {
@@ -574,12 +572,11 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <a
-              href="/personal-training"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+            <span
+              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
             >
               {linkText} <span aria-hidden="true">→</span>
-            </a>
+            </span>
           </div>
         </FadeIn>
       </div>
@@ -669,12 +666,11 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
-            <a
-              href="/voice/coaching"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-green-500 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-600"
+            <span
+              className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-gray-400 px-10 text-sm font-semibold text-white"
             >
               {linkText} <span aria-hidden="true">→</span>
-            </a>
+            </span>
           </div>
         </FadeIn>
       </div>
