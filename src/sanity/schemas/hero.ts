@@ -19,9 +19,9 @@ export const heroSchema = defineType({
     }),
     defineField({
       name: "subheadingLocation",
-      title: "地名テキスト",
+      title: "サブ見出し",
       type: "string",
-      description: "例: 横手市【身体と習慣を整える場所】",
+      description: "例: 横手市で身体と習慣を整える",
     }),
     defineField({
       name: "description",

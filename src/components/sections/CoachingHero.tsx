@@ -34,7 +34,7 @@ export default function CoachingHero({
   return (
     <section className="bg-[#e8f3ec] pt-16 pb-12 sm:pt-28 sm:pb-20 md:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+        <div className="grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12">
           {/* テキスト */}
           <FadeIn className="order-2 md:order-1">
             <div>
@@ -48,10 +48,6 @@ export default function CoachingHero({
 
               <p className="mb-5 text-[17px] font-semibold leading-8 text-[#374151] whitespace-pre-line md:text-[19px]">
                 {subheading}
-              </p>
-
-              <p className="mt-5 text-[15px] leading-8 text-gray-700 md:text-[16px] md:leading-9">
-                {description}
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">

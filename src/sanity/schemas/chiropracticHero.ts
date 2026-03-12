@@ -19,10 +19,10 @@ export const chiropracticHeroSchema = defineType({
     }),
     defineField({
       name: "description",
-      title: "説明文",
+      title: "サブ見出し",
       type: "text",
-      rows: 5,
-      description: "例: 延べ5,000人以上を治療してきた国家資格者が横手市であなたの痛みを根本から整えます。",
+      rows: 2,
+      description: "例: 延べ5,000人以上を施術してきた国家資格者が、横手で痛みの原因から整えます",
     }),
     defineField({
       name: "image",

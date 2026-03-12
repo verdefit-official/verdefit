@@ -15,7 +15,7 @@ export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: C
   const heading = data?.heading ?? "将来の身体に不安を感じている方へ";
   const description =
     data?.description ??
-    "延べ5,000人以上を治療してきた国家資格者が横手市であなたの痛みを根本から整えます。";
+    "延べ5,000人以上を施術してきた国家資格者が、横手で痛みの原因から整えます";
   const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/chiropractic-hero.png";
   const imageAlt = data?.imageAlt ?? "横手市の整体で腰痛・肩こり・骨盤矯正が改善し笑顔でストレッチする女性";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
@@ -24,7 +24,7 @@ export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: C
   return (
     <section className="relative overflow-hidden bg-[#e8f3ec]">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:py-24">
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div className="min-w-0 order-2 lg:order-1">
             <FadeIn>
               <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">

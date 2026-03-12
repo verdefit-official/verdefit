@@ -13,12 +13,9 @@ type HeroData = {
 
 export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | null; phone?: string; bookingUrl?: string }) {
   const badge = data?.badge ?? "2026年春 GRAND OPEN";
-  const heading = data?.heading ?? "年齢に左右されない理想の身体へ。";
+  const heading = data?.heading ?? "身体は何歳からでも変えられる。";
   const subheadingLocation =
-    data?.subheadingLocation ?? "横手市【身体と習慣を整える場所】";
-  const description =
-    data?.description ??
-    "その不調、年齢のせいにしていませんか？\n身体が変わらないのは努力不足ではありません。\n整体・パーソナルトレーニング・コーチングを融合したトータルサポートで\nいつまでも自分らしく生きられる身体へと導きます。";
+    data?.subheadingLocation ?? "横手市で身体と習慣を整える";
   const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/hero.png";
   const imageAlt = data?.imageAlt ?? "横手市の整体・パーソナルジムVERDE FITで腰痛改善に取り組む女性";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
@@ -27,7 +24,7 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
   return (
     <section className="relative overflow-hidden bg-[#e8f3ec]">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:py-24">
-        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
           <div className="min-w-0 order-2 lg:order-1">
             <FadeIn>
               <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">
@@ -46,12 +43,6 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
                 <span className="text-[#1f2937]">{subheadingLocation}</span>
                 <br />
                 <span className="text-green-700">VERDE FIT</span>
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={300}>
-              <p className="mb-8 max-w-xl text-[15px] leading-8 text-[#374151] whitespace-pre-line">
-                {description}
               </p>
             </FadeIn>
 
