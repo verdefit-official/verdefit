@@ -134,6 +134,8 @@ src/
 │   ├── Footer.tsx
 │   ├── FloatingButtons.tsx
 │   ├── FadeIn.tsx
+│   ├── Pagination.tsx       # ページネーションUI（voiceサブページ共通）
+│   ├── ResponsiveTitle.tsx  # 改行対応タイトル
 │   └── sections/            # 各ページセクションコンポーネント
 └── sanity/
     ├── client.ts            # Sanity クライアント・safeFetch ヘルパー
@@ -225,7 +227,8 @@ src/
 | セクション | 内容 |
 |---|---|
 | Hero | パンくずナビ・見出し（`voiceSeitai.sectionTitle`）・説明文 |
-| Cards | 整体体験談一覧（`seitaiTestimonial` 全件・新着順）・タグ・画像・テキスト。件数0の場合は「体験談を準備中です。」 |
+| Cards | 整体体験談一覧（`seitaiTestimonial` 新着順・9件/ページ）・タグ・画像・テキスト。件数0の場合は「体験談を準備中です。」 |
+| Pagination | 9件超で自動表示。`?page=N` でサーバーサイドページング |
 | 戻るボタン | お客様の声トップへ戻るリンク |
 | CTA | 最終CTA（`voiceCta` 共通） |
 
@@ -233,8 +236,9 @@ src/
 
 | セクション | 内容 |
 |---|---|
-| Hero | パンくずナビ・見出し（`voicePersonal.sectionTitle`）・説明文 |
-| Cards | パーソナル体験談一覧（`personalTestimonial` 全件・新着順）・結果数値ボックス・ビフォーアフター画像。件数0の場合は「体験談を準備中です。」 |
+| Hero | パンくずナビ・見出し固定（`パーソナルトレーニングで<br />身体が変わった体験談`）・説明文 |
+| Cards | パーソナル体験談一覧（`personalTestimonial` 新着順・9件/ページ）・結果数値ボックス・ビフォーアフター画像。件数0の場合は「体験談を準備中です。」 |
+| Pagination | 9件超で自動表示。`?page=N` でサーバーサイドページング |
 | 戻るボタン | お客様の声トップへ戻るリンク |
 | CTA | 最終CTA（`voiceCta` 共通） |
 
@@ -243,7 +247,8 @@ src/
 | セクション | 内容 |
 |---|---|
 | Hero | パンくずナビ・見出し（`voiceCoaching.sectionTitle`）・説明文 |
-| Cards | コーチング体験談一覧（`coachingTestimonial` 全件・新着順）・画像・テキスト。件数0の場合は「体験談を準備中です。」 |
+| Cards | コーチング体験談一覧（`coachingTestimonial` 新着順・9件/ページ）・画像・テキスト。件数0の場合は「体験談を準備中です。」 |
+| Pagination | 9件超で自動表示。`?page=N` でサーバーサイドページング |
 | 戻るボタン | お客様の声トップへ戻るリンク |
 | CTA | 最終CTA（`voiceCta` 共通） |
 
