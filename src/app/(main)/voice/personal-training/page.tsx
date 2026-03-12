@@ -66,7 +66,7 @@ export default async function PersonalTrainingVoicePage() {
   ]);
 
   const cards = testimonials ?? [];
-  const sectionTitle = personalData?.sectionTitle ?? "パーソナルトレーニングで身体が変わった体験談";
+  const sectionTitle = personalData?.sectionTitle ?? "パーソナルトレーニングで\n身体が変わった体験談";
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
 
@@ -89,7 +89,7 @@ export default async function PersonalTrainingVoicePage() {
               <span className="mx-2">/</span>
               <span className="text-gray-700">パーソナルトレーニング</span>
             </nav>
-            <h1 className="font-serif text-3xl font-bold leading-snug text-[#1f2937] md:text-[42px]">
+            <h1 className="whitespace-pre-line font-serif text-3xl font-bold leading-snug text-[#1f2937] md:text-[42px]">
               {sectionTitle}
             </h1>
             <p className="mt-4 text-sm leading-8 text-gray-600 md:text-base">

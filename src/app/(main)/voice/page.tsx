@@ -376,36 +376,7 @@ type VoiceSeitaiData = {
 function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
   const sectionTitle = data?.sectionTitle ?? "整体で不調が改善したお客様の体験談";
   const linkText = data?.linkText ?? "整体の声を見る";
-
-  const defaultVoices: VoiceSeitaiVoice[] = [
-    {
-      smallTitle: "長年の肩こりが楽になりました",
-      tags: ["肩こり", "姿勢"],
-      heading: "デスクワークで慢性的な肩こりと姿勢の悪さに悩んでいました",
-      text: "デスクワークが多く、常に肩こりに悩まされていました。整体で身体の状態を見てもらい、姿勢や身体の使い方を整えてもらったことで肩の重さが軽くなりました。今では仕事終わりの疲れも以前ほど感じなくなり、身体がとても楽になりました。",
-    },
-    {
-      smallTitle: "猫背が改善して姿勢が良くなりました",
-      tags: ["肩こり", "姿勢"],
-      heading: "長年気になっていた姿勢の悪さが改善しました",
-      text: "以前から猫背が気になっていましたが、整体で身体のバランスを整えてもらい姿勢が変わってきました。周りからも姿勢が良くなったと言われるようになり、肩や背中の負担も減りました。今では以前より身体が軽く感じます。",
-    },
-    {
-      smallTitle: "10年悩んだ腰痛が改善しました",
-      tags: ["腰痛", "骨盤矯正"],
-      heading: "長年の腰痛で日常生活にも不安がありました",
-      text: "長年腰痛に悩んでおり、整形外科にも通っていましたがなかなか改善しませんでした。こちらの整体で身体の状態や原因を丁寧に説明してもらい、施術を受けるうちに徐々に痛みが軽くなりました。今では日常生活でも腰を気にすることが減り、安心して過ごせています。",
-    },
-  ];
-
-  const staticSeitaiImgs = [
-    { src: "/voice-seitai-01.jpg", alt: "横手市整体VERDE FITで長年の肩こりが改善したお客様の写真" },
-    { src: "/voice-seitai-02.jpg", alt: "横手市の整体で猫背・姿勢が改善したお客様の笑顔写真" },
-    { src: "/voice-seitai-03.jpg", alt: "横手市VERDE FITの整体で10年来の腰痛が改善したお客様写真" },
-  ];
-
-  const voices =
-    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
+  const voices = data?.voices ?? [];
 
   return (
     <section id="seitai" className="bg-white py-20 md:py-24">
@@ -423,8 +394,8 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
                 {/* 上部：お客様写真 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={imgUrl(v.image) || staticSeitaiImgs[i]?.src || ""}
-                    alt={v.imageAlt || staticSeitaiImgs[i]?.alt || ""}
+                    src={imgUrl(v.image) || ""}
+                    alt={v.imageAlt || ""}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
@@ -492,45 +463,7 @@ type VoicePersonalData = {
 function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
   const sectionTitle = data?.sectionTitle ?? "パーソナルトレーニングで\n身体が変わった体験談";
   const linkText = data?.linkText ?? "パーソナルの声を見る";
-
-  const defaultCards: VoicePersonalCard[] = [
-    {
-      smallTitle: "横手市在住・30代女性",
-      heading: "3ヶ月で-8kg達成",
-      text: "今まで何度もダイエットに失敗していましたが、食事とトレーニングを教えてもらい無理なく体型を変えることができました。リバウンドもせず、自信がつきました。",
-      stats: [
-        { label: "体重", value: "-8kg" },
-        { label: "ウエスト", value: "-10cm" },
-      ],
-    },
-    {
-      smallTitle: "横手市在住・40代男性",
-      heading: "健康診断の数値が改善",
-      text: "仕事が忙しく運動する時間がありませんでしたが、効率的なトレーニングと食事管理で無理なく-12kg。健康診断の数値も改善し、体調が良くなりました。",
-      stats: [
-        { label: "体重", value: "-12kg" },
-        { label: "体脂肪率", value: "-8%" },
-      ],
-    },
-    {
-      smallTitle: "忙しくても-14kgの減量に成功",
-      heading: "仕事が忙しく運動する時間がありませんでした",
-      text: "仕事が忙しく、これまで運動する時間が取れず体重も増えていました。パーソナルトレーニングでは短時間でも効果的なトレーニングと食事のアドバイスを受け、無理なく続けることができました。結果として-14kg、体脂肪率-9%を達成し、健康診断の数値も改善。体調も良くなり身体が軽くなりました。",
-      stats: [
-        { label: "体重", value: "-14kg" },
-        { label: "体脂肪率", value: "-8%" },
-      ],
-    },
-  ];
-
-  const staticPersonalImgs = [
-    { src: "/voice-personal-01.jpg", alt: "横手市パーソナルジムVERDE FITで3ヶ月-8kg・ウエスト-10cmを達成した30代女性のビフォーアフター写真" },
-    { src: "/voice-personal-02.jpg", alt: "横手市VERDE FITのパーソナルトレーニングで健康診断の数値が改善した40代男性の体型変化ビフォーアフター写真" },
-    { src: "/voice-personal-03.jpg", alt: "横手市パーソナルジムで仕事しながら-14kg・体脂肪率-8%を達成した女性のダイエット成功ビフォーアフター写真" },
-  ];
-
-  const cards =
-    data?.cards && data.cards.length > 0 ? data.cards : defaultCards;
+  const cards = data?.cards ?? [];
 
   return (
     <section id="personal" className="bg-[#e8f3ec] py-20 md:py-24">
@@ -548,8 +481,8 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
                 {/* 上部：ビフォーアフター画像 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "3/2" }}>
                   <img
-                    src={imgUrl(c.image) || staticPersonalImgs[i]?.src || ""}
-                    alt={c.imageAlt || staticPersonalImgs[i]?.alt || ""}
+                    src={imgUrl(c.image) || ""}
+                    alt={c.imageAlt || ""}
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -607,33 +540,7 @@ type VoiceCoachingData = {
 function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
   const sectionTitle = data?.sectionTitle ?? "コーチングを受けたお客様の声";
   const linkText = data?.linkText ?? "コーチングの声を見る";
-
-  const defaultVoices: VoiceCoachingVoice[] = [
-    {
-      smallTitle: "三日坊主だった私でも習慣が続くようになりました",
-      heading: "これまで何を始めても続かないことが悩みでした",
-      text: "これまで運動やダイエットを始めても、三日坊主で終わってしまうことが多く悩んでいました。コーチングでは考え方や行動の習慣を見直し、小さな行動から始める方法を教えてもらいました。無理なく続けることができ、今では運動や健康習慣が自然と生活の一部になっています。",
-    },
-    {
-      smallTitle: "自分を変えるきっかけになりました",
-      heading: "自分に自信が持てず、行動することが苦手でした",
-      text: "これまで自分に自信が持てず、新しいことに挑戦するのが苦手でした。コーチングを通して自分の考え方の癖に気づき、少しずつ行動できるようになりました。小さな成功体験を積み重ねることで自信もつき、以前より前向きに物事に取り組めるようになりました。",
-    },
-    {
-      smallTitle: "思考が変わると人生も変わりました",
-      heading: "何となく毎日を過ごしていることに悩んでいました",
-      text: "毎日を忙しく過ごしていましたが、どこか満足できない気持ちがありました。コーチングで自分の価値観や目標を整理することで、本当に大切にしたいことが明確になりました。今では目標に向かって行動できるようになり、以前より充実した毎日を過ごせています。",
-    },
-  ];
-
-  const staticCoachingImgs = [
-    { src: "/voice-coaching-01.jpg", alt: "横手市VERDE FITのコーチングで運動習慣が続くようになった女性のお客様写真" },
-    { src: "/voice-coaching-02.jpg", alt: "横手市のコーチングで自信をつけ前向きに行動できるようになったお客様写真" },
-    { src: "/voice-coaching-03.jpg", alt: "横手市VERDE FITのコーチングで思考と習慣が変わり充実した生活を送るお客様写真" },
-  ];
-
-  const voices =
-    data?.voices && data.voices.length > 0 ? data.voices : defaultVoices;
+  const voices = data?.voices ?? [];
 
   return (
     <section id="coaching" className="bg-white py-20 md:py-24">
@@ -651,8 +558,8 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
                 {/* 上部：お客様写真 */}
                 <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img
-                    src={imgUrl(v.image) || staticCoachingImgs[i]?.src || ""}
-                    alt={v.imageAlt || staticCoachingImgs[i]?.alt || ""}
+                    src={imgUrl(v.image) || ""}
+                    alt={v.imageAlt || ""}
                     className="h-full w-full object-cover object-top"
                   />
                 </div>
