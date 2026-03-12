@@ -69,13 +69,13 @@ export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: C
           </div>
 
           <FadeIn delay={250} className="order-1 lg:order-2">
-            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:rounded-2xl">
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full">
               {imageUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               ) : (
                 <div className="absolute inset-0 bg-gray-200" />
