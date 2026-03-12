@@ -29,7 +29,7 @@ export default function PersonalHero({
   return (
     <section className="relative overflow-hidden bg-[#e8f3ec]">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:py-24">
-        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-20">
           <div className="min-w-0 order-2 lg:order-1">
             <FadeIn delay={150}>
               <h1 className="mb-3 font-serif text-3xl font-bold leading-[1.35] text-[#1f2937] sm:text-4xl lg:text-[42px]">
@@ -62,7 +62,7 @@ export default function PersonalHero({
           </div>
 
           <FadeIn delay={250} className="order-1 lg:order-2">
-            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:rounded-2xl bg-green-100">
               <img
                 src={imageUrl}
                 alt={imageAlt}

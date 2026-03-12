@@ -34,7 +34,7 @@ export default function CoachingHero({
   return (
     <section className="bg-[#e8f3ec] pt-16 pb-12 sm:pt-28 sm:pb-20 md:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12">
+        <div className="grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-20">
           {/* テキスト */}
           <FadeIn className="order-2 md:order-1">
             <div>
@@ -69,7 +69,7 @@ export default function CoachingHero({
 
           {/* ヒーロー画像 */}
           <FadeIn delay={150} className="order-1 md:order-2">
-            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:rounded-2xl bg-green-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imageUrl}
