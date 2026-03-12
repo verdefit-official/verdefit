@@ -3,6 +3,9 @@ import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
+import Pagination from "@/components/Pagination";
+
+const PER_PAGE = 9;
 
 type SanityImageRef = { asset: { _ref: string; _type: string }; hotspot?: unknown };
 function imgUrl(ref: SanityImageRef | undefined | null): string {
@@ -23,7 +26,6 @@ export const metadata: Metadata = {
 
 type CoachingTestimonial = {
   _id: string;
-  publishedAt?: string | null;
   smallTitle?: string | null;
   heading?: string | null;
   text?: string | null;
@@ -44,12 +46,20 @@ type VoiceCtaData = {
   secondaryButtonText?: string;
 };
 
+export default async function CoachingVoicePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page: pageParam } = await searchParams;
+  const currentPage = Math.max(1, parseInt(pageParam ?? "1", 10));
+  const offset = (currentPage - 1) * PER_PAGE;
 
-export default async function CoachingVoicePage() {
-  const [testimonials, coachingData, ctaData, siteSettings] = await Promise.all([
+  const [testimonials, total, coachingData, ctaData, siteSettings] = await Promise.all([
     safeFetch<CoachingTestimonial[]>(
-      `*[_type == "coachingTestimonial"] | order(publishedAt desc){ _id, smallTitle, heading, text, image, imageAlt }`
+      `*[_type == "coachingTestimonial"] | order(publishedAt desc) [${offset}..${offset + PER_PAGE - 1}]{ _id, smallTitle, heading, text, image, imageAlt }`
     ),
+    safeFetch<number>(`count(*[_type == "coachingTestimonial"])`),
     safeFetch<VoiceCoachingData>(
       `*[_type == "voiceCoaching"][0]{ sectionTitle, sectionDescription }`
     ),
@@ -60,6 +70,7 @@ export default async function CoachingVoicePage() {
   ]);
 
   const voices = testimonials ?? [];
+  const totalPages = Math.ceil((total ?? 0) / PER_PAGE);
   const sectionTitle = coachingData?.sectionTitle ?? "コーチングを受けたお客様の声";
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
@@ -123,8 +134,10 @@ export default async function CoachingVoicePage() {
             </div>
           )}
 
+          <Pagination currentPage={currentPage} totalPages={totalPages} basePath="/voice/coaching" />
+
           <FadeIn delay={200}>
-            <div className="mt-12 text-center">
+            <div className="mt-10 text-center">
               <a
                 href="/voice"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-green-700 px-8 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
