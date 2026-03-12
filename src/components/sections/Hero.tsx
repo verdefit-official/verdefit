@@ -24,7 +24,7 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
   return (
     <section className="relative overflow-hidden bg-[#e8f3ec]">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:py-24">
-        <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-20">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_2.5fr] lg:gap-20">
           <div className="min-w-0 order-2 lg:order-1">
             <FadeIn>
               <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">
