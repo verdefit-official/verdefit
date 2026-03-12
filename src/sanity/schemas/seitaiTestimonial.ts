@@ -16,7 +16,7 @@ export const seitaiTestimonialSchema = defineType({
       name: "smallTitle",
       title: "小見出し",
       type: "string",
-      description: "例: 長年の肩こりが楽になりました",
+      description: "例: 横手市在住・40代女性",
     }),
     defineField({
       name: "tags",

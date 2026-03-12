@@ -16,14 +16,14 @@ export const coachingTestimonialSchema = defineType({
       name: "smallTitle",
       title: "小見出し",
       type: "string",
-      description: "例: 三日坊主だった私でも習慣が続くようになりました",
+      description: "例: 横手市在住・30代女性",
     }),
     defineField({
       name: "heading",
       title: "見出し",
       type: "text",
       rows: 2,
-      description: "例: これまで何を始めても続かないことが悩みでした",
+      description: "例: 三日坊主だった私でも運動習慣が3ヶ月続いています",
     }),
     defineField({
       name: "text",
