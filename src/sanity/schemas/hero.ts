@@ -15,20 +15,13 @@ export const heroSchema = defineType({
       name: "heading",
       title: "メイン見出し",
       type: "string",
-      description: "例: 年齢に左右されない理想の身体へ。",
+      description: "例: 身体は何歳からでも変えられる。",
     }),
     defineField({
       name: "subheadingLocation",
       title: "サブ見出し",
       type: "string",
       description: "例: 横手市で身体と習慣を整える",
-    }),
-    defineField({
-      name: "description",
-      title: "説明文",
-      type: "text",
-      rows: 5,
-      description: "例: NSCA認定トレーナー・国家資格者が横手市であなたの身体をトータルサポートします。",
     }),
     defineField({
       name: "image",

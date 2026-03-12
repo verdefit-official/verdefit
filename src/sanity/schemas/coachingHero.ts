@@ -25,13 +25,6 @@ export const coachingHeroSchema = defineType({
       description: "例: 思考と習慣を整え、「続かない」を卒業する本格コーチング",
     }),
     defineField({
-      name: "description",
-      title: "説明文",
-      type: "text",
-      rows: 5,
-      description: "例: 「続けたいのに続かない」「やろうと思っても行動できない」。その原因は意志の弱さではなく、思考や習慣のパターンにあります。",
-    }),
-    defineField({
       name: "image",
       title: "ヒーロー画像",
       type: "image",
