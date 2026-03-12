@@ -32,25 +32,30 @@ export default function CoachingHero({
   const secondaryButtonText = data?.secondaryButtonText ?? "LINEで相談する";
 
   return (
-    <section className="bg-[#e8f3ec] pt-16 pb-12 sm:pt-28 sm:pb-20 md:pb-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 md:grid-cols-[2fr_2.5fr] md:gap-20">
-          {/* テキスト */}
-          <FadeIn className="order-2 md:order-1">
-            <div>
-              <span className="inline-block rounded-full bg-green-700 px-4 py-1.5 text-xs font-semibold tracking-wide text-white">
+    <section className="relative overflow-hidden bg-[#e8f3ec]">
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:py-24">
+        <div className="grid items-center gap-8 lg:grid-cols-[2fr_2.5fr] lg:gap-20">
+          <div className="min-w-0 order-2 lg:order-1">
+            <FadeIn>
+              <span className="mb-6 inline-block rounded-full bg-green-700 px-5 py-1.5 text-sm font-semibold tracking-wide text-white">
                 {badge}
               </span>
+            </FadeIn>
 
-              <h1 className="mt-5 mb-3 font-serif text-3xl font-bold leading-tight text-[#1f2937] sm:text-4xl lg:text-[42px] lg:leading-[1.15]">
+            <FadeIn delay={150}>
+              <h1 className="mb-3 font-serif text-3xl font-bold leading-[1.35] text-[#1f2937] sm:text-4xl lg:text-[42px]">
                 {heading}
               </h1>
+            </FadeIn>
 
-              <p className="mb-5 text-[17px] font-semibold leading-8 text-[#374151] whitespace-pre-line md:text-[19px]">
+            <FadeIn delay={300}>
+              <p className="mb-8 text-[17px] font-semibold leading-8 text-[#374151] whitespace-pre-line md:text-[19px]">
                 {subheading}
               </p>
+            </FadeIn>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <FadeIn delay={450}>
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <a
                   href={bookingUrl ?? "#cta"}
                   className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-700 px-9 text-base font-semibold text-white shadow-sm transition-colors hover:bg-green-800 sm:w-auto"
@@ -64,12 +69,11 @@ export default function CoachingHero({
                   {secondaryButtonText}
                 </a>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
 
-          {/* ヒーロー画像 */}
-          <FadeIn delay={150} className="order-1 md:order-2">
-            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] md:aspect-square md:rounded-full bg-green-100">
+          <FadeIn delay={250} className="order-1 lg:order-2">
+            <div className="relative -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full overflow-hidden aspect-[4/3] lg:aspect-square lg:rounded-full bg-green-100">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={imageUrl}

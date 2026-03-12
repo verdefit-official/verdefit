@@ -66,7 +66,7 @@ export default function PersonalHero({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
               />
             </div>
           </FadeIn>
