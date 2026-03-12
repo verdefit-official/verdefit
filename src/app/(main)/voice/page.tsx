@@ -387,40 +387,44 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
           </h2>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {voices.map((v, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-                {/* 上部：お客様写真 */}
-                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img
-                    src={imgUrl(v.image) || ""}
-                    alt={v.imageAlt || ""}
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-                {/* 下部：テキスト */}
-                <div className="flex flex-1 flex-col px-5 py-5">
-                  <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
-                  <div className="mb-3 flex flex-wrap gap-1.5">
-                    {(v.tags ?? []).map((tag, j) => (
-                      <span
-                        key={j}
-                        className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-gray-600"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+        {voices.length === 0 ? (
+          <p className="mb-10 text-center text-gray-500">体験談を準備中です。</p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-3">
+            {voices.map((v, i) => (
+              <FadeIn key={i} delay={i * 100}>
+                <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                  {/* 上部：お客様写真 */}
+                  <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={imgUrl(v.image) || ""}
+                      alt={v.imageAlt || ""}
+                      className="h-full w-full object-cover object-top"
+                    />
                   </div>
-                  <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">
-                    {v.heading}
-                  </h3>
-                  <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-        </div>
+                  {/* 下部：テキスト */}
+                  <div className="flex flex-1 flex-col px-5 py-5">
+                    <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
+                    <div className="mb-3 flex flex-wrap gap-1.5">
+                      {(v.tags ?? []).map((tag, j) => (
+                        <span
+                          key={j}
+                          className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-gray-600"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">
+                      {v.heading}
+                    </h3>
+                    <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
+                  </div>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        )}
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
@@ -474,36 +478,40 @@ function VoicePersonalSection({ data }: { data?: VoicePersonalData | null }) {
           </h2>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {cards.map((c, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-                {/* 上部：ビフォーアフター画像 */}
-                <div className="overflow-hidden" style={{ aspectRatio: "3/2" }}>
-                  <img
-                    src={imgUrl(c.image) || ""}
-                    alt={c.imageAlt || ""}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                {/* 下部：テキスト */}
-                <div className="flex flex-1 flex-col px-5 py-5">
-                  <p className="mb-1 text-xs text-gray-400">{c.smallTitle}</p>
-                  <h3 className="mb-3 text-xl font-bold leading-snug text-[#1f2937]">{c.heading}</h3>
-                  <p className="flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
-                  {/* 結果ボックス */}
-                  <div className="mt-4 rounded-lg bg-gray-50 px-4 py-3">
-                    {(c.stats ?? []).map((s, j) => (
-                      <p key={j} className="text-sm font-bold text-[#1f2937]">
-                        {s.label}<span className="text-green-600">−{(s.value ?? "").replace("-", "")}</span>
-                      </p>
-                    ))}
+        {cards.length === 0 ? (
+          <p className="mb-10 text-center text-gray-500">体験談を準備中です。</p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-3">
+            {cards.map((c, i) => (
+              <FadeIn key={i} delay={i * 100}>
+                <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                  {/* 上部：ビフォーアフター画像 */}
+                  <div className="overflow-hidden" style={{ aspectRatio: "3/2" }}>
+                    <img
+                      src={imgUrl(c.image) || ""}
+                      alt={c.imageAlt || ""}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-        </div>
+                  {/* 下部：テキスト */}
+                  <div className="flex flex-1 flex-col px-5 py-5">
+                    <p className="mb-1 text-xs text-gray-400">{c.smallTitle}</p>
+                    <h3 className="mb-3 text-xl font-bold leading-snug text-[#1f2937]">{c.heading}</h3>
+                    <p className="flex-1 text-sm leading-7 text-gray-600">{c.text}</p>
+                    {/* 結果ボックス */}
+                    <div className="mt-4 rounded-lg bg-gray-50 px-4 py-3">
+                      {(c.stats ?? []).map((s, j) => (
+                        <p key={j} className="text-sm font-bold text-[#1f2937]">
+                          {s.label}<span className="text-green-600">−{(s.value ?? "").replace("-", "")}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        )}
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
@@ -551,28 +559,32 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
           </h2>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {voices.map((v, i) => (
-            <FadeIn key={i} delay={i * 100} className="h-full">
-              <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-                {/* 上部：お客様写真 */}
-                <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img
-                    src={imgUrl(v.image) || ""}
-                    alt={v.imageAlt || ""}
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-                {/* 下部：テキスト */}
-                <div className="flex flex-1 flex-col px-5 py-5">
-                  <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
-                  <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">{v.heading}</h3>
-                  <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-        </div>
+        {voices.length === 0 ? (
+          <p className="mb-10 text-center text-gray-500">体験談を準備中です。</p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-3">
+            {voices.map((v, i) => (
+              <FadeIn key={i} delay={i * 100} className="h-full">
+                <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                  {/* 上部：お客様写真 */}
+                  <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={imgUrl(v.image) || ""}
+                      alt={v.imageAlt || ""}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                  {/* 下部：テキスト */}
+                  <div className="flex flex-1 flex-col px-5 py-5">
+                    <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
+                    <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937]">{v.heading}</h3>
+                    <p className="flex-1 text-sm leading-7 text-gray-600">{v.text}</p>
+                  </div>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        )}
 
         <FadeIn delay={200}>
           <div className="mt-10 text-center">
