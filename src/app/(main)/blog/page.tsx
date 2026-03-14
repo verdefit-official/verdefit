@@ -54,6 +54,8 @@ const CATEGORIES = [
     href: "/blog/seitai",
     heading: "整体師が解説する身体改善ブログ",
     subheading: "〜肩こり・腰痛・姿勢改善のヒント〜",
+    bg: "bg-white",
+    cols: 3,
   },
   {
     value: "personal-training",
@@ -61,6 +63,8 @@ const CATEGORIES = [
     href: "/blog/personal-training",
     heading: "パーソナルトレーナーが解説するトレーニングブログ",
     subheading: "",
+    bg: "bg-[#e8f3ec]",
+    cols: 3,
   },
   {
     value: "coaching",
@@ -68,8 +72,10 @@ const CATEGORIES = [
     href: "/blog/coaching",
     heading: "思考と習慣を変えるコーチングブログ",
     subheading: "",
+    bg: "bg-white",
+    cols: 2,
   },
-] as const;
+];
 
 function categoryLabel(value: string | null | undefined): string {
   const cat = CATEGORIES.find((c) => c.value === value);
@@ -239,6 +245,9 @@ export default async function BlogPage() {
               最新記事
             </h2>
           </FadeIn>
+            {latestThree.length === 0 ? (
+              <p className="text-center text-sm text-gray-500">記事を準備中です。</p>
+            ) : (
             <div className="grid gap-6 md:grid-cols-3">
               {latestThree.map((post, i) => {
                 const slug = post.slug?.current;
@@ -287,14 +296,15 @@ export default async function BlogPage() {
                 );
               })}
             </div>
+            )}
           </div>
         </section>
 
       {/* ─── カテゴリ別セクション ─── */}
-      {CATEGORIES.map((cat, ci) => {
-        const categoryPosts = posts.filter((p) => p.category === cat.value).slice(0, 3);
+      {CATEGORIES.map((cat) => {
+        const categoryPosts = posts.filter((p) => p.category === cat.value).slice(0, cat.cols);
         return (
-          <section key={cat.value} className={ci % 2 === 0 ? "bg-white py-14 md:py-16" : "bg-gray-50 py-14 md:py-16"}>
+          <section key={cat.value} className={`${cat.bg} py-14 md:py-16`}>
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
               <FadeIn>
                 <div className="mb-8 text-center">
@@ -310,7 +320,7 @@ export default async function BlogPage() {
               {categoryPosts.length === 0 ? (
                 <p className="text-center text-sm text-gray-400">記事を準備中です。</p>
               ) : (
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className={`grid gap-6 ${cat.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
                   {categoryPosts.map((post, i) => (
                     <FadeIn key={post._id} delay={i * 80}>
                       <ArticleCard post={post} />
