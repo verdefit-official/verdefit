@@ -20,10 +20,10 @@ export const blogIntroSchema = defineType({
     }),
     defineField({
       name: "descriptions",
-      title: "説明文（複数行）",
-      type: "array",
-      of: [{ type: "text" }],
-      description: "各項目が1段落として表示されます",
+      title: "説明文",
+      type: "text",
+      rows: 6,
+      description: "改行で段落を区切ります",
     }),
     defineField({
       name: "latestSectionTitle",

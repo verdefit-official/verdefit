@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const blogSeitaiSectionSchema = defineType({
   name: "blogSeitaiSection",
-  title: "整体ブログセクション",
+  title: "整体ブログ",
   type: "document",
   fields: [
     defineField({
@@ -25,6 +25,6 @@ export const blogSeitaiSectionSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "整体ブログセクション" }),
+    prepare: () => ({ title: "整体ブログ" }),
   },
 });

@@ -74,21 +74,8 @@ type BlogHeroData = {
 type BlogIntroData = {
   heading?: string | null;
   tags?: string[] | null;
-  descriptions?: string[] | null;
+  descriptions?: string | null;
   latestSectionTitle?: string | null;
-};
-
-type BlogCategoryNavItem = {
-  label?: string | null;
-  desc?: string | null;
-  btnLabel?: string | null;
-  image?: SanityImageRef | null;
-  imageAlt?: string | null;
-};
-
-type BlogCategoryNavData = {
-  sectionTitle?: string | null;
-  items?: BlogCategoryNavItem[] | null;
 };
 
 type BlogCategorySectionData = {
@@ -207,7 +194,6 @@ export default async function BlogPage() {
   const [
     heroData,
     introData,
-    categoryNavData,
     seitaiSectionData,
     personalSectionData,
     coachingSectionData,
@@ -219,7 +205,6 @@ export default async function BlogPage() {
   ] = await Promise.all([
     safeFetch<BlogHeroData>(`*[_type == "blogHero"][0]`),
     safeFetch<BlogIntroData>(`*[_type == "blogIntro"][0]`),
-    safeFetch<BlogCategoryNavData>(`*[_type == "blogCategoryNav"][0]`),
     safeFetch<BlogCategorySectionData>(`*[_type == "blogSeitaiSection"][0]`),
     safeFetch<BlogCategorySectionData>(`*[_type == "blogPersonalSection"][0]`),
     safeFetch<BlogCategorySectionData>(`*[_type == "blogCoachingSection"][0]`),
@@ -247,51 +232,10 @@ export default async function BlogPage() {
   // ─── Intro defaults
   const introHeading = introData?.heading ?? "身体の悩みを解決する健康ブログ";
   const introTags = introData?.tags ?? ["肩こり", "腰痛", "姿勢", "ダイエット", "運動不足"];
-  const introDescriptions = introData?.descriptions ?? [
-    "肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。",
-    "VERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。",
-    "このブログでは、横手市の皆様が健康的な身体づくりを続けられるよう、日常生活で役立つ知識やセルフケアの方法を発信しています。",
-  ];
+  const introDescriptionsRaw = introData?.descriptions ??
+    "肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。\nVERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。\nこのブログでは、横手市の皆様が健康的な身体づくりを続けられるよう、日常生活で役立つ知識やセルフケアの方法を発信しています。";
+  const introDescriptions = introDescriptionsRaw.split("\n").filter(Boolean);
   const latestSectionTitle = introData?.latestSectionTitle ?? "最新記事";
-
-  // ─── Category nav defaults
-  const catNavTitle = categoryNavData?.sectionTitle ?? "カテゴリから記事を探す";
-  const defaultCatNavItems = [
-    {
-      href: "/blog/seitai",
-      label: "整体ブログ",
-      desc: "肩こり・腰痛・姿勢改善など、慢性的な身体の不調を解消するヒントをお届けします。整体師の視点から根本的な改善方法を解説しています。",
-      btnLabel: "整体の記事を見る",
-      img: { src: "/chiropractic-hero.png", alt: "整体ブログカテゴリー" },
-    },
-    {
-      href: "/blog/personal-training",
-      label: "パーソナルトレーニングブログ",
-      desc: "ダイエット・筋力アップ・体型改善など、トレーニングに役立つ知識をパーソナルトレーナーが解説します。無理なく続けられる習慣づくりのヒントも満載です。",
-      btnLabel: "パーソナルの記事を見る",
-      img: { src: "/personal-hero.png", alt: "パーソナルトレーニングブログカテゴリー" },
-    },
-    {
-      href: "/blog/coaching",
-      label: "コーチングブログ",
-      desc: "思考の整理・習慣改善・行動継続のコツなど、コーチングの観点から内面から変わるためのヒントを発信しています。",
-      btnLabel: "コーチングの記事を見る",
-      img: { src: "/coaching-hero.png", alt: "コーチングブログカテゴリー" },
-    },
-  ];
-  const catNavItems =
-    categoryNavData?.items && categoryNavData.items.length > 0
-      ? categoryNavData.items.map((item, i) => ({
-          href: ["/blog/seitai", "/blog/personal-training", "/blog/coaching"][i] ?? "#",
-          label: item.label ?? defaultCatNavItems[i]?.label ?? "",
-          desc: item.desc ?? defaultCatNavItems[i]?.desc ?? "",
-          btnLabel: item.btnLabel ?? defaultCatNavItems[i]?.btnLabel ?? "",
-          img: {
-            src: imgUrl(item.image) || defaultCatNavItems[i]?.img.src || "",
-            alt: item.imageAlt || defaultCatNavItems[i]?.img.alt || "",
-          },
-        }))
-      : defaultCatNavItems;
 
   // ─── Category section defaults
   const CATEGORIES = [
@@ -402,38 +346,6 @@ export default async function BlogPage() {
               ))}
             </div>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ─── カテゴリーナビ ─── */}
-      <section className="bg-[#e8f3ec] py-14 md:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
-              {catNavTitle}
-            </h2>
-          </FadeIn>
-          <div className="grid gap-6 md:grid-cols-3">
-            {catNavItems.map((c, i) => (
-              <FadeIn key={i} delay={i * 100} className="h-full">
-                <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm">
-                  <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                    <img src={c.img.src} alt={c.img.alt} className="h-full w-full object-cover" />
-                  </div>
-                  <div className="flex flex-1 flex-col px-6 py-6">
-                    <p className="mb-3 text-lg font-bold leading-snug text-[#1f2937]">{c.label}</p>
-                    <p className="flex-1 text-sm leading-7 text-gray-600">{c.desc}</p>
-                    <a
-                      href={c.href}
-                      className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-                    >
-                      {c.btnLabel}
-                    </a>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 

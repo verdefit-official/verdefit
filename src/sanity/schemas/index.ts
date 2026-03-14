@@ -68,7 +68,6 @@ import { blogPostSchema } from "./blogPost";
 import { blogSeoSchema } from "./blogSeo";
 import { blogHeroSchema } from "./blogHero";
 import { blogIntroSchema } from "./blogIntro";
-import { blogCategoryNavSchema } from "./blogCategoryNav";
 import { blogSeitaiSectionSchema } from "./blogSeitaiSection";
 import { blogPersonalSectionSchema } from "./blogPersonalSection";
 import { blogCoachingSectionSchema } from "./blogCoachingSection";
@@ -147,7 +146,6 @@ export const schemaTypes = [
   blogSeoSchema,
   blogHeroSchema,
   blogIntroSchema,
-  blogCategoryNavSchema,
   blogSeitaiSectionSchema,
   blogPersonalSectionSchema,
   blogCoachingSectionSchema,
