@@ -191,7 +191,7 @@ export default async function BlogPostPage({
               ))}
             </div>
 
-            <h1 className="font-serif text-2xl font-bold leading-snug text-[#1f2937] md:text-[34px]">
+            <h1 className="text-center font-serif text-2xl font-bold leading-snug text-[#1f2937] md:text-[34px]">
               {post.title}
             </h1>
 
@@ -204,12 +204,6 @@ export default async function BlogPostPage({
       <section className="bg-white pb-16 pt-6 md:pb-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <FadeIn>
-            {post.excerpt && (
-              <p className="mb-8 rounded-lg bg-gray-50 px-6 py-5 text-sm leading-8 text-gray-600">
-                {post.excerpt}
-              </p>
-            )}
-
             {post.body && post.body.length > 0 ? (
               <div className="mx-auto max-w-none">
                 <PortableText value={post.body} components={portableTextComponents} />

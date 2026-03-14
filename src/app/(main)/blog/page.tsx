@@ -164,7 +164,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
             {categoryLabel(post.category)}
           </span>
           {(post.tags ?? []).map((tag, i) => (
-            <span key={i} className="inline-block rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white">
+            <span key={i} className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
               {tag}
             </span>
           ))}
@@ -177,10 +177,10 @@ function ArticleCard({ post }: { post: BlogPost }) {
         {post.excerpt && (
           <p className="flex-1 text-sm leading-7 text-gray-500 line-clamp-4">{post.excerpt}</p>
         )}
-        <div className="mt-4 flex items-center gap-1 text-sm text-gray-400">
+        <div className="mt-4 flex items-center justify-between text-sm text-gray-400">
           <span>{formatDate(post.publishedAt)}</span>
           <a href={href} className="font-bold text-green-700 hover:underline">
-            &nbsp;続きを読む →
+            続きを読む →
           </a>
         </div>
       </div>

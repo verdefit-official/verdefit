@@ -25,7 +25,7 @@ const CATEGORY_META: Record<
     title: "パーソナルトレーニングブログ｜横手市VERDE FIT",
     description:
       "横手市のパーソナルトレーナーがダイエット・筋トレ・食事管理に役立つ情報を発信しています。",
-    heading: "パーソナルトレーナーが解説するトレーニングブログ",
+    heading: "パーソナルトレーナーが解説する\nトレーニングブログ",
     subheading: "",
   },
   coaching: {
@@ -136,7 +136,9 @@ export default async function BlogCategoryPage({
               <span className="text-gray-700">{meta.label}</span>
             </nav>
             <h1 className="font-serif text-3xl font-bold leading-snug text-[#1f2937] md:text-[42px]">
-              {meta.heading}
+              {meta.heading.split("\n").map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </h1>
             {meta.subheading && (
               <p className="mt-2 text-sm text-gray-500">{meta.subheading}</p>
@@ -152,7 +154,7 @@ export default async function BlogCategoryPage({
           {articles.length === 0 ? (
             <p className="text-center text-gray-500">記事を準備中です。</p>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2">
               {articles.map((post, i) => {
                 const slug = post.slug?.current;
                 const href = slug ? `/blog/${category}/${slug}` : "#";

@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
 import Pagination from "@/components/Pagination";
 
-const PER_PAGE = 9;
+const PER_PAGE = 10;
 
 type SanityImageRef = { asset: { _ref: string; _type: string }; hotspot?: unknown };
 function imgUrl(ref: SanityImageRef | undefined | null): string {
@@ -117,7 +117,7 @@ export default async function PersonalTrainingVoicePage({
           {cards.length === 0 ? (
             <p className="text-center text-gray-500">体験談を準備中です。</p>
           ) : (
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2">
               {cards.map((c, i) => (
                 <FadeIn key={c._id} delay={Math.min(i, 5) * 80}>
                   <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
