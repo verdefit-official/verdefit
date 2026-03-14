@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const blogCtaSchema = defineType({
   name: "blogCta",
-  title: "CTA（ページ下部）",
+  title: "CTA",
   type: "document",
   fields: [
     defineField({
