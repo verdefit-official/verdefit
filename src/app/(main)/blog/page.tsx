@@ -378,13 +378,13 @@ export default async function BlogPage() {
           </FadeIn>
           <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
             {[
-              { label: "整体", desc: "国家資格保有者による根本改善の整体施術", href: "/seitai", icon: "/icon-seitai.png", alt: "整体アイコン" },
-              { label: "パーソナルトレーニング", desc: "完全個別指導で理想の身体づくりを実現", href: "/personal-training", icon: "/icon-training.png", alt: "パーソナルトレーニングアイコン" },
-              { label: "コーチング", desc: "思考を変え、習慣をデザインする", href: "/coaching", icon: "/icon-coaching.png", alt: "コーチングアイコン" },
+              { label: "整体", desc: "国家資格保有者による根本改善の整体施術", href: "/seitai", icon: "/icon-seitai.png", alt: "整体アイコン", bg: "#87c192" },
+              { label: "パーソナルトレーニング", desc: "完全個別指導で理想の身体づくりを実現", href: "/personal-training", icon: "/icon-training.png", alt: "パーソナルトレーニングアイコン", bg: "#7dc191" },
+              { label: "コーチング", desc: "思考を変え、習慣をデザインする", href: "/coaching", icon: "/icon-coaching.png", alt: "コーチングアイコン", bg: "#7cbd8a" },
             ].map((item, i) => (
               <FadeIn key={item.label} delay={i * 80}>
                 <div className="flex h-full flex-col overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
-                  <div className="flex items-center justify-center bg-[#87c192] py-10">
+                  <div className="flex items-center justify-center py-10" style={{ backgroundColor: item.bg }}>
                     <img src={item.icon} alt={item.alt} className="h-24 w-24 object-contain" />
                   </div>
                   <div className="flex flex-1 flex-col px-6 pb-8">
