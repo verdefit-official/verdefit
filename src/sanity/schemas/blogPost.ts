@@ -105,7 +105,7 @@ export const blogPostSchema = defineType({
     }),
     defineField({
       name: "imageAlt",
-      title: "画像ALTテキスト",
+      title: "画像の代替テキスト",
       type: "string",
     }),
   ],
