@@ -90,8 +90,8 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
   const trialPrice = data?.trialPrice ?? "¥5,500";
   const trialDetails =
     data?.trialDetails ??
-    "カウンセリング30分 + 整体・パーソナルトレーニング60分";
-  const trialDuration = data?.trialDuration ?? "所要時間：90分";
+    "カウンセリング20分 + 整体・パーソナル40分";
+  const trialDuration = data?.trialDuration ?? "所要時間：60分";
   const trialBenefits =
     data?.trialBenefits && data.trialBenefits.length > 0
       ? data.trialBenefits

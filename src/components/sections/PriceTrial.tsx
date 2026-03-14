@@ -24,8 +24,8 @@ export default function PriceTrial({
   const badge = data?.badge ?? "初回限定";
   const regularPrice = data?.regularPrice ?? "¥11,000";
   const trialPrice = data?.trialPrice ?? "¥5,500";
-  const detail1 = data?.detail1 ?? "カウンセリング30分";
-  const detail2 = data?.detail2 ?? "整体orパーソナル60分";
+  const detail1 = data?.detail1 ?? "カウンセリング20分";
+  const detail2 = data?.detail2 ?? "整体・パーソナル40分";
   const detail3 =
     data?.description ?? "現在の身体の状態を確認し\nあなたに最適な改善プランをご提案します。";
   const buttonText = data?.buttonText ?? "体験予約をする";

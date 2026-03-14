@@ -39,13 +39,13 @@ export const priceTrialSchema = defineType({
       name: "detail1",
       title: "内容1",
       type: "string",
-      description: "例: カウンセリング30分",
+      description: "例: カウンセリング20分",
     }),
     defineField({
       name: "detail2",
       title: "内容2",
       type: "string",
-      description: "例: 整体orパーソナル60分",
+      description: "例: 整体・パーソナル40分",
     }),
     defineField({
       name: "description",
