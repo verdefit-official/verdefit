@@ -65,6 +65,16 @@ import { personalTestimonialSchema } from "./personalTestimonial";
 import { coachingTestimonialSchema } from "./coachingTestimonial";
 // BLOG
 import { blogPostSchema } from "./blogPost";
+import { blogSeoSchema } from "./blogSeo";
+import { blogHeroSchema } from "./blogHero";
+import { blogIntroSchema } from "./blogIntro";
+import { blogCategoryNavSchema } from "./blogCategoryNav";
+import { blogSeitaiSectionSchema } from "./blogSeitaiSection";
+import { blogPersonalSectionSchema } from "./blogPersonalSection";
+import { blogCoachingSectionSchema } from "./blogCoachingSection";
+import { blogVoiceCtaSchema } from "./blogVoiceCta";
+import { blogSupportSchema } from "./blogSupport";
+import { blogCtaSchema } from "./blogCta";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -134,4 +144,14 @@ export const schemaTypes = [
   coachingTestimonialSchema,
   // BLOG
   blogPostSchema,
+  blogSeoSchema,
+  blogHeroSchema,
+  blogIntroSchema,
+  blogCategoryNavSchema,
+  blogSeitaiSectionSchema,
+  blogPersonalSectionSchema,
+  blogCoachingSectionSchema,
+  blogVoiceCtaSchema,
+  blogSupportSchema,
+  blogCtaSchema,
 ];
