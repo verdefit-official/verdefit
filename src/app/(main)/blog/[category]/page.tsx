@@ -111,8 +111,8 @@ export default async function BlogCategoryPage({
       `count(*[_type == "blogPost" && category == $category])`,
       { category }
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
+    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
     safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(
       `*[_type == "blogCta"][0]`
@@ -123,7 +123,6 @@ export default async function BlogCategoryPage({
   const totalPages = Math.ceil((total ?? 0) / PER_PAGE);
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
-  const defaultThumb = imgUrl(siteSettings?.blogDefaultImage) || "/logo.svg";
 
   return (
     <>
@@ -161,16 +160,18 @@ export default async function BlogCategoryPage({
               {articles.map((post, i) => {
                 const slug = post.slug?.current;
                 const href = slug ? `/blog/${category}/${slug}` : "#";
-                const thumb = imgUrl(post.image) || defaultThumb;
+                const thumb = imgUrl(post.image);
                 return (
                   <FadeIn key={post._id} delay={Math.min(i, 5) * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                        <img
-                          src={thumb}
-                          alt={post.imageAlt ?? post.title ?? ""}
-                          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
+                        {thumb ? (
+                          <img src={thumb} alt={post.imageAlt ?? post.title ?? ""} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-[#021f19]">
+                            <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
+                          </div>
+                        )}
                       </a>
                       <div className="flex flex-1 flex-col px-5 py-4">
                         <div className="mb-2 flex flex-wrap gap-1.5">

@@ -138,18 +138,24 @@ function formatDate(dateStr: string | null | undefined): string {
 
 // ─── Article Card ─────────────────────────────────────────────────
 
-function ArticleCard({ post, defaultThumb }: { post: BlogPost; defaultThumb?: string }) {
+function ArticleCard({ post }: { post: BlogPost }) {
   const slug = post.slug?.current;
   const href = slug ? `/blog/${post.category}/${slug}` : "#";
-  const thumb = imgUrl(post.image) || defaultThumb || "/logo.svg";
+  const thumb = imgUrl(post.image);
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
-        <img
-          src={thumb}
-          alt={post.imageAlt ?? post.title ?? ""}
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-        />
+        {thumb ? (
+          <img
+            src={thumb}
+            alt={post.imageAlt ?? post.title ?? ""}
+            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[#021f19]">
+            <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
+          </div>
+        )}
       </a>
       <div className="flex flex-1 flex-col px-5 py-5">
         <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -207,15 +213,14 @@ export default async function BlogPage() {
     safeFetch<BlogPost[]>(
       `*[_type == "blogPost"] | order(publishedAt desc) [0..8]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
+    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
   ]);
 
   const posts = latestPosts ?? [];
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
-  const defaultThumb = imgUrl(siteSettings?.blogDefaultImage) || "/logo.svg";
 
   // ─── Hero defaults
   const heroHeading = heroData?.heading ?? "身体を変える知識を\n横手市から発信";
@@ -239,7 +244,7 @@ export default async function BlogPage() {
       heading: seitaiSectionData?.sectionTitle ?? "整体師が解説する身体改善ブログ",
       subheading: seitaiSectionData?.subheading ?? "〜肩こり・腰痛・姿勢改善のヒント〜",
       linkText: seitaiSectionData?.linkText ?? "整体の記事をもっと見る",
-      bg: "bg-white",
+      bg: "bg-[#e8f3ec]",
       cols: 3,
     },
     {
@@ -248,7 +253,7 @@ export default async function BlogPage() {
       heading: personalSectionData?.sectionTitle ?? "パーソナルトレーナーが解説するトレーニングブログ",
       subheading: personalSectionData?.subheading ?? "",
       linkText: personalSectionData?.linkText ?? "パーソナルトレーニングの記事をもっと見る",
-      bg: "bg-[#e8f3ec]",
+      bg: "bg-white",
       cols: 3,
     },
     {
@@ -257,7 +262,7 @@ export default async function BlogPage() {
       heading: coachingSectionData?.sectionTitle ?? "思考と習慣を変えるコーチングブログ",
       subheading: coachingSectionData?.subheading ?? "",
       linkText: coachingSectionData?.linkText ?? "コーチングの記事をもっと見る",
-      bg: "bg-white",
+      bg: "bg-[#e8f3ec]",
       cols: 2,
     },
   ];
@@ -358,16 +363,18 @@ export default async function BlogPage() {
               {latestThree.map((post, i) => {
                 const slug = post.slug?.current;
                 const href = slug ? `/blog/${post.category}/${slug}` : "#";
-                const thumb = imgUrl(post.image) || defaultThumb;
+                const thumb = imgUrl(post.image);
                 return (
                   <FadeIn key={post._id} delay={i * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
-                        <img
-                          src={thumb}
-                          alt={post.imageAlt ?? post.title ?? ""}
-                          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
+                        {thumb ? (
+                          <img src={thumb} alt={post.imageAlt ?? post.title ?? ""} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-[#021f19]">
+                            <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
+                          </div>
+                        )}
                       </a>
                       <div className="flex flex-1 flex-col px-5 py-5">
                         <span className="inline-block self-start rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white">
@@ -421,7 +428,7 @@ export default async function BlogPage() {
                 <div className={`grid gap-6 ${cat.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
                   {categoryPosts.map((post, i) => (
                     <FadeIn key={post._id} delay={i * 80}>
-                      <ArticleCard post={post} defaultThumb={defaultThumb} />
+                      <ArticleCard post={post} />
                     </FadeIn>
                   ))}
                 </div>

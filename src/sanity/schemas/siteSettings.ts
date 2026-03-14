@@ -40,13 +40,6 @@ export const siteSettingsSchema = defineType({
       description: "ブラウザのタブに表示されるアイコン（推奨: 32×32 または 64×64px の正方形）",
       options: { hotspot: false },
     }),
-    defineField({
-      name: "blogDefaultImage",
-      title: "ブログ デフォルトサムネイル",
-      type: "image",
-      description: "記事にサムネイル画像がない場合に表示される画像",
-      options: { hotspot: true },
-    }),
   ],
   preview: {
     prepare: () => ({ title: "サイト設定" }),

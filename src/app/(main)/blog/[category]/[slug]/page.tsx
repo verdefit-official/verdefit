@@ -138,8 +138,8 @@ export default async function BlogPostPage({
       `*[_type == "blogPost" && category == $category && slug.current != $slug] | order(publishedAt desc) [0..2]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`,
       { category, slug }
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
+    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
     safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(
       `*[_type == "blogCta"][0]`
@@ -150,7 +150,6 @@ export default async function BlogPostPage({
 
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
-  const defaultThumb = imgUrl(siteSettings?.blogDefaultImage) || "/logo.svg";
   const catLabel = CATEGORY_LABELS[category] ?? category;
   const related = relatedPosts ?? [];
 
@@ -243,16 +242,18 @@ export default async function BlogPostPage({
               {related.map((rp, i) => {
                 const rSlug = rp.slug?.current;
                 const href = rSlug ? `/blog/${category}/${rSlug}` : "#";
-                const thumb = imgUrl(rp.image) || defaultThumb;
+                const thumb = imgUrl(rp.image);
                 return (
                   <FadeIn key={rp._id} delay={i * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                        <img
-                          src={thumb}
-                          alt={rp.imageAlt ?? rp.title ?? ""}
-                          className="h-full w-full object-cover"
-                        />
+                        {thumb ? (
+                          <img src={thumb} alt={rp.imageAlt ?? rp.title ?? ""} className="h-full w-full object-cover" />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-[#021f19]">
+                            <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
+                          </div>
+                        )}
                       </a>
                       <div className="flex flex-1 flex-col px-4 py-4">
                         <a href={href}>
