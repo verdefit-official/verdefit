@@ -172,14 +172,6 @@ export default defineConfig({
                   )
               ),
             S.listItem()
-              .title("ブログ")
-              .id("blog")
-              .child(
-                S.documentTypeList("blogPost")
-                  .title("ブログ記事")
-                  .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
-              ),
-            S.listItem()
               .title("お客様の声ページ")
               .id("voice")
               .child(
@@ -216,6 +208,14 @@ export default defineConfig({
                           .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
                       ),
                   ])
+              ),
+            S.listItem()
+              .title("ブログページ")
+              .id("blog")
+              .child(
+                S.documentTypeList("blogPost")
+                  .title("ブログ記事")
+                  .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
               ),
           ]),
     }),
