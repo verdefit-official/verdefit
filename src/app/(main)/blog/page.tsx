@@ -346,22 +346,24 @@ export default async function BlogPage() {
 
       {/* ─── お客様の声 CTA ─── */}
       <section className="bg-[#e8f3ec] py-14 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <FadeIn>
-            <h2 className="font-serif text-2xl font-bold text-[#1f2937] md:text-[28px]">
-              横手市で身体が変わったリアルな体験談
-            </h2>
-            <p className="mt-4 text-sm leading-8 text-gray-600">
-              VERDE FITで行っている整体・トレーニング・コーチングは、実際に多くのお客様が変化を実感している方法です。
-              <br />
-              横手市で身体の悩みを改善された方々のリアルな体験談をご紹介します。
-            </p>
-            <a
-              href="/voice"
-              className="mt-6 inline-flex h-12 items-center justify-center rounded-lg bg-green-700 px-10 text-sm font-semibold text-white transition-colors hover:bg-green-800"
-            >
-              お客様の声を見る
-            </a>
+            <div className="rounded-2xl bg-white px-8 py-12 text-center shadow-sm md:px-16 md:py-14">
+              <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
+                横手市で身体が変わったリアルな体験談
+              </h2>
+              <p className="mt-5 text-sm leading-8 text-gray-600">
+                VERDE FITで行っている整体・トレーニング・コーチングは、実際に多くのお客様が変化を実感している方法です。
+                <br />
+                横手市で身体の悩みを改善された方々のリアルな体験談をご紹介します。
+              </p>
+              <a
+                href="/voice"
+                className="mt-8 inline-flex h-12 w-60 items-center justify-center rounded-lg bg-green-600 text-sm font-semibold text-white transition-colors hover:bg-green-700"
+              >
+                お客様の声を見る →
+              </a>
+            </div>
           </FadeIn>
         </div>
       </section>
