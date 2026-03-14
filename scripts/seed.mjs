@@ -1195,7 +1195,7 @@ const documents = [
   {
     _id: "blogCta",
     _type: "blogCta",
-    subheading: "初回限定90分体験セッション実施中",
+    subheading: "初回限定60分体験セッション実施中",
     heading: "VERDE FITで自分を変えたい方へ",
     description:
       "まずはお気軽にご相談ください。\nあなたの目標達成までの道のりを、一緒に考えましょう。",

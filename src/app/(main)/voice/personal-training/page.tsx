@@ -180,7 +180,7 @@ export default async function PersonalTrainingVoicePage({
         }}
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}
-        subheading={ctaData?.subheading ?? "初回限定90分体験セッション実施中"}
+        subheading={ctaData?.subheading ?? "初回限定60分体験セッション実施中"}
       />
     </>
   );
