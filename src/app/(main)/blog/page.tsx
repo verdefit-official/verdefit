@@ -152,7 +152,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
             className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 80% 15%, #064a38 0%, #022820 45%, #011913 100%)" }}>
+          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 75% 10%, #064a38 0%, #033226 50%, #011913 100%)" }}>
             <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
           </div>
         )}
@@ -244,7 +244,7 @@ export default async function BlogPage() {
       heading: seitaiSectionData?.sectionTitle ?? "整体師が解説する身体改善ブログ",
       subheading: seitaiSectionData?.subheading ?? "〜肩こり・腰痛・姿勢改善のヒント〜",
       linkText: seitaiSectionData?.linkText ?? "整体の記事をもっと見る",
-      bg: "bg-[#e8f3ec]",
+      bg: "bg-white",
       cols: 3,
     },
     {
@@ -253,7 +253,7 @@ export default async function BlogPage() {
       heading: personalSectionData?.sectionTitle ?? "パーソナルトレーナーが解説するトレーニングブログ",
       subheading: personalSectionData?.subheading ?? "",
       linkText: personalSectionData?.linkText ?? "パーソナルトレーニングの記事をもっと見る",
-      bg: "bg-white",
+      bg: "bg-[#e8f3ec]",
       cols: 3,
     },
     {
@@ -262,7 +262,7 @@ export default async function BlogPage() {
       heading: coachingSectionData?.sectionTitle ?? "思考と習慣を変えるコーチングブログ",
       subheading: coachingSectionData?.subheading ?? "",
       linkText: coachingSectionData?.linkText ?? "コーチングの記事をもっと見る",
-      bg: "bg-[#e8f3ec]",
+      bg: "bg-white",
       cols: 2,
     },
   ];
@@ -349,7 +349,7 @@ export default async function BlogPage() {
       </section>
 
       {/* ─── 最新記事 ─── */}
-      <section className="bg-white py-14 md:py-16">
+      <section className="bg-[#e8f3ec] py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
@@ -371,7 +371,7 @@ export default async function BlogPage() {
                         {thumb ? (
                           <img src={thumb} alt={post.imageAlt ?? post.title ?? ""} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
                         ) : (
-                          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 80% 15%, #064a38 0%, #022820 45%, #011913 100%)" }}>
+                          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 75% 10%, #064a38 0%, #033226 50%, #011913 100%)" }}>
                             <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
                           </div>
                         )}
