@@ -138,25 +138,18 @@ function formatDate(dateStr: string | null | undefined): string {
 
 // ─── Article Card ─────────────────────────────────────────────────
 
-function ArticleCard({ post }: { post: BlogPost }) {
+function ArticleCard({ post, defaultThumb }: { post: BlogPost; defaultThumb?: string }) {
   const slug = post.slug?.current;
   const href = slug ? `/blog/${post.category}/${slug}` : "#";
+  const thumb = imgUrl(post.image) || defaultThumb || "/logo.svg";
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
-        {imgUrl(post.image) ? (
-          <img
-            src={imgUrl(post.image)}
-            alt={post.imageAlt ?? post.title ?? ""}
-            className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-        )}
+        <img
+          src={thumb}
+          alt={post.imageAlt ?? post.title ?? ""}
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+        />
       </a>
       <div className="flex flex-1 flex-col px-5 py-5">
         <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -215,13 +208,14 @@ export default async function BlogPage() {
       `*[_type == "blogPost"] | order(publishedAt desc) [0..8]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`
     ),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
     ),
   ]);
 
   const posts = latestPosts ?? [];
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
+  const defaultThumb = imgUrl(siteSettings?.blogDefaultImage) || "/logo.svg";
 
   // ─── Hero defaults
   const heroHeading = heroData?.heading ?? "身体を変える知識を\n横手市から発信";
@@ -368,19 +362,11 @@ export default async function BlogPage() {
                   <FadeIn key={post._id} delay={i * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
-                        {imgUrl(post.image) ? (
-                          <img
-                            src={imgUrl(post.image)}
-                            alt={post.imageAlt ?? post.title ?? ""}
-                            className="h-full w-full object-cover"
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                        )}
+                        <img
+                          src={imgUrl(post.image) || defaultThumb}
+                          alt={post.imageAlt ?? post.title ?? ""}
+                          className="h-full w-full object-cover"
+                        />
                       </a>
                       <div className="flex flex-1 flex-col px-5 py-5">
                         <span className="inline-block self-start rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white">
@@ -434,7 +420,7 @@ export default async function BlogPage() {
                 <div className={`grid gap-6 ${cat.cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
                   {categoryPosts.map((post, i) => (
                     <FadeIn key={post._id} delay={i * 80}>
-                      <ArticleCard post={post} />
+                      <ArticleCard post={post} defaultThumb={defaultThumb} />
                     </FadeIn>
                   ))}
                 </div>

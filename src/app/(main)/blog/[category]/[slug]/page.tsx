@@ -139,7 +139,7 @@ export default async function BlogPostPage({
       { category, slug }
     ),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
-      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
+      `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
     ),
     safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(
       `*[_type == "blogCta"][0]`
@@ -150,6 +150,7 @@ export default async function BlogPostPage({
 
   const bookingUrl = siteSettings?.bookingUrl;
   const lineUrl = siteSettings?.lineUrl;
+  const defaultThumb = imgUrl(siteSettings?.blogDefaultImage) || "/logo.svg";
   const catLabel = CATEGORY_LABELS[category] ?? category;
   const related = relatedPosts ?? [];
 
@@ -246,19 +247,11 @@ export default async function BlogPostPage({
                   <FadeIn key={rp._id} delay={i * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                        {imgUrl(rp.image) ? (
-                          <img
-                            src={imgUrl(rp.image)}
-                            alt={rp.imageAlt ?? rp.title ?? ""}
-                            className="h-full w-full object-cover"
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                        )}
+                        <img
+                          src={imgUrl(rp.image) || defaultThumb}
+                          alt={rp.imageAlt ?? rp.title ?? ""}
+                          className="h-full w-full object-cover"
+                        />
                       </a>
                       <div className="flex flex-1 flex-col px-4 py-4">
                         <a href={href}>
