@@ -384,8 +384,8 @@ export default async function BlogPage() {
             ].map((item, i) => (
               <FadeIn key={item.label} delay={i * 80}>
                 <div className="flex h-full flex-col overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
-                  <div className="flex items-center justify-center py-10">
-                    <img src={item.icon} alt={item.alt} className="h-28 w-28 object-contain" />
+                  <div className="flex items-center justify-center bg-green-700 py-10">
+                    <img src={item.icon} alt={item.alt} className="h-20 w-20 object-contain" style={{ filter: "brightness(0) invert(1)" }} />
                   </div>
                   <div className="flex flex-1 flex-col px-6 pb-8">
                     <p className="text-lg font-bold text-[#1f2937]">{item.label}</p>
