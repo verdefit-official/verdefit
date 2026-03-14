@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
+import CTA from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
   title: "横手市の整体・パーソナルジムの健康ブログ｜VERDE FIT公式ブログ",
@@ -375,98 +376,33 @@ export default async function BlogPage() {
               VERDE FITの3つのサポート
             </h2>
           </FadeIn>
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* 整体 */}
-            <FadeIn delay={0}>
-              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
-                <div className="flex items-center justify-center bg-green-700 py-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21C12 21 4 14.5 4 9a8 8 0 0 1 16 0c0 5.5-8 12-8 12z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9" />
-                  </svg>
+          <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+            {[
+              { label: "整体", desc: "国家資格保有者による根本改善の整体施術", href: "/seitai", icon: "/icon-seitai.png", alt: "整体アイコン" },
+              { label: "パーソナルトレーニング", desc: "完全個別指導で理想の身体づくりを実現", href: "/personal-training", icon: "/icon-training.png", alt: "パーソナルトレーニングアイコン" },
+              { label: "コーチング", desc: "思考を変え、習慣をデザインする", href: "/coaching", icon: "/icon-coaching.png", alt: "コーチングアイコン" },
+            ].map((item, i) => (
+              <FadeIn key={item.label} delay={i * 80}>
+                <div className="flex h-full flex-col overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
+                  <div className="flex items-center justify-center py-10">
+                    <img src={item.icon} alt={item.alt} className="h-28 w-28 object-contain" />
+                  </div>
+                  <div className="flex flex-1 flex-col px-6 pb-8">
+                    <p className="text-lg font-bold text-[#1f2937]">{item.label}</p>
+                    <p className="mt-2 flex-1 text-sm text-gray-600">{item.desc}</p>
+                    <a href={item.href} className="mt-6 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
+                      詳しく見る
+                    </a>
+                  </div>
                 </div>
-                <div className="px-6 py-6">
-                  <p className="text-lg font-bold text-[#1f2937]">整体</p>
-                  <p className="mt-2 text-sm text-gray-600">国家資格保有者による根本改善の整体施術</p>
-                  <a href="/seitai" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
-                    詳しく見る
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
-            {/* パーソナルトレーニング */}
-            <FadeIn delay={80}>
-              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
-                <div className="flex items-center justify-center bg-green-700 py-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 6.5h1v11h-1zM16.5 6.5h1v11h-1zM7.5 12H16.5M4 9.5h2.5M17.5 9.5H20M4 14.5h2.5M17.5 14.5H20" />
-                  </svg>
-                </div>
-                <div className="px-6 py-6">
-                  <p className="text-lg font-bold text-[#1f2937]">パーソナルトレーニング</p>
-                  <p className="mt-2 text-sm text-gray-600">完全個別指導で理想の身体づくりを実現</p>
-                  <a href="/personal-training" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
-                    詳しく見る
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
-            {/* コーチング */}
-            <FadeIn delay={160}>
-              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
-                <div className="flex items-center justify-center bg-green-700 py-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 4 12.8V17H8v-2.2A7 7 0 0 1 12 2z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                    <line x1="12" y1="22" x2="12" y2="22" />
-                  </svg>
-                </div>
-                <div className="px-6 py-6">
-                  <p className="text-lg font-bold text-[#1f2937]">コーチング</p>
-                  <p className="mt-2 text-sm text-gray-600">思考を変え、習慣をデザインする</p>
-                  <a href="/coaching" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
-                    詳しく見る
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="bg-[#e8f3ec] py-20 md:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="text-center">
-              <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
-                {ctaData?.heading ?? "横手市で本気で身体を変えたい方へ"}
-              </h2>
-              <p className="mt-6 font-serif text-xl font-bold text-green-700 md:text-2xl">
-                初回体験・無料相談受付中
-              </p>
-              <p className="mx-auto mt-8 whitespace-pre-line text-sm leading-8 text-gray-700 md:text-base md:leading-9">
-                {ctaData?.description ??
-                  "「何から始めればいいのか分からない」\n「一人では続かない」\n\nそんな方のために、まずは現在のお身体の状態や目標を丁寧にお聞きします。\n整体・パーソナルトレーニング・コーチングの視点から、あなたに合った改善方法をご提案します。\n\nまずはお気軽にご相談ください。"}
-              </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
-                <a
-                  href={bookingUrl ?? "#"}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-600 px-10 text-base font-semibold text-white transition-colors hover:bg-green-700 sm:w-auto sm:min-w-[220px]"
-                >
-                  {ctaData?.primaryButtonText ?? "無料体験予約"}
-                </a>
-                <a
-                  href={lineUrl ?? "#"}
-                  className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 px-10 text-base font-bold text-green-700 transition-colors hover:bg-green-50 sm:w-auto sm:min-w-[220px]"
-                >
-                  {ctaData?.secondaryButtonText ?? "LINE相談"}
-                </a>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <CTA data={ctaData} bookingUrl={bookingUrl} lineUrl={lineUrl} />
     </>
   );
 }
