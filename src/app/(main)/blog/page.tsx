@@ -76,11 +76,8 @@ function categoryLabel(value: string | null | undefined): string {
   return cat?.label ?? value ?? "";
 }
 
-function categoryColor(value: string | null | undefined): string {
-  if (value === "seitai") return "bg-green-700";
-  if (value === "personal-training") return "bg-blue-600";
-  if (value === "coaching") return "bg-amber-600";
-  return "bg-gray-500";
+function categoryColor(_value: string | null | undefined): string {
+  return "bg-green-700";
 }
 
 function formatDate(dateStr: string | null | undefined): string {
@@ -94,7 +91,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
   const href = slug ? `/blog/${post.category}/${slug}` : "#";
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
-      <a href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
         {imgUrl(post.image) ? (
           <img
             src={imgUrl(post.image)}
@@ -105,7 +102,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
           <div className="flex h-full w-full items-center justify-center bg-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 text-gray-300"
+              className="h-14 w-14 text-gray-300"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -116,37 +113,32 @@ function ArticleCard({ post }: { post: BlogPost }) {
           </div>
         )}
       </a>
-      <div className="flex flex-1 flex-col px-5 py-4">
-        <div className="mb-2 flex flex-wrap items-center gap-2">
-          <span
-            className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-white ${categoryColor(post.category)}`}
-          >
+      <div className="flex flex-1 flex-col px-5 py-5">
+        <div className="mb-3 flex flex-wrap items-center gap-2">
+          <span className="inline-block rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white">
             {categoryLabel(post.category)}
           </span>
-          {(post.tags ?? []).slice(0, 2).map((tag, i) => (
+          {(post.tags ?? []).slice(0, 1).map((tag, i) => (
             <span
               key={i}
-              className="rounded-full bg-gray-100 px-2.5 py-0.5 text-[11px] font-medium text-gray-600"
+              className="inline-block rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white"
             >
               {tag}
             </span>
           ))}
         </div>
         <a href={href}>
-          <h3 className="mb-2 text-sm font-bold leading-snug text-[#1f2937] hover:text-green-700 md:text-base">
+          <h3 className="mb-3 text-base font-bold leading-snug text-[#1f2937] hover:text-green-700">
             {post.title}
           </h3>
         </a>
         {post.excerpt && (
-          <p className="flex-1 text-xs leading-6 text-gray-500 line-clamp-3">{post.excerpt}</p>
+          <p className="flex-1 text-sm leading-7 text-gray-500 line-clamp-4">{post.excerpt}</p>
         )}
-        <div className="mt-3 flex items-center justify-between">
-          <span className="text-xs text-gray-400">{formatDate(post.publishedAt)}</span>
-          <a
-            href={href}
-            className="text-xs font-semibold text-green-700 hover:underline"
-          >
-            続きを読む →
+        <div className="mt-4 flex items-center gap-1 text-sm text-gray-400">
+          <span>{formatDate(post.publishedAt)}</span>
+          <a href={href} className="font-bold text-green-700 hover:underline">
+            &nbsp;続きを読む →
           </a>
         </div>
       </div>
