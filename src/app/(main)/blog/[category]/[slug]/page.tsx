@@ -170,7 +170,7 @@ export default async function BlogPostPage({
       <section className={`${imgUrl(post.image) ? "bg-white" : "bg-[#e8f3ec] pt-28 md:pt-32"} pb-6 pt-8`}>
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <FadeIn>
-            <nav className="mb-4 text-sm text-gray-500">
+            <nav className="mb-4 text-center text-sm text-gray-500">
               <a href="/" className="hover:text-green-700">TOP</a>
               <span className="mx-2">/</span>
               <a href="/blog" className="hover:text-green-700">ブログ</a>
@@ -180,7 +180,7 @@ export default async function BlogPostPage({
               <span className="text-gray-700 line-clamp-1">{post.title}</span>
             </nav>
 
-            <div className="mb-3 flex flex-wrap items-center gap-2">
+            <div className="mb-3 flex flex-wrap items-center justify-center gap-2">
               <span className="rounded-full bg-green-700 px-3 py-0.5 text-xs font-semibold text-white">
                 {catLabel}
               </span>
@@ -198,7 +198,7 @@ export default async function BlogPostPage({
               {post.title}
             </h1>
 
-            <p className="mt-3 text-sm text-gray-400">{formatDate(post.publishedAt)}</p>
+            <p className="mt-3 text-center text-sm text-gray-400">{formatDate(post.publishedAt)}</p>
           </FadeIn>
         </div>
       </section>
