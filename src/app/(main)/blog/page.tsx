@@ -230,7 +230,7 @@ export default async function BlogPage() {
                 </span>
               ))}
             </div>
-            <div className="mt-6 space-y-3 text-sm leading-8 text-gray-600">
+            <div className="mt-6 space-y-3 text-center text-sm leading-8 text-gray-600">
               <p>肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。</p>
               <p>VERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。</p>
               <p>このブログでは、横手市の皆様が健康的な身体づくりを続けられるよう、日常生活で役立つ知識やセルフケアの方法を発信しています。</p>
@@ -241,19 +241,60 @@ export default async function BlogPage() {
 
       {/* ─── 最新記事 ─── */}
       {latestThree.length > 0 && (
-        <section className="bg-gray-50 py-14 md:py-16">
+        <section className="bg-[#e8f3ec] py-14 md:py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <FadeIn>
-              <h2 className="mb-8 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
+              <h2 className="mb-10 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
                 最新記事
               </h2>
             </FadeIn>
             <div className="grid gap-6 md:grid-cols-3">
-              {latestThree.map((post, i) => (
-                <FadeIn key={post._id} delay={i * 80}>
-                  <ArticleCard post={post} />
-                </FadeIn>
-              ))}
+              {latestThree.map((post, i) => {
+                const slug = post.slug?.current;
+                const href = slug ? `/blog/${post.category}/${slug}` : "#";
+                return (
+                  <FadeIn key={post._id} delay={i * 80}>
+                    <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+                      <a href={href} className="block overflow-hidden" style={{ aspectRatio: "3/2" }}>
+                        {imgUrl(post.image) ? (
+                          <img
+                            src={imgUrl(post.image)}
+                            alt={post.imageAlt ?? post.title ?? ""}
+                            className="h-full w-full object-cover"
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                        )}
+                      </a>
+                      <div className="flex flex-1 flex-col px-5 py-5">
+                        <span className={`inline-block self-start rounded-full px-3 py-1 text-xs font-semibold text-white ${categoryColor(post.category)}`}>
+                          {categoryLabel(post.category)}
+                        </span>
+                        <a href={href}>
+                          <h3 className="mt-3 text-base font-bold leading-snug text-[#1f2937] hover:text-green-700 md:text-lg">
+                            {post.title}
+                          </h3>
+                        </a>
+                        {post.excerpt && (
+                          <p className="mt-3 flex-1 text-sm leading-7 text-gray-500 line-clamp-3">
+                            {post.excerpt}
+                          </p>
+                        )}
+                        <div className="mt-4 flex items-center justify-between">
+                          <span className="text-xs text-gray-400">{formatDate(post.publishedAt)}</span>
+                          <a href={href} className="text-sm font-bold text-green-700 hover:underline">
+                            続きを読む →
+                          </a>
+                        </div>
+                      </div>
+                    </article>
+                  </FadeIn>
+                );
+              })}
             </div>
           </div>
         </section>
