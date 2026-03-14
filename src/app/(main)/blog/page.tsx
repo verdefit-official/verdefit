@@ -215,28 +215,26 @@ export default async function BlogPage() {
 
       {/* ─── Blog intro ─── */}
       <section className="bg-white py-14 md:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <FadeIn>
-            <h2 className="font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
+            <h2 className="text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
               身体の悩みを解決する健康ブログ
             </h2>
-            <div className="mt-4 flex flex-wrap justify-center gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
               {["肩こり", "腰痛", "姿勢", "ダイエット", "運動不足"].map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-green-200 bg-green-50 px-4 py-1 text-xs font-medium text-green-700"
+                  className="inline-flex min-w-[80px] items-center justify-center rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-sm text-gray-700 sm:min-w-[96px]"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <p className="mt-5 text-sm leading-8 text-gray-600">
-              肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。
-              <br />
-              VERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。
-              <br />
-              このブログでは、横手市の皆様が健康的な身体づくりを続けられるよう、日常生活で役立つ知識やセルフケアの方法を発信しています。
-            </p>
+            <div className="mt-6 space-y-3 text-sm leading-8 text-gray-600">
+              <p>肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。</p>
+              <p>VERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。</p>
+              <p>このブログでは、横手市の皆様が健康的な身体づくりを続けられるよう、日常生活で役立つ知識やセルフケアの方法を発信しています。</p>
+            </div>
           </FadeIn>
         </div>
       </section>
