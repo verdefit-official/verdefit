@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
-import CTA from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
   title: "横手市の整体・パーソナルジムの健康ブログ｜VERDE FIT公式ブログ",
@@ -436,18 +435,38 @@ export default async function BlogPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <CTA
-        data={{
-          heading: ctaData?.heading ?? "横手市で本気で身体を変えたい方へ",
-          description:
-            ctaData?.description ??
-            "「何から始めればいいのか分からない」\n「一人では続かない」\n\nそんな方のために、まずは現在のお身体の状態や目標を丁寧にお聞きします。\n整体・パーソナルトレーニング・コーチングの視点から、あなたに合った改善方法をご提案します。\n\nまずはお気軽にご相談ください。",
-          primaryButtonText: ctaData?.primaryButtonText ?? "無料体験予約",
-          secondaryButtonText: ctaData?.secondaryButtonText ?? "LINE相談",
-        }}
-        bookingUrl={bookingUrl}
-        lineUrl={lineUrl}
-      />
+      <section className="bg-[#e8f3ec] py-20 md:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <div className="text-center">
+              <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[52px]">
+                {ctaData?.heading ?? "横手市で本気で身体を変えたい方へ"}
+              </h2>
+              <p className="mt-6 font-serif text-xl font-bold text-green-700 md:text-2xl">
+                初回体験・無料相談受付中
+              </p>
+              <p className="mx-auto mt-8 whitespace-pre-line text-sm leading-8 text-gray-700 md:text-base md:leading-9">
+                {ctaData?.description ??
+                  "「何から始めればいいのか分からない」\n「一人では続かない」\n\nそんな方のために、まずは現在のお身体の状態や目標を丁寧にお聞きします。\n整体・パーソナルトレーニング・コーチングの視点から、あなたに合った改善方法をご提案します。\n\nまずはお気軽にご相談ください。"}
+              </p>
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+                <a
+                  href={bookingUrl ?? "#"}
+                  className="inline-flex h-14 w-full items-center justify-center rounded-lg bg-green-600 px-10 text-base font-semibold text-white transition-colors hover:bg-green-700 sm:w-auto sm:min-w-[220px]"
+                >
+                  {ctaData?.primaryButtonText ?? "無料体験予約"}
+                </a>
+                <a
+                  href={lineUrl ?? "#"}
+                  className="inline-flex h-14 w-full items-center justify-center rounded-lg border-2 border-green-700 px-10 text-base font-bold text-green-700 transition-colors hover:bg-green-50 sm:w-auto sm:min-w-[220px]"
+                >
+                  {ctaData?.secondaryButtonText ?? "LINE相談"}
+                </a>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
     </>
   );
 }
