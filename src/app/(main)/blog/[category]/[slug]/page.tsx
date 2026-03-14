@@ -141,8 +141,8 @@ export default async function BlogPostPage({
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
     ),
-    safeFetch<{ heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(
-      `*[_type == "cta"][0]`
+    safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(
+      `*[_type == "blogCta"][0]`
     ),
   ]);
 
@@ -294,6 +294,7 @@ export default async function BlogPostPage({
         }}
         bookingUrl={bookingUrl}
         lineUrl={lineUrl}
+        subheading={ctaData?.subheading ?? "初回限定60分体験セッション実施中"}
       />
     </>
   );
