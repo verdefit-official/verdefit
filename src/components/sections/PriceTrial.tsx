@@ -19,7 +19,7 @@ export default function PriceTrial({
   data?: PriceTrialData | null;
   bookingUrl?: string;
 }) {
-  const title = data?.title ?? "初回限定体験セッション";
+  const title = data?.title ?? "初回限定60分体験セッション";
   const duration = data?.duration ?? "60分";
   const badge = data?.badge ?? "初回限定";
   const regularPrice = data?.regularPrice ?? "¥11,000";
