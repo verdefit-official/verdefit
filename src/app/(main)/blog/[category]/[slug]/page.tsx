@@ -243,14 +243,16 @@ export default async function BlogPostPage({
               {related.map((rp, i) => {
                 const rSlug = rp.slug?.current;
                 const href = rSlug ? `/blog/${category}/${rSlug}` : "#";
+                const hasImg = !!imgUrl(rp.image);
+                const thumb = hasImg ? imgUrl(rp.image) : defaultThumb;
                 return (
                   <FadeIn key={rp._id} delay={i * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                       <a href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9" }}>
                         <img
-                          src={imgUrl(rp.image) || defaultThumb}
+                          src={thumb}
                           alt={rp.imageAlt ?? rp.title ?? ""}
-                          className="h-full w-full object-cover"
+                          className={`h-full w-full ${hasImg ? "object-cover" : "object-contain p-8 bg-[#e8f3ec]"}`}
                         />
                       </a>
                       <div className="flex flex-1 flex-col px-4 py-4">
