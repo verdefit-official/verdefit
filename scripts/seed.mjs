@@ -1203,6 +1203,793 @@ const documents = [
     primaryButtonText: "無料体験を予約する",
     secondaryButtonText: "LINEで相談する",
   },
+
+  // ════════════════════════════════════════════════════════════════
+  // テストブログ記事
+  // ════════════════════════════════════════════════════════════════
+
+  // ── 整体カテゴリー ───────────────────────────────────────────────
+  {
+    _id: "blogPost-seitai-01",
+    _type: "blogPost",
+    title: "【横手市】肩こりの原因は姿勢だった？整体師が教える根本改善の方法",
+    slug: { _type: "slug", current: "yokote-katakori-genin-shisei" },
+    publishedAt: "2026-03-10T09:00:00.000Z",
+    category: "seitai",
+    tags: ["肩こり", "姿勢改善", "横手市"],
+    excerpt:
+      "デスクワークや育児で肩こりに悩んでいませんか？横手市の整体師が、肩こりの本当の原因と、マッサージだけでは改善しない理由をわかりやすく解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「肩こりが辛くてマッサージに通っているけど、すぐ戻ってしまう」このようなお悩みをお持ちの方は多いのではないでしょうか。横手市でも多くの方が肩こりを抱えており、VERDE FITにもご相談が絶えません。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "肩こりの本当の原因とは？", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "多くの方が「肩が凝っているから肩をほぐせばよい」と考えがちですが、実は肩こりの原因は肩そのものにないケースがほとんどです。主な原因として以下が挙げられます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h3",
+        children: [{ _type: "span", _key: "s4", text: "① 姿勢の崩れ（猫背・前傾姿勢）", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "デスクワークやスマートフォンの使用で前傾姿勢が続くと、頭の重さ（約5kg）を支えるために首・肩の筋肉が常に緊張した状態になります。これが慢性的な肩こりの最大の原因です。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b6",
+        style: "h3",
+        children: [{ _type: "span", _key: "s6", text: "② 胸椎（背骨の胸部）の硬直", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b7",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s7",
+            text: "背骨の胸部（胸椎）が硬くなると、肩甲骨の動きが制限され、肩周辺の筋肉に過度な負担がかかります。この部分はマッサージだけではアプローチしにくいため、繰り返し肩こりが起こる原因になります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b8",
+        style: "h2",
+        children: [{ _type: "span", _key: "s8", text: "VERDE FITの整体で根本改善できる理由", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b9",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s9",
+            text: "VERDE FITでは、肩だけを施術するのではなく、姿勢全体・胸椎・骨盤のバランスを確認した上で根本原因にアプローチします。施術後は姿勢が整い、肩への負担が軽減されるため、マッサージよりも効果が長続きします。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b10",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s10",
+            text: "横手市で肩こりにお悩みの方は、ぜひ一度VERDE FITにご相談ください。初回カウンセリング整体で、あなたの肩こりの原因をしっかり確認します。",
+            marks: ["strong"],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "横手市の整体で肩こり改善する様子",
+  },
+  {
+    _id: "blogPost-seitai-02",
+    _type: "blogPost",
+    title: "腰痛を繰り返す人が見落としがちな「代償動作」とは？",
+    slug: { _type: "slug", current: "yotsu-hanpuku-daisho-dosa" },
+    publishedAt: "2026-03-05T09:00:00.000Z",
+    category: "seitai",
+    tags: ["腰痛", "坐骨神経痛"],
+    excerpt:
+      "腰痛が何度も繰り返す原因は「代償動作」にあるかもしれません。整体師の視点から、腰痛を根本から改善するためのポイントを解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「整体に行くと楽になるのに、しばらくするとまた腰が痛くなる」という方はいませんか？実はこれ、腰痛が繰り返される典型的なパターンです。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "代償動作とは何か", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "代償動作とは、体のどこかに痛みや機能低下があるとき、他の部位がその動きを補おうとする無意識のかばい方です。例えば腰が痛いと、骨盤や膝がその動きをかばい、やがてそちらにも負担がかかります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h2",
+        children: [{ _type: "span", _key: "s4", text: "根本改善のためにすべきこと", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "痛みのある場所だけをほぐすのではなく、身体全体の動きのパターンを確認し、代償動作が起きている根本原因を特定することが重要です。VERDE FITでは姿勢・歩行・日常動作まで確認した上で施術を行います。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "腰痛の原因と改善方法の説明",
+  },
+  {
+    _id: "blogPost-seitai-03",
+    _type: "blogPost",
+    title: "産後の骨盤矯正はいつから始めるべき？時期と効果を解説",
+    slug: { _type: "slug", current: "sango-kotsuban-kyosei-jiki" },
+    publishedAt: "2026-02-28T09:00:00.000Z",
+    category: "seitai",
+    tags: ["骨盤矯正", "産後", "姿勢改善"],
+    excerpt:
+      "産後の骨盤の歪みが気になる方へ。いつから整体を受けてよいか、どんな効果があるのかを横手市の整体師が詳しく解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "出産後、骨盤の歪みや腰痛・恥骨痛に悩む方は非常に多くいます。「産後の骨盤矯正はいつから始めればいいの？」というご質問をよく受けます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "産後の骨盤矯正の適切な開始時期", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "一般的には産後6〜8週（1ヶ月健診で問題がなければ）から始めることができます。ただし帝王切開の場合は傷の回復を確認してから、医師の許可を得た上で行うことをおすすめします。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h2",
+        children: [{ _type: "span", _key: "s4", text: "産後の整体で期待できる効果", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "骨盤の歪み改善・腰痛や恥骨痛の緩和・体型の回復・産後の疲労感軽減などが挙げられます。VERDE FITではキッズスペースを完備しているため、赤ちゃんを連れてご来院いただけます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "産後の骨盤矯正について解説する整体師",
+  },
+
+  // ── パーソナルトレーニングカテゴリー ────────────────────────────
+  {
+    _id: "blogPost-personal-01",
+    _type: "blogPost",
+    title: "【横手市】ダイエットが続かない本当の理由と、続けるための3つのコツ",
+    slug: { _type: "slug", current: "yokote-diet-tsudzukanai-kostu" },
+    publishedAt: "2026-03-08T09:00:00.000Z",
+    category: "personal-training",
+    tags: ["ダイエット", "習慣化", "パーソナルトレーニング"],
+    excerpt:
+      "ダイエットを始めては挫折する繰り返しから抜け出したい方へ。横手市のパーソナルトレーナーが、続かない本当の原因と実践的な解決策を解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「今度こそ痩せる！」と意気込んでも、2〜3週間で元の生活に戻ってしまう。そんな経験をお持ちの方は多いのではないでしょうか。VERDE FITにいらっしゃるお客様の多くが同じ悩みを持っています。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "ダイエットが続かない本当の理由", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "h3",
+        children: [{ _type: "span", _key: "s3", text: "① 目標設定が高すぎる", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s4",
+            text: "「1ヶ月で5kg減らす」「毎日1時間走る」など、最初から高い目標を設定してしまうと、少しでも達成できない日が続くと嫌になってしまいます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "h3",
+        children: [{ _type: "span", _key: "s5", text: "② 食事制限だけに頼っている", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b6",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s6",
+            text: "食事制限だけでは筋肉量が落ち、基礎代謝が低下します。結果的にリバウンドしやすい体になってしまいます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b7",
+        style: "h2",
+        children: [{ _type: "span", _key: "s7", text: "続けるための3つのコツ", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b8",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s8",
+            text: "1. 小さな目標から始める（週2回30分の運動など）\n2. 食事制限と運動を組み合わせる\n3. 結果ではなく行動を記録する",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b9",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s9",
+            text: "VERDE FITのパーソナルトレーニングでは、お一人おひとりに合った無理のないプランを作成し、継続できる仕組みを一緒に作っていきます。",
+            marks: ["strong"],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "ダイエット継続のコツを説明するパーソナルトレーナー",
+  },
+  {
+    _id: "blogPost-personal-02",
+    _type: "blogPost",
+    title: "40代からでも筋肉はつく！効果的なトレーニング方法を解説",
+    slug: { _type: "slug", current: "40dai-kinniku-training-hoho" },
+    publishedAt: "2026-03-03T09:00:00.000Z",
+    category: "personal-training",
+    tags: ["筋力アップ", "40代", "パーソナルトレーニング"],
+    excerpt:
+      "「年齢的にもう筋肉はつかないのでは？」と諦めていませんか？40代・50代でも正しい方法でトレーニングすれば筋肉はしっかりつきます。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "40代になると「もう筋肉はつかない」と思っている方が多いですが、これは誤解です。確かに20代と比べると筋肉がつきにくくなりますが、適切な刺激と栄養・休息があれば、何歳でも筋肉量を増やすことは可能です。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "40代のトレーニングで意識すべきポイント", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "若い頃と同じ方法では効果が出にくくなります。40代からのトレーニングでは以下の点を意識することが重要です。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h3",
+        children: [{ _type: "span", _key: "s4", text: "回復時間を十分に確保する", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "20代は毎日トレーニングしても回復が追いつきましたが、40代からは筋肉の回復に時間がかかります。週2〜3回のトレーニングで、間に休息日を設けることが効果的です。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b6",
+        style: "h3",
+        children: [{ _type: "span", _key: "s6", text: "タンパク質を意識した食事", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b7",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s7",
+            text: "筋肉の材料となるタンパク質を意識して摂ることが重要です。目安は体重×1.5〜2gのタンパク質を1日で摂取することです。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "40代のパーソナルトレーニングの様子",
+  },
+  {
+    _id: "blogPost-personal-03",
+    _type: "blogPost",
+    title: "体脂肪を落として筋肉を増やす「ボディメイク」の基本とは",
+    slug: { _type: "slug", current: "bodymake-kihon-taisibo-kinniku" },
+    publishedAt: "2026-02-25T09:00:00.000Z",
+    category: "personal-training",
+    tags: ["ボディメイク", "体脂肪", "筋力アップ"],
+    excerpt:
+      "ただ体重を落とすだけでなく、理想の体型をつくる「ボディメイク」。体脂肪を落としながら筋肉を増やすための基本的な考え方をパーソナルトレーナーが解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「体重は落ちたけど、なんかたるんでいる」「引き締まった身体になりたい」という方に必要なのがボディメイクです。単なる体重減少ではなく、体脂肪を落としながら筋肉量を維持・増加させることで、理想の体型に近づきます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "ボディメイクの2つの柱", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "ボディメイクは「トレーニング」と「食事管理」の両輪で成り立っています。どちらか一方だけでは理想の体型には近づけません。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "ボディメイクの基本を説明するトレーナー",
+  },
+
+  // ── コーチングカテゴリー ─────────────────────────────────────────
+  {
+    _id: "blogPost-coaching-01",
+    _type: "blogPost",
+    title: "「また三日坊主だった…」を卒業するための習慣化の科学",
+    slug: { _type: "slug", current: "miccabouzu-sotsugyo-shukan-kagaku" },
+    publishedAt: "2026-03-06T09:00:00.000Z",
+    category: "coaching",
+    tags: ["習慣化", "コーチング", "行動変容"],
+    excerpt:
+      "何度挑戦しても続かないのは意志が弱いからではありません。脳科学の観点から「習慣化」のメカニズムを解説し、続けられる自分になる方法をお伝えします。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「今度こそ続けるぞ！」と意気込んで始めたのに、気づけばまた元の生活に。「自分は意志が弱い」と自己嫌悪に陥ったことはありませんか？実は、これは意志の問題ではなく、脳の仕組みの問題なのです。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "脳は「変化」を嫌う", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "脳には「ホメオスタシス（恒常性）」という現状維持の機能があります。新しいことを始めようとすると、脳が自動的に「危険だ！元に戻れ」というブレーキをかけます。これが三日坊主の正体です。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h2",
+        children: [{ _type: "span", _key: "s4", text: "習慣化を成功させる3ステップ", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "h3",
+        children: [{ _type: "span", _key: "s5", text: "① 小さすぎるくらい小さく始める", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b6",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s6",
+            text: "「毎日1時間運動」ではなく「毎日1分だけ体を動かす」から始めます。小さすぎて「これだけでいいの？」と思うくらいがちょうどよいのです。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b7",
+        style: "h3",
+        children: [{ _type: "span", _key: "s7", text: "② 既存の習慣とセットにする", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b8",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s8",
+            text: "「歯磨きの後にスクワット10回」のように、既にある習慣の後に新しい行動をくっつけます。これを「習慣スタッキング」といいます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b9",
+        style: "h3",
+        children: [{ _type: "span", _key: "s9", text: "③ 結果より「やった事実」を記録する", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b10",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s10",
+            text: "体重の変化よりも「今日もできた」という事実を記録することで、脳が達成感を覚え、継続のモチベーションになります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "習慣化の科学を説明するコーチング",
+  },
+  {
+    _id: "blogPost-coaching-02",
+    _type: "blogPost",
+    title: "自己肯定感が低いと感じる方へ。思考を変えることで人生が変わる理由",
+    slug: { _type: "slug", current: "jikokoteikan-hikui-shiko-change" },
+    publishedAt: "2026-03-01T09:00:00.000Z",
+    category: "coaching",
+    tags: ["自己肯定感", "思考改善", "コーチング"],
+    excerpt:
+      "「どうせ自分には無理」「また失敗するに決まってる」そんな思考パターンに気づいていませんか？コーチングで思考を書き換えると人生が大きく変わります。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "「どうせ私には無理」「また失敗するだろう」こういった思考パターンは、長年の経験や環境によって無意識のうちに刷り込まれたものです。これを「セルフイメージ」といいます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "セルフイメージが行動を決める", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "人は自分のセルフイメージに一致した行動を取ろうとします。「自分はダイエットが続かない人間だ」と思っていると、無意識のうちにダイエットを失敗させる行動を選んでしまいます。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h2",
+        children: [{ _type: "span", _key: "s4", text: "コーチングでセルフイメージを書き換える", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "VERDE FITのコーチングでは、あなたの思考パターンを丁寧に掘り下げ、ネガティブなセルフイメージをポジティブなものに書き換えるサポートをします。思考が変われば行動が変わり、行動が変われば結果が変わります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "自己肯定感とコーチングの関係を解説",
+  },
+  {
+    _id: "blogPost-coaching-03",
+    _type: "blogPost",
+    title: "目標達成できる人とできない人の違いは「目標の立て方」にあった",
+    slug: { _type: "slug", current: "mokuhyo-tassei-chigai-tatekata" },
+    publishedAt: "2026-02-22T09:00:00.000Z",
+    category: "coaching",
+    tags: ["目標設定", "コーチング", "行動継続"],
+    excerpt:
+      "「目標を立てても達成できない」のは、目標の立て方に問題があるかもしれません。コーチングで学ぶ、達成できる目標の立て方を解説します。",
+    body: [
+      {
+        _type: "block",
+        _key: "b1",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s1",
+            text: "年始に「今年こそ〇〇を達成する！」と宣言したのに、3月には忘れてしまっている。そんな経験を繰り返していませんか？実は目標達成できる人とできない人の差は、意志の強さではなく「目標の立て方」にあります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b2",
+        style: "h2",
+        children: [{ _type: "span", _key: "s2", text: "達成できない目標の特徴", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b3",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s3",
+            text: "・漠然としている（「痩せたい」「健康になりたい」）\n・大きすぎる（「1年で20kg痩せる」）\n・期限がない（「いつか運動習慣をつける」）",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b4",
+        style: "h2",
+        children: [{ _type: "span", _key: "s4", text: "SMARTゴールで目標を設定する", marks: [] }],
+        markDefs: [],
+      },
+      {
+        _type: "block",
+        _key: "b5",
+        style: "normal",
+        children: [
+          {
+            _type: "span",
+            _key: "s5",
+            text: "達成できる目標の条件はSMART（Specific具体的・Measurable測定可能・Achievable達成可能・Relevant関連性・Time-bound期限）で設定することです。「3ヶ月後の6月末までに体重を3kg落とすため、週2回ジムに通う」のように具体的にすることで、行動が明確になります。",
+            marks: [],
+          },
+        ],
+        markDefs: [],
+      },
+    ],
+    imageAlt: "目標達成のための目標設定方法を解説",
+  },
 ];
 
 // ─── 実行 ────────────────────────────────────────────────────────
