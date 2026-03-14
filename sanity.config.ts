@@ -52,6 +52,19 @@ const coachingSections = [
   { name: "coachingCta", title: "CTA" },
 ];
 
+const blogSections = [
+  { name: "blogSeo", title: "SEO設定" },
+  { name: "blogHero", title: "ヒーロー" },
+  { name: "blogIntro", title: "ブログ紹介" },
+  { name: "blogCategoryNav", title: "カテゴリーナビ" },
+  { name: "blogSeitaiSection", title: "整体セクション" },
+  { name: "blogPersonalSection", title: "パーソナルトレーニングセクション" },
+  { name: "blogCoachingSection", title: "コーチングセクション" },
+  { name: "blogVoiceCta", title: "お客様の声CTA" },
+  { name: "blogSupport", title: "3つのサポート" },
+  { name: "blogCta", title: "CTA" },
+];
+
 const voiceSections = [
   { name: "voiceSeo", title: "SEO設定" },
   { name: "voiceHero", title: "ヒーロー" },
@@ -213,9 +226,23 @@ export default defineConfig({
               .title("ブログページ")
               .id("blog")
               .child(
-                S.documentTypeList("blogPost")
-                  .title("ブログ記事")
-                  .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+                S.list()
+                  .id("blog-list")
+                  .title("ブログページ")
+                  .items([
+                    ...blogSections.map(({ name, title }) =>
+                      singleton(S, name, title)
+                    ),
+                    S.divider(),
+                    S.listItem()
+                      .title("ブログ記事")
+                      .id("blog-posts")
+                      .child(
+                        S.documentTypeList("blogPost")
+                          .title("ブログ記事")
+                          .defaultOrdering([{ field: "publishedAt", direction: "desc" }])
+                      ),
+                  ])
               ),
           ]),
     }),
