@@ -118,7 +118,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
           <span className="inline-block rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white">
             {categoryLabel(post.category)}
           </span>
-          {(post.tags ?? []).slice(0, 1).map((tag, i) => (
+          {(post.tags ?? []).map((tag, i) => (
             <span
               key={i}
               className="inline-block rounded-full bg-green-700 px-3 py-1 text-xs font-semibold text-white"
@@ -209,7 +209,7 @@ export default async function BlogPage() {
       <section className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <FadeIn>
-            <h2 className="text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
+            <h2 className="text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
               身体の悩みを解決する健康ブログ
             </h2>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -232,14 +232,13 @@ export default async function BlogPage() {
       </section>
 
       {/* ─── 最新記事 ─── */}
-      {latestThree.length > 0 && (
-        <section className="bg-[#e8f3ec] py-14 md:py-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <FadeIn>
-              <h2 className="mb-10 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[32px]">
-                最新記事
-              </h2>
-            </FadeIn>
+      <section className="bg-[#e8f3ec] py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeIn>
+            <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
+              最新記事
+            </h2>
+          </FadeIn>
             <div className="grid gap-6 md:grid-cols-3">
               {latestThree.map((post, i) => {
                 const slug = post.slug?.current;
@@ -290,7 +289,6 @@ export default async function BlogPage() {
             </div>
           </div>
         </section>
-      )}
 
       {/* ─── カテゴリ別セクション ─── */}
       {CATEGORIES.map((cat, ci) => {
@@ -300,7 +298,7 @@ export default async function BlogPage() {
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
               <FadeIn>
                 <div className="mb-8 text-center">
-                  <h2 className="font-serif text-2xl font-bold text-[#1f2937] md:text-[28px]">
+                  <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
                     {cat.heading}
                   </h2>
                   {cat.subheading && (
