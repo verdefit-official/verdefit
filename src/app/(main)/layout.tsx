@@ -59,7 +59,7 @@ export async function generateMetadata(): Promise<Metadata> {
   ]);
 
   const faviconUrl = settings?.favicon ? urlForImage(settings.favicon) : undefined;
-  const icons = faviconUrl ? { icon: faviconUrl } : undefined;
+  const icons = { icon: faviconUrl ?? "/logo.svg" };
 
   if (!seo) return { ...defaultMetadata, ...(icons ? { icons } : {}) };
 
