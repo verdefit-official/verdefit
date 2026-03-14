@@ -372,29 +372,65 @@ export default async function BlogPage() {
       <section className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <h2 className="mb-8 text-center font-serif text-2xl font-bold text-[#1f2937] md:text-[28px]">
+            <h2 className="mb-10 text-center font-serif text-3xl font-bold text-[#1f2937] md:text-[38px]">
               VERDE FITの3つのサポート
             </h2>
           </FadeIn>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              { label: "整体", desc: "国家資格保有者による根本改善の整体施術", href: "/seitai" },
-              { label: "パーソナルトレーニング", desc: "完全個別指導で理想の身体づくりを実現", href: "/personal-training" },
-              { label: "コーチング", desc: "思考を変え、習慣をデザインする", href: "/coaching" },
-            ].map((item, i) => (
-              <FadeIn key={item.label} delay={i * 80}>
-                <div className="flex flex-col items-center rounded-xl bg-[#e8f3ec] px-6 py-8 text-center">
-                  <p className="mb-1 font-bold text-[#1f2937]">{item.label}</p>
-                  <p className="mb-4 text-xs text-gray-600">{item.desc}</p>
-                  <a
-                    href={item.href}
-                    className="inline-flex h-10 items-center justify-center rounded-md border border-green-700 px-6 text-xs font-semibold text-green-700 transition-colors hover:bg-green-700 hover:text-white"
-                  >
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* 整体 */}
+            <FadeIn delay={0}>
+              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
+                <div className="flex items-center justify-center bg-green-700 py-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21C12 21 4 14.5 4 9a8 8 0 0 1 16 0c0 5.5-8 12-8 12z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9" />
+                  </svg>
+                </div>
+                <div className="px-6 py-6">
+                  <p className="text-lg font-bold text-[#1f2937]">整体</p>
+                  <p className="mt-2 text-sm text-gray-600">国家資格保有者による根本改善の整体施術</p>
+                  <a href="/seitai" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
                     詳しく見る
                   </a>
                 </div>
-              </FadeIn>
-            ))}
+              </div>
+            </FadeIn>
+            {/* パーソナルトレーニング */}
+            <FadeIn delay={80}>
+              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
+                <div className="flex items-center justify-center bg-green-700 py-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 6.5h1v11h-1zM16.5 6.5h1v11h-1zM7.5 12H16.5M4 9.5h2.5M17.5 9.5H20M4 14.5h2.5M17.5 14.5H20" />
+                  </svg>
+                </div>
+                <div className="px-6 py-6">
+                  <p className="text-lg font-bold text-[#1f2937]">パーソナルトレーニング</p>
+                  <p className="mt-2 text-sm text-gray-600">完全個別指導で理想の身体づくりを実現</p>
+                  <a href="/personal-training" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
+                    詳しく見る
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
+            {/* コーチング */}
+            <FadeIn delay={160}>
+              <div className="overflow-hidden rounded-xl bg-[#e8f3ec] shadow-sm">
+                <div className="flex items-center justify-center bg-green-700 py-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className="h-16 w-16 text-white" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2a7 7 0 0 1 4 12.8V17H8v-2.2A7 7 0 0 1 12 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                    <line x1="12" y1="22" x2="12" y2="22" />
+                  </svg>
+                </div>
+                <div className="px-6 py-6">
+                  <p className="text-lg font-bold text-[#1f2937]">コーチング</p>
+                  <p className="mt-2 text-sm text-gray-600">思考を変え、習慣をデザインする</p>
+                  <a href="/coaching" className="mt-5 inline-flex h-10 items-center justify-center rounded-md bg-green-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-green-800">
+                    詳しく見る
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
