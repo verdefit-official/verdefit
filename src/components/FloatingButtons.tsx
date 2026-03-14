@@ -62,7 +62,7 @@ export default function FloatingButtons({ phone, bookingUrl }: FloatingButtonsPr
           <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
         </svg>
         <span className="text-center text-[12px] font-bold leading-[1.4] text-white sm:text-[13px]">
-          体験予約は
+          予約は
           <br />
           こちら
         </span>
