@@ -104,10 +104,12 @@ export default async function BlogCategoryPage({
 
   const [posts, total, siteSettings, ctaData] = await Promise.all([
     safeFetch<BlogPost[]>(
-      `*[_type == "blogPost" && category == "${category}"] | order(publishedAt desc) [${offset}..${offset + PER_PAGE - 1}]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`
+      `*[_type == "blogPost" && category == $category] | order(publishedAt desc) [$from..$to]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`,
+      { category, from: offset, to: offset + PER_PAGE - 1 }
     ),
     safeFetch<number>(
-      `count(*[_type == "blogPost" && category == "${category}"])`
+      `count(*[_type == "blogPost" && category == $category])`,
+      { category }
     ),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`

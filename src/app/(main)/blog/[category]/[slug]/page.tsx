@@ -102,7 +102,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category, slug } = await params;
   const post = await safeFetch<BlogPost>(
-    `*[_type == "blogPost" && slug.current == "${slug}" && category == "${category}"][0]{ title, excerpt, image, imageAlt }`
+    `*[_type == "blogPost" && slug.current == $slug && category == $category][0]{ title, excerpt, image, imageAlt }`,
+    { slug, category }
   );
   if (!post) return {};
   const title = `${post.title ?? "記事"} | VERDE FIT ブログ`;
@@ -130,10 +131,12 @@ export default async function BlogPostPage({
 
   const [post, relatedPosts, siteSettings, ctaData] = await Promise.all([
     safeFetch<BlogPost>(
-      `*[_type == "blogPost" && slug.current == "${slug}" && category == "${category}"][0]{ _id, title, slug, publishedAt, category, tags, excerpt, body, image, imageAlt }`
+      `*[_type == "blogPost" && slug.current == $slug && category == $category][0]{ _id, title, slug, publishedAt, category, tags, excerpt, body, image, imageAlt }`,
+      { slug, category }
     ),
     safeFetch<BlogPost[]>(
-      `*[_type == "blogPost" && category == "${category}" && slug.current != "${slug}"] | order(publishedAt desc) [0..2]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`
+      `*[_type == "blogPost" && category == $category && slug.current != $slug] | order(publishedAt desc) [0..2]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`,
+      { category, slug }
     ),
     safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl }`
