@@ -53,8 +53,49 @@ export const blogPostSchema = defineType({
     defineField({
       name: "body",
       title: "本文",
-      type: "text",
-      rows: 20,
+      type: "array",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "本文", value: "normal" },
+            { title: "見出し2", value: "h2" },
+            { title: "見出し3", value: "h3" },
+            { title: "見出し4", value: "h4" },
+          ],
+          marks: {
+            decorators: [
+              { title: "太字", value: "strong" },
+              { title: "斜体", value: "em" },
+              { title: "下線", value: "underline" },
+            ],
+            annotations: [
+              {
+                name: "link",
+                type: "object",
+                title: "リンク",
+                fields: [
+                  { name: "href", type: "url", title: "URL" },
+                  {
+                    name: "blank",
+                    type: "boolean",
+                    title: "新しいタブで開く",
+                    initialValue: true,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            { name: "alt", type: "string", title: "代替テキスト" },
+            { name: "caption", type: "string", title: "キャプション" },
+          ],
+        },
+      ],
     }),
     defineField({
       name: "image",

@@ -4,6 +4,7 @@ import { safeFetch } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import FadeIn from "@/components/FadeIn";
 import CTA from "@/components/sections/CTA";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
 const CATEGORY_LABELS: Record<string, string> = {
   seitai: "整体",
@@ -21,6 +22,9 @@ function imgUrl(ref: SanityImageRef | undefined | null): string {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PortableTextBlock = any;
+
 type BlogPost = {
   _id: string;
   title?: string | null;
@@ -29,9 +33,60 @@ type BlogPost = {
   category?: string | null;
   tags?: string[] | null;
   excerpt?: string | null;
-  body?: string | null;
+  body?: PortableTextBlock[] | null;
   image?: SanityImageRef | null;
   imageAlt?: string | null;
+};
+
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }: { value: { asset?: { _ref: string; _type: string }; alt?: string; caption?: string } }) => {
+      const url = value.asset ? (() => { try { return urlForImage(value as SanityImageRef); } catch { return ""; } })() : "";
+      if (!url) return null;
+      return (
+        <figure className="my-8">
+          <img src={url} alt={value.alt ?? ""} className="w-full rounded-lg object-cover" />
+          {value.caption && (
+            <figcaption className="mt-2 text-center text-xs text-gray-400">{value.caption}</figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
+  marks: {
+    link: ({ children, value }: { children: React.ReactNode; value?: { href?: string; blank?: boolean } }) => (
+      <a
+        href={value?.href}
+        target={value?.blank ? "_blank" : undefined}
+        rel={value?.blank ? "noopener noreferrer" : undefined}
+        className="text-green-700 underline hover:text-green-800"
+      >
+        {children}
+      </a>
+    ),
+  },
+  block: {
+    h2: ({ children }: { children?: React.ReactNode }) => (
+      <h2 className="mb-4 mt-10 font-serif text-xl font-bold text-[#1f2937] md:text-2xl">{children}</h2>
+    ),
+    h3: ({ children }: { children?: React.ReactNode }) => (
+      <h3 className="mb-3 mt-8 font-serif text-lg font-bold text-[#1f2937] md:text-xl">{children}</h3>
+    ),
+    h4: ({ children }: { children?: React.ReactNode }) => (
+      <h4 className="mb-2 mt-6 font-bold text-[#1f2937]">{children}</h4>
+    ),
+    normal: ({ children }: { children?: React.ReactNode }) => (
+      <p className="mb-5 leading-8 text-gray-700">{children}</p>
+    ),
+  },
+  list: {
+    bullet: ({ children }: { children?: React.ReactNode }) => (
+      <ul className="mb-5 ml-5 list-disc space-y-1 text-gray-700">{children}</ul>
+    ),
+    number: ({ children }: { children?: React.ReactNode }) => (
+      <ol className="mb-5 ml-5 list-decimal space-y-1 text-gray-700">{children}</ol>
+    ),
+  },
 };
 
 function formatDate(dateStr: string | null | undefined): string {
@@ -155,9 +210,9 @@ export default async function BlogPostPage({
               </p>
             )}
 
-            {post.body ? (
-              <div className="prose prose-sm max-w-none text-gray-700 leading-8 whitespace-pre-line md:prose-base">
-                {post.body}
+            {post.body && post.body.length > 0 ? (
+              <div className="mx-auto max-w-none">
+                <PortableText value={post.body} components={portableTextComponents} />
               </div>
             ) : (
               <p className="text-center text-sm text-gray-400">本文を準備中です。</p>
