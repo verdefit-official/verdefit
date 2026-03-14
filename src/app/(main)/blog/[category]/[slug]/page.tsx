@@ -250,7 +250,7 @@ export default async function BlogPostPage({
                         {thumb ? (
                           <img src={thumb} alt={rp.imageAlt ?? rp.title ?? ""} className="h-full w-full object-cover" />
                         ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-[#021f19]">
+                          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 80% 15%, #064a38 0%, #022820 45%, #011913 100%)" }}>
                             <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
                           </div>
                         )}
