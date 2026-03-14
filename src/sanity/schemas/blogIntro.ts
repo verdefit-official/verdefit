@@ -23,7 +23,7 @@ export const blogIntroSchema = defineType({
       title: "説明文",
       type: "text",
       rows: 6,
-      description: "例: 肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。\nVERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。\n（改行で段落を区切ります）",
+      description: "例: 肩こり・腰痛・姿勢・ダイエット・習慣改善など、身体の悩みを解決するヒントをお届けします。\nVERDE FITでは、整体・パーソナルトレーニング・コーチングの3つの視点から身体改善をサポートしています。",
     }),
     defineField({
       name: "latestSectionTitle",
