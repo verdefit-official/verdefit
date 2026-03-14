@@ -38,7 +38,6 @@ const documents = [
   {
     _id: "siteSettings",
     _type: "siteSettings",
-    siteTitle: "VERDE FIT | 横手市の整体・パーソナルトレーニング・コーチングサロン",
     footerDescription:
       "横手市に誕生する、本格トータルケアサロン。整体・パーソナルトレーニング・コーチングで、あなたの健康を総合サポートします。",
     copyrightYear: "2026",

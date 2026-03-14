@@ -5,7 +5,6 @@ export const siteSettingsSchema = defineType({
   title: "サイト設定",
   type: "document",
   fields: [
-    defineField({ name: "siteTitle", title: "サイトタイトル", type: "string" }),
     defineField({
       name: "bookingUrl",
       title: "予約ボタンURL",
