@@ -252,7 +252,7 @@ export default async function BlogPostPage({
                         <img
                           src={thumb}
                           alt={rp.imageAlt ?? rp.title ?? ""}
-                          className={`h-full w-full ${hasImg ? "object-cover" : "object-contain p-8 bg-[#e8f3ec]"}`}
+                          className={`h-full w-full ${hasImg ? "object-cover" : "object-contain bg-[#e8f3ec]"}`}
                         />
                       </a>
                       <div className="flex flex-1 flex-col px-4 py-4">

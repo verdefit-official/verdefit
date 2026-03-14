@@ -149,7 +149,7 @@ function ArticleCard({ post, defaultThumb }: { post: BlogPost; defaultThumb?: st
         <img
           src={thumb}
           alt={post.imageAlt ?? post.title ?? ""}
-          className={`h-full w-full transition-transform duration-300 hover:scale-105 ${hasImage ? "object-cover" : "object-contain p-8 bg-[#e8f3ec]"}`}
+          className={`h-full w-full transition-transform duration-300 hover:scale-105 ${hasImage ? "object-cover" : "object-contain bg-[#e8f3ec]"}`}
         />
       </a>
       <div className="flex flex-1 flex-col px-5 py-5">
@@ -368,7 +368,7 @@ export default async function BlogPage() {
                         <img
                           src={thumb}
                           alt={post.imageAlt ?? post.title ?? ""}
-                          className={`h-full w-full transition-transform duration-300 hover:scale-105 ${hasImg ? "object-cover" : "object-contain p-8 bg-[#e8f3ec]"}`}
+                          className={`h-full w-full transition-transform duration-300 hover:scale-105 ${hasImg ? "object-cover" : "object-contain bg-[#e8f3ec]"}`}
                         />
                       </a>
                       <div className="flex flex-1 flex-col px-5 py-5">
