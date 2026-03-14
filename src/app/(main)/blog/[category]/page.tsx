@@ -111,7 +111,7 @@ export default async function BlogCategoryPage({
       `count(*[_type == "blogPost" && category == $category])`,
       { category }
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
     ),
     safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(

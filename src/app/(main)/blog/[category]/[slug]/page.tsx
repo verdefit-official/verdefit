@@ -138,7 +138,7 @@ export default async function BlogPostPage({
       `*[_type == "blogPost" && category == $category && slug.current != $slug] | order(publishedAt desc) [0..2]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`,
       { category, slug }
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
     ),
     safeFetch<{ subheading?: string; heading?: string; description?: string; primaryButtonText?: string; secondaryButtonText?: string }>(

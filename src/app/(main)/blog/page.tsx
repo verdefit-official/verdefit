@@ -207,7 +207,7 @@ export default async function BlogPage() {
     safeFetch<BlogPost[]>(
       `*[_type == "blogPost"] | order(publishedAt desc) [0..8]{ _id, title, slug, publishedAt, category, tags, excerpt, image, imageAlt }`
     ),
-    safeFetch<{ bookingUrl?: string; lineUrl?: string }>(
+    safeFetch<{ bookingUrl?: string; lineUrl?: string; blogDefaultImage?: { asset: { _ref: string; _type: string } } }>(
       `*[_type == "siteSettings"][0]{ bookingUrl, lineUrl, blogDefaultImage{ asset{ _ref, _type } } }`
     ),
   ]);
