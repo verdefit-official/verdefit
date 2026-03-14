@@ -38,6 +38,6 @@ export const blogCtaSchema = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: "CTA（ページ下部）" }),
+    prepare: () => ({ title: "CTA" }),
   },
 });
