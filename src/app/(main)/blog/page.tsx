@@ -495,7 +495,7 @@ export default async function BlogPage() {
                     <div className="flex items-center justify-center py-10" style={{ backgroundColor: staticItem?.bg }}>
                       <img src={staticItem?.icon} alt={staticItem?.alt} className="h-24 w-24 object-contain" />
                     </div>
-                    <div className="flex flex-1 flex-col px-6 pb-8">
+                    <div className="flex flex-1 flex-col px-6 pb-8 text-center">
                       <p className="text-lg font-bold text-[#1f2937]">{item.label}</p>
                       <p className="mt-2 flex-1 text-sm text-gray-600">{item.desc}</p>
                       <a
