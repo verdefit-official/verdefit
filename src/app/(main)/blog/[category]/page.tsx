@@ -161,8 +161,7 @@ export default async function BlogCategoryPage({
               {articles.map((post, i) => {
                 const slug = post.slug?.current;
                 const href = slug ? `/blog/${category}/${slug}` : "#";
-                const hasImg = !!imgUrl(post.image);
-                const thumb = hasImg ? imgUrl(post.image) : defaultThumb;
+                const thumb = imgUrl(post.image) || defaultThumb;
                 return (
                   <FadeIn key={post._id} delay={Math.min(i, 5) * 80}>
                     <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
@@ -170,7 +169,7 @@ export default async function BlogCategoryPage({
                         <img
                           src={thumb}
                           alt={post.imageAlt ?? post.title ?? ""}
-                          className={`h-full w-full transition-transform duration-300 hover:scale-105 ${hasImg ? "object-cover" : "object-contain bg-[#e8f3ec]"}`}
+                          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                         />
                       </a>
                       <div className="flex flex-1 flex-col px-5 py-4">
