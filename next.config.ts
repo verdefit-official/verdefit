@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' https://fonts.gstatic.com data:;
+  img-src 'self' data: blob: https://cdn.sanity.io;
+  connect-src 'self' https://api.sanity.io https://cdn.sanity.io;
+  frame-ancestors 'self';
+  base-uri 'self';
+  form-action 'self';
+`.replace(/\n/g, " ").trim();
+
 const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy,
+  },
   {
     key: "X-Content-Type-Options",
     value: "nosniff",

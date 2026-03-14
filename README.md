@@ -110,12 +110,14 @@ node scripts/seed.mjs
 ## セキュリティ対策
 
 - **セキュリティヘッダー**: `next.config.ts` に以下を全ページ適用（`/studio` 除く）
+  - `Content-Security-Policy`: スクリプト・スタイル・画像・通信先を制限
   - `X-Content-Type-Options: nosniff`
   - `X-Frame-Options: SAMEORIGIN`（クリックジャッキング対策）
   - `X-XSS-Protection: 1; mode=block`
   - `Referrer-Policy: strict-origin-when-cross-origin`
   - `Permissions-Policy`: カメラ・マイク・位置情報を無効化
   - `Strict-Transport-Security`: HTTPS強制（max-age=63072000）
+- **カスタム404ページ**: `src/app/not-found.tsx`（トップ・ブログへの導線付き）
 - **GROQインジェクション対策**: ブログカテゴリ・記事詳細ページのクエリはすべてパラメータ化（`$category`, `$slug` 等）
 - **robots.txt**: `/studio` をクロール禁止
 - **環境変数**: `SANITY_API_TOKEN` はサーバーサイド専用（`NEXT_PUBLIC_` プレフィックスなし）、`.env.local` は `.gitignore` 対象
