@@ -90,7 +90,7 @@ type ProfileSanity = {
   credentials?: string[];
 };
 
-type PriceTrialTopRaw = { trialPrice?: string; detail1?: string; detail2?: string };
+type PriceTrialTopRaw = { trialPrice?: string; detail1?: string; detail2?: string; duration?: string };
 type ChiropracticTopRaw = { courses?: { _key?: string; name?: string; price?: string }[] };
 type PersonalTopRaw = {
   intensivePlans?: { _key?: string; name?: string; price?: string }[];
@@ -188,7 +188,7 @@ export default async function Home() {
     safeFetch<ProfileRaw>(
       `*[_type == "profile"][0]{ ..., image{ asset{ _ref, _type } } }`
     ),
-    safeFetch<PriceTrialTopRaw>(`*[_type == "priceTrial"][0]{ trialPrice, detail1, detail2 }`),
+    safeFetch<PriceTrialTopRaw>(`*[_type == "priceTrial"][0]{ trialPrice, detail1, detail2, duration }`),
     safeFetch<ChiropracticTopRaw>(`*[_type == "chiropracticPricing"][0]{ courses }`),
     safeFetch<PersonalTopRaw>(`*[_type == "personalPricing"][0]{ "intensivePlans": intensivePlans[]{ _key, name, price }, "monthlyPlans": monthlyPlans[]{ _key, name, price } }`),
     safeFetch<CoachingTopRaw>(`*[_type == "coachingPricing"][0]{ "singlePlans": singlePlans[]{ _key, badge, price }, "monthlyPlans": monthlyPlans[]{ _key, badge, title, price } }`),
@@ -257,6 +257,9 @@ export default async function Home() {
     trialPrice: priceTrialTopRaw?.trialPrice,
     trialDetails: priceTrialTopRaw?.detail1 && priceTrialTopRaw?.detail2
       ? `${priceTrialTopRaw.detail1} + ${priceTrialTopRaw.detail2}`
+      : undefined,
+    trialDuration: priceTrialTopRaw?.duration
+      ? `所要時間：${priceTrialTopRaw.duration}`
       : undefined,
     pricingColumns: hasSpecializedData ? [
       { _key: "seitai", title: "整体コース", items: seitaiItems },

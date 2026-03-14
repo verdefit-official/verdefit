@@ -63,6 +63,8 @@ import { voiceCtaSchema } from "./voiceCta";
 import { seitaiTestimonialSchema } from "./seitaiTestimonial";
 import { personalTestimonialSchema } from "./personalTestimonial";
 import { coachingTestimonialSchema } from "./coachingTestimonial";
+// BLOG
+import { blogPostSchema } from "./blogPost";
 
 export const schemaTypes = [
   cancelPolicySchema,
@@ -130,4 +132,6 @@ export const schemaTypes = [
   seitaiTestimonialSchema,
   personalTestimonialSchema,
   coachingTestimonialSchema,
+  // BLOG
+  blogPostSchema,
 ];

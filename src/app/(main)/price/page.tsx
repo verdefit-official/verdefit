@@ -21,6 +21,8 @@ type CancelPolicyRaw = {
 type PriceHeroRaw = { subtitle?: string };
 
 type PriceTrialRaw = {
+  title?: string;
+  duration?: string;
   badge?: string;
   regularPrice?: string;
   trialPrice?: string;

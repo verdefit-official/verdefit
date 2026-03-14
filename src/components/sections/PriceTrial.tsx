@@ -1,6 +1,8 @@
 import FadeIn from "@/components/FadeIn";
 
 type PriceTrialData = {
+  title?: string | null;
+  duration?: string | null;
   badge?: string | null;
   regularPrice?: string | null;
   trialPrice?: string | null;
@@ -17,6 +19,8 @@ export default function PriceTrial({
   data?: PriceTrialData | null;
   bookingUrl?: string;
 }) {
+  const title = data?.title ?? "初回限定体験セッション";
+  const duration = data?.duration ?? "60分";
   const badge = data?.badge ?? "初回限定";
   const regularPrice = data?.regularPrice ?? "¥11,000";
   const trialPrice = data?.trialPrice ?? "¥5,500";
@@ -32,7 +36,7 @@ export default function PriceTrial({
         <FadeIn>
           <div className="text-center">
             <h2 className="whitespace-pre-line font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
-              初回限定90分体験セッション
+              {title}
             </h2>
           </div>
         </FadeIn>
@@ -41,7 +45,7 @@ export default function PriceTrial({
             <span className="inline-block rounded-full bg-[#6aaa82] px-6 py-1.5 text-xs font-semibold text-white">
               {badge}
             </span>
-            <p className="mt-3 text-sm text-gray-500">90分</p>
+            <p className="mt-3 text-sm text-gray-500">{duration}</p>
             <p className="mt-2 font-serif text-4xl font-bold text-green-800 md:text-5xl">
               通常{regularPrice}→初回{trialPrice}
             </p>
