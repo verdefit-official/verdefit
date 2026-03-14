@@ -168,7 +168,7 @@ export default async function BlogCategoryPage({
                         {thumb ? (
                           <img src={thumb} alt={post.imageAlt ?? post.title ?? ""} className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" />
                         ) : (
-                          <div className="flex h-full w-full items-center justify-center" style={{ background: "radial-gradient(ellipse at 75% 10%, #064a38 0%, #033226 50%, #011913 100%)" }}>
+                          <div className="flex h-full w-full items-center justify-center" style={{ background: "linear-gradient(to top right, #001913 0%, #033226 50%, #064a38 100%)" }}>
                             <img src="/logo.svg" alt="" className="h-full w-full object-contain" />
                           </div>
                         )}
