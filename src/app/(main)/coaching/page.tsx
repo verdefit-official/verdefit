@@ -223,7 +223,7 @@ export default async function CoachingPage() {
         lineUrl={lineUrl}
         phone={phone}
       />
-      <Access data={accessData} sectionBg="bg-white" />
+      <Access data={accessData} sectionBg="bg-[#e8f3ec]" />
     </>
   );
 }

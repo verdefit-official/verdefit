@@ -204,7 +204,7 @@ export default async function PersonalTrainingPage() {
         lineUrl={lineUrl}
         subheading={ctaRaw?.subheading ?? "無料カウンセリング実施中"}
       />
-      <Access data={accessData} sectionBg="bg-white" />
+      <Access data={accessData} sectionBg="bg-[#e8f3ec]" />
     </>
   );
 }
