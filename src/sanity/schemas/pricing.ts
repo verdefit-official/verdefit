@@ -20,33 +20,27 @@ export const pricingSchema = defineType({
     // Trial course
     defineField({
       name: "trialBadge",
-      title: "体験コース バッジ",
+      title: "評価コース バッジ",
       type: "string",
-      description: "例: OPEN記念 特別価格",
+      description: "例: 初回限定",
     }),
     defineField({
       name: "trialTitle",
-      title: "体験コース タイトル",
+      title: "評価コース タイトル",
       type: "string",
-      description: "例: 初回体験コース",
+      description: "例: 初回評価コース",
     }),
     defineField({
       name: "trialPrice",
-      title: "体験コース 料金",
+      title: "評価コース 料金",
       type: "string",
       description: "例: ¥5,500",
     }),
     defineField({
       name: "trialDetails",
-      title: "体験コース 内容",
+      title: "評価コース 内容",
       type: "string",
-      description: "例: カウンセリング30分 + 整体・パーソナルトレーニング60分",
-    }),
-    defineField({
-      name: "trialDuration",
-      title: "体験コース 所要時間",
-      type: "string",
-      description: "例: 所要時間：90分",
+      description: "例: カウンセリング20分 + 整体・パーソナル40分",
     }),
     defineField({
       name: "trialBenefits",

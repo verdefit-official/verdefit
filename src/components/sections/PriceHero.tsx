@@ -33,7 +33,7 @@ export default function PriceHero({ data }: { data?: PriceHeroData | null }) {
                 href="#trial"
                 className="w-[calc(50%-0.25rem)] rounded-lg border-2 border-[#3a8a5c] px-4 py-2 text-center text-sm font-semibold text-[#3a8a5c] transition-colors hover:bg-[#3a8a5c] hover:text-white sm:w-auto sm:flex-1"
               >
-                初回体験
+                初回評価
               </a>
               {filledTabs.map((tab) => (
                 <a

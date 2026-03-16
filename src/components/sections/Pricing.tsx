@@ -26,7 +26,6 @@ type PricingData = {
   trialTitle?: string | null;
   trialPrice?: string | null;
   trialDetails?: string | null;
-  trialDuration?: string | null;
   trialBenefits?: string[] | null;
   pricingColumns?: PricingColumn[] | null;
   pricingNote?: string | null;
@@ -51,7 +50,7 @@ const defaultPricingColumns: PricingColumn[] = [
     items: [
       { _key: "s1", label: "30分整体", price: "¥4,400" },
       { _key: "s2", label: "60分整体", price: "¥8,800" },
-      { _key: "s3", label: "120分整体", price: "¥13,200" },
+      { _key: "s3", label: "90分整体", price: "¥13,200" },
     ],
   },
   {
@@ -59,17 +58,19 @@ const defaultPricingColumns: PricingColumn[] = [
     title: "パーソナルトレーニング",
     items: [
       { _key: "p1", label: "24回ダイエットプラン", price: "¥198,000" },
-      { _key: "p2", label: "1ヶ月/8回 食事指導なし", price: "¥56,000" },
-      { _key: "p3", label: "1ヶ月/4回 食事指導なし", price: "¥32,000" },
+      { _key: "p2", label: "48回ボディメイクプラン", price: "¥348,000" },
+      { _key: "p3", label: "月4回プラン", price: "¥32,000" },
+      { _key: "p4", label: "月8回プラン", price: "¥56,000" },
     ],
   },
   {
     _key: "coaching",
     title: "コーチング",
     items: [
-      { _key: "c1", label: "1ヶ月/4回 オンライン60分", price: "¥28,000" },
-      { _key: "c2", label: "1ヶ月/4回 対面60分", price: "¥30,000" },
-      { _key: "c3", label: "対面60分", price: "¥8,800" },
+      { _key: "c1", label: "オンライン 60分", price: "¥8,000" },
+      { _key: "c2", label: "対面 60分", price: "¥8,800" },
+      { _key: "c3", label: "1ヶ月/4回 オンライン", price: "¥28,000" },
+      { _key: "c4", label: "1ヶ月/4回 対面", price: "¥30,000" },
     ],
   },
 ];
@@ -85,13 +86,12 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
   const sectionTitle = data?.sectionTitle ?? "料金案内";
   const sectionDescription =
     data?.sectionDescription ?? "明瞭な料金体系で、安心してご利用いただけます";
-  const trialBadge = data?.trialBadge ?? "OPEN記念 特別価格";
-  const trialTitle = data?.trialTitle ?? "初回体験コース";
+  const trialBadge = data?.trialBadge ?? "初回限定";
+  const trialTitle = data?.trialTitle ?? "初回評価コース";
   const trialPrice = data?.trialPrice ?? "¥5,500";
   const trialDetails =
     data?.trialDetails ??
     "カウンセリング20分 + 整体・パーソナル40分";
-  const trialDuration = data?.trialDuration ?? "所要時間：60分";
   const trialBenefits =
     data?.trialBenefits && data.trialBenefits.length > 0
       ? data.trialBenefits
@@ -128,7 +128,7 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
           </div>
         </FadeIn>
 
-        {/* 初回体験コース */}
+        {/* 初回評価コース */}
         <FadeIn>
           <div className="mx-auto mb-6 max-w-xl rounded-xl bg-white px-8 py-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:px-10 md:py-10">
             <div className="text-center">
@@ -151,7 +151,6 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
               <p className="mt-3 text-base font-semibold text-[#1f2937]">
                 {trialDetails}
               </p>
-              <p className="mt-1 text-sm text-gray-500">{trialDuration}</p>
 
               <a
                 href={bookingUrl ?? "#cta"}

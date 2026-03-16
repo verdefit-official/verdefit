@@ -2,14 +2,14 @@ import { defineType, defineField } from "sanity";
 
 export const priceTrialSchema = defineType({
   name: "priceTrial",
-  title: "初回体験セッション",
+  title: "初回評価セッション",
   type: "document",
   fields: [
     defineField({
       name: "title",
       title: "セクションタイトル",
       type: "string",
-      description: "例: 初回限定60分体験セッション",
+      description: "例: 初回限定60分評価セッション",
     }),
     defineField({
       name: "duration",
@@ -61,5 +61,5 @@ export const priceTrialSchema = defineType({
       description: "例: 体験予約をする",
     }),
   ],
-  preview: { prepare: () => ({ title: "初回体験セッション" }) },
+  preview: { prepare: () => ({ title: "初回評価セッション" }) },
 });

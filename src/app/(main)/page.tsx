@@ -90,7 +90,7 @@ type ProfileSanity = {
   credentials?: string[];
 };
 
-type PriceTrialTopRaw = { trialPrice?: string; detail1?: string; detail2?: string; duration?: string };
+type PriceTrialTopRaw = { trialPrice?: string; detail1?: string; detail2?: string };
 type ChiropracticTopRaw = { courses?: { _key?: string; name?: string; price?: string }[] };
 type PersonalTopRaw = {
   intensivePlans?: { _key?: string; name?: string; price?: string }[];
@@ -99,6 +99,15 @@ type PersonalTopRaw = {
 type CoachingTopRaw = {
   singlePlans?: { _key?: string; badge?: string; price?: string }[];
   monthlyPlans?: { _key?: string; badge?: string; title?: string; price?: string }[];
+};
+type PricingDocRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  trialBadge?: string;
+  trialTitle?: string;
+  trialBenefits?: string[];
+  pricingColumns?: { _key?: string; title?: string; items?: { _key?: string; label?: string; price?: string }[] }[];
+  pricingNote?: string;
 };
 type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
@@ -166,6 +175,7 @@ export default async function Home() {
     chiropracticTopRaw,
     personalTopRaw,
     coachingTopRaw,
+    pricingDocRaw,
     faqData,
     accessData,
     ctaData,
@@ -188,10 +198,11 @@ export default async function Home() {
     safeFetch<ProfileRaw>(
       `*[_type == "profile"][0]{ ..., image{ asset{ _ref, _type } } }`
     ),
-    safeFetch<PriceTrialTopRaw>(`*[_type == "priceTrial"][0]{ trialPrice, detail1, detail2, duration }`),
+    safeFetch<PriceTrialTopRaw>(`*[_type == "priceTrial"][0]{ trialPrice, detail1, detail2 }`),
     safeFetch<ChiropracticTopRaw>(`*[_type == "chiropracticPricing"][0]{ courses }`),
     safeFetch<PersonalTopRaw>(`*[_type == "personalPricing"][0]{ "intensivePlans": intensivePlans[]{ _key, name, price }, "monthlyPlans": monthlyPlans[]{ _key, name, price } }`),
     safeFetch<CoachingTopRaw>(`*[_type == "coachingPricing"][0]{ "singlePlans": singlePlans[]{ _key, badge, price }, "monthlyPlans": monthlyPlans[]{ _key, badge, title, price } }`),
+    safeFetch<PricingDocRaw>(`*[_type == "pricing"][0]{ sectionTitle, sectionDescription, trialBadge, trialTitle, trialBenefits, pricingColumns, pricingNote }`),
     safeFetch<FAQSanity>(`*[_type == "faqSection"][0]`),
     safeFetch<AccessSanity>(`*[_type == "access"][0]`),
     safeFetch<CTASanity>(`*[_type == "cta"][0]`),
@@ -238,7 +249,7 @@ export default async function Home() {
     ? { ...profileRaw, imageUrl: imgUrl(profileRaw.image) }
     : null;
 
-  // Build top page pricing columns from shared specialized schemas
+  // Build fallback pricing columns from individual specialized schemas
   const seitaiItems = (chiropracticTopRaw?.courses ?? []).map((c, i) => ({
     _key: c._key ?? `s${i}`,
     label: c.name,
@@ -253,19 +264,28 @@ export default async function Home() {
     ...(coachingTopRaw?.monthlyPlans ?? []).map((p, i) => ({ _key: p._key ?? `cm${i}`, label: `${p.title ?? ""} ${p.badge ?? ""}`, price: p.price })),
   ];
   const hasSpecializedData = seitaiItems.length + personalItems.length + coachingItems.length > 0;
+  const fallbackColumns = hasSpecializedData ? [
+    { _key: "seitai", title: "整体コース", items: seitaiItems },
+    { _key: "personal", title: "パーソナルトレーニング", items: personalItems },
+    { _key: "coaching", title: "コーチング", items: coachingItems },
+  ] : null;
+
+  // pricing Sanity document takes priority for title/columns/note
   const pricingData = {
+    sectionTitle: pricingDocRaw?.sectionTitle ?? undefined,
+    sectionDescription: pricingDocRaw?.sectionDescription ?? undefined,
+    trialBadge: pricingDocRaw?.trialBadge ?? undefined,
+    trialTitle: pricingDocRaw?.trialTitle ?? undefined,
+    trialBenefits: pricingDocRaw?.trialBenefits ?? undefined,
+    pricingNote: pricingDocRaw?.pricingNote ?? undefined,
     trialPrice: priceTrialTopRaw?.trialPrice,
     trialDetails: priceTrialTopRaw?.detail1 && priceTrialTopRaw?.detail2
       ? `${priceTrialTopRaw.detail1} + ${priceTrialTopRaw.detail2}`
       : undefined,
-    trialDuration: priceTrialTopRaw?.duration
-      ? `所要時間：${priceTrialTopRaw.duration}`
-      : undefined,
-    pricingColumns: hasSpecializedData ? [
-      { _key: "seitai", title: "整体コース", items: seitaiItems },
-      { _key: "personal", title: "パーソナルトレーニング", items: personalItems },
-      { _key: "coaching", title: "コーチング", items: coachingItems },
-    ] : null,
+    // pricing.pricingColumns が設定済みの場合はそちらを優先。未設定時は個別スキーマから組み立て
+    pricingColumns: (pricingDocRaw?.pricingColumns && pricingDocRaw.pricingColumns.length > 0)
+      ? pricingDocRaw.pricingColumns
+      : fallbackColumns,
   };
 
   const phone = accessData?.phone ?? undefined;
