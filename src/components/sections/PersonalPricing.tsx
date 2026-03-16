@@ -173,7 +173,7 @@ export default function PersonalPricing({ data, cancelPolicy, pricePageUrl = "/p
   const trialBadge = data?.trialBadge ?? "初回限定";
   const trialTitle = data?.trialTitle ?? "初回評価セッション60分";
   const trialPrice = data?.trialPrice ?? "¥5,500";
-  const trialDetails = data?.trialDetails ?? "カウンセリング20分＋トレーニング評価40分";
+  const trialDetails = data?.trialDetails ?? "カウンセリング20分＋パーソナルトレーニング40分";
 
   const cancelPolicyIntro = cancelPolicy?.intro ?? "VERDE FITでは、お一人おひとりに十分なお時間を確保した完全予約制でご案内しております。\nすべてのお客様に気持ちよくご利用いただくため、下記のルールにご理解とご協力をお願いいたします。";
   const cancelPolicySections = cancelPolicy?.sections && cancelPolicy.sections.length > 0 ? cancelPolicy.sections : defaultCancelPolicySections;

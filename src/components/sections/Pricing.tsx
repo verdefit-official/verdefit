@@ -86,8 +86,8 @@ export default function Pricing({ data, cancelPolicy, sectionBg = "bg-white", bo
   const sectionTitle = data?.sectionTitle ?? "料金案内";
   const sectionDescription =
     data?.sectionDescription ?? "明瞭な料金体系で、安心してご利用いただけます";
-  const trialBadge = data?.trialBadge ?? "初回限定";
-  const trialTitle = data?.trialTitle ?? "初回評価コース";
+  const trialBadge = data?.trialBadge ?? "OPEN記念 特別価格";
+  const trialTitle = data?.trialTitle ?? "初回評価セッション60分";
   const trialPrice = data?.trialPrice ?? "¥5,500";
   const trialDetails =
     data?.trialDetails ??

@@ -67,7 +67,7 @@ export default function ChiropracticPricing({
   const trialBadge = data?.trialBadge ?? "初回限定";
   const trialTitle = data?.trialTitle ?? "初回カウンセリング整体";
   const trialPrice = data?.trialPrice ?? "¥5,500";
-  const trialDetails = data?.trialDetails ?? "カウンセリング30分+整体30分/60分";
+  const trialDetails = data?.trialDetails ?? "カウンセリング20分+整体40分";
   const courses = data?.courses && data.courses.length > 0 ? data.courses : defaultCourses;
   const options = data?.options && data.options.length > 0 ? data.options : defaultOptions;
   const couponSectionTitle = data?.couponSectionTitle ?? "回数券";
