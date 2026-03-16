@@ -41,7 +41,7 @@ export const chiropracticPricingSchema = defineType({
       name: "trialDetails",
       title: "初回限定 内容テキスト",
       type: "string",
-      description: "例: カウンセリング30分+整体30分/60分",
+      description: "例: カウンセリング20分+整体40分",
     }),
 
     // 単発料金

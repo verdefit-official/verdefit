@@ -22,13 +22,13 @@ export const pricingSchema = defineType({
       name: "trialBadge",
       title: "評価コース バッジ",
       type: "string",
-      description: "例: 初回限定",
+      description: "例: OPEN記念 特別価格",
     }),
     defineField({
       name: "trialTitle",
       title: "評価コース タイトル",
       type: "string",
-      description: "例: 初回評価コース",
+      description: "例: 初回評価セッション60分",
     }),
     defineField({
       name: "trialPrice",

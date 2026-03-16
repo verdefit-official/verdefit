@@ -41,7 +41,7 @@ export const personalPricingSchema = defineType({
       name: "trialDetails",
       title: "初回評価セッション 内容テキスト",
       type: "string",
-      description: "例: カウンセリング20分＋トレーニング評価40分",
+      description: "例: カウンセリング20分＋パーソナルトレーニング40分",
     }),
 
     // 月額プラン
