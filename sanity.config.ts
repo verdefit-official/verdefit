@@ -32,7 +32,7 @@ const chiropracticSections = [
 const priceSections = [
   { name: "priceSeo", title: "SEO設定" },
   { name: "priceHero", title: "ヒーロー" },
-  { name: "priceTrial", title: "初回体験セッション" },
+  { name: "priceTrial", title: "初回評価セッション" },
   { name: "chiropracticPricing", title: "整体 料金" },
   { name: "personalPricing", title: "パーソナルトレーニング 料金" },
   { name: "coachingPricing", title: "コーチング 料金" },
