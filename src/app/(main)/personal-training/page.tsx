@@ -101,8 +101,20 @@ type TrainerRaw = {
   credentials?: string[];
 };
 
-type PlanItemRaw = { _key: string; name?: string; foodLabel?: string; foodGreen?: boolean; price?: string; details?: string[]; popular?: boolean };
-type PricingRaw = { sectionTitle?: string; sectionDescription?: string; plans?: PlanItemRaw[]; note?: string };
+type MonthlyPlanRaw = { _key: string; name?: string; price?: string; perSession?: string; validity?: string };
+type IntensivePlanRaw = { _key: string; name?: string; price?: string; popular?: boolean; checkItems?: string[]; period?: string; validityPeriod?: string; description?: string };
+type PricingRaw = {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  trialBadge?: string;
+  trialTitle?: string;
+  trialPrice?: string;
+  trialDetails?: string;
+  monthlyPlans?: MonthlyPlanRaw[];
+  intensivePlans?: IntensivePlanRaw[];
+  singlePrice?: string;
+  note?: string;
+};
 type CancelPolicyRaw = { intro?: string; sections?: { _key: string; title?: string; content?: string }[]; closing?: string };
 
 type FlowStepRaw = { _key: string; number?: string; title?: string; description?: string };

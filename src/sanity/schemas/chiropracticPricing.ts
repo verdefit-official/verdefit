@@ -18,6 +18,32 @@ export const chiropracticPricingSchema = defineType({
       description: "例: 国家資格保有者による根本改善の整体",
     }),
 
+    // 初回限定カード
+    defineField({
+      name: "trialBadge",
+      title: "初回限定バッジテキスト",
+      type: "string",
+      description: "例: 初回限定",
+    }),
+    defineField({
+      name: "trialTitle",
+      title: "初回限定タイトル",
+      type: "string",
+      description: "例: 初回カウンセリング整体",
+    }),
+    defineField({
+      name: "trialPrice",
+      title: "初回限定料金",
+      type: "string",
+      description: "例: ¥5,500",
+    }),
+    defineField({
+      name: "trialDetails",
+      title: "初回限定 内容テキスト",
+      type: "string",
+      description: "例: カウンセリング30分+整体30分/60分",
+    }),
+
     // 単発料金
     defineField({
       name: "courses",

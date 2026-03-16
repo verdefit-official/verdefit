@@ -18,6 +18,32 @@ export const personalPricingSchema = defineType({
       description: "例: 完全個別指導で理想の身体づくりを実現",
     }),
 
+    // 初回評価セッションカード
+    defineField({
+      name: "trialBadge",
+      title: "初回限定バッジテキスト",
+      type: "string",
+      description: "例: 初回限定",
+    }),
+    defineField({
+      name: "trialTitle",
+      title: "初回評価セッション タイトル",
+      type: "string",
+      description: "例: 初回評価セッション60分",
+    }),
+    defineField({
+      name: "trialPrice",
+      title: "初回評価セッション 料金",
+      type: "string",
+      description: "例: ¥5,500",
+    }),
+    defineField({
+      name: "trialDetails",
+      title: "初回評価セッション 内容テキスト",
+      type: "string",
+      description: "例: カウンセリング20分＋トレーニング評価40分",
+    }),
+
     // 月額プラン
     defineField({
       name: "monthlyPlans",
