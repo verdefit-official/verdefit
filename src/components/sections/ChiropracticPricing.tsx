@@ -14,6 +14,7 @@ type CouponItem = {
   price?: string | null;
   unit?: string | null;
   validity?: string | null;
+  badge?: string | null;
 };
 
 type OptionItem = {
@@ -42,14 +43,14 @@ const defaultOptions: OptionItem[] = [
 const defaultCourses: CourseItem[] = [
   { _key: "c1", name: "30分整体", price: "¥4,400", description: "整体 / 30分コース" },
   { _key: "c2", name: "60分整体", price: "¥8,800", description: "整体 / 60分コース" },
-  { _key: "c3", name: "90分整体", price: "¥13,200", description: "整体 / 120分コース" },
+  { _key: "c3", name: "90分整体", price: "¥13,200", description: "整体 / 90分コース" },
 ];
 
 const defaultCoupons: CouponItem[] = [
-  { _key: "k1", name: "60分整体×4回", price: "¥34,000", unit: "税込", validity: "有効期限2か月" },
-  { _key: "k2", name: "60分整体×8回", price: "¥61,600", unit: "税込 / 月", validity: "有効期限4か月" },
-  { _key: "k3", name: "60分整体×12回", price: "¥84,000", unit: "税込", validity: "有効期限6か月" },
-  { _key: "k4", name: "90分整体×12回", price: "¥126,000", unit: "税込 / 月", validity: "有効期限6か月" },
+  { _key: "k1", name: "60分整体 × 4回", price: "¥34,000", unit: "税込", validity: "1回あたり ¥8,500\n有効期限：2ヶ月" },
+  { _key: "k2", name: "60分整体 × 8回", price: "¥61,600", unit: "税込", badge: "人気", validity: "1回あたり ¥7,700\n有効期限：4ヶ月" },
+  { _key: "k3", name: "60分整体 × 12回", price: "¥84,000", unit: "税込", validity: "1回あたり ¥7,000\n有効期限：6ヶ月" },
+  { _key: "k4", name: "90分整体 × 12回", price: "¥126,000", unit: "税込", validity: "1回あたり ¥10,500\n有効期限：6ヶ月" },
 ];
 
 export default function ChiropracticPricing({
@@ -152,14 +153,19 @@ export default function ChiropracticPricing({
             {coupons.map((coupon, i) => (
               <div
                 key={coupon._key ?? i}
-                className="rounded-xl bg-white px-4 py-6 text-center shadow-sm md:px-6"
+                className="relative rounded-xl bg-white px-4 py-6 text-center shadow-sm md:px-6"
               >
+                {coupon.badge && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-block rounded-full bg-amber-500 px-3 py-0.5 text-xs font-semibold text-white">
+                    {coupon.badge}
+                  </span>
+                )}
                 <p className="text-xs text-gray-500 md:text-sm">{coupon.name}</p>
                 <p className="mt-2 font-serif text-2xl font-bold text-green-700 md:text-[32px]">
                   {coupon.price}
                 </p>
                 <p className="mt-1 text-[10px] text-gray-400 md:text-[11px]">（{coupon.unit}）</p>
-                <p className="mt-2 text-[11px] text-gray-500 md:text-xs">{coupon.validity}</p>
+                <p className="mt-2 whitespace-pre-line text-[11px] text-gray-500 md:text-xs">{coupon.validity}</p>
               </div>
             ))}
           </div>
