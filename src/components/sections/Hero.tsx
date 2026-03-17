@@ -73,7 +73,7 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+                  className="absolute inset-0 h-full w-full object-cover object-[50%_50%]"
                 />
               ) : (
                 <div className="absolute inset-0 bg-gray-200" />
