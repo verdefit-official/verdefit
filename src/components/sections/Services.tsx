@@ -86,7 +86,7 @@ export default function Services({ data }: { data?: ServicesData | null }) {
                     <img
                       src={service.imageUrl ?? "/service-seitai.png"}
                       alt={service.imageAlt ?? service.title ?? "サービス画像"}
-                      className="h-full w-full object-cover object-top"
+                      className={`h-full w-full object-cover ${i === 2 ? "object-center" : "object-top"}`}
                     />
                   </div>
 
