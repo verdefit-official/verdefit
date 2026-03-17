@@ -110,7 +110,7 @@ node scripts/seed.mjs
 ## セキュリティ対策
 
 - **セキュリティヘッダー**: `next.config.ts` に以下を全ページ適用（`/studio` 除く）
-  - `Content-Security-Policy`: スクリプト・スタイル・画像・通信先を制限
+  - `Content-Security-Policy`: スクリプト・スタイル・画像・通信先を制限（`frame-src` に `maps.google.com` / `www.google.com` を許可、Googleマップ埋め込み用）
   - `X-Content-Type-Options: nosniff`
   - `X-Frame-Options: SAMEORIGIN`（クリックジャッキング対策）
   - `X-XSS-Protection: 1; mode=block`
