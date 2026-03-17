@@ -279,10 +279,7 @@ export default async function BlogPage() {
     { label: "パーソナルトレーニング", desc: "完全個別指導で理想の身体づくりを実現", buttonText: "詳しく見る" },
     { label: "コーチング", desc: "思考を変え、習慣をデザインする", buttonText: "詳しく見る" },
   ];
-  const supportItems =
-    supportData?.items && supportData.items.length > 0
-      ? supportData.items
-      : defaultSupportItems;
+  const supportItems = supportData?.items ?? defaultSupportItems;
 
   // ─── Latest 3 posts
   const latestByCategory = ["seitai", "personal-training", "coaching"]

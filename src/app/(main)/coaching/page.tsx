@@ -196,7 +196,7 @@ export default async function CoachingPage() {
   const faqData = {
     sectionTitle: faqRaw?.sectionTitle ?? "よくある質問",
     sectionDescription: faqRaw?.sectionDescription ?? "横手市・秋田でコーチングを受ける前の疑問を解消",
-    items: faqRaw?.items && faqRaw.items.length > 0 ? faqRaw.items : defaultFaqItems,
+    items: faqRaw?.items ?? defaultFaqItems,
   };
 
   const ctaData = {

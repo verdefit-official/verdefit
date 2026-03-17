@@ -168,7 +168,7 @@ type VoiceConcernsData = {
 function VoiceConcerns({ data }: { data?: VoiceConcernsData | null }) {
   const heading = data?.heading ?? "その身体のお悩み、放置していませんか？";
   const defaultConcerns = ["肩こりや腰痛", "運動不足", "ダイエット失敗", "体型の悩み", "自信の低下"];
-  const concerns = data?.concerns && data.concerns.length > 0 ? data.concerns : defaultConcerns;
+  const concerns = data?.concerns ?? defaultConcerns;
   const subText = data?.subText ?? "その悩みを、3つのアプローチで解決しています。";
   const bottomText = data?.bottomText ?? "ここでは実際に変化を実感されたお客様の声をご紹介します。";
 
@@ -632,8 +632,7 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
     { src: "/voice-beforeafter-03.jpg", alt: "横手市パーソナルジムで50代女性が-6kg達成した体型改善の成功事例ビフォーアフター写真" },
   ];
 
-  const cases =
-    data?.cases && data.cases.length > 0 ? data.cases : defaultCases;
+  const cases = data?.cases ?? defaultCases;
 
   return (
     <section className="bg-[#e8f3ec] py-20 md:py-24">
@@ -703,8 +702,7 @@ function VoiceGoogleReviews({ data }: { data?: VoiceGoogleReviewsData | null }) 
     },
   ];
 
-  const reviews =
-    data?.reviews && data.reviews.length > 0 ? data.reviews : defaultReviews;
+  const reviews = data?.reviews ?? defaultReviews;
 
   return (
     <section className="bg-white py-20 md:py-24">
