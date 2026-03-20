@@ -81,9 +81,9 @@ export default async function PersonalTrainingVoicePage({
   const lineUrl = siteSettings?.lineUrl;
 
   const staticImgs = [
-    { src: "/voice-personal-01.jpg", alt: "横手市パーソナルジムVERDE FITで3ヶ月-8kg・ウエスト-10cmを達成した30代女性のビフォーアフター写真" },
-    { src: "/voice-personal-02.jpg", alt: "横手市VERDE FITのパーソナルトレーニングで健康診断の数値が改善した40代男性の体型変化ビフォーアフター写真" },
-    { src: "/voice-personal-03.jpg", alt: "横手市パーソナルジムで仕事しながら-14kg・体脂肪率-8%を達成した女性のダイエット成功ビフォーアフター写真" },
+    { src: "/voice-personal-01.jpg", alt: "横手市パーソナルジムVERDE FITで3ヶ月-8kg・ウエスト-10cm達成した30代女性のダイエット成果写真" },
+    { src: "/voice-personal-02.jpg", alt: "横手市パーソナルジムVERDE FITで健康診断数値改善・体重-12kg達成した40代男性の健康改善成果写真" },
+    { src: "/voice-personal-03.jpg", alt: "横手市パーソナルジムVERDE FITで半年-14kg・体脂肪率大幅改善を達成した50代女性のトレーニング写真" },
   ];
 
   return (
