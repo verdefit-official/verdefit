@@ -395,11 +395,11 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
               <FadeIn key={i} delay={i * 100}>
                 <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                   {/* 上部：お客様写真 */}
-                  <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <div className="relative w-full overflow-hidden" style={{ paddingTop: "75%" }}>
                     <img
                       src={imgUrl(v.image) || ""}
                       alt={v.imageAlt || ""}
-                      className="absolute inset-0 h-full w-full object-cover object-top"
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
                     />
                   </div>
                   {/* 下部：テキスト */}
@@ -567,11 +567,11 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
               <FadeIn key={i} delay={i * 100} className="h-full">
                 <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                   {/* 上部：お客様写真 */}
-                  <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <div className="relative w-full overflow-hidden" style={{ paddingTop: "75%" }}>
                     <img
                       src={imgUrl(v.image) || ""}
                       alt={v.imageAlt || ""}
-                      className="absolute inset-0 h-full w-full object-cover object-top"
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
                     />
                   </div>
                   {/* 下部：テキスト */}
