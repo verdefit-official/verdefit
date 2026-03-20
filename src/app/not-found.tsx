@@ -25,18 +25,12 @@ export default function NotFound() {
         お探しのページは移動・削除されたか、URLが間違っている可能性があります。
       </p>
 
-      <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
+      <div className="mt-10">
         <Link
           href="/"
           className="inline-flex h-12 w-52 items-center justify-center rounded-lg bg-green-700 text-sm font-semibold text-white transition-colors hover:bg-green-800"
         >
           トップページへ戻る
-        </Link>
-        <Link
-          href="/blog"
-          className="inline-flex h-12 w-52 items-center justify-center rounded-lg border-2 border-green-700 text-sm font-semibold text-green-700 transition-colors hover:bg-green-50"
-        >
-          ブログを見る
         </Link>
       </div>
     </div>
