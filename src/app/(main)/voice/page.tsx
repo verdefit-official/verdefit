@@ -395,17 +395,13 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
               <FadeIn key={i} delay={i * 100}>
                 <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                   {/* 上部：お客様写真 */}
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      width: "100%",
-                      paddingTop: "75%",
-                      backgroundImage: imgUrl(v.image) ? `url(${imgUrl(v.image)})` : undefined,
-                      backgroundSize: "cover",
-                      backgroundPosition: "top center",
-                      backgroundColor: "#e5e7eb",
-                    }}
-                  />
+                  <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={imgUrl(v.image) || ""}
+                      alt={v.imageAlt || ""}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
                   {/* 下部：テキスト */}
                   <div className="flex flex-1 flex-col px-5 py-5">
                     <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
@@ -571,17 +567,13 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
               <FadeIn key={i} delay={i * 100} className="h-full">
                 <article className="flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm">
                   {/* 上部：お客様写真 */}
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      width: "100%",
-                      paddingTop: "75%",
-                      backgroundImage: imgUrl(v.image) ? `url(${imgUrl(v.image)})` : undefined,
-                      backgroundSize: "cover",
-                      backgroundPosition: "top center",
-                      backgroundColor: "#e5e7eb",
-                    }}
-                  />
+                  <div className="overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={imgUrl(v.image) || ""}
+                      alt={v.imageAlt || ""}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
                   {/* 下部：テキスト */}
                   <div className="flex flex-1 flex-col px-5 py-5">
                     <p className="mb-2 text-xs text-gray-400">{v.smallTitle}</p>
