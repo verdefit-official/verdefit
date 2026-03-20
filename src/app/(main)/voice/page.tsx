@@ -399,7 +399,7 @@ function VoiceSeitaiSection({ data }: { data?: VoiceSeitaiData | null }) {
                     aria-hidden="true"
                     style={{
                       width: "100%",
-                      aspectRatio: "4/3",
+                      paddingTop: "75%",
                       backgroundImage: imgUrl(v.image) ? `url(${imgUrl(v.image)})` : undefined,
                       backgroundSize: "cover",
                       backgroundPosition: "top center",
@@ -575,7 +575,7 @@ function VoiceCoachingSection({ data }: { data?: VoiceCoachingData | null }) {
                     aria-hidden="true"
                     style={{
                       width: "100%",
-                      aspectRatio: "4/3",
+                      paddingTop: "75%",
                       backgroundImage: imgUrl(v.image) ? `url(${imgUrl(v.image)})` : undefined,
                       backgroundSize: "cover",
                       backgroundPosition: "top center",
