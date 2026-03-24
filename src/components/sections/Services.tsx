@@ -27,7 +27,7 @@ const defaultServices: ServiceItem[] = [
       "厚生労働省認可の国家資格保有者があなたにあった最適な施術を提供。肩こり・腰痛・姿勢の歪みなど、痛みの原因を徹底的に分析し根本改善を目指します。10年の実績で培った確かな技術で痛みのない日常を取り戻しましょう。横手市でプロフェッショナルな整体をあなたに。",
     buttonText: "整体の詳細を見る",
     imageUrl: "/service-seitai.jpg",
-    imageAlt: "横手市で腰痛・骨盤矯正を行う整体施術の様子",
+    imageAlt: "横手市VERDE FITで整体施術を受けるお客様の様子",
   },
   {
     _key: "personal",

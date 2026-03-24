@@ -277,9 +277,9 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
   const sectionTitle = data?.sectionTitle ?? "あなたと同じ悩みの体験談を探す";
 
   const staticImgs = [
-    { src: "/voice-cat-seitai.jpg", alt: "横手市の整体施術の様子・VERDE FITのお客様の声" },
-    { src: "/voice-cat-personal.jpg", alt: "横手市パーソナルジムVERDE FITのトレーニング風景" },
-    { src: "/voice-cat-coaching.jpg", alt: "横手市VERDE FITのコーチングセッションの様子" },
+    { src: "/voice-cat-seitai.jpg", alt: "横手市VERDE FITの整体施術・手技の様子" },
+    { src: "/voice-cat-personal.jpg", alt: "横手市パーソナルジムVERDE FITでトレーナーがマシントレーニングをサポートする様子" },
+    { src: "/voice-cat-coaching.jpg", alt: "横手市VERDE FITのコーチングセッションでトレーナーが笑顔でサポートする様子" },
   ];
 
   const defaultCats = [

@@ -17,7 +17,7 @@ export default function Hero({ data, phone, bookingUrl }: { data?: HeroData | nu
   const subheadingLocation =
     data?.subheadingLocation ?? "横手市で身体と習慣を整える";
   const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/hero.jpg";
-  const imageAlt = data?.imageAlt ?? "横手市の整体・パーソナルジムVERDE FITでトレーナーがストレッチをサポートする様子";
+  const imageAlt = data?.imageAlt ?? "横手市の整体・パーソナルジムVERDE FITでトレーナーが施術をする様子";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "お電話でのご相談";
 
