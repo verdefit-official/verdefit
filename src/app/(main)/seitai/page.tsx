@@ -239,12 +239,19 @@ export default async function SeitaiPage() {
       }
     : null;
 
+  const chiropracticReasonDefaultAlts = [
+    "横手市の整体VERDE FITで国家資格者が丁寧に施術する様子",
+    "横手市の整体院VERDE FITで身体に負担をかけない丁寧な施術の様子",
+    "横手市の整体VERDE FITで施術効果を定着させるための説明をする様子",
+  ];
+
   const reasonsData = reasonsRaw
     ? {
         ...reasonsRaw,
         reasonList: reasonsRaw.reasonList?.map((r, i) => ({
           ...r,
           imageUrl: imgUrl(r.image) ?? `/chiropractic-reason-0${i + 1}.jpg`,
+          imageAlt: r.imageAlt ?? chiropracticReasonDefaultAlts[i],
         })),
       }
     : null;
