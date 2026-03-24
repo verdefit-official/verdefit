@@ -78,7 +78,7 @@ export default function CoachingHero({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-top"
               />
             </div>
           </FadeIn>
