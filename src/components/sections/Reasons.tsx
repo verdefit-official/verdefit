@@ -70,7 +70,7 @@ function ReasonVisual({
         <img
           src={imageUrl}
           alt={imageAlt}
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-top"
         />
       ) : (
         <div className="h-full w-full bg-gray-200" />
