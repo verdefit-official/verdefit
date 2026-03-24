@@ -97,7 +97,7 @@ export default async function CoachingVoicePage({
             <h1 className="font-serif text-3xl font-bold leading-snug text-[#1f2937] md:text-[42px]">
               {sectionTitle}
             </h1>
-            <p className="mt-4 text-sm leading-8 text-gray-600 md:text-base">
+            <p className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-600 md:text-base">
               {coachingData?.sectionDescription ?? "思考の変化・習慣改善・人生の前向きな変化など、コーチングを通して内面から変わったお客様の体験談をすべてご紹介します。"}
             </p>
           </FadeIn>

@@ -278,7 +278,7 @@ function VoiceCategoryNav({ data }: { data?: VoiceCategoryNavData | null }) {
 
   const staticImgs = [
     { src: "/voice-cat-seitai.jpg", alt: "横手市VERDE FITの整体施術・手技の様子" },
-    { src: "/voice-cat-personal.jpg", alt: "横手市パーソナルジムVERDE FITでトレーナーがマシントレーニングをサポートする様子" },
+    { src: "/voice-cat-personal.jpeg", alt: "横手市パーソナルジムVERDE FITでトレーナーがマシントレーニングをサポートする様子" },
     { src: "/voice-cat-coaching.jpg", alt: "横手市VERDE FITのコーチングセッションでトレーナーが笑顔でサポートする様子" },
   ];
 
@@ -642,7 +642,7 @@ function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
             <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[40px]">
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
-            <p className="mt-3 text-sm text-gray-500 md:text-base">
+            <p className="mt-3 whitespace-pre-line text-sm text-gray-500 md:text-base">
               {sectionDescription}
             </p>
           </div>

@@ -35,7 +35,7 @@ const defaultServices: ServiceItem[] = [
     description:
       "NSCA-CPT資格保有トレーナーによる完全個別指導。運動が苦手な方でも安心して始められる、あなた専用のプログラムを作成します。食事指導も含めた総合的なサポートで、理想の身体づくりを実現。横手市で本格的なパーソナルトレーニングを。",
     buttonText: "パーソナルの詳細を見る",
-    imageUrl: "/service-personal.jpg",
+    imageUrl: "/service-personal.jpeg",
     imageAlt: "横手市のパーソナルジムVERDE FITでのマンツーマン指導",
   },
   {
@@ -69,7 +69,7 @@ export default function Services({ data }: { data?: ServicesData | null }) {
             <h2 className="font-serif text-3xl font-bold text-[#1f2937] md:text-[44px]">
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-base">
+            <p className="mx-auto mt-4 max-w-3xl whitespace-pre-line text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}
             </p>
           </div>

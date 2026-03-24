@@ -135,7 +135,7 @@ export default function Concerns({ data, showRootCause = true, sectionBg = "bg-[
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
             {sectionDescription && (
-              <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-xl">
+              <p className="mx-auto mt-4 max-w-3xl whitespace-pre-line text-sm font-medium text-gray-500 md:text-xl">
                 {sectionDescription}
               </p>
             )}

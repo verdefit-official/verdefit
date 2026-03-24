@@ -92,7 +92,7 @@ export default function PriceSeitai({
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
-            <p className="mt-4 text-sm text-gray-500 md:text-base">
+            <p className="mt-4 whitespace-pre-line text-sm text-gray-500 md:text-base">
               {sectionDescription}
             </p>
           </div>

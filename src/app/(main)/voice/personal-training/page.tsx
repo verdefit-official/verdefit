@@ -104,7 +104,7 @@ export default async function PersonalTrainingVoicePage({
               <br />
               身体が変わった体験談
             </h1>
-            <p className="mt-4 text-sm leading-8 text-gray-600 md:text-base">
+            <p className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-600 md:text-base">
               {personalData?.sectionDescription ?? "ダイエット成功・筋力向上・体型改善など、トレーニングによって理想の身体を手に入れたお客様の体験談をすべてご紹介します。"}
             </p>
           </FadeIn>

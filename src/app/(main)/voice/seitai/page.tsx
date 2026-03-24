@@ -98,7 +98,7 @@ export default async function SeitaiVoicePage({
             <h1 className="font-serif text-3xl font-bold leading-snug text-[#1f2937] md:text-[42px]">
               {sectionTitle}
             </h1>
-            <p className="mt-4 text-sm leading-8 text-gray-600 md:text-base">
+            <p className="mt-4 whitespace-pre-line text-sm leading-8 text-gray-600 md:text-base">
               {seitaiData?.sectionDescription ?? "肩こり・腰痛・姿勢の乱れなど、慢性的な身体の不調を改善されたお客様の体験談をすべてご紹介します。"}
             </p>
           </FadeIn>

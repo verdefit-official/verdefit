@@ -41,7 +41,7 @@ export default function Access({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: Ac
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-gray-500 md:text-xl">
+            <p className="mx-auto mt-4 max-w-2xl whitespace-pre-line text-sm font-medium text-gray-500 md:text-xl">
               {sectionDescription}
             </p>
           </div>

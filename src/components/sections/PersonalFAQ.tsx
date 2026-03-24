@@ -86,7 +86,7 @@ export default function PersonalFAQ({ data }: { data?: PersonalFAQData | null })
             <h2 className="font-serif text-4xl font-bold text-[#1f2937] md:text-[48px]">
               <ResponsiveTitle>{sectionTitle}</ResponsiveTitle>
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-sm font-medium text-gray-500 md:text-base">
+            <p className="mx-auto mt-4 max-w-3xl whitespace-pre-line text-sm font-medium text-gray-500 md:text-base">
               {sectionDescription}
             </p>
           </div>
