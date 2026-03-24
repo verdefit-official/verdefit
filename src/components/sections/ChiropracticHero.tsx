@@ -75,7 +75,7 @@ export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: C
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
                 />
               ) : (
                 <div className="absolute inset-0 bg-gray-200" />
