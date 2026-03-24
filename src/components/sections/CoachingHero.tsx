@@ -26,7 +26,7 @@ export default function CoachingHero({
   const description =
     data?.description ??
     "「続けたいのに続かない」「やろうと思っても行動できない」。その原因は意志の弱さではなく、思考や習慣のパターンにあります。VERDE FITのコーチングでは、COMPASS認定プロコーチが認知科学のアプローチをもとに思考を整理し、行動が自然と続く習慣づくりをサポートします。ダイエットや運動、健康習慣、仕事や人生の目標まで、あなたの理想の未来を明確にし、実現まで伴走します。「続かない」を「続く」に変え、自分らしく前向きに生きられる毎日へ導きます。";
-  const imageUrl = data?.imageUrl ?? "/coaching-hero.png";
+  const imageUrl = data?.imageUrl ?? "/coaching-hero.jpg";
   const imageAlt = data?.imageAlt ?? "横手市のコーチングVERDE FITでコーチがクライアントと習慣・目標達成について話し合う様子";
   const primaryButtonText = data?.primaryButtonText ?? "無料相談はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "LINEで相談する";

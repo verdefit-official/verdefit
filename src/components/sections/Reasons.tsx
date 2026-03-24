@@ -23,7 +23,7 @@ const defaultReasons: ReasonItem[] = [
     title: "国家資格と豊富な実績",
     description:
       "柔道整復師、NSCA-CPT、認定ボディメイクコーチと確かな国家資格と民間資格を持つプロフェッショナルが施術・指導を担当します。10年間で延べ5,000人以上をサポートしてきた経験と最新の知識・技術を組み合わせてあなたに最適なアプローチを提供。横手市に信頼で選ばれる施術のプロが誕生します。",
-    imageUrl: "/reason-01.png",
+    imageUrl: "/reason-01.jpg",
     imageAlt: "横手市の整体・パーソナルジムで国家資格を持つ施術者が施術する様子",
   },
   {
@@ -32,7 +32,7 @@ const defaultReasons: ReasonItem[] = [
     title: "トータルケアの独自メソッド",
     description:
       "整体だけ、トレーニングだけでは到達できない、真の健康状態へ。VERDE FITでは、身体を整える整体、動ける身体をつくるトレーニング、そして継続する習慣をつくるコーチングを統合。3つの専門性を掛け合わせた独自のメソッドで、一時的な改善ではなく、生涯続く健康的なライフスタイルを実現します。",
-    imageUrl: "/reason-02.png",
+    imageUrl: "/reason-02.jpg",
     imageAlt: "横手市で腰痛改善と骨盤矯正を組み合わせたトータルケア",
   },
   {
@@ -41,7 +41,7 @@ const defaultReasons: ReasonItem[] = [
     title: "完全個別対応の丁寧なサポート",
     description:
       "マンツーマンの完全個別対応であなただけのプログラムを作成。大手ジムのような画一的なメニューではなく、一人ひとりの身体の状態、生活習慣、目標に合わせたオーダーメイドの施術・トレーニングを提供します。キッズスペース完備でお子様連れでも安心してお越しいただけます。",
-    imageUrl: "/reason-03.png",
+    imageUrl: "/reason-03.jpg",
     imageAlt: "横手市のパーソナルジムで完全個別対応のトレーニング指導",
   },
 ];
@@ -108,7 +108,7 @@ export default function Reasons({ data, sectionBg = "bg-[#e8f3ec]" }: { data?: R
           {reasons.map((reason, i) => {
             const reverse = i % 2 === 1;
             // null は明示的に「画像なし（プレースホルダー）」、undefined はデフォルト画像にフォールバック
-            const imgSrc = reason.imageUrl === undefined ? `/reason-0${i + 1}.png` : reason.imageUrl;
+            const imgSrc = reason.imageUrl === undefined ? `/reason-0${i + 1}.jpg` : reason.imageUrl;
             const imgAlt = reason.imageAlt ?? reason.title ?? "理由画像";
 
             return (

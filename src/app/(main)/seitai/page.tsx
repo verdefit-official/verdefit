@@ -228,13 +228,13 @@ export default async function SeitaiPage() {
 
   // Transform image refs → URLs
   const heroData = heroRaw
-    ? { ...heroRaw, imageUrl: imgUrl(heroRaw.image) ?? "/chiropractic-hero.png" }
+    ? { ...heroRaw, imageUrl: imgUrl(heroRaw.image) ?? "/chiropractic-hero.jpg" }
     : null;
 
   const concernsData = concernsRaw
     ? {
         ...concernsRaw,
-        listImageUrl: imgUrl(concernsRaw.listImage) ?? "/chiropractic-concerns.png",
+        listImageUrl: imgUrl(concernsRaw.listImage) ?? "/chiropractic-concerns.jpg",
         listImageAlt: concernsRaw.listImageAlt,
       }
     : null;
@@ -244,7 +244,7 @@ export default async function SeitaiPage() {
         ...reasonsRaw,
         reasonList: reasonsRaw.reasonList?.map((r, i) => ({
           ...r,
-          imageUrl: imgUrl(r.image) ?? `/chiropractic-reason-0${i + 1}.png`,
+          imageUrl: imgUrl(r.image) ?? `/chiropractic-reason-0${i + 1}.jpg`,
         })),
       }
     : null;
@@ -273,7 +273,7 @@ export default async function SeitaiPage() {
         showRootCause={false}
         sectionBg="bg-white"
         variant="list"
-        listImageUrl={concernsData?.listImageUrl ?? "/chiropractic-concerns.png"}
+        listImageUrl={concernsData?.listImageUrl ?? "/chiropractic-concerns.jpg"}
         listImageAlt={concernsData?.listImageAlt}
       />
       <SeitaiSymptoms data={disordersData} />

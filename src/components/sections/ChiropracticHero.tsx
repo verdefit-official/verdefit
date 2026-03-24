@@ -16,7 +16,7 @@ export default function ChiropracticHero({ data, phone, bookingUrl }: { data?: C
   const description =
     data?.description ??
     "延べ5,000人以上を施術してきた国家資格者が、横手で痛みの原因から整えます";
-  const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/chiropractic-hero.png";
+  const imageUrl = data?.imageUrl !== undefined ? data.imageUrl : "/chiropractic-hero.jpg";
   const imageAlt = data?.imageAlt ?? "横手市の整体VERDE FITで施術師が腰痛・肩こりの改善施術をする様子";
   const primaryButtonText = data?.primaryButtonText ?? "予約はこちら";
   const secondaryButtonText = data?.secondaryButtonText ?? "お電話でのご相談";
