@@ -37,7 +37,7 @@ const defaultCards = [
     label: "未来のお客様",
     result: "次はあなたの番です",
     text: "VERDE FITはこれからたくさんの方の人生の転換点となっていきます。『自分にも変われるだろうか』そう思った今が、その一歩を踏み出すタイミングです。この場所にあなたの変化が加わる日を楽しみにしています。",
-    imageUrl: "/personal-ba-trainer.png",
+    imageUrl: "/personal-ba-trainer.jpg",
     imageAlt: "横手市のパーソナルジムVERDE FITでダイエット・ボディメイクを目指す次のお客様",
   },
 ];

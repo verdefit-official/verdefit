@@ -77,9 +77,9 @@ export default async function SeitaiVoicePage({
   const lineUrl = siteSettings?.lineUrl;
 
   const staticImgs = [
-    { src: "/voice-seitai-01.jpg", alt: "横手市整体VERDE FITで長年の肩こりが改善したお客様の写真" },
-    { src: "/voice-seitai-02.jpg", alt: "横手市の整体で猫背・姿勢が改善したお客様の笑顔写真" },
-    { src: "/voice-seitai-03.jpg", alt: "横手市VERDE FITの整体で10年来の腰痛が改善したお客様写真" },
+    { src: "/voice-seitai-01.png", alt: "横手市整体VERDE FITで長年の肩こりが改善したお客様の写真" },
+    { src: "/voice-seitai-02.png", alt: "横手市の整体で猫背・姿勢が改善したお客様の笑顔写真" },
+    { src: "/voice-seitai-03.png", alt: "横手市VERDE FITの整体で10年来の腰痛が改善したお客様写真" },
   ];
 
   return (

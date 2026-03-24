@@ -76,9 +76,9 @@ export default async function CoachingVoicePage({
   const lineUrl = siteSettings?.lineUrl;
 
   const staticImgs = [
-    { src: "/voice-coaching-01.jpg", alt: "横手市VERDE FITのコーチングで運動習慣が続くようになった女性のお客様写真" },
-    { src: "/voice-coaching-02.jpg", alt: "横手市のコーチングで自信をつけ前向きに行動できるようになったお客様写真" },
-    { src: "/voice-coaching-03.jpg", alt: "横手市VERDE FITのコーチングで思考と習慣が変わり充実した生活を送るお客様写真" },
+    { src: "/voice-coaching-01.png", alt: "横手市VERDE FITのコーチングで運動習慣が続くようになった女性のお客様写真" },
+    { src: "/voice-coaching-02.png", alt: "横手市のコーチングで自信をつけ前向きに行動できるようになったお客様写真" },
+    { src: "/voice-coaching-03.png", alt: "横手市VERDE FITのコーチングで思考と習慣が変わり充実した生活を送るお客様写真" },
   ];
 
   return (

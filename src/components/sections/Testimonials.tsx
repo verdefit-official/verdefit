@@ -22,42 +22,42 @@ const defaultVoices: VoiceItem[] = [
     goal: "健康維持増進とボディメイク目的",
     demographics: "30代女性",
     result: "4ヶ月のトレーニングでウエストと\n下半身が引き締まり、\n姿勢と日ごろの効果を実感",
-    imageUrl: "/testimonial-01.png",
+    imageUrl: "/testimonial-01.jpg",
   },
   {
     _key: "v2",
     goal: "ダイエット目的",
     demographics: "30代女性",
     result: "6ヶ月で10kg減量\nトレーニングも無理なく継続中",
-    imageUrl: "/testimonial-02.png",
+    imageUrl: "/testimonial-02.jpg",
   },
   {
     _key: "v3",
     goal: "ダイエット目的",
     demographics: "60代女性",
     result: "3ヶ月で10kg減量\n週3回のトレーニングと食事管理で継続中",
-    imageUrl: "/testimonial-03.png",
+    imageUrl: "/testimonial-03.jpg",
   },
   {
     _key: "v4",
     goal: "ボディメイク目的",
     demographics: "50代女性",
     result: "フォーム修正で効果が向上し\n見た目にも変化を実感",
-    imageUrl: "/testimonial-04.png",
+    imageUrl: "/testimonial-04.jpg",
   },
   {
     _key: "v5",
     goal: "右肩を上げると肩が痛む",
     demographics: "60代女性",
     result: "原因にアプローチし\n短時間で効果を実感",
-    imageUrl: "/testimonial-05.png",
+    imageUrl: "/testimonial-05.jpg",
   },
   {
     _key: "v6",
     goal: "O脚で膝が痛い",
     demographics: "40代女性",
     result: "長年痛めていた痛み\n1回でここまで改善",
-    imageUrl: "/testimonial-06.png",
+    imageUrl: "/testimonial-06.jpg",
   },
 ];
 
@@ -100,7 +100,7 @@ export default function Testimonials({ data }: { data?: TestimonialsData | null 
                   <div className="h-36 w-36 overflow-hidden rounded-full">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={v.imageUrl ?? "/testimonial-01.png"}
+                      src={v.imageUrl ?? "/testimonial-01.jpg"}
                       alt={v.imageAlt ?? v.demographics ?? "お客様"}
                       className="h-full w-full object-cover object-top"
                     />
