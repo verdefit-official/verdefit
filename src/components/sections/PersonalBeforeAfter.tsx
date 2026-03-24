@@ -29,7 +29,7 @@ const defaultCards = [
     label: "モニター様before/after（20代）",
     result: "−20kg達成",
     text: "運動習慣がなく体重が増えてしまいましたが、トレーニングと食事習慣の見直しで20kgを達成しました。最初は体力に不安もありましたが、無理のないペースで続けることで徐々に身体が変化。体型だけでなく体力も向上し以前より疲れにくくなりました。正しい方法で続ければ身体は確実に変わることを実感しています。",
-    imageUrl: "/personal-client.png",
+    imageUrl: "/personal-client.jpg",
     imageAlt: "横手市のパーソナルジムで6ヶ月10kgのダイエットに成功した30代女性",
   },
   {
