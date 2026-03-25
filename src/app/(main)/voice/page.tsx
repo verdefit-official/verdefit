@@ -618,7 +618,7 @@ type VoiceBeforeAfterData = {
 
 function VoiceBeforeAfter({ data }: { data?: VoiceBeforeAfterData | null }) {
   const sectionTitle = data?.sectionTitle ?? "理想の身体を手に入れた成功事例";
-  const sectionDescription = data?.sectionDescription ?? "VERDE FITで理想の身体を手に入れた方々の変化";
+  const sectionDescription = data?.sectionDescription ?? "VERDE FITで理想の身体を手に入れた方々の変化\n\n※イメージ画像を使用しています";
 
   const defaultCases: VoiceBeforeAfterCase[] = [
     { label: "横手市在住・30代女性", result: "−8kg達成" },
